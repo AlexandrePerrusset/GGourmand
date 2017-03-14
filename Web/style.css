@@ -125,6 +125,10 @@ h5.titreresa{
 	color: white;
 }
 
+h5.titreResultats{
+	color: white;
+}
+
 .card.horizontal .card-image img.photoresto2{
 	height: 70px;
 	width: 60px;
@@ -138,12 +142,6 @@ h5.titreresa{
 	padding-top: 16px;
 	padding-left: 16px;
 
-}
-
-.bloc-image{
-	width: 120%;
-	height: 120%;
-	margin-left: 40%;
 }
 
 .resultats{
