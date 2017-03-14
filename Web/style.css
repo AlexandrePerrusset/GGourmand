@@ -1,0 +1,152 @@
+nav {
+		background-color:#e8bf76;
+}
+
+.imageCards{
+	max-width: 800px;
+	max-height: 200px;
+}
+
+.titleStyle{
+	font-family: "Segoe print", Courier, monospace
+}
+
+.buttonSpe{
+	background-color: #BDB3AB;
+
+}
+.modalLink{
+	background-color: #BDB3AB;
+
+}
+.searchLink{
+		color : #fff;
+}
+
+.modalBox{
+	width: 20%;
+	text-align: center;
+	
+}
+
+.modalBox2{
+	width: 30%;
+	text-align: center;
+}
+.row{
+	margin-bottom: 0;
+}
+
+.paraBox{
+	background-color: #E5E0DB;
+	height: 50%;
+}
+
+.filters{
+	width: 60%;
+	color: #FFFFFF;
+}
+
+.logo1{
+	width: 50px;
+	height: 50px;
+	margin-top: 7px;
+	margin-right: 13px;
+	margin-left: 20px;
+}
+
+footer.page-footer{
+	background-color: #e8bf76;
+}
+
+.parallax-container{
+	height: 370px;
+}
+.photoresto{
+	padding-left: 10px;
+}
+ .barrerecherche{
+ 	margin-top: 30px;
+ 	margin-bottom: 30px;
+}
+
+.milieu{
+	background-color: #800b03;
+}
+
+.contourc{
+	background-color: #800b03;
+}
+.traitrouge{
+	height: 20px;
+}
+
+.tabs .tab a{
+            color:#800b03;
+        } 
+
+.tabs .tab a:hover {
+        background-color:white;
+        color:#800b03;
+        } /*Text color on hover*/
+
+        .tabs .tab a.active {
+            background-color:white;
+            color:#800b03;
+        } /*Background and text color when a tab is active*/
+
+        .tabs .indicator {
+            background-color:#800b03;
+        } /*Color of underline*/
+
+
+.collection a.collection-item{
+	color : #800b03;
+
+}
+
+.collection .collection-item.active{
+	background-color: #e8bf76;
+	color: #800b03;
+}
+
+.card .card-image img.circle.responsive-img{
+	height: 70px;
+	width: 60px;
+	margin-left: 75px;
+	padding-top: 7px;
+}
+
+span.user{
+	margin-left: 20px;
+}
+
+h5.titreresa{
+	color: white;
+}
+
+.card.horizontal .card-image img.photoresto2{
+	height: 70px;
+	width: 60px;
+	margin-left: 75px;
+	padding-top: 7px;
+}
+
+.card.horizontal .card-image{
+	max-width: 100%;
+	max-height: 100%;
+	padding-top: 16px;
+	padding-left: 16px;
+
+}
+
+.bloc-image{
+	width: 120%;
+	height: 120%;
+	margin-left: 40%;
+}
+
+.resultats{
+	background-color: #800b03;
+	height: 600px;
+}
