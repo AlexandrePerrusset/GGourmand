@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.infotel.gg.dao.DAO;
-import com.infotel.gg.exception.UserException;
+import com.infotel.gg.exception.DAOException;
+
 
 public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 
@@ -16,7 +17,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 	 * @see com.infotel.gg.dao.jdbc.DAO#create(T)
 	 */
 	@Override
-	public void create(T obj) throws UserException {
+	public void create(T obj) throws DAOException {
 		Connection cn =SqlUtils.getConnection();
 		String sql = "INSERT INTO "+ getTableName() + getInsert(obj);
 		try {
@@ -26,7 +27,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("Impossible de creer l'�l�ment.");
+			throw new DAOException("Impossible de creer l'�l�ment.");
 		}
 	}
 

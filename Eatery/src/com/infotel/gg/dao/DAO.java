@@ -2,11 +2,12 @@ package com.infotel.gg.dao;
 
 import java.util.List;
 
-import com.infotel.gg.exception.UserException;
+import com.infotel.gg.exception.DAOException;
+
 
 public interface DAO<T,K> {
 
-	void create(T obj) throws UserException;
+	void create(T obj) throws DAOException;
 
 	T read(K i);
 

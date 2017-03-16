@@ -1,9 +1,9 @@
 package com.infotel.gg.exception;
 
-public class UserException extends Exception{
+public class DAOException extends Exception{
 	
 	private String str;
-	public UserException(String str){
+	public DAOException(String str){
 		this.str = str;
 	}
 	
