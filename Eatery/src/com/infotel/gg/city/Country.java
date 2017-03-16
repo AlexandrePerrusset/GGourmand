@@ -1,6 +1,7 @@
 package com.infotel.gg.city;
 
-
+import com.infotel.gg.exception.ModelException;
+import com.mysql.jdbc.StringUtils;
 
 public class Country{
 	/**
@@ -12,7 +13,7 @@ public class Country{
 	
 	
 	//CONSTRUCTOR
-	public Country(Integer id, String name) {
+	public Country(Integer id, String name) throws ModelException {
 		this.setId(id);
 		this.setName(name);
 	}
@@ -28,9 +29,15 @@ public class Country{
 	
 	/**
 	 * @param id the id to set
+	 * @throws ModelException 
 	 */
-	public void setId(Integer id) {
+	public void setId(Integer id) throws ModelException {
 		this.id = id;
+		if(id != null && id > 0) {
+			this.id = id;
+		} else{
+			throw new ModelException("Erreur Country id");
+		}
 	}
 	
 	
@@ -42,9 +49,15 @@ public class Country{
 	}
 	/**
 	 * @param name the name to set
+	 * @throws ModelException 
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws ModelException {
 		this.name = name;
+		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
+			this.name = name;
+		} else {
+			throw new ModelException("Erreur Country name");
+		}
 	}
 
 

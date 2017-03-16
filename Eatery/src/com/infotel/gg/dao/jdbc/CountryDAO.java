@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.city.City;
 import com.infotel.gg.city.Country;
+import com.infotel.gg.exception.ModelException;
 
 public class CountryDAO extends AbstractDAO<Country, Integer>{
 
@@ -17,7 +17,7 @@ public class CountryDAO extends AbstractDAO<Country, Integer>{
 	}
 
 	@Override
-	public Country getModelObject(ResultSet rs) {
+	public Country getModelObject(ResultSet rs) throws ModelException {
 		Country temp = null;
 		try {
 			temp = new Country(rs.getInt("id"), rs.getString("name") );
