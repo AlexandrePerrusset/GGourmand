@@ -32,7 +32,7 @@ public class TestDao {
 //			System.out.println(ea);
 //		}
 //		System.out.println(e.size());
-		
+		/*
 		Customer c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.perru@gmail.com", "sfgshfgseg");
 		
 		CustomerDAO cd = new CustomerDAO();
@@ -53,7 +53,7 @@ public class TestDao {
 
 		Calendar cal = Calendar.getInstance();
 		
-		
+		*/
 
 	}
 

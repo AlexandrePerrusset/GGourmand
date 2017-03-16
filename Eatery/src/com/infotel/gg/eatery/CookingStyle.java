@@ -1,6 +1,7 @@
 package com.infotel.gg.eatery;
 
-
+import com.infotel.gg.exception.ModelException;
+import com.mysql.jdbc.StringUtils;
 
 public class CookingStyle{
 	/**
@@ -10,7 +11,7 @@ public class CookingStyle{
 	private Integer id;
 	private String name;
 
-	public CookingStyle(Integer id, String name) {
+	public CookingStyle(Integer id, String name) throws ModelException {
 		setId(id);
 		setName(name);
 	}
@@ -25,9 +26,14 @@ public class CookingStyle{
 	
 	/**
 	 * @param id the id to set
+	 * @throws ModelException 
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer id) throws ModelException {
+		if(id != null && id > 0) {
+			this.id = id;
+		} else{
+			throw new ModelException("Erreur CookingStyle id");
+		}
 	}
 
 
@@ -41,9 +47,15 @@ public class CookingStyle{
 
 	/**
 	 * @param name the name to set
+	 * @throws ModelException 
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) throws ModelException {
+		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
+			this.name = name;
+		} else {
+			throw new ModelException("Erreur CookingStyle name");
+		}
+		
 	}
 
 

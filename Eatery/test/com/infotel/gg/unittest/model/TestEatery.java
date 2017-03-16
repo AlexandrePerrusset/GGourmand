@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import com.infotel.gg.eatery.CookingStyle;
 import com.infotel.gg.eatery.Eatery;
+import com.infotel.gg.exception.ModelException;
 
 public class TestEatery {
 	CookingStyle c;
@@ -25,27 +26,30 @@ public class TestEatery {
 
 	// Tests constructeurs CookingStyle
 	@Test
-	public void constructeurCookingOK() {
+	public void constructeurCookingOK() throws ModelException {
 		c = new CookingStyle(1, "Thomas");
 		assertNotNull(c);
 	}
 	
-	@Test
-	public void constructeurCookingKO1() {
+	@Test(expected=ModelException.class)
+	public void constructeurCookingKO1() throws ModelException {
 		c = new CookingStyle(null, "Thomas");
-		assertNull(c);
 	}
 	
-	@Test
-	public void constructeurCookingKO2() {
-		c = new CookingStyle(2, null);
-		assertNull(c);
+	@Test(expected=ModelException.class)
+	public void constructeurCookingKO2() throws ModelException {
+		c = new CookingStyle(-2, "  ");
 	}
 	
-	// Tests constructeurs Eatery
-	@Test
-	public void constructeurEateryOK() {
+	@Test(expected=ModelException.class)
+	public void constructeurCookingKO3() throws ModelException {
+		c = new CookingStyle(null, null);
+	}
+	
+//	// Tests constructeurs Eatery
+//	@Test
+//	public void constructeurEateryOK() {
 //		e = new Eatery(id, name, description, executiveChef, practicalIformation, cookingStyle, address, menu, eateryTags, eateryManager);
-		assertNotNull(e);
-	}
+//		assertNotNull(e);
+//	}
 }

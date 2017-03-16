@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.infotel.gg.city.City;
 import com.infotel.gg.eatery.CookingStyle;
+import com.infotel.gg.exception.ModelException;
 
 public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 
@@ -17,7 +18,7 @@ public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 	}
 
 	@Override
-	public CookingStyle getModelObject(ResultSet rs) {
+	public CookingStyle getModelObject(ResultSet rs) throws ModelException {
 		CookingStyle temp = null;
 		try {
 			temp = new CookingStyle(rs.getInt("id"), rs.getString("name"));
@@ -57,7 +58,7 @@ public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 	}
 
 	@Override
-	public void setId(Integer id, CookingStyle obj) {
+	public void setId(Integer id, CookingStyle obj) throws ModelException {
 		obj.setId(id);
 	}
 

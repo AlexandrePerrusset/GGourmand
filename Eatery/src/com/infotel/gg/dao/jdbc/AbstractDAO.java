@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import com.infotel.gg.dao.DAO;
 import com.infotel.gg.exception.DAOException;
+import com.infotel.gg.exception.ModelException;
 
 
 public abstract class AbstractDAO<T,K> implements DAO<T,K>{
@@ -36,7 +37,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 	 * @see com.infotel.gg.dao.jdbc.DAO#read(int)
 	 */
 	@Override
-	public T read(K i) {
+	public T read(K i) throws ModelException {
 		T result = null;
 		try {
 			Connection cn =SqlUtils.getConnection();
@@ -108,7 +109,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 	
 	
 	public abstract String getTableName();
-	public abstract T getModelObject(ResultSet rs);
+	public abstract T getModelObject(ResultSet rs) throws ModelException;
 	public abstract String getUpdate(T obj);
 	public abstract String getInsert(T obj);
 	public abstract void createPrepareFromObject(PreparedStatement p, T obj);
