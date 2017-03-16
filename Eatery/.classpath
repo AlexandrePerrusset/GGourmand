@@ -22,12 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Formation/dbunit-2.4.9.jar"/>
-	<classpathentry kind="lib" path="D:/Formation/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="D:/Formation/log4j-api-2.7.jar"/>
-	<classpathentry kind="lib" path="D:/Formation/log4j-core-2.7.jar"/>
-	<classpathentry kind="lib" path="D:/Formation/mysql-connector-java-5.1.38.jar"/>
-	<classpathentry kind="lib" path="D:/Formation/slf4j-api-1.7.21.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
