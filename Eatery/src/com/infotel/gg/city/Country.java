@@ -32,7 +32,6 @@ public class Country{
 	 * @throws ModelException 
 	 */
 	public void setId(Integer id) throws ModelException {
-		this.id = id;
 		if(id != null && id > 0) {
 			this.id = id;
 		} else{
@@ -52,7 +51,6 @@ public class Country{
 	 * @throws ModelException 
 	 */
 	public void setName(String name) throws ModelException {
-		this.name = name;
 		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
 			this.name = name;
 		} else {

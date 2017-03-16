@@ -99,6 +99,28 @@ public class TestUserV4 {
 		cd.create(c);
 	}
 
+	@Test
+	public void deleteOk() throws DAOException, ModelException {
+		
+		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "delete", "sfgshfgseg");
+		
+		cd.delete(c);
+		
+		assertNull("le cutsomer n'est plus présent dans la base", cd.read(c.getEmail()));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void deleteKo() throws DAOException, ModelException {
+		
+		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "delezgzegzeete", "sfgshfgseg");
+		
+		cd.delete(c);
+		
+		
+	}
+	
+	
+
 	
 	
 	

@@ -4,6 +4,7 @@
   <user_data username="je@fr" password="fo" type="customer" first_name="Jean" last_name="Jean" title="Mr" phone="24153163"/>
   <user_data username="jefr" password="fo" type="customer" first_name="Jean" last_name="Jean" title="Mr" phone="24153163"/>
   <user_data username="plop@gmail.com" password="kzjfaqzfzqf" type="customer" first_name="plup" last_name="ponp" title="Mr" phone="21054154"/>
+  <user_data username="delete" password="kzjfaqzfzqf" type="customer" first_name="plup" last_name="ponp" title="Mr" phone="21054154"/>
   <city id="1" name="Paris" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="2" name="Versailles" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="3" name="Boulogne-Billancourt" post_code="" foremost="true" country_id="1" region_id="1"/>

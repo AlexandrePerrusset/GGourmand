@@ -14,7 +14,7 @@ public interface DAO<T,K> {
 
 	void update(T obj);
 
-	void delete(T obj);
+	void delete(T obj) throws DAOException;
 
 	void deleteById(K id);
 	

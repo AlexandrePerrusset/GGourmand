@@ -27,7 +27,6 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 			st.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			throw new DAOException("Impossible de creer l'element.");
 		}
 	}
@@ -77,14 +76,16 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 	 * @see com.infotel.gg.dao.jdbc.DAO#delete(T)
 	 */
 	@Override
-	public void delete(T obj) {
+	public void delete(T obj) throws DAOException {
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st = cn.createStatement();
-			st.execute("DELETE FROM"+ getTableName() +"where "+getIdFormated(getId(obj))+"");
+			System.out.println("DELETE FROM "+ getTableName() +" where "+getIdFormated(getId(obj))+"");
+			st.execute("DELETE FROM "+ getTableName() +" where "+getIdFormated(getId(obj))+"");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new DAOException("Impossible de supprimer l'element.");
+			
 		}
 		
 		
