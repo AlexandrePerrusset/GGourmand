@@ -10,16 +10,20 @@ public class Region {
 	private Integer id;
 	private String name;
 	private Country country;
+	
+	
+	
+	//CONSTRUCTOR
+	public Region(Integer id, String name) {
+		this.setId(id);
+		this.setName(name);
+	}
+	
+	
+	//GETTERS AND SETTERS
 	/**
 	 * @return the id
 	 */
-	
-	public Region(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-	
 	public Integer getId() {
 		return id;
 	}
@@ -30,6 +34,8 @@ public class Region {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
 	/**
 	 * @return the name
 	 */
@@ -42,6 +48,8 @@ public class Region {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	/**
 	 * @return the country
 	 */
@@ -54,13 +62,18 @@ public class Region {
 	public void setCountry(Country country) {
 		this.country = country;
 	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Region [id=" + id + ", name=" + name + ", country=" + country + "]";
+		return "Region [getId()=" + getId() + ", getName()=" + getName() + ", getCountry()=" + getCountry() + "]";
 	}
+	
+	
+	
 	
 	
 	

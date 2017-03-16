@@ -4,6 +4,17 @@ public class Address {
 	private String street;
 	private String postCode;
 	private City city;
+	
+	
+	//CONSTRUCTOR
+	public Address(String street, String postCode, City city) {
+		this.setStreet(street);
+		this.setPostCode(postCode);
+		this.setCity(city);
+	}
+	
+	
+	//GETTERS AND SETTERS
 	/**
 	 * @return the street
 	 */
@@ -16,6 +27,8 @@ public class Address {
 	public void setStreet(String street) {
 		this.street = street;
 	}
+	
+	
 	/**
 	 * @return the postCode
 	 */
@@ -28,6 +41,8 @@ public class Address {
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
+	
+	
 
 	/**
 	 * @return the city
@@ -41,15 +56,22 @@ public class Address {
 	public void setCity(City city) {
 		this.city = city;
 	}
+
 	
+	
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", postCode=" + postCode + ", city=" + city + "]";
+		return "Address [getStreet()=" + getStreet() + ", getPostCode()=" + getPostCode() + ", getCity()=" + getCity()
+				+ "]";
 	}
 	
+	
+	
+
 	
 	
 }
