@@ -27,7 +27,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new DAOException("Impossible de creer l'�l�ment.");
+			throw new DAOException("Impossible de creer l'element.");
 		}
 	}
 
