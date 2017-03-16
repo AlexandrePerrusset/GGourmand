@@ -16,17 +16,20 @@ public class City implements Serializable{
 	
 	private Region region;
 	private Country country;
+	
+	
+	//CONSTRUCTOR
+	public City(Integer id, String name, String postCode, boolean foreMost) {
+		this.setId(id);
+		this.setName(name);
+		this.setPostCode(postCode);
+		this.setForemost(foreMost);
+	}
+	
+	//GETTERS AND SETTERS
 	/**
 	 * @return the id
 	 */
-	
-	public City(Integer id, String name, String postCode, boolean foreMost) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.postCode = postCode;
-		this.foreMost = foreMost;
-	}
 	public Integer getId() {
 		return id;
 	}
@@ -36,6 +39,8 @@ public class City implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
 	/**
 	 * @return the name
 	 */
@@ -48,6 +53,8 @@ public class City implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	/**
 	 * @return the postCode
 	 */
@@ -60,6 +67,8 @@ public class City implements Serializable{
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
+	
+	
 	/**
 	 * @return the foremost
 	 */
@@ -72,6 +81,8 @@ public class City implements Serializable{
 	public void setForemost(boolean foremost) {
 		this.foreMost = foremost;
 	}
+	
+	
 	/**
 	 * @return the region
 	 */
@@ -84,6 +95,8 @@ public class City implements Serializable{
 	public void setRegion(Region region) {
 		this.region = region;
 	}
+	
+	
 	/**
 	 * @return the country
 	 */
@@ -96,14 +109,19 @@ public class City implements Serializable{
 	public void setCountry(Country country) {
 		this.country = country;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "City [id=" + id + ", name=" + name + ", postCode=" + postCode + ", foremost=" + foreMost + ", region="
-				+ region + ", country=" + country + "]";
+		return "City [getId()=" + getId() + ", getName()=" + getName() + ", getPostCode()=" + getPostCode()
+				+ ", isForemost()=" + isForemost() + ", getRegion()=" + getRegion() + ", getCountry()=" + getCountry()
+				+ "]";
 	}
+	
+	
+	
 	
 	
 	
