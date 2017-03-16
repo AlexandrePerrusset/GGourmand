@@ -10,15 +10,16 @@ import com.infotel.gg.booking.Booking;
 import com.infotel.gg.customer.Customer;
 import com.infotel.gg.eatery.Eatery;
 import com.infotel.gg.eatery.PracticalInformation;
+import com.infotel.gg.exception.ModelException;
 
 import static java.lang.Math.*;
 
 public class TestBooking {
 	
 	private static final Logger LOGGER = LogManager.getLogger("console");
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ModelException {
 		
-		PracticalInformation pi = new PracticalInformation(3000, "", "", "45 €", "CB", "erbe", "sefes");
+		PracticalInformation pi = new PracticalInformation(3000, "", "", "45 ï¿½", "CB", "erbe", "sefes");
 		
 		Eatery et1 = new Eatery(3000, "blablabla", "ezfezgvzeg", "zefesg");
 		et1.setPracticalIformation(pi);
@@ -29,9 +30,9 @@ public class TestBooking {
 		Customer cu = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.perru@gmail.com", "sfgshfgseg");
 		Booking booking = new Booking(1000, new Date(2017, 03, 04, 13, 00), 20 , et1, cu);
 		if(booking.isValid()){
-			System.out.println("Réservation acceptée");
+			System.out.println("Rï¿½servation acceptï¿½e");
 		}else{
-			System.out.println("Réservation annulée");
+			System.out.println("Rï¿½servation annulï¿½e");
 		}
 		abs(-150);
 		float ppp = 50.65f;

@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.infotel.gg.eatery.Eatery;
 import com.infotel.gg.eatery.Menu;
+import com.infotel.gg.exception.ModelException;
 
 public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 
@@ -20,7 +21,7 @@ public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 	}
 
 	@Override
-	public Eatery getModelObject(ResultSet rs) {
+	public Eatery getModelObject(ResultSet rs) throws ModelException {
 		Eatery temp = null;
 		try {
 			temp = new Eatery(rs.getInt("id"), rs.getString("name"), rs.getString("description"), rs.getString("executive_chef") );
@@ -31,7 +32,7 @@ public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 		return temp;
 	}
 	
-	public List<Eatery> find(String key){
+	public List<Eatery> find(String key) throws ModelException{
 		List<Eatery> eateries = new ArrayList<Eatery>();
 		try {
 			Connection cn =SqlUtils.getConnection();
@@ -80,7 +81,7 @@ public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 	}
 
 	@Override
-	public void setId(Integer id, Eatery obj) {
+	public void setId(Integer id, Eatery obj) throws ModelException {
 		obj.setId(id);
 	}
 

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import com.infotel.gg.bookingreport.EateryManager;
 import com.infotel.gg.city.Address;
+import com.infotel.gg.exception.ModelException;
+import com.mysql.jdbc.StringUtils;
 
 public class Eatery implements Serializable{
 	
@@ -19,7 +21,7 @@ public class Eatery implements Serializable{
 	private String description;
 	private String executiveChef;
 	
-	private PracticalInformation practicalIformation;
+	private PracticalInformation practicalInformation;
 	private CookingStyle cookingStyle;
 	private Address address;
 	private Menu menu;
@@ -29,7 +31,7 @@ public class Eatery implements Serializable{
 	
 	public Eatery(Integer id, String name, String description, String executiveChef,
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
-			List<EateryTag> eateryTags, EateryManager eateryManager) {
+			List<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
 
 		setId(id);
 		setName(name);
@@ -42,13 +44,12 @@ public class Eatery implements Serializable{
 		setEateryTags(eateryTags);
 		setEateryManager(eateryManager);
 	}
-	public Eatery(Integer id, String name, String description, String executiveChef) {
-
+	
+	public Eatery(Integer id, String name, String description, String executiveChef) throws ModelException {
 		setId(id);
 		setName(name);
 		setDescription(description);
 		setExecutiveChef(executiveChef);
-		
 	}
 	
 	
@@ -58,13 +59,18 @@ public class Eatery implements Serializable{
 	 * @return the practicalIformation
 	 */
 	public PracticalInformation getPracticalIformation() {
-		return practicalIformation;
+		return practicalInformation;
 	}
 	/**
-	 * @param practicalIformation the practicalIformation to set
+	 * @param practicalInformation the practicalIformation to set
+	 * @throws ModelException 
 	 */
-	public void setPracticalIformation(PracticalInformation practicalIformation) {
-		this.practicalIformation = practicalIformation;
+	public void setPracticalIformation(PracticalInformation practicalInformation) throws ModelException {
+		if(practicalInformation != null) {
+			this.practicalInformation = practicalInformation;
+		} else {
+			throw new ModelException("Erreur Eatery practicalInformation");
+		}
 	}
 	/**
 	 * @return the id
@@ -81,9 +87,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param eateryTags the eateryTags to set
+	 * @throws ModelException 
 	 */
-	public void setEateryTags(List<EateryTag> eateryTags) {
-		this.eateryTags = eateryTags;
+	public void setEateryTags(List<EateryTag> eateryTags) throws ModelException {
+		if(eateryTags != null && eateryTags.size() > 0) {
+			this.eateryTags = eateryTags;
+		} else {
+			throw new ModelException("Erreur Eatery eateryTag");
+		}
 	}
 	
 	
@@ -95,9 +106,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param name the name to set
+	 * @throws ModelException 
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) throws ModelException {
+		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
+			this.name = name;
+		} else {
+			throw new ModelException("Erreur Eatery name");
+		}
 	}
 	/**
 	 * @return the description
@@ -107,9 +123,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param description the description to set
+	 * @throws ModelException 
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String description) throws ModelException {
+		if(description != null && !StringUtils.isEmptyOrWhitespaceOnly(description)) {
+			this.description = description;
+		} else {
+			throw new ModelException("Erreur Eatery description");
+		}
 	}
 	/**
 	 * @return the executiveChef
@@ -119,9 +140,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param executiveChef the executiveChef to set
+	 * @throws ModelException 
 	 */
-	public void setExecutiveChef(String executiveChef) {
-		this.executiveChef = executiveChef;
+	public void setExecutiveChef(String executiveChef) throws ModelException {
+		if(executiveChef != null && !StringUtils.isEmptyOrWhitespaceOnly(executiveChef)) {
+			this.executiveChef = executiveChef;
+		} else {
+			throw new ModelException("Erreur Eatery executiveChef");
+		}
 	}
 	/**
 	 * @return the cookingStyle
@@ -131,9 +157,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param cookingStyle the cookingStyle to set
+	 * @throws ModelException 
 	 */
-	public void setCookingStyle(CookingStyle cookingStyle) {
-		this.cookingStyle = cookingStyle;
+	public void setCookingStyle(CookingStyle cookingStyle) throws ModelException {
+		if(cookingStyle != null) {
+			this.cookingStyle = cookingStyle;
+		} else {
+			throw new ModelException("Erreur Eatery cookingStyle");
+		}
 	}
 	/**
 	 * @return the address
@@ -143,9 +174,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param address the address to set
+	 * @throws ModelException 
 	 */
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddress(Address address) throws ModelException {
+		if(address != null) {
+			this.address = address;
+		} else {
+			throw new ModelException("Erreur Eatery address");
+		}
 	}
 	/**
 	 * @return the menu
@@ -155,9 +191,14 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param menu the menu to set
+	 * @throws ModelException 
 	 */
-	public void setMenu(Menu menu) {
-		this.menu = menu;
+	public void setMenu(Menu menu) throws ModelException {
+		if(menu != null) {
+			this.menu = menu;
+		} else {
+			throw new ModelException("Erreur Eatery menu");
+		}
 	}
 	/**
 	 * @return the eateryManager
@@ -167,15 +208,25 @@ public class Eatery implements Serializable{
 	}
 	/**
 	 * @param eateryManager the eateryManager to set
+	 * @throws ModelException 
 	 */
-	public void setEateryManager(EateryManager eateryManager) {
-		this.eateryManager = eateryManager;
+	public void setEateryManager(EateryManager eateryManager) throws ModelException {
+		if(eateryManager != null) {
+			this.eateryManager = eateryManager;
+		} else {
+			throw new ModelException("Erreur Eatery eateryManager");
+		}
 	}
 	/**
 	 * @param id the id to set
+	 * @throws ModelException 
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer id) throws ModelException {
+		if(id != null && id > 0) {
+			this.id = id;
+		} else{
+			throw new ModelException("Erreur Eatery id");
+		}
 	}
 	
 	/* (non-Javadoc)

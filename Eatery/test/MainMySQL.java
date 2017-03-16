@@ -14,12 +14,13 @@ import java.util.Map;
 import com.infotel.gg.dao.jdbc.SqlUtils;
 import com.infotel.gg.eatery.Eatery;
 import com.infotel.gg.eatery.EateryTag;
+import com.infotel.gg.exception.ModelException;
 
 
 
 public class MainMySQL {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ModelException {
 
 		ResultSet rs, rse, rst;
 		Statement st, ste, stt;

@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.infotel.gg.city.City;
 import com.infotel.gg.eatery.EateryTag;
+import com.infotel.gg.exception.ModelException;
 
 public class EateryTagDAO extends AbstractDAO<EateryTag, Integer>{
 
@@ -17,7 +18,7 @@ public class EateryTagDAO extends AbstractDAO<EateryTag, Integer>{
 	}
 
 	@Override
-	public EateryTag getModelObject(ResultSet rs) {
+	public EateryTag getModelObject(ResultSet rs) throws ModelException {
 		EateryTag temp = null;
 		try {
 			temp = new EateryTag(rs.getInt("id"), rs.getString("name"));
@@ -39,7 +40,7 @@ public class EateryTagDAO extends AbstractDAO<EateryTag, Integer>{
 	}
 
 	@Override
-	public void setId(Integer id, EateryTag obj) {
+	public void setId(Integer id, EateryTag obj) throws ModelException {
 		obj.setId(id);
 	}
 
