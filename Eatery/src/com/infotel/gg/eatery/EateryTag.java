@@ -15,13 +15,13 @@ public class EateryTag{
 	private List<Eatery> eateries;
 
 	public EateryTag(int id, String name, List<Eatery> eateries) {
-		this.id = id;
-		this.name = name;
-		eateries = eateries;
+		setId(id);
+		setName(name);
+		setEateries(eateries);
 	}
 	public EateryTag(int id, String name) {
-		this.id = id;
-		this.name = name;
+		setId(id);
+		setName(name);
 	
 	}
 	
@@ -63,18 +63,12 @@ public class EateryTag{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		//String nr = eateries.size()==0 ? "Aucun restau" : String.valueOf(eateries.size());
-		return "EateryTag [id=" + id + ", name=" + name + ", Eateries=" + eateries + "]";
+		return "EateryTag [getEateries()=" + getEateries() + ", getName()=" + getName() + ", getId()=" + getId() + "]";
 	}
-
-	
-	
-	
-	
-	
 }

@@ -22,14 +22,13 @@ public class PracticalInformation implements Serializable{
 	
 	public PracticalInformation(Integer id, String hoursOfOperation1, String hoursOfOperation2, String price,
 			String paymentOptions, String gettingThere, String parking) {
-		super();
-		this.id = id;
-		this.hoursOfOperation1 = hoursOfOperation1;
-		this.hoursOfOperation2 = hoursOfOperation2;
-		this.price = price;
-		this.paymentOptions = paymentOptions;
-		this.gettingThere = gettingThere;
-		this.parking = parking;
+		setId(id);
+		setHoursOfOperation1(hoursOfOperation1);
+		setHoursOfOperation2(hoursOfOperation2);
+		setPrice(price);
+		setPaymentOptions(paymentOptions);
+		setGettingThere(gettingThere);
+		setParking(parking);
 	}
 	/**
 	 * @return the id
@@ -116,5 +115,14 @@ public class PracticalInformation implements Serializable{
 		this.parking = parking;
 	}
 	
-	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "PracticalInformation [getId()=" + getId() + ", getHoursOfOperation1()=" + getHoursOfOperation1()
+				+ ", getHoursOfOperation2()=" + getHoursOfOperation2() + ", getPrice()=" + getPrice()
+				+ ", getPaymentOptions()=" + getPaymentOptions() + ", getGettingThere()=" + getGettingThere()
+				+ ", getParking()=" + getParking() + "]";
+	}
 }

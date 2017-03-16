@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.infotel.gg.dao.DAO;
-import com.infotel.gg.execption.UserException;
+import com.infotel.gg.exception.UserException;
 
 public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 
@@ -26,7 +26,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new UserException("Impossible de creer l'élément.");
+			throw new UserException("Impossible de creer l'ï¿½lï¿½ment.");
 		}
 	}
 

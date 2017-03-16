@@ -1,4 +1,4 @@
-package com.infotel.gg.execption;
+package com.infotel.gg.exception;
 
 public class UserException extends Exception{
 	

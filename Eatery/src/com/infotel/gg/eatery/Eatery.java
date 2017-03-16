@@ -31,23 +31,23 @@ public class Eatery implements Serializable{
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
 			List<EateryTag> eateryTags, EateryManager eateryManager) {
 
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.executiveChef = executiveChef;
-		this.practicalIformation = practicalIformation;
-		this.cookingStyle = cookingStyle;
-		this.address = address;
-		this.menu = menu;
-		this.eateryTags = eateryTags;
-		this.eateryManager = eateryManager;
+		setId(id);
+		setName(name);
+		setDescription(description);
+		setExecutiveChef(executiveChef);
+		setPracticalIformation(practicalIformation);
+		setCookingStyle(cookingStyle);
+		setAddress(address);
+		setMenu(menu);
+		setEateryTags(eateryTags);
+		setEateryManager(eateryManager);
 	}
 	public Eatery(Integer id, String name, String description, String executiveChef) {
 
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.executiveChef = executiveChef;
+		setId(id);
+		setName(name);
+		setDescription(description);
+		setExecutiveChef(executiveChef);
 		
 	}
 	
@@ -177,22 +177,16 @@ public class Eatery implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		String tag= "";
-		if(eateryTags  != null){
-		
-			return "Eatery [id=" + id + ", name=" + name +" ] [" + eateryTags.toString() + "]";
-		}else{
-			return "Eatery [id=" + id + ", name=" + name +" ]";
-		}
-		
+		return "Eatery [getPracticalIformation()=" + getPracticalIformation() + ", getId()=" + getId()
+				+ ", getEateryTags()=" + getEateryTags() + ", getName()=" + getName() + ", getDescription()="
+				+ getDescription() + ", getExecutiveChef()=" + getExecutiveChef() + ", getCookingStyle()="
+				+ getCookingStyle() + ", getAddress()=" + getAddress() + ", getMenu()=" + getMenu()
+				+ ", getEateryManager()=" + getEateryManager() + "]";
 	}
-	
-	
-	
-	
 }

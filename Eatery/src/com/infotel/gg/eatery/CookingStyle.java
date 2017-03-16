@@ -11,15 +11,23 @@ public class CookingStyle{
 	private String name;
 
 	public CookingStyle(Integer id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
+		setId(id);
+		setName(name);
 	}
+	
 
 
 	public Integer getId() {
 		// TODO Auto-generated method stub
 		return id;
+	}
+	
+	
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 
@@ -39,12 +47,11 @@ public class CookingStyle{
 	}
 
 
-	/**
-	 * @param id the id to set
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	@Override
+	public String toString() {
+		return "CookingStyle [id=" + id + ", name=" + name + ", getId()=" + getId() + ", getName()=" + getName() + "]";
 	}
-	
-	
 }

@@ -9,7 +9,8 @@ import org.junit.Test;
 
 import com.infotel.gg.customer.Customer;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
-import com.infotel.gg.execption.UserException;
+import com.infotel.gg.exception.UserException;
+
 import DBUnit.DBUtils;
 
 public class TestUserV4 {

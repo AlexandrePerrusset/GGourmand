@@ -2,7 +2,7 @@ package com.infotel.gg.dao;
 
 import java.util.List;
 
-import com.infotel.gg.execption.UserException;
+import com.infotel.gg.exception.UserException;
 
 public interface DAO<T,K> {
 

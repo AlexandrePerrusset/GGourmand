@@ -13,9 +13,8 @@ public class Menu{
 	
 	
 	public Menu(int id, String content) {
-		super();
-		this.id = id;
-		this.content = content;
+		setId(id);
+		setContent(content);
 	}
 
 
@@ -71,8 +70,6 @@ public class Menu{
 	 */
 	@Override
 	public String toString() {
-		return "Menu [id=" + id + ", content=" + content + "]";
+		return "Menu [getId()=" + getId() + ", getContent()=" + getContent() + ", getEatery()=" + getEatery() + "]";
 	}
-	
-	
 }
