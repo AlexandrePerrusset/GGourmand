@@ -4,11 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import com.infotel.gg.booking.Booking;
 import com.infotel.gg.city.Region;
 
-public class BookingDAO extends AbstractDAO<Booking>{
+public class BookingDAO extends AbstractDAO<Booking, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -66,6 +67,26 @@ public class BookingDAO extends AbstractDAO<Booking>{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Booking> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(Booking b) {
+		return b.getId();
+	}
+
+	@Override
+	public void setId(Integer id, Booking obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 
 	

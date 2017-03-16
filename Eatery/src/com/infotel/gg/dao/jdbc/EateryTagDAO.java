@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.city.City;
 import com.infotel.gg.eatery.EateryTag;
 
-public class EateryTagDAO extends AbstractDAO<EateryTag>{
+public class EateryTagDAO extends AbstractDAO<EateryTag, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -28,6 +29,21 @@ public class EateryTagDAO extends AbstractDAO<EateryTag>{
 	}
 
 	@Override
+	public List<EateryTag> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(EateryTag obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, EateryTag obj) {
+		obj.setId(id);
+	}
+
+	@Override
 	public String getUpdate(EateryTag obj) {
 		return null;
 	}
@@ -40,6 +56,13 @@ public class EateryTagDAO extends AbstractDAO<EateryTag>{
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, EateryTag obj) {
 	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
+	}
+	
+
 
 	
 

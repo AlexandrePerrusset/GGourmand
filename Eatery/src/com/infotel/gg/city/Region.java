@@ -1,33 +1,33 @@
 package com.infotel.gg.city;
 
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class Region implements Identifiable{
+
+public class Region {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5296585714694623741L;
-	private long id;
+	private Integer id;
 	private String name;
 	private Country country;
 	/**
 	 * @return the id
 	 */
 	
-	public Region(long id, String name) {
+	public Region(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**

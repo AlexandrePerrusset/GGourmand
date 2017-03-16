@@ -3,9 +3,8 @@ package com.infotel.gg.bookingreport;
 import java.util.Date;
 
 import com.infotel.gg.booking.Booking;
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class BookingReport implements Identifiable{
+public class BookingReport{
 	private long id;
 	private Date date;
 	private boolean fulfilled;
@@ -31,7 +30,6 @@ public class BookingReport implements Identifiable{
 
 
 
-	@Override
 	public long getId() {
 	
 		return id;

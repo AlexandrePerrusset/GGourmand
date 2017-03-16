@@ -1,14 +1,14 @@
 package com.infotel.gg.service;
 
-import com.infotel.gg.dao.UserDAO;
-import com.infotel.gg.dao.jdbc.IEmail;
+import com.infotel.gg.customer.Customer;
+import com.infotel.gg.dao.DAO;
 
 public class UserServiceImpl implements UserService{
-	private UserDAO userDAO;
+	private DAO userDAO;
 
 	@Override
-	public IEmail authenticate(String username, String password) {
-		IEmail user = userDAO.read(username);
+	public Customer authenticate(String username, String password) {
+		Customer user = (Customer) userDAO.read(username);
 		if(user != null && password.equals(user.getPassword())){
 			return user;
 		}
@@ -18,14 +18,14 @@ public class UserServiceImpl implements UserService{
 	/**
 	 * @return the userDAO
 	 */
-	public UserDAO getUserDAO() {
+	public DAO getUserDAO() {
 		return userDAO;
 	}
 
 	/**
 	 * @param userDAO the userDAO to set
 	 */
-	public void setUserDAO(UserDAO userDAO) {
+	public void setUserDAO(DAO userDAO) {
 		this.userDAO = userDAO;
 	}
 	

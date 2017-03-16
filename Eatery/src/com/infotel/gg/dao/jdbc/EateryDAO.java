@@ -11,7 +11,7 @@ import java.util.List;
 import com.infotel.gg.eatery.Eatery;
 import com.infotel.gg.eatery.Menu;
 
-public class EateryDAO extends AbstractDAO<Eatery>{
+public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -67,5 +67,25 @@ public class EateryDAO extends AbstractDAO<Eatery>{
 	public String getInsert(Eatery obj) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Eatery> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(Eatery obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, Eatery obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 }

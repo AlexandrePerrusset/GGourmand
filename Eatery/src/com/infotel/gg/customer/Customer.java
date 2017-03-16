@@ -1,8 +1,8 @@
 package com.infotel.gg.customer;
 
-import com.infotel.gg.dao.jdbc.IEmail;
 
-public class Customer extends Person implements IEmail{
+
+public class Customer extends Person{
 	/**
 	 * 
 	 */
@@ -45,8 +45,7 @@ public class Customer extends Person implements IEmail{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	@Override
+
 	public String getEmail() {
 		return this.getUsername();
 	}

@@ -1,13 +1,13 @@
 package com.infotel.gg.eatery;
 
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class Menu implements Identifiable{
+
+public class Menu{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2223377102082445657L;
-	private long id;
+	private Integer id;
 	private String content; // YAML format
 	private Eatery eatery;
 	
@@ -22,18 +22,9 @@ public class Menu implements Identifiable{
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
 
 	/**
 	 * @return the content
@@ -42,10 +33,6 @@ public class Menu implements Identifiable{
 		return content;
 	}
 
-
-	
-
-
 	/**
 	 * @param content the content to set
 	 */
@@ -53,6 +40,32 @@ public class Menu implements Identifiable{
 		this.content = content;
 	}
 	
+	
+	
+	/**
+	 * @return the eatery
+	 */
+	public Eatery getEatery() {
+		return eatery;
+	}
+
+
+	/**
+	 * @param eatery the eatery to set
+	 */
+	public void setEatery(Eatery eatery) {
+		this.eatery = eatery;
+	}
+
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

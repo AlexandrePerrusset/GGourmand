@@ -21,18 +21,17 @@ public class SqlUtils {
 			if(connectionC == null){
 				Class.forName("com.mysql.jdbc.Driver");
 				Properties pro  = new Properties();
-				InputStream is = SqlUtils.class.getResourceAsStream("/gastronome.properties");
-				//InputStream is = new FileInputStream("properties/gastronome.properties");
+				InputStream is = new FileInputStream("properties/gastronome.properties");
 				pro.load(is);
 				String url = pro.getProperty("database");
 				// Obtention de la connexion
-				// String url = "jdbc:mysql://localhost:3306/battest";
-				 //Recupere la connection
+				//String url = "jdbc:mysql://localhost:3306/battest";
+				// Recupere la connection
 				
 				connectionC = DriverManager.getConnection(url, "root", "");
 			}
 			
-		}catch (Exception e) {
+		}catch (ClassNotFoundException | SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

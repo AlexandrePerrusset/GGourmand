@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.city.City;
 import com.infotel.gg.eatery.CookingStyle;
 
-public class CookingStyleDAO extends AbstractDAO{
+public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -16,7 +17,7 @@ public class CookingStyleDAO extends AbstractDAO{
 	}
 
 	@Override
-	public Identifiable getModelObject(ResultSet rs) {
+	public CookingStyle getModelObject(ResultSet rs) {
 		CookingStyle temp = null;
 		try {
 			temp = new CookingStyle(rs.getInt("id"), rs.getString("name"));
@@ -28,21 +29,41 @@ public class CookingStyleDAO extends AbstractDAO{
 	}
 
 	@Override
-	public String getUpdate(Identifiable obj) {
+	public String getUpdate(CookingStyle obj) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void createPrepareFromObject(PreparedStatement p, Identifiable obj) {
+	public void createPrepareFromObject(PreparedStatement p, CookingStyle obj) {
 		// TODO Auto-generated method stub
 	
 	}
 
 	@Override
-	public String getInsert(Identifiable obj) {
+	public String getInsert(CookingStyle obj) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<CookingStyle> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(CookingStyle obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, CookingStyle obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 	
 

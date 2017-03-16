@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.infotel.gg.eatery.Menu;
 
 
-public class MenuDAO extends AbstractDAO<Menu> {
+public class MenuDAO extends AbstractDAO<Menu, Integer> {
 
 	
 	@Override
@@ -62,8 +63,8 @@ public class MenuDAO extends AbstractDAO<Menu> {
 		return " (content) VALUES(?)";
 	}
 	
-	public Map<Long, Menu> readAll(){
-		Map<Long, Menu> listMenu = new HashMap<Long,Menu>();
+	public Map<Integer, Menu> readAll(){
+		Map<Integer, Menu> listMenu = new HashMap<Integer,Menu>();
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st= cn.createStatement();
@@ -80,6 +81,27 @@ public class MenuDAO extends AbstractDAO<Menu> {
 		}
 		return listMenu;
 	}
+
+	@Override
+	public List<Menu> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(Menu obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, Menu obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
+	}
+	
 	
 //	private Connection cn;
 //	private Statement st;

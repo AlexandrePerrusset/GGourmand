@@ -2,10 +2,11 @@ package com.infotel.gg.dao.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import com.infotel.gg.image.ImageData;
 
-public class ImageDataDAO extends AbstractDAO<ImageData>{
+public class ImageDataDAO extends AbstractDAO<ImageData, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -32,6 +33,27 @@ public class ImageDataDAO extends AbstractDAO<ImageData>{
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, ImageData obj) {
 	}
+
+	@Override
+	public List<ImageData> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(ImageData obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, ImageData obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
+	}
+	
 
 	
 	

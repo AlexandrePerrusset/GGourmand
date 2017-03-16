@@ -1,18 +1,6 @@
 package com.infotel.gg.unittest.dao;
 import static org.junit.Assert.*;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import org.dbunit.DatabaseUnitException;
-import org.dbunit.database.DatabaseConnection;
-import org.dbunit.database.IDatabaseConnection;
-import org.dbunit.dataset.xml.FlatXmlDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
-import org.dbunit.operation.DatabaseOperation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,8 +10,6 @@ import org.junit.Test;
 import com.infotel.gg.customer.Customer;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
 import com.infotel.gg.execption.UserException;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
 import DBUnit.DBUtils;
 
 public class TestUserV4 {

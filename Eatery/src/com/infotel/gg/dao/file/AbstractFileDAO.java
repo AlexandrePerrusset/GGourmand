@@ -14,9 +14,9 @@ import java.io.OutputStream;
 
 
 import com.infotel.gg.dao.DAO;
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public abstract class AbstractFileDAO<T extends Identifiable> implements DAO<T> {
+
+public abstract class AbstractFileDAO<T,K> implements DAO<T,K> {
 	@Override
 	public void create(T obj) {
 		
@@ -34,7 +34,7 @@ public abstract class AbstractFileDAO<T extends Identifiable> implements DAO<T> 
 	}
 
 	@Override
-	public T read(int i) {
+	public T read(K i) {
 		T obj = null;
 		String filename = idToFileName(i);
 		
@@ -60,7 +60,7 @@ public abstract class AbstractFileDAO<T extends Identifiable> implements DAO<T> 
 	}
 
 	@Override
-	public void delete(long id) {
+	public void deleteById(K id) {
 	}
 	
 	public String elementToFileName(T element){
@@ -69,12 +69,12 @@ public abstract class AbstractFileDAO<T extends Identifiable> implements DAO<T> 
 //		sb.append(System.getProperty("file.separator"));
 		sb.append(element.getClass().getSimpleName().toLowerCase());
 		sb.append("_");
-		sb.append(element.getId());
+		sb.append(getId(element));
 		sb.append(".ser");
 		return sb.toString();
 	}
 	
-	public abstract String idToFileName(int id);
+	public abstract String idToFileName(K i);
 
 	
 }

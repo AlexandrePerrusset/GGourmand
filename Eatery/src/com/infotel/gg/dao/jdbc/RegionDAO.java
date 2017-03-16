@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.city.Region;
 import com.infotel.gg.eatery.Eatery;
 
-public class RegionDAO extends AbstractDAO<Region>{
+public class RegionDAO extends AbstractDAO<Region, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -39,6 +40,25 @@ public class RegionDAO extends AbstractDAO<Region>{
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Region obj) {
+	}
+
+	@Override
+	public List<Region> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(Region obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, Region obj) {
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 
 	

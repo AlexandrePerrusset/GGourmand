@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.customer.Customer;
 import com.infotel.gg.eatery.Menu;
 
-public class CustomerDAO extends AbstractUserDAO<Customer>{
+public class CustomerDAO extends AbstractDAO<Customer, String>{
 
 	@Override
 	public String getTableName() {
@@ -54,6 +55,26 @@ public class CustomerDAO extends AbstractUserDAO<Customer>{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Customer> listAll() {
+		return null;
+	}
+
+	@Override
+	public String getId(Customer obj) {
+		return obj.getEmail();
+	}
+
+	@Override
+	public void setId(String id, Customer obj) {
+		obj.setUsername(id);
+	}
+
+	@Override
+	public String getIdFormated(String id) {
+		return "username ='"+id+"'";
 	}
 
 	

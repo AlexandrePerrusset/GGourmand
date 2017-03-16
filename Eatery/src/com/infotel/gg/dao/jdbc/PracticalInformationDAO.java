@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.eatery.CookingStyle;
 import com.infotel.gg.eatery.PracticalInformation;
 
-public class PracticalInformationDAO extends AbstractDAO<PracticalInformation>{
+public class PracticalInformationDAO extends AbstractDAO<PracticalInformation, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -41,6 +42,26 @@ public class PracticalInformationDAO extends AbstractDAO<PracticalInformation>{
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, PracticalInformation obj) {
+	}
+
+	@Override
+	public List<PracticalInformation> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(PracticalInformation obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, PracticalInformation obj) {
+		obj.setId(id);
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 	
 

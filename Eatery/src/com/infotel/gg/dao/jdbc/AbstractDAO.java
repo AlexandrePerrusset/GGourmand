@@ -7,15 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.infotel.gg.dao.DAO;
+import com.infotel.gg.execption.UserException;
 
-public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
+public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 
 	
 	/* (non-Javadoc)
 	 * @see com.infotel.gg.dao.jdbc.DAO#create(T)
 	 */
 	@Override
-	public void create(T obj) {
+	public void create(T obj) throws UserException {
 		Connection cn =SqlUtils.getConnection();
 		String sql = "INSERT INTO "+ getTableName() + getInsert(obj);
 		try {
@@ -25,6 +26,7 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new UserException("Impossible de creer l'élément.");
 		}
 	}
 
@@ -33,13 +35,13 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 	 * @see com.infotel.gg.dao.jdbc.DAO#read(int)
 	 */
 	@Override
-	public T read(int i) {
+	public T read(K i) {
 		T result = null;
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st= cn.createStatement();
 			
-			ResultSet rs = st.executeQuery("Select * from "+ getTableName()+" where id ="+i+"");
+			ResultSet rs = st.executeQuery("Select * from "+ getTableName()+" where "+getIdFormated(i)+"");
 			
 			if(rs.next()) result = getModelObject(rs);
 		} catch (SQLException e) {
@@ -56,7 +58,7 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 	@Override
 	public void update(T obj) {
 		Connection cn =SqlUtils.getConnection();
-		String sql = "Update "+ getTableName() + " SET "+ getUpdate(obj)+" Where id="+obj.getId();
+		String sql = "Update "+ getTableName() + " SET "+ getUpdate(obj)+" Where "+getIdFormated(getId(obj));
 		try{
 			PreparedStatement st = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			st.execute();
@@ -77,7 +79,7 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st = cn.createStatement();
-			st.execute("DELETE FROM"+ getTableName() +"where id ="+obj.getId()+"");
+			st.execute("DELETE FROM"+ getTableName() +"where "+getIdFormated(getId(obj))+"");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,11 +93,11 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 	 * @see com.infotel.gg.dao.jdbc.DAO#delete(long)
 	 */
 	@Override
-	public void delete(long id) {
+	public void deleteById(K id) {
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st = cn.createStatement();
-			st.execute("DELETE FROM "+ getTableName() +" where id ="+id+"");
+			st.execute("DELETE FROM "+ getTableName() +" where "+getIdFormated(id)+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -103,11 +105,13 @@ public abstract class AbstractDAO<T extends Identifiable> implements DAO<T>{
 		
 	}
 	
+	
 	public abstract String getTableName();
 	public abstract T getModelObject(ResultSet rs);
 	public abstract String getUpdate(T obj);
 	public abstract String getInsert(T obj);
 	public abstract void createPrepareFromObject(PreparedStatement p, T obj);
+	public abstract String getIdFormated(K id);
 
 
 }

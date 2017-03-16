@@ -2,14 +2,14 @@ package com.infotel.gg.eatery;
 
 import java.util.List;
 
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class EateryTag implements Identifiable{
+
+public class EateryTag{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8204488586862481556L;
-	private long id;
+	private Integer id;
 	private String name;
 	
 	private List<Eatery> eateries;
@@ -48,6 +48,20 @@ public class EateryTag implements Identifiable{
 	 */
 	public void setEateries(List<Eatery> eateries) {
 		eateries = eateries;
+		
+	}
+	
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+	
+	
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -57,11 +71,10 @@ public class EateryTag implements Identifiable{
 		//String nr = eateries.size()==0 ? "Aucun restau" : String.valueOf(eateries.size());
 		return "EateryTag [id=" + id + ", name=" + name + ", Eateries=" + eateries + "]";
 	}
-	@Override
-	public long getId() {
-		// TODO Auto-generated method stub
-		return id;
-	}
+
+	
+	
+	
 	
 	
 }

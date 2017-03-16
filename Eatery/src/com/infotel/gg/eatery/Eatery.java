@@ -6,16 +6,15 @@ import java.util.Map;
 
 import com.infotel.gg.bookingreport.EateryManager;
 import com.infotel.gg.city.Address;
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class Eatery implements Identifiable, Serializable{
+public class Eatery implements Serializable{
 	
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5737634769078321910L;
-	private long id;
+	private Integer id;
 	private String name;
 	private String description;
 	private String executiveChef;
@@ -28,7 +27,7 @@ public class Eatery implements Identifiable, Serializable{
 	private EateryManager eateryManager;
 	
 	
-	public Eatery(long id, String name, String description, String executiveChef,
+	public Eatery(Integer id, String name, String description, String executiveChef,
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
 			List<EateryTag> eateryTags, EateryManager eateryManager) {
 
@@ -43,7 +42,7 @@ public class Eatery implements Identifiable, Serializable{
 		this.eateryTags = eateryTags;
 		this.eateryManager = eateryManager;
 	}
-	public Eatery(long id, String name, String description, String executiveChef) {
+	public Eatery(Integer id, String name, String description, String executiveChef) {
 
 		this.id = id;
 		this.name = name;
@@ -70,7 +69,7 @@ public class Eatery implements Identifiable, Serializable{
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -85,6 +84,98 @@ public class Eatery implements Identifiable, Serializable{
 	 */
 	public void setEateryTags(List<EateryTag> eateryTags) {
 		this.eateryTags = eateryTags;
+	}
+	
+	
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	/**
+	 * @return the executiveChef
+	 */
+	public String getExecutiveChef() {
+		return executiveChef;
+	}
+	/**
+	 * @param executiveChef the executiveChef to set
+	 */
+	public void setExecutiveChef(String executiveChef) {
+		this.executiveChef = executiveChef;
+	}
+	/**
+	 * @return the cookingStyle
+	 */
+	public CookingStyle getCookingStyle() {
+		return cookingStyle;
+	}
+	/**
+	 * @param cookingStyle the cookingStyle to set
+	 */
+	public void setCookingStyle(CookingStyle cookingStyle) {
+		this.cookingStyle = cookingStyle;
+	}
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	/**
+	 * @return the menu
+	 */
+	public Menu getMenu() {
+		return menu;
+	}
+	/**
+	 * @param menu the menu to set
+	 */
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+	/**
+	 * @return the eateryManager
+	 */
+	public EateryManager getEateryManager() {
+		return eateryManager;
+	}
+	/**
+	 * @param eateryManager the eateryManager to set
+	 */
+	public void setEateryManager(EateryManager eateryManager) {
+		this.eateryManager = eateryManager;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

@@ -2,14 +2,14 @@ package com.infotel.gg.city;
 
 import java.io.Serializable;
 
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class City implements Identifiable, Serializable{
+
+public class City implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2406884507752812014L;
-	private long id;
+	private Integer id;
 	private String name;
 	private String postCode;
 	private boolean foreMost;
@@ -20,20 +20,20 @@ public class City implements Identifiable, Serializable{
 	 * @return the id
 	 */
 	
-	public City(long id, String name, String postCode, boolean foreMost) {
+	public City(Integer id, String name, String postCode, boolean foreMost) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.postCode = postCode;
 		this.foreMost = foreMost;
 	}
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**

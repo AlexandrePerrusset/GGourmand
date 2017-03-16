@@ -2,14 +2,14 @@ package com.infotel.gg.eatery;
 
 import java.io.Serializable;
 
-import com.infotel.gg.dao.jdbc.Identifiable;
 
-public class PracticalInformation implements Identifiable, Serializable{
+
+public class PracticalInformation implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4536914283626180346L;
-	private long id;
+	private Integer id;
 	private String hoursOfOperation1;
 	private String hoursOfOperation2;
 	private String price;
@@ -20,7 +20,7 @@ public class PracticalInformation implements Identifiable, Serializable{
 	
 	
 	
-	public PracticalInformation(long id, String hoursOfOperation1, String hoursOfOperation2, String price,
+	public PracticalInformation(Integer id, String hoursOfOperation1, String hoursOfOperation2, String price,
 			String paymentOptions, String gettingThere, String parking) {
 		super();
 		this.id = id;
@@ -34,13 +34,13 @@ public class PracticalInformation implements Identifiable, Serializable{
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**

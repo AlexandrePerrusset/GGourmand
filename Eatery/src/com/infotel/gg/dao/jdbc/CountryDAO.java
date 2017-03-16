@@ -3,11 +3,12 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.infotel.gg.city.City;
 import com.infotel.gg.city.Country;
 
-public class CountryDAO extends AbstractDAO<Country>{
+public class CountryDAO extends AbstractDAO<Country, Integer>{
 
 	@Override
 	public String getTableName() {
@@ -41,6 +42,25 @@ public class CountryDAO extends AbstractDAO<Country>{
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Country obj) {
+	}
+
+	@Override
+	public List<Country> listAll() {
+		return null;
+	}
+
+	@Override
+	public Integer getId(Country obj) {
+		return obj.getId();
+	}
+
+	@Override
+	public void setId(Integer id, Country obj) {
+	}
+
+	@Override
+	public String getIdFormated(Integer id) {
+		return "id ="+id;
 	}
 	
 

@@ -4,15 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.infotel.gg.customer.Customer;
-import com.infotel.gg.dao.jdbc.Identifiable;
 import com.infotel.gg.eatery.Eatery;
 
-public class Booking implements Identifiable, Serializable{
+public class Booking implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 617305149316556133L;
-	private long id;
+	private Integer id;
 	private Date dateTime;
 	private Customer customer;
 	private Eatery eatery;
@@ -21,13 +20,13 @@ public class Booking implements Identifiable, Serializable{
 	
 	
 	
-	public Booking(long id, Date dateTime, int nbOfCustomer) {
+	public Booking(Integer id, Date dateTime, int nbOfCustomer) {
 		super();
 		this.id = id;
 		this.dateTime = dateTime;
 		this.nbOfCustomer = nbOfCustomer;
 	}
-	public Booking(long id, Date dateTime, int nbOfCustomer, Eatery e, Customer c) {
+	public Booking(Integer id, Date dateTime, int nbOfCustomer, Eatery e, Customer c) {
 		super();
 		this.id = id;
 		this.dateTime = dateTime;
@@ -96,10 +95,20 @@ public class Booking implements Identifiable, Serializable{
 	public void setNbOfCustomer(int nbOfCustomer) {
 		this.nbOfCustomer = nbOfCustomer;
 	}
-	@Override
-	public long getId() {
-		// TODO Auto-generated method stub
+	
+	
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
 		return id;
+	}
+	
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	//Reservation
 	public boolean isValid() {
