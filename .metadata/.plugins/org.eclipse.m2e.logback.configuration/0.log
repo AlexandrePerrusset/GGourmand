@@ -1,2 +1,0 @@
-2017-03-16 11:36:07,114 [Worker-30] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.infotel.lafourchette:lafourchette-service:0.0.1-SNAPSHOT @ D:\Formation\lafourchette-service\pom.xml.
-2017-03-16 11:36:08,393 [Worker-30] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.infotel.lafourchette:lafourchette-service:0.0.1-SNAPSHOT @ D:\Formation\lafourchette-service\pom.xml.

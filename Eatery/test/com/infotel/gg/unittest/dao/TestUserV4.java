@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.infotel.gg.customer.Customer;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
-import com.infotel.gg.execption.DAOException;
+import com.infotel.gg.execption.UserException;
 import DBUnit.DBUtils;
 
 public class TestUserV4 {
@@ -68,28 +68,28 @@ public class TestUserV4 {
 	
 	
 	@Test
-	public void CreateOk() throws DAOException {
+	public void CreateOk() throws UserException {
 		c = new Customer("Alexa737ndra", "Per325russet", "Mme", "24152163", "alex@gmai.com", "sfgsh3783783fgseg");
 		cd.create(c);
 		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
 	@Test
-	public void CreateOk2() throws DAOException {
+	public void CreateOk2() throws UserException {
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex@gmail.com", "sfgshfgseg");
 		cd.create(c);
 		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
-	@Test(expected=DAOException.class)
-	public void CreateKo2() throws  DAOException {
+	@Test(expected=UserException.class)
+	public void CreateKo2() throws  UserException {
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", null, "sfgshfgseg");
 		cd.create(c);
 		assertNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
-	@Test(expected=DAOException.class)
-	public void CreateKo() throws DAOException {
+	@Test(expected=UserException.class)
+	public void CreateKo() throws UserException {
 		
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.ru@gmail.com", "sfgshfgseg");
 		
