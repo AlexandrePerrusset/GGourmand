@@ -1,8 +1,11 @@
 package com.infotel.gg.dao.jdbc;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.infotel.gg.booking.Review;
@@ -20,7 +23,10 @@ public class BookingReportDAO extends AbstractDAO<BookingReport, Integer>{
 	public BookingReport getModelObject(ResultSet rs) {
 		BookingReport temp = null;
 		try {
-			temp = new BookingReport(rs.getInt("id"), rs.getDate("input_date"), rs.getBoolean("fulfilled"), rs.getString("comment"), rs.getDouble("taking_amount"), rs.getDouble("due_amount") );
+			Date sqldate = rs.getDate("date_time");
+			Calendar cal = new GregorianCalendar();
+			cal.setTime(sqldate);
+			temp = new BookingReport(rs.getInt("id"), cal, rs.getBoolean("fulfilled"), rs.getString("comment"), rs.getDouble("taking_amount"), rs.getDouble("due_amount") );
 		} catch (SQLException e) {
 
 			e.printStackTrace();
