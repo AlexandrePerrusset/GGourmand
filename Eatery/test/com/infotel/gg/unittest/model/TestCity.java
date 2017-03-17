@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.infotel.gg.City;
+package com.infotel.gg.unittest.model;
 
 import static org.junit.Assert.*;
 
@@ -10,13 +10,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.infotel.gg.city.Address;
+import com.infotel.gg.city.City;
 import com.infotel.gg.city.Country;
+import com.infotel.gg.city.Region;
 import com.infotel.gg.exception.ModelException;
 
 
 public class TestCity {
 	
 	Country country;
+	City c;
+	Region r;
+	Address a;
 
 	/**
 	 * @throws java.lang.Exception
@@ -31,6 +36,9 @@ public class TestCity {
 	@After
 	public void tearDown() throws Exception {
 		country =null;
+		c=null;
+		r=null;
+		a=null;
 	}
 
 	//Tests Country
@@ -62,12 +70,33 @@ public class TestCity {
 	
 	//Test Address
 	@Test
-	public void TestAddress() throws ModelException {
-		Address a = new Address("rue vasselot", "35700");
+	public void TestAddress(){
+		a = new Address("rue vasselot", "35700");
 		assertNotNull(a);
 		assertEquals(a.getStreet(), "rue vasselot");
 		assertEquals(a.getPostCode(), "35700");
 	}
+	
+	//Test City
+	@Test
+	public void TestCity() {
+		c = new City(1, "Rennes", "35700", true);
+		assertNotNull(c);
+		assertEquals(c.getId(), 1);
+		assertEquals(c.getName(), "Rennes");
+		assertEquals(c.getPostCode(), "35700");
+		assertEquals(c.isForemost(), true);
+	}
+	
+	//Test Region
+	@Test
+	public void TestRegion() {
+		r = new Region(1, "Ouest");
+		assertNotNull(r);
+		assertEquals(r.getId(), 1);
+		assertEquals(r.getName(), "Ouest");
+	}
+	
 	
 	
 	

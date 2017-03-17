@@ -7,15 +7,22 @@ public class ImageData{
 	 * 
 	 */
 	private static final long serialVersionUID = -4072087939439076750L;
-	private Integer id;
+	private int id;
 	private byte[] content;
 	private String target;
 	private int targetId;
 	private String size;
 
-	public Integer getId() {
-		// TODO Auto-generated method stub
-		return id;
+	
+	
+	
+	public ImageData(int id, byte[] content, String target, int targetId, String size) {
+		super();
+		this.id = id;
+		this.content = content;
+		this.target = target;
+		this.targetId = targetId;
+		this.size = size;
 	}
 
 	/**
@@ -77,8 +84,13 @@ public class ImageData{
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+	public int getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
 	
 }
