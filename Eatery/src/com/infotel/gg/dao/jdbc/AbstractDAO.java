@@ -48,6 +48,7 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new DAOException("Impossible de creer l'element.");
 		}
 		return result;
 	}
@@ -77,10 +78,12 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 	 */
 	@Override
 	public void delete(T obj) throws DAOException {
+		
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st = cn.createStatement();
-			System.out.println("DELETE FROM "+ getTableName() +" where "+getIdFormated(getId(obj))+"");
+			ResultSet rs =	st.executeQuery("Select * from "+ getTableName()+" where "+getIdFormated(getId(obj))+"");
+			if(!rs.next()) throw new DAOException("Impossible de supprimer l'element.");
 			st.execute("DELETE FROM "+ getTableName() +" where "+getIdFormated(getId(obj))+"");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,10 +103,13 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 		try {
 			Connection cn =SqlUtils.getConnection();
 			Statement st = cn.createStatement();
+			ResultSet rs =	st.executeQuery("Select * from "+ getTableName()+" where "+getIdFormated(id)+"");
+			if(!rs.next()) throw new DAOException("Impossible de supprimer l'element.");
 			st.execute("DELETE FROM "+ getTableName() +" where "+getIdFormated(id)+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new DAOException("Impossible de supprimer l'element.");
 		}
 		
 	}
