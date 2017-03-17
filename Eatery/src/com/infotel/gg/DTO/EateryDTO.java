@@ -1,3 +1,5 @@
+package com.infotel.gg.DTO;
+
 
 import java.io.Serializable;
 import java.util.List;
@@ -262,3 +264,4 @@ public class EateryDTO implements Serializable {
 				+ cookingStyle + ", cookingStyleid=" + cookingStyleid + ", eateryTagName=" + eateryTagName
 				+ ", imageIds=" + imageIds + ", imageId=" + imageId + ", reviews=" + reviews + "]";
 	}
+}

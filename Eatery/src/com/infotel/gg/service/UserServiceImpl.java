@@ -6,10 +6,13 @@ import com.infotel.gg.customer.Customer;
 import com.infotel.gg.customer.User;
 import com.infotel.gg.dao.DAO;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
+import com.infotel.gg.dao.jdbc.UserDAO;
+import com.infotel.gg.exception.AuthenticationException;
+import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.exception.ModelException;
 
 public class UserServiceImpl implements UserService{
-	private DAO userDAO;
+	private UserDAO userDAO;
 
 
 
@@ -17,9 +20,8 @@ public class UserServiceImpl implements UserService{
 	 * @see com.infotel.gg.service.UserService#authenticate(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public UserDTO authenticate(String username, String password) throws ModelException {
-		DAO userdao = new CustomerDAO(); //a retirer apres
-		User u = userdao.read(username);
+	public UserDTO authenticate(String username, String password) throws GGourmandException {
+		User u = userDAO.read(username);
 		if(u == null){
 			throw new AuthenticationException ("authentification incorrect : utilisateur incorrect");
 		}
@@ -44,6 +46,7 @@ public class UserServiceImpl implements UserService{
 			uDto.setFirstName(e.getFirstName());
 			uDto.setLastName(e.getLastName());			
 		}
+		return uDto;
 	}
 
 	/* (non-Javadoc)
