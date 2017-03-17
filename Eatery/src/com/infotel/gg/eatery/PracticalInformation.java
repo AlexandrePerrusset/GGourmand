@@ -9,7 +9,7 @@ public class PracticalInformation implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 4536914283626180346L;
-	private Integer id;
+	private int id;
 	private String hoursOfOperation1;
 	private String hoursOfOperation2;
 	private String price;
@@ -20,7 +20,7 @@ public class PracticalInformation implements Serializable{
 	
 	
 	
-	public PracticalInformation(Integer id, String hoursOfOperation1, String hoursOfOperation2, String price,
+	public PracticalInformation(int id, String hoursOfOperation1, String hoursOfOperation2, String price,
 			String paymentOptions, String gettingThere, String parking) {
 		setId(id);
 		setHoursOfOperation1(hoursOfOperation1);
@@ -33,13 +33,13 @@ public class PracticalInformation implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/**

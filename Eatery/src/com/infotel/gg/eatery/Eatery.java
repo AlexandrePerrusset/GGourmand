@@ -16,7 +16,7 @@ public class Eatery implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 5737634769078321910L;
-	private Integer id;
+	private int id;
 	private String name;
 	private String description;
 	private String executiveChef;
@@ -29,7 +29,7 @@ public class Eatery implements Serializable{
 	private EateryManager eateryManager;
 	
 	
-	public Eatery(Integer id, String name, String description, String executiveChef,
+	public Eatery(int id, String name, String description, String executiveChef,
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
 			List<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
 
@@ -45,7 +45,7 @@ public class Eatery implements Serializable{
 		setEateryManager(eateryManager);
 	}
 	
-	public Eatery(Integer id, String name, String description, String executiveChef) throws ModelException {
+	public Eatery(int id, String name, String description, String executiveChef) throws ModelException {
 		setId(id);
 		setName(name);
 		setDescription(description);
@@ -75,7 +75,7 @@ public class Eatery implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	
@@ -221,8 +221,8 @@ public class Eatery implements Serializable{
 	 * @param id the id to set
 	 * @throws ModelException 
 	 */
-	public void setId(Integer id) throws ModelException {
-		if(id != null && id > 0) {
+	public void setId(int id) throws ModelException {
+		if(id > 0) {
 			this.id = id;
 		} else{
 			throw new ModelException("Erreur Eatery id");

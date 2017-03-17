@@ -28,23 +28,23 @@ public class TestBooking {
 		pi.setHoursOfOperation2("18-23");
 		
 		Customer cu = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.perru@gmail.com", "sfgshfgseg");
-		Booking booking = new Booking(1000, new Date(2017, 03, 04, 13, 00), 20 , et1, cu);
-		if(booking.isValid()){
-			System.out.println("R�servation accept�e");
-		}else{
-			System.out.println("R�servation annul�e");
-		}
-		abs(-150);
-		float ppp = 50.65f;
-		float total = ppp* booking.getNbOfCustomer();
-		NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.UK);
-		NumberFormat cn = NumberFormat.getNumberInstance(Locale.UK);
-		
-		com.infotel.gg.dao.file.BookingDAO bdao = new com.infotel.gg.dao.file.BookingDAO();
-		
-		bdao.create(booking);
-		
-		System.out.println(bdao.read(1000));
+//		Booking booking = new Booking(1000, new Date(2017, 03, 04, 13, 00), 20 , et1, cu);
+//		if(booking.isValid()){
+//			System.out.println("R�servation accept�e");
+//		}else{
+//			System.out.println("R�servation annul�e");
+//		}
+//		abs(-150);
+//		float ppp = 50.65f;
+//		float total = ppp* booking.getNbOfCustomer();
+//		NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.UK);
+//		NumberFormat cn = NumberFormat.getNumberInstance(Locale.UK);
+//		
+//		com.infotel.gg.dao.file.BookingDAO bdao = new com.infotel.gg.dao.file.BookingDAO();
+//		
+//		bdao.create(booking);
+//		
+//		System.out.println(bdao.read(1000));
 		
 	}
 

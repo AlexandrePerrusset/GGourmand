@@ -1,6 +1,7 @@
 package com.infotel.gg.booking;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.infotel.gg.customer.Customer;
@@ -11,8 +12,8 @@ public class Booking implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 617305149316556133L;
-	private Integer id;
-	private Date dateTime;
+	private int id;
+	private Calendar dateTime;
 	private Customer customer;
 	private Eatery eatery;
 	private int nbOfCustomer;
@@ -20,13 +21,13 @@ public class Booking implements Serializable{
 	
 	
 	
-	public Booking(Integer id, Date dateTime, int nbOfCustomer) {
+	public Booking(int id, Calendar dateTime, int nbOfCustomer) {
 		super();
 		this.id = id;
 		this.dateTime = dateTime;
 		this.nbOfCustomer = nbOfCustomer;
 	}
-	public Booking(Integer id, Date dateTime, int nbOfCustomer, Eatery e, Customer c) {
+	public Booking(int id, Calendar dateTime, int nbOfCustomer, Eatery e, Customer c) {
 		super();
 		this.id = id;
 		this.dateTime = dateTime;
@@ -34,7 +35,7 @@ public class Booking implements Serializable{
 		this.eatery = e;
 		this.customer = c;
 	}
-	public Booking( Date dateTime, int nbOfCustomer, Eatery e, Customer c) {
+	public Booking( Calendar dateTime, int nbOfCustomer, Eatery e, Customer c) {
 		super();
 		
 		this.dateTime = dateTime;
@@ -50,13 +51,13 @@ public class Booking implements Serializable{
 	/**
 	 * @return the dateTime
 	 */
-	public Date getDateTime() {
+	public Calendar getDateTime() {
 		return dateTime;
 	}
 	/**
 	 * @param dateTime the dateTime to set
 	 */
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(Calendar dateTime) {
 		this.dateTime = dateTime;
 	}
 	/**
@@ -100,14 +101,14 @@ public class Booking implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	//Reservation
@@ -117,7 +118,7 @@ public class Booking implements Serializable{
 		if(eatery == null || customer == null || eatery.getPracticalIformation() == null || !(nbOfCustomer>= 0)) return false;
 		if(eatery.getPracticalIformation().getHoursOfOperation1() == null){
 			midi = eatery.getPracticalIformation().getHoursOfOperation1().split("-");
-			if((dateTime.getHours() >= Integer.parseInt(midi[0])  &&  dateTime.getHours() <= Integer.parseInt(midi[1]))){
+			if((dateTime.get(Calendar.HOUR_OF_DAY) >= Integer.parseInt(midi[0])  &&  dateTime.get(Calendar.HOUR_OF_DAY) <= Integer.parseInt(midi[1]))){
 				return true;
 				
 			}
@@ -125,25 +126,29 @@ public class Booking implements Serializable{
 		}else{
 			midi = eatery.getPracticalIformation().getHoursOfOperation1().split("-");
 			soir = eatery.getPracticalIformation().getHoursOfOperation2().split("-");
-//			Date midi1 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), Integer.parseInt(midi[0]), dateTime.getMinutes() );
-//			Date midi2 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), Integer.parseInt(midi[1]), dateTime.getMinutes() );
-//			Date soir1 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), Integer.parseInt(soir[0]), dateTime.getMinutes() );
-//			Date soir2 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), Integer.parseInt(soir[1]), dateTime.getMinutes() );
-			if((dateTime.getHours() >= Integer.parseInt(midi[0])  &&  dateTime.getHours() <= Integer.parseInt(midi[1])) || (dateTime.getHours() >= Integer.parseInt(soir[0])  &&  dateTime.getHours() <= Integer.parseInt(soir[1]))){
+//			Date midi1 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), int.parseInt(midi[0]), dateTime.getMinutes() );
+//			Date midi2 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), int.parseInt(midi[1]), dateTime.getMinutes() );
+//			Date soir1 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), int.parseInt(soir[0]), dateTime.getMinutes() );
+//			Date soir2 = new Date(dateTime.getYear(), dateTime.getMonth(), dateTime.getDay(), int.parseInt(soir[1]), dateTime.getMinutes() );
+			if((dateTime.get(Calendar.HOUR_OF_DAY) >= Integer.parseInt(midi[0])  &&  dateTime.get(Calendar.HOUR_OF_DAY) <= Integer.parseInt(midi[1])) || (dateTime.get(Calendar.HOUR_OF_DAY) >= Integer.parseInt(soir[0])  &&  dateTime.get(Calendar.HOUR_OF_DAY) <= Integer.parseInt(soir[1]))){
 				return true;
 			}
 		
 		}
 		return false;
 	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Booking [id=" + id + ", dateTime=" + dateTime + ", customer=" + customer + ", eatery=" + eatery
-				+ ", nbOfCustomer=" + nbOfCustomer + "]";
+		return "Booking [getDateTime()=" + getDateTime() + ", getCustomer()=" + getCustomer() + ", getEatery()="
+				+ getEatery() + ", getNbOfCustomer()=" + getNbOfCustomer() + ", getId()=" + getId() + ", isValid()="
+				+ isValid() + "]";
 	}
+	
+	
 	
 	
 }

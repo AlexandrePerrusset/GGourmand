@@ -2,13 +2,13 @@ package com.infotel.gg.booking;
 
 
 public class Review{
-	private Integer id;
+	private int id;
 	private int rating;
 	private String comment;
 	private Booking booking;
 
 	
-	public Review(Integer id, int rating, String comment) {
+	public Review(int id, int rating, String comment) {
 		super();
 		this.id = id;
 		this.rating = rating;
@@ -17,7 +17,7 @@ public class Review{
 
 
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -80,7 +80,7 @@ public class Review{
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

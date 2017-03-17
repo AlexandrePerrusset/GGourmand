@@ -2,14 +2,10 @@ package com.infotel.gg.unittest.model;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.infotel.gg.bookingreport.EateryManager;
-import com.infotel.gg.city.Address;
 import com.infotel.gg.eatery.CookingStyle;
 import com.infotel.gg.eatery.Eatery;
 import com.infotel.gg.eatery.EateryTag;
@@ -20,13 +16,9 @@ import com.infotel.gg.exception.ModelException;
 public class TestEatery {
 	CookingStyle cooking;
 	Eatery e;
-	PracticalInformation p;
-	Address a;
-	Menu m;
-	List<EateryTag> listEatTag;
-	EateryManager em;
 	EateryTag eatTag;
-	List<Eatery> listEat;
+	Menu menu;
+	PracticalInformation practInf;
 	
 	
 	@Before
@@ -38,6 +30,8 @@ public class TestEatery {
 		cooking = null;
 		e = null;
 		eatTag = null;
+		menu = null;
+		practInf = null;
 	}
 
 	// Tests constructeurs CookingStyle
@@ -45,11 +39,6 @@ public class TestEatery {
 	public void constructeurCookingOK() throws ModelException {
 		cooking = new CookingStyle(1, "Thomas");
 		assertNotNull(cooking);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurCookingKO1() throws ModelException {
-		cooking = new CookingStyle(null, "Thomas");
 	}
 	
 	@Test(expected=ModelException.class)
@@ -69,7 +58,7 @@ public class TestEatery {
 	
 	@Test(expected=ModelException.class)
 	public void constructeurCookingKO5() throws ModelException {
-		cooking = new CookingStyle(null, null);
+		cooking = new CookingStyle(2, null);
 	}
 	
 	// Tests constructeurs Eatery
@@ -81,22 +70,22 @@ public class TestEatery {
 	
 	@Test(expected=ModelException.class)
 	public void constructeurEateryKO1() throws ModelException {
-		e = new Eatery(-1, "", "", "", p, cooking, a, m, listEatTag, em);
+		e = new Eatery(-1, "", "", "");
 	}
 	
 	@Test(expected=ModelException.class)
 	public void constructeurEateryKO2() throws ModelException {
-		e = new Eatery(1, "", "", "", p, cooking, a, m, listEatTag, em);
+		e = new Eatery(1, "", "", "");
 	}
 	
 	@Test(expected=ModelException.class)
 	public void constructeurEateryKO3() throws ModelException {
-		e = new Eatery(1, "  ", "  ", "  ", p, cooking, a, m, listEatTag, em);
+		e = new Eatery(1, "  ", "  ", "  ");
 	}
 	
 	@Test(expected=ModelException.class)
 	public void constructeurEateryKO4() throws ModelException {
-		e = new Eatery(1, "ff", "ff", "ff", null, null, null, null, null, null);
+		e = new Eatery(1, null, "ff", "ff");
 	}
 	
 	// Tests constructeurs EateryTag
@@ -105,18 +94,6 @@ public class TestEatery {
 		eatTag = new EateryTag(1, "ihjvxd");
 		assertNotNull(eatTag);
 	}
-	
-	// TODO : tests KO1 et KO2 avec null
-	
-//	@Test(expected=ModelException.class)
-//	public void constructeurEateryTagKO1() throws ModelException {
-//		eatTag = new EateryTag(null, "sd");
-//	}
-//	
-//	@Test(expected=ModelException.class)
-//	public void constructeurEateryTagKO2() throws ModelException {
-//		eatTag = new EateryTag(null, null);
-//	}
 	
 	@Test(expected=ModelException.class)
 	public void constructeurEateryTagKO3() throws ModelException {
@@ -136,5 +113,46 @@ public class TestEatery {
 	@Test(expected=ModelException.class)
 	public void constructeurEateryTagKO6() throws ModelException {
 		eatTag = new EateryTag(-2, "sfs");
+	}
+	
+	// Tests constructeurs Menu
+	@Test
+	public void constructeurMenuOK1() throws ModelException {
+		menu = new Menu(1, "fsfq");
+		assertNotNull(menu);
+	}
+	
+	@Test(expected=ModelException.class)
+	public void constructeurMenuKO1() throws ModelException {
+		menu = new Menu(1, "");
+	}
+	
+	@Test(expected=ModelException.class)
+	public void constructeurMenuKO2() throws ModelException {
+		menu = new Menu(1, " ");
+	}
+	
+	@Test(expected=ModelException.class)
+	public void constructeurMenuKO3() throws ModelException {
+		menu = new Menu(1, null);
+	}
+	
+	@Test(expected=ModelException.class)
+	public void constructeurMenuKO4() throws ModelException {
+		menu = new Menu(-1, "gd");
+	}
+	
+	// Tests constructeur PracticalInformation
+	@Test
+	public void constructeurPracticalInformationOK() {
+		practInf = new PracticalInformation(1, "deux", "trois", "quatre", "cinq", "six", "sept");
+		assertNotNull(practInf);
+		assertEquals(practInf.getId(), 1);
+		assertEquals(practInf.getHoursOfOperation1(), "deux");
+		assertEquals(practInf.getHoursOfOperation2(), "trois");
+		assertEquals(practInf.getPrice(), "quatre");
+		assertEquals(practInf.getPaymentOptions(), "cinq");
+		assertEquals(practInf.getGettingThere(),"six");
+		assertEquals(practInf.getParking(), "sept");
 	}
 }

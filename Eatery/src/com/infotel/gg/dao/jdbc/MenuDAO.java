@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.infotel.gg.eatery.Menu;
+import com.infotel.gg.exception.ModelException;
 
 
 public class MenuDAO extends AbstractDAO<Menu, Integer> {
@@ -22,7 +23,7 @@ public class MenuDAO extends AbstractDAO<Menu, Integer> {
 	}
 
 	@Override
-	public Menu getModelObject(ResultSet rs) {
+	public Menu getModelObject(ResultSet rs) throws ModelException {
 		Menu menu = null;
 		try {
 			menu = new Menu(rs.getInt("id"), rs.getString("content"));
@@ -63,7 +64,7 @@ public class MenuDAO extends AbstractDAO<Menu, Integer> {
 		return " (content) VALUES(?)";
 	}
 	
-	public Map<Integer, Menu> readAll(){
+	public Map<Integer, Menu> readAll() throws ModelException{
 		Map<Integer, Menu> listMenu = new HashMap<Integer,Menu>();
 		try {
 			Connection cn =SqlUtils.getConnection();
@@ -93,7 +94,7 @@ public class MenuDAO extends AbstractDAO<Menu, Integer> {
 	}
 
 	@Override
-	public void setId(Integer id, Menu obj) {
+	public void setId(Integer id, Menu obj) throws ModelException {
 		obj.setId(id);
 	}
 

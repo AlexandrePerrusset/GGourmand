@@ -12,7 +12,7 @@ public class EateryTag{
 	 * 
 	 */
 	private static final long serialVersionUID = 8204488586862481556L;
-	private Integer id;
+	private int id;
 	private String name;
 	
 	private List<Eatery> eateries;
@@ -64,8 +64,7 @@ public class EateryTag{
 		
 	}
 	
-	public Integer getId() {
-		// TODO Auto-generated method stub
+	public int getId() {
 		return id;
 	}
 	
@@ -74,8 +73,8 @@ public class EateryTag{
 	 * @param id the id to set
 	 * @throws ModelException 
 	 */
-	public void setId(Integer id) throws ModelException {
-		if(id != null && id > 0) {
+	public void setId(int id) throws ModelException {
+		if(id > 0) {
 			this.id = id;
 		} else{
 			throw new ModelException("Erreur EateryTag id");

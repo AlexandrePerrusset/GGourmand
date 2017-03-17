@@ -8,18 +8,17 @@ public class CookingStyle{
 	 * 
 	 */
 	private static final long serialVersionUID = -8880518127996567425L;
-	private Integer id;
+	private int id;
 	private String name;
 
-	public CookingStyle(Integer id, String name) throws ModelException {
+	public CookingStyle(int id, String name) throws ModelException {
 		setId(id);
 		setName(name);
 	}
 	
 
 
-	public Integer getId() {
-		// TODO Auto-generated method stub
+	public int getId() {
 		return id;
 	}
 	
@@ -28,8 +27,8 @@ public class CookingStyle{
 	 * @param id the id to set
 	 * @throws ModelException 
 	 */
-	public void setId(Integer id) throws ModelException {
-		if(id != null && id > 0) {
+	public void setId(int id) throws ModelException {
+		if(id > 0) {
 			this.id = id;
 		} else{
 			throw new ModelException("Erreur CookingStyle id");

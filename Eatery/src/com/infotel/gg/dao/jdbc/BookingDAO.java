@@ -3,6 +3,7 @@ package com.infotel.gg.dao.jdbc;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -47,8 +48,9 @@ public class BookingDAO extends AbstractDAO<Booking, Integer>{
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Booking obj) {
-		Date d = obj.getDateTime();
-		java.sql.Date sd = new java.sql.Date(d.getTime());
+		Calendar d = Calendar.getInstance();
+		d = obj.getDateTime();
+		java.sql.Date sd = new java.sql.Date(d.getTimeInMillis());
 		try{
 			if(obj.getId()> 0){
 				p.setLong(1, obj.getId());
