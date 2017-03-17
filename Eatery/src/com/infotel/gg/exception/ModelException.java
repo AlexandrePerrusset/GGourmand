@@ -1,6 +1,6 @@
 package com.infotel.gg.exception;
 
-public class ModelException extends Exception{
+public class ModelException extends RuntimeException{
 
 	public ModelException() {
 		super();
