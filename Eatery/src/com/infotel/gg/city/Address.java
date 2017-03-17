@@ -6,14 +6,20 @@ public class Address {
 	private City city;
 	
 	
-	//CONSTRUCTOR
-	public Address(String street, String postCode, City city) {
+	//CONSTRUCTOR	
+	
+	
+	public Address(String street, String postCode) {
 		this.setStreet(street);
 		this.setPostCode(postCode);
-		this.setCity(city);
 	}
 	
 	
+	
+	
+
+
+
 	//GETTERS AND SETTERS
 	/**
 	 * @return the street

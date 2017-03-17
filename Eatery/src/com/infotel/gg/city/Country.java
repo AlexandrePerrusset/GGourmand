@@ -8,12 +8,14 @@ public class Country{
 	 * 
 	 */
 	private static final long serialVersionUID = -3992402814327252754L;
-	private Integer id;
+	private int id;
 	private String name;
 	
 	
+	
+	
 	//CONSTRUCTOR
-	public Country(Integer id, String name) throws ModelException {
+	public Country(int id, String name) throws ModelException {
 		this.setId(id);
 		this.setName(name);
 	}
@@ -23,7 +25,7 @@ public class Country{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	
@@ -31,8 +33,8 @@ public class Country{
 	 * @param id the id to set
 	 * @throws ModelException 
 	 */
-	public void setId(Integer id) throws ModelException {
-		if(id != null && id > 0) {
+	public void setId(int id) throws ModelException {
+		if( id > 0) {
 			this.id = id;
 		} else{
 			throw new ModelException("Erreur Country id");

@@ -1,7 +1,10 @@
 package com.infotel.gg.service;
-import com.infotel.gg.customer.*;
+import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.ModelException;
 
 public interface UserService {
-	Customer authenticate(String username, String password) throws ModelException;
+	
+	UserDTO authenticate(String username, String password) throws ModelException;
+	
+	void register (UserDTO userDto) throws ModelException;
 }

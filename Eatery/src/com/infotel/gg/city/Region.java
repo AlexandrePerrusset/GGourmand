@@ -1,20 +1,21 @@
 package com.infotel.gg.city;
 
-
+import com.infotel.gg.exception.ModelException;
+import com.mysql.jdbc.StringUtils;
 
 public class Region {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5296585714694623741L;
-	private Integer id;
+	private int id;
 	private String name;
 	private Country country;
 	
 	
 	
 	//CONSTRUCTOR
-	public Region(Integer id, String name) {
+	public Region(int id, String name) throws ModelException {
 		this.setId(id);
 		this.setName(name);
 	}
@@ -24,15 +25,20 @@ public class Region {
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	
 	/**
 	 * @param id the id to set
+	 * @throws ModelException 
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(int id) throws ModelException {
+		if(id > 0) {
+			this.id = id;
+		} else{
+			throw new ModelException("Erreur Region id");
+		}
 	}
 	
 	
@@ -44,9 +50,14 @@ public class Region {
 	}
 	/**
 	 * @param name the name to set
+	 * @throws ModelException 
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) throws ModelException {
+		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
+			this.name = name;
+		} else {
+			throw new ModelException("Erreur Region name");
+		}
 	}
 	
 	

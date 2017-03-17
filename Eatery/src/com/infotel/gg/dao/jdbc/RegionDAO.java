@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.infotel.gg.city.Region;
-import com.infotel.gg.eatery.Eatery;
+import com.infotel.gg.exception.ModelException;
 
 public class RegionDAO extends AbstractDAO<Region, Integer>{
 
@@ -17,7 +17,7 @@ public class RegionDAO extends AbstractDAO<Region, Integer>{
 	}
 
 	@Override
-	public Region getModelObject(ResultSet rs) {
+	public Region getModelObject(ResultSet rs) throws ModelException {
 		Region temp = null;
 		try {
 			temp = new Region(rs.getInt("id"), rs.getString("name") );

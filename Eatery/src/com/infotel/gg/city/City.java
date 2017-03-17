@@ -9,7 +9,7 @@ public class City implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -2406884507752812014L;
-	private Integer id;
+	private int id;
 	private String name;
 	private String postCode;
 	private boolean foreMost;
@@ -19,7 +19,7 @@ public class City implements Serializable{
 	
 	
 	//CONSTRUCTOR
-	public City(Integer id, String name, String postCode, boolean foreMost) {
+	public City(int id, String name, String postCode, boolean foreMost) {
 		this.setId(id);
 		this.setName(name);
 		this.setPostCode(postCode);
@@ -30,13 +30,13 @@ public class City implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
