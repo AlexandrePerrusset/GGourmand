@@ -148,3 +148,11 @@ h5.titreResultats{
 	background-color: #800b03;
 	height: 600px;
 }
+
+.card-panel.white .filters {
+	margin: auto;
+}
+
+.filters{
+	max-width: 100%;
+}
