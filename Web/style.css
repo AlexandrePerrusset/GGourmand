@@ -137,32 +137,32 @@ h5.titreResultats{
 	color: white;
 }
 
-/*.card.horizontal .card-image img.photoresto2{
-	height: 70px;
-	width: 60px;
-	margin-left: 75px;
-	padding-top: 7px;
-	width: 100%;
-}
-*/
 .card.horizontal .card-image{
 	max-width: 100%;
 	max-height: 100%;
 	padding-top: 16px
 	padding-left: 16px;
-
-
 }
 
 .resultats{
 	background-color: #800b03;
-	height: 600px;
+	height: auto;
 }
 
 .card-panel.white .filters {
 	margin: auto;
 }
 
-.filters{
-	max-width: 100%;
+#lien_hp{
+	margin-left: 92%;
+}
+
+.col.s3 .card-panel.white .filters {
+	margin: auto;
+	width: auto;
+	height: auto;
+}
+
+.pagination{
+	margin-left: 75%;
 }
