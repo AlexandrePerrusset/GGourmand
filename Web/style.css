@@ -153,6 +153,7 @@ h5.titreResultats{
 	margin: auto;
 }
 
+
 #lien_hp{
 	margin-left: 92%;
 }
@@ -166,3 +167,56 @@ h5.titreResultats{
 .pagination{
 	margin-left: 75%;
 }
+
+.filters{
+	max-width: 100%;
+}
+
+
+
+
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #800b03;
+   }
+
+  /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #e8bf76;
+     box-shadow: 0 1px 0 0 #e8bf76;
+   }
+ 
+
+ .picker__date-display, .picker__weekday-display{
+    background-color: #e8bf76;
+}
+
+ div.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted {
+        background-color: #e8bf76;
+    }
+
+ button.picker__today, button.picker__close {
+        color: #e8bf76;
+    }
+
+
+div.picker__day.picker__day--today {
+        color: #e8bf76;
+    }
+
+
+.dropdown-content li>a, .dropdown-content li>span {
+	    color:  #800b03;
+    }
+
+
+
+.buttonSpe{
+	background-color: #e8bf76;
+}
+
+.buttonSpe:hover{
+	background-color:  #800b03;
+}
+
+
