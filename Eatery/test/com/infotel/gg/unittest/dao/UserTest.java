@@ -14,7 +14,7 @@ import com.infotel.gg.exception.ModelException;
 
 import DBUnit.DBUtils;
 
-public class TestUserV4 {
+public class UserTest {
 	Customer c;
 	CustomerDAO cd = new CustomerDAO();
 	
@@ -115,6 +115,25 @@ public class TestUserV4 {
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "delezgzegzeete", "sfgshfgseg");
 		
 		cd.delete(c);
+		
+		
+	}
+	@Test
+	public void deleteOk2() throws DAOException, ModelException {
+		
+
+		
+		cd.deleteById("delete2");
+		
+		assertNull("le cutsomer n'est plus présent dans la base", cd.read("delete2"));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void deleteKo2() throws DAOException, ModelException {
+		
+	
+		
+		cd.deleteById("rzgergrezgre");
 		
 		
 	}

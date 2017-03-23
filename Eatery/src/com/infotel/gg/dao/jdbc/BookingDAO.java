@@ -88,7 +88,7 @@ public class BookingDAO extends AbstractDAO<Booking, Integer>{
 
 	@Override
 	public String getIdFormated(Integer id) {
-		return "id ="+id;
+		return "id = "+id;
 	}
 
 	
