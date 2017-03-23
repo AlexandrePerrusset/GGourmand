@@ -43,7 +43,6 @@ public abstract class AbstractDAO<T,K> implements DAO<T,K>{
 			Statement st= cn.createStatement();
 			
 			ResultSet rs = st.executeQuery("Select * from "+ getTableName()+" where "+getIdFormated(i)+"");
-			System.out.println("Select * from "+ getTableName()+" where "+getIdFormated(i)+"");
 			if(rs.next()) result = getModelObject(rs);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

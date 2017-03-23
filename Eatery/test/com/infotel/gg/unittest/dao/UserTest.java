@@ -25,9 +25,6 @@ public class UserTest {
 		
 		
 	}
-		
-        
-	
 	
 	@Before
 	public void avant() throws Exception {
@@ -41,57 +38,57 @@ public class UserTest {
 	
 	@AfterClass
 	public static void apresClass(){
-		DBUtils.cleanDB();
+		//DBUtils.cleanDB();
 	}
 	
 
 	@Test
-	public void ReadOk() throws ModelException {
+	public void readOk() throws ModelException {
 		assertNotNull("le customer n'est pas nul ReadOk", cd.read("alex.perru@gmail.com"));
 	}
 	@Test
-	public void ReadOk2() throws ModelException {
+	public void readOk2() throws ModelException {
 		assertNotNull("le customer n'est pas nul ReadOk2", cd.read("plop@gmail.com"));
 	
 	}
 	@Test
-	public void ReadKo() throws ModelException {
+	public void readKo() throws ModelException {
 		assertNull("le customer est nul ReadKo",  cd.read(null));
 	}
 	@Test
-	public void ReadKo2() throws ModelException {
+	public void readKo2() throws ModelException {
 		assertNull("le customer est nul ReadKo2", cd.read("654364687434"));
 	}
 	@Test
-	public void ReadExep() throws ModelException {
+	public void readExep() throws ModelException {
 		assertNull(cd.read(""));
 
 	}
 	
 	
 	@Test
-	public void CreateOk() throws DAOException, ModelException {
+	public void createOk() throws DAOException, ModelException {
 		c = new Customer("Alexa737ndra", "Per325russet", "Mme", "24152163", "alex@gmai.com", "sfgsh3783783fgseg");
 		cd.create(c);
 		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
 	@Test
-	public void CreateOk2() throws DAOException, ModelException {
+	public void createOk2() throws DAOException, ModelException {
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex@gmail.com", "sfgshfgseg");
 		cd.create(c);
 		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
 	@Test(expected=DAOException.class)
-	public void CreateKo2() throws  DAOException, ModelException {
+	public void createKo2() throws  DAOException, ModelException {
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", null, "sfgshfgseg");
 		cd.create(c);
 		assertNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
 	@Test(expected=DAOException.class)
-	public void CreateKo() throws DAOException {
+	public void createKo() throws DAOException {
 		
 		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.ru@gmail.com", "sfgshfgseg");
 		
