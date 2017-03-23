@@ -1,4 +1,4 @@
-package com.infotel.gg.city;
+package com.infotel.gg.model;
 
 public class Address {
 	private String street;

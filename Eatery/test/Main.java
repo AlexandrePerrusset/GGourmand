@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.infotel.gg.eatery.Eatery;
-import com.infotel.gg.eatery.EateryTag;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.EateryTag;
 
 
 public class Main {

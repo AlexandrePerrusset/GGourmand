@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.infotel.gg.dao.jdbc.SqlUtils;
-import com.infotel.gg.eatery.Eatery;
-import com.infotel.gg.eatery.EateryTag;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.EateryTag;
 
 
 

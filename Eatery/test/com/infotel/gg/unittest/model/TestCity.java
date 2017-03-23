@@ -9,11 +9,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.city.Address;
-import com.infotel.gg.city.City;
-import com.infotel.gg.city.Country;
-import com.infotel.gg.city.Region;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Address;
+import com.infotel.gg.model.City;
+import com.infotel.gg.model.Country;
+import com.infotel.gg.model.Region;
 
 
 public class TestCity {

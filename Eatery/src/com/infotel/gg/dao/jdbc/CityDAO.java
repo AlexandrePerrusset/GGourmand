@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.city.City;
-import com.infotel.gg.eatery.Eatery;
+import com.infotel.gg.model.City;
+import com.infotel.gg.model.Eatery;
 
 public class CityDAO extends AbstractDAO<City, Integer>{
 

@@ -1,4 +1,4 @@
-package com.infotel.gg.image;
+package com.infotel.gg.model;
 
 
 

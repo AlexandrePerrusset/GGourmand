@@ -1,7 +1,4 @@
-package com.infotel.gg.bookingreport;
-
-import com.infotel.gg.customer.Person;
-import com.infotel.gg.eatery.Eatery;
+package com.infotel.gg.model;
 
 public class EateryManager extends Person{
 	

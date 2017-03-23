@@ -11,8 +11,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.bookingreport.BookingReport;
-import com.infotel.gg.bookingreport.EateryManager;
+import com.infotel.gg.model.BookingReport;
+import com.infotel.gg.model.EateryManager;
 
 
 public class TestBookingReport {

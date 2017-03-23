@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.eatery.CookingStyle;
-import com.infotel.gg.eatery.PracticalInformation;
+import com.infotel.gg.model.CookingStyle;
+import com.infotel.gg.model.PracticalInformation;
 
 public class PracticalInformationDAO extends AbstractDAO<PracticalInformation, Integer>{
 

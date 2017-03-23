@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.infotel.gg.eatery.Menu;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Menu;
 
 
 public class MenuDAO extends AbstractDAO<Menu, Integer> {

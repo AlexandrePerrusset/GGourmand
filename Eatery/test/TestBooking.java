@@ -6,11 +6,11 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 
-import com.infotel.gg.booking.Booking;
-import com.infotel.gg.customer.Customer;
-import com.infotel.gg.eatery.Eatery;
-import com.infotel.gg.eatery.PracticalInformation;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.Customer;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.PracticalInformation;
 
 import static java.lang.Math.*;
 

@@ -9,8 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.city.Region;
-import com.infotel.gg.image.ImageData;
+import com.infotel.gg.model.ImageData;
+import com.infotel.gg.model.Region;
 
 /**
  * @author formation

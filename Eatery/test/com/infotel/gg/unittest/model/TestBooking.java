@@ -9,8 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.booking.Booking;
-import com.infotel.gg.booking.Review;
+import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.Review;
 
 public class TestBooking {
 	Booking booking;

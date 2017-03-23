@@ -1,4 +1,4 @@
-package com.infotel.gg.eatery;
+package com.infotel.gg.model;
 
 import java.io.Serializable;
 

@@ -5,14 +5,14 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import com.infotel.gg.booking.Booking;
-import com.infotel.gg.customer.Customer;
 import com.infotel.gg.dao.jdbc.BookingDAO;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
 import com.infotel.gg.dao.jdbc.EateryDAO;
 import com.infotel.gg.dao.jdbc.MenuDAO;
-import com.infotel.gg.eatery.Eatery;
-import com.infotel.gg.eatery.Menu;
+import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.Customer;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.Menu;
 
 public class TestDao {
 

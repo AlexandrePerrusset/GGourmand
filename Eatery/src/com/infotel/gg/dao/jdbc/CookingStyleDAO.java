@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.city.City;
-import com.infotel.gg.eatery.CookingStyle;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.City;
+import com.infotel.gg.model.CookingStyle;
 
 public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 

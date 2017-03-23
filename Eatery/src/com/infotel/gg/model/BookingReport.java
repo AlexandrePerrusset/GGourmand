@@ -1,8 +1,6 @@
-package com.infotel.gg.bookingreport;
+package com.infotel.gg.model;
 
 import java.util.Calendar;
-
-import com.infotel.gg.booking.Booking;
 
 public class BookingReport{
 	private int id;

@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.city.City;
-import com.infotel.gg.eatery.EateryTag;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.City;
+import com.infotel.gg.model.EateryTag;
 
 public class EateryTagDAO extends AbstractDAO<EateryTag, Integer>{
 

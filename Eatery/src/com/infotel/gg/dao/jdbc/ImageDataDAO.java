@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-import com.infotel.gg.image.ImageData;
+import com.infotel.gg.model.ImageData;
 
 public class ImageDataDAO extends AbstractDAO<ImageData, Integer>{
 

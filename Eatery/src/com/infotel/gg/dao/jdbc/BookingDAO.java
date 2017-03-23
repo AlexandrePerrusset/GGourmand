@@ -7,8 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.infotel.gg.booking.Booking;
-import com.infotel.gg.city.Region;
+import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.Region;
 
 public class BookingDAO extends AbstractDAO<Booking, Integer>{
 

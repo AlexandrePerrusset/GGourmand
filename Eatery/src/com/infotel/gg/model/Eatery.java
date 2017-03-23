@@ -1,11 +1,9 @@
-package com.infotel.gg.eatery;
+package com.infotel.gg.model;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import com.infotel.gg.bookingreport.EateryManager;
-import com.infotel.gg.city.Address;
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
 

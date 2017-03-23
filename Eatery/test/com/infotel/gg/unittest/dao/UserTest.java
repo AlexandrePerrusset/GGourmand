@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.customer.Customer;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Customer;
 
 import DBUnit.DBUtils;
 

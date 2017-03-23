@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.customer.Customer;
-import com.infotel.gg.eatery.Menu;
+import com.infotel.gg.model.Customer;
+import com.infotel.gg.model.Menu;
 
 public class CustomerDAO extends AbstractDAO<Customer, String>{
 

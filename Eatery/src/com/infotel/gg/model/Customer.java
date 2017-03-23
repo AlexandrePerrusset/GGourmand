@@ -1,4 +1,4 @@
-package com.infotel.gg.customer;
+package com.infotel.gg.model;
 
 
 

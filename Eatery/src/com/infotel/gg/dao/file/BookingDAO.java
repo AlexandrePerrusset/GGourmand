@@ -2,7 +2,7 @@ package com.infotel.gg.dao.file;
 
 import java.util.List;
 
-import com.infotel.gg.booking.Booking;
+import com.infotel.gg.model.Booking;
 
 public class BookingDAO extends AbstractFileDAO<Booking, Integer>{
 

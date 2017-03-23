@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.city.Region;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Region;
 
 public class RegionDAO extends AbstractDAO<Region, Integer>{
 

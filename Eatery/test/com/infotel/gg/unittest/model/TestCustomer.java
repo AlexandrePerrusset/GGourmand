@@ -9,8 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.bookingreport.EateryManager;
-import com.infotel.gg.customer.Customer;
+import com.infotel.gg.model.Customer;
+import com.infotel.gg.model.EateryManager;
 
 /**
  * @author formation

@@ -1,11 +1,8 @@
-package com.infotel.gg.booking;
+package com.infotel.gg.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-
-import com.infotel.gg.customer.Customer;
-import com.infotel.gg.eatery.Eatery;
 
 public class Booking implements Serializable{
 	/**

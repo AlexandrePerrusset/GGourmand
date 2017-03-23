@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.booking.Booking;
 import com.infotel.gg.dao.jdbc.BookingDAO;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Booking;
 
 import DBUnit.DBUtils;
 

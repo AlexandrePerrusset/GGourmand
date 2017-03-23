@@ -1,4 +1,4 @@
-package com.infotel.gg.eatery;
+package com.infotel.gg.model;
 
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;

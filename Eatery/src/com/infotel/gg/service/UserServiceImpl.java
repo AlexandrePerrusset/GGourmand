@@ -1,15 +1,15 @@
 package com.infotel.gg.service;
 
 import com.infotel.gg.DTO.UserDTO;
-import com.infotel.gg.bookingreport.EateryManager;
-import com.infotel.gg.customer.Customer;
-import com.infotel.gg.customer.User;
 import com.infotel.gg.dao.DAO;
 import com.infotel.gg.dao.jdbc.CustomerDAO;
 import com.infotel.gg.dao.jdbc.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Customer;
+import com.infotel.gg.model.EateryManager;
+import com.infotel.gg.model.User;
 
 public class UserServiceImpl implements UserService{
 	private UserDAO userDAO;

@@ -8,8 +8,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import com.infotel.gg.booking.Review;
-import com.infotel.gg.bookingreport.BookingReport;
+import com.infotel.gg.model.BookingReport;
+import com.infotel.gg.model.Review;
 
 public class BookingReportDAO extends AbstractDAO<BookingReport, Integer>{
 

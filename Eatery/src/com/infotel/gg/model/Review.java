@@ -1,4 +1,4 @@
-package com.infotel.gg.booking;
+package com.infotel.gg.model;
 
 
 public class Review{

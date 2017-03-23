@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.infotel.gg.eatery.Eatery;
-import com.infotel.gg.eatery.Menu;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.Menu;
 
 public class EateryDAO extends AbstractDAO<Eatery, Integer>{
 
