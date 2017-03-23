@@ -199,7 +199,6 @@ input[type=range]::-webkit-slider-thumb {
  box-shadow: 0 1px 0 0 #e8bf76;
 }
 
-
 .picker__date-display, .picker__weekday-display{
 background-color: #e8bf76;
 }
@@ -212,17 +211,13 @@ button.picker__today, button.picker__close {
     color: #e8bf76;
 }
 
-
 div.picker__day.picker__day--today {
     color: #e8bf76;
 }
 
-
 .dropdown-content li>a, .dropdown-content li>span {
     color:  #800b03;
 }
-
-
 
 .buttonSpe{
 background-color: #e8bf76;
@@ -232,6 +227,9 @@ background-color: #e8bf76;
 background-color:  #800b03;
 }
 
+.filters p label{
+	font-size: 15px;
+}
 
 .titrerésa{
 	text-align: center;
@@ -247,3 +245,8 @@ background-color:  #800b03;
 .btn:hover{
 	background-color:  #e8bf76;
 }
+
+.checkbox-green[type="checkbox"].filled-in:checked + label:after{
+    background-color: green;
+}
+
