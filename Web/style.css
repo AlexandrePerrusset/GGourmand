@@ -247,6 +247,7 @@ background-color:  #800b03;
 }
 
 .checkbox-green[type="checkbox"].filled-in:checked + label:after{
-    background-color: green;
+    background-color: #800b03;
+    border: 2px solid #800b03;
 }
 
