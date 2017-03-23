@@ -78,7 +78,7 @@ background-color: #800b03;
 background-color: #800b03;
 }
 .traitrouge{
-height: 20px;
+height: 60px;
 }
 
 .tabs .tab a{
@@ -233,3 +233,17 @@ background-color:  #800b03;
 }
 
 
+.titrerésa{
+	text-align: center;
+	color: white;
+}
+
+
+.btn{
+	background-color: white;
+	color: #800b03;
+}
+
+.btn:hover{
+	background-color:  #e8bf76;
+}
