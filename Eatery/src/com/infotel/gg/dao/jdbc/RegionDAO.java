@@ -43,8 +43,9 @@ public class RegionDAO extends AbstractDAO<Region, Integer>{
 	public void createPrepareFromObject(PreparedStatement p, Region obj) {
 		try{
 			if(obj.getId()>0){
-				p.setString(1, obj.getName());
-				p.setInt(2, 1);
+				p.setInt(1, obj.getId());
+				p.setString(2, obj.getName());
+				p.setInt(3, 1);
 			}
 		}catch(SQLException e){
 			// TODO Auto-generated catch block

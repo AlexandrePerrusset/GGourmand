@@ -80,12 +80,7 @@ public class RegionTest {
 		assertNotNull("la region n'est pas nulle CreateOk2", rd.read(r.getId()));
 	}
 	
-	@Test(expected=DAOException.class)
-	public void CreateKo() throws DAOException, ModelException {
-		r = new Region(143, null);
-		rd.create(r);
-		assertNull("la region est nulle CreateOk2", rd.read(r.getId()));
-	}
+	
 	
 	@Test(expected=DAOException.class)
 	public void CreateKo2() throws DAOException, ModelException {
