@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.model.City;
 import com.infotel.gg.model.CookingStyle;
 
 public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
@@ -14,7 +13,7 @@ public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 	@Override
 	public String getTableName() {
 		// TODO Auto-generated method stub
-		return "cookingstyle";
+		return "cooking_style";
 	}
 
 	@Override
@@ -37,14 +36,21 @@ public class CookingStyleDAO extends AbstractDAO<CookingStyle, Integer>{
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, CookingStyle obj) {
-		// TODO Auto-generated method stub
+		try{
+			if(obj.getId()>0){
+				p.setInt(1, obj.getId());
+				p.setString(2, obj.getName());
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
 
 	@Override
 	public String getInsert(CookingStyle obj) {
-		// TODO Auto-generated method stub
-		return null;
+		return " (id, name) VALUES(?,?)";
 	}
 
 	@Override

@@ -9,18 +9,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.RegionDAO;
+import com.infotel.gg.dao.jdbc.CookingStyleDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.model.Region;
-
+import com.infotel.gg.model.CookingStyle;
 import DBUnit.DBUtils;
 
 
-public class RegionTest {
+public class CookingStyleTest {
+	CookingStyle cs;
+	CookingStyleDAO csd = new CookingStyleDAO();
 	
-	Region r;
-	RegionDAO rd = new RegionDAO();
+
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -41,78 +41,77 @@ public class RegionTest {
 	
 	@After
 	public void tearDown() throws Exception {
-		r=null;
+		cs=null;
 	}
 
 	@Test
 	public void readOk() {
-		assertNotNull("la region n'est pas nulle readOk",rd.read(1));
+		assertNotNull("CookingStyle n'est pas nulle readOk",csd.read(1));
 	}
 	
 	@Test
 	public void readOk2() {
-		assertNotNull("la region n'est pas nulle readOk2",rd.read(2));
+		assertNotNull("CookingStyle n'est pas nulle readOk2",csd.read(2));
 	}
 	
 	@Test
 	public void readKo() {
-		assertNull("la region est nulle readKo",rd.read(null));
+		assertNull("CookingStyle est nulle readKo",csd.read(null));
 	}
 	
 	@Test
 	public void readKo2() {
-		assertNull("la region est nulle readKo2",rd.read(5699965));
+		assertNull("CookingStyle est nulle readKo2",csd.read(5699965));
 	}
 	
 	@Test
 	public void CreateOk() throws DAOException, ModelException {
-		r = new Region(141, "RegionFactice");
-		rd.create(r);
-		assertNotNull("la region n'est pas nulle CreateOk", rd.read(r.getId()));
+		cs = new CookingStyle(141, "CookingStyleFactice");
+		csd.create(cs);
+		assertNotNull("CookingStyle n'est pas nulle CreateOk", csd.read(cs.getId()));
 	}
 	
 	@Test
 	public void CreateOk2() throws DAOException, ModelException {
-		r = new Region(142, "AutreRegionFactice");
-		rd.create(r);
-		assertNotNull("la region n'est pas nulle CreateOk2", rd.read(r.getId()));
+		cs = new CookingStyle(142, "AutreCookingStyleFactice");
+		csd.create(cs);
+		assertNotNull("CookingStyle n'est pas nulle CreateOk2", csd.read(cs.getId()));
 	}
 	
 	
 	
 	@Test(expected=DAOException.class)
-	public void CreateKo2() throws DAOException, ModelException {
-		r = new Region(144, "AgainFactice");
-		rd.create(r);
-		rd.create(r);
+	public void CreateKo() throws DAOException, ModelException {
+		cs = new CookingStyle(144, "AgainFactice");
+		csd.create(cs);
+		csd.create(cs);
 	}
+	
 	
 	@Test
 	public void deleteOk() throws DAOException, ModelException {	
-		r = new Region(1, "Ile-de-France");		
-		rd.delete(r);		
-		assertNull("la region n'est plus présent dans la base", rd.read(r.getId()));
+		cs = new CookingStyle(43, "Vietnamien");		
+		csd.delete(cs);		
+		assertNull("CookingStylen'est plus présent dans la base", csd.read(cs.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
 	public void deleteKo() throws DAOException, ModelException {		
-		r = new Region(6, "regionfake");		
-		rd.delete(r);				
+		cs = new CookingStyle(146, "CookingStylefake");		
+		csd.delete(cs);				
 	}
 	
 	
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
-		rd.deleteById(3);	
-		assertNull("la region n'est plus présent dans la base", rd.read(3));
+		csd.deleteById(3);	
+		assertNull("CookingStyle n'est plus présent dans la base", csd.read(3));
 	}
 	
 	
 	@Test(expected=DAOException.class)
 	public void deleteKo2() throws DAOException, ModelException {
-	rd.deleteById(7);		
+	csd.deleteById(148);		
 	}
-	
-	
 
 }
