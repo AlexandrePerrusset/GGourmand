@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Review;
 
 public class ReviewDAO extends AbstractDAO<Review, Integer>{
@@ -13,7 +12,7 @@ public class ReviewDAO extends AbstractDAO<Review, Integer>{
 	@Override
 	public String getTableName() {
 		// TODO Auto-generated method stub
-		return "Review";
+		return "review";
 	}
 
 	@Override
@@ -37,11 +36,22 @@ public class ReviewDAO extends AbstractDAO<Review, Integer>{
 
 	@Override
 	public String getInsert(Review obj) {
-		return null;
+		return " (id,booking_id, rating, comment) VALUES(?,?,?,?)";
 	}
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Review obj) {
+		try{
+			if(obj.getId()>0){
+				p.setInt(1, obj.getId());
+				p.setInt(2, 1);
+				p.setInt(3, obj.getRating());
+				p.setString(4, obj.getComment());
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

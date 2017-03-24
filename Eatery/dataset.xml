@@ -301,4 +301,7 @@
   <practical_information id="38" hours_of_operation1="D&#233;jeuner : de 12h &#224; 14h (sauf dimanche et lundi)" hours_of_operation2="D&#238;ner : de 19h30 &#224; 22h (du mardi au jeudi); de 19h30 &#224; 22h30 (vendredi et samedi)" payment_options="Carte American Express accept&#233;e, Carte Bleue, Carte Mastercard, Carte Visa, Ch&#232;que" price="29 &#8364;" getting_there="Gare Versailles Rive-Droite ou Versailles Rive-Gauche" parking="Parking Saint Cloud &#224; 50 m&#232;tres"/>
   <practical_information id="39" hours_of_operation1="D&#233;jeuner : de 12h &#224; 14h (sauf lundi)" hours_of_operation2="D&#238;ner : de 19h &#224; 22h (sauf lundi et dimanche)" payment_options="Carte Bleue, Carte Mastercard, Carte Visa, Ch&#232;que, Titres et ch&#232;ques pour les restaurants" price="34 &#8364;" getting_there="RER C Versailles - Ch&#226;teau - Rive-Gauche" parking="Parking Q-Park Cath&#233;drale (85m)"/>
   <practical_information id="40" hours_of_operation1="D&#233;jeuner: de 12h &#224; 14h30 (tous les jours)" hours_of_operation2="D&#238;ner: de 19h &#224; 23h (tous les jours)" payment_options="Carte Bleue, Carte Mastercard, Carte Visa, Ch&#232;que, Titres et ch&#232;ques pour les restaurants" price="18 &#8364;" getting_there="RER Versailles Rive-Gauche (C)" parking="Oui"/>
+  <review id="4" rating="15" comment="comment4"/>
+  <review id="6" rating="16" comment="comment5"/>
+  <review id="9" rating="16" comment="comment9"/>
 </dataset>
