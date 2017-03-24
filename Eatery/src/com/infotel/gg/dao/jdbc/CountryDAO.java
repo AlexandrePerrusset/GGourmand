@@ -37,12 +37,22 @@ public class CountryDAO extends AbstractDAO<Country, Integer>{
 
 	@Override
 	public String getInsert(Country obj) {
-		return null;
+		return " (id, name) VALUES(?,?)";
 	}
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Country obj) {
+		try{
+			if(obj.getId()>0){
+				p.setInt(1, obj.getId());
+				p.setString(2, obj.getName());
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
 
 	@Override
 	public List<Country> listAll() {
@@ -56,6 +66,7 @@ public class CountryDAO extends AbstractDAO<Country, Integer>{
 
 	@Override
 	public void setId(Integer id, Country obj) {
+		obj.setId(id);
 	}
 
 	@Override
