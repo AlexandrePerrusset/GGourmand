@@ -46,6 +46,7 @@ public class BookingDAO extends AbstractDAO<Booking, Integer>{
 		return "(date_time, nb_people, eatery_id, customer_id) VALUES(?,?,?,?)";
 	}
 
+	//TODO
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Booking obj) {
 		Calendar d = Calendar.getInstance();
@@ -58,7 +59,6 @@ public class BookingDAO extends AbstractDAO<Booking, Integer>{
 				p.setInt(3, obj.getNbOfCustomer() );
 				p.setLong(4, obj.getEatery().getId() );
 				p.setString(5, obj.getCustomer().getEmail() );
-				System.out.println(p);
 			}else{
 				p.setDate(1, sd);
 				p.setInt(2, obj.getNbOfCustomer() );

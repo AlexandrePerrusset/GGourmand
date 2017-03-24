@@ -47,17 +47,17 @@ public class BookingTest {
 	}
 
 	@Test
-	public void ReadOk() throws ModelException {
+	public void ReadOk(){
 		assertNotNull("le booking n'est pas nul ReadOk", bd.read(1));
 	}
 	
 	
 	@Test
-	public void ReadKo() throws ModelException {
+	public void ReadKo(){
 		assertNull("le booking est nul ReadKo",  bd.read(null));
 	}
 	@Test
-	public void ReadKo2() throws ModelException {
+	public void ReadKo2(){
 		assertNull("le booking est nul ReadKo2", bd.read(9999));
 	}
 	
