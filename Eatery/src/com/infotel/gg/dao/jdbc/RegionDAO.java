@@ -35,12 +35,23 @@ public class RegionDAO extends AbstractDAO<Region, Integer>{
 
 	@Override
 	public String getInsert(Region obj) {
-		return null;
+		return " (id, name, country_id) VALUES(?,?,?)";
 	}
 
+	//TODO
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, Region obj) {
+		try{
+			if(obj.getId()>0){
+				p.setString(1, obj.getName());
+				p.setInt(2, 1);
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+
 
 	@Override
 	public List<Region> listAll() {
@@ -54,6 +65,7 @@ public class RegionDAO extends AbstractDAO<Region, Integer>{
 
 	@Override
 	public void setId(Integer id, Region obj) {
+		obj.setId(id);
 	}
 
 	@Override
