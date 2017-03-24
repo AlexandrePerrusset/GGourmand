@@ -50,11 +50,24 @@ public class CityDAO extends AbstractDAO<City, Integer>{
 
 	@Override
 	public String getInsert(City obj) {
-		return null;
+		return " (id, name, post_code, foremost, country_id, region_id) VALUES(?,?,?,?,?,?)";
 	}
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, City obj) {
+		try{
+			if(obj.getId() > 0){
+				p.setInt(1, obj.getId());
+				p.setString(2, obj.getName());
+				p.setString(3, obj.getPostCode());
+				p.setBoolean(4, obj.isForemost());
+				p.setInt(5, 1);
+				p.setInt(6, 5);
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

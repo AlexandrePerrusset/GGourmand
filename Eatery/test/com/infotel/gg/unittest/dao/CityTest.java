@@ -77,7 +77,7 @@ public class CityTest {
 	public void CreateKo() throws DAOException, ModelException {
 		c = new City(42, null, "55555", false);
 		cd.create(c);
-		assertNull("la ville n'est pas nulle CreateOk2", cd.read(c.getId()));
+		assertNull("la ville est nulle CreateOk2", cd.read(c.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -86,6 +86,14 @@ public class CityTest {
 		cd.create(c);
 		cd.create(c);
 	}
+	
+//	@Test
+//	public void deleteOk() throws DAOException, ModelException {
+//		
+//		c= new City(178, "FakeCity", "55663", false);
+//		cd.delete(c);
+//		assertNull("la ville n'est plus présente en base de donnees", cd.read(c.getId()));
+//	}
 	
 	
 	
