@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.infotel.gg.model.CookingStyle;
 import com.infotel.gg.model.PracticalInformation;
 
 public class PracticalInformationDAO extends AbstractDAO<PracticalInformation, Integer>{
@@ -37,11 +36,25 @@ public class PracticalInformationDAO extends AbstractDAO<PracticalInformation, I
 
 	@Override
 	public String getInsert(PracticalInformation obj) {
-		return null;
+		return " (id, hours_of_operation1, hours_of_operation2,payment_options,price,getting_there,parking) VALUES(?,?,?,?,?,?,?)";
 	}
 
 	@Override
 	public void createPrepareFromObject(PreparedStatement p, PracticalInformation obj) {
+		try{
+			if(obj.getId()>0){
+				p.setInt(1, obj.getId());
+				p.setString(2, obj.getHoursOfOperation1());
+				p.setString(3, obj.getHoursOfOperation2());
+				p.setString(4, obj.getPaymentOptions());
+				p.setString(5, obj.getPrice());
+				p.setString(6, obj.getGettingThere());
+				p.setString(7, obj.getParking());
+			}
+		}catch(SQLException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
