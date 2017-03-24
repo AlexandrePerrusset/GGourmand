@@ -130,6 +130,8 @@
   <city id="120" name="Saint-Tropez" post_code="" foremost="false" country_id="1" region_id="5"/>
   <city id="121" name="Cagnes-sur-Mer" post_code="" foremost="false" country_id="1" region_id="5"/>
   <city id="122" name="Ajaccio" post_code="" foremost="false" country_id="1" region_id="5"/>
+  <city id="178" name="FakeCity" post_code="" foremost="false" country_id="1" region_id="5"/>
+  <city id="179" name="FakeCityCity" post_code="" foremost="false" country_id="1" region_id="5"/>
   <cooking_style id="1" name="Africain"/>
   <cooking_style id="2" name="Alg&#233;rien"/>
   <cooking_style id="3" name="Alsacien"/>
