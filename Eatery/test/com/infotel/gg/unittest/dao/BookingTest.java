@@ -3,6 +3,7 @@ package com.infotel.gg.unittest.dao;
 import static org.junit.Assert.*;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -24,6 +25,7 @@ public class BookingTest {
 	BookingDAO bd = new BookingDAO(); 
 	Eatery e;
 	Customer c;
+	Calendar calendar;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,12 +40,13 @@ public class BookingTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+		calendar = new GregorianCalendar(2013,10,28);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		b = null;
+		calendar = null;
 	}
 
 	@Test
@@ -61,36 +64,77 @@ public class BookingTest {
 		assertNull("le booking est nul ReadKo2", bd.read(9999));
 	}
 	
-//	@Test
-//	public void createOk() throws DAOException, ModelException {
+	@Test
+	public void createOk() throws DAOException, ModelException {
 //		e = new Eatery(1, "Brasserie du Louvre", "blablabla", "Denis Bellon");
 //		c = new Customer("Alexa737ndra", "Per325russet", "Mme", "24152163", "alex.perru@gmail.com", "sfgsh3783783fgseg");
-//		bd.create(new Booking(2, new Calendar()., e, c));
-//		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
-//	}
-//	
-//	@Test
-//	public void createOk2() throws DAOException, ModelException {
-//		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex@gmail.com", "sfgshfgseg");
-//		cd.create(c);
-//		assertNotNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
-//	}
-//	
-//	@Test(expected=DAOException.class)
-//	public void createKo2() throws  DAOException, ModelException {
-//		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", null, "sfgshfgseg");
-//		cd.create(c);
-//		assertNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
-//	}
-//	
-//	@Test(expected=DAOException.class)
-//	public void createKo() throws DAOException {
-//		
-//		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.ru@gmail.com", "sfgshfgseg");
-//		
-//		cd.create(c);
-//		cd.create(c);
-//	}
-//	
+		
+		b= new Booking(2, calendar, 10);
+		bd.create(b);
+		assertNotNull("le customer n'est pas nul CreateOk", bd.read(b.getId()));
+	}
+	
+	@Test
+	public void createOk2() throws DAOException, ModelException {
+		b= new Booking(47, calendar, 102);
+		bd.create(b);
+		assertNotNull("le customer n'est pas nul CreateOk",  bd.read(b.getId()));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void createKo2() throws  DAOException, ModelException {
+		b= new Booking(42, calendar, 10);
+		bd.create(b);
+		assertNull("le customer n'est pas nul CreateOk",  bd.read(b.getId()));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void createKo() throws DAOException {
+		
+		b= new Booking(1, calendar, 10);
+		
+		bd.create(b);
+		bd.create(b);
+	}
+	
+	@Test
+	public void deleteOk() throws DAOException, ModelException {
+		
+		b= new Booking(43, calendar, 10);
+		
+		bd.delete(b);
+		
+		assertNull("le cutsomer n'est plus présent dans la base", bd.read(b.getId()));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void deleteKo() throws DAOException, ModelException {
+		
+		b= new Booking(783783, calendar, 10);
+		
+		bd.delete(b);
+		
+		
+	}
+	@Test
+	public void deleteOk2() throws DAOException, ModelException {
+		
+
+		
+		bd.deleteById(1);
+		
+		assertNull("le cutsomer n'est plus présent dans la base", bd.read(1));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void deleteKo2() throws DAOException, ModelException {
+		
+	
+		
+		bd.deleteById(54873);
+		
+		
+	}
+	
 
 }

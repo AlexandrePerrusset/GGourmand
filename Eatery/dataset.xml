@@ -7,6 +7,8 @@
   <user_data username="delete" password="kzjfaqzfzqf" type="customer" first_name="plup" last_name="ponp" title="Mr" phone="21054154"/>
   <user_data username="delete2" password="kzjfaqzfzqf" type="customer" first_name="plup" last_name="ponp" title="Mr" phone="21054154"/>
   <booking id="1" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="42" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="43" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <city id="1" name="Paris" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="2" name="Versailles" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="3" name="Boulogne-Billancourt" post_code="" foremost="true" country_id="1" region_id="1"/>
