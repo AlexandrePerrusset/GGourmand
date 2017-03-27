@@ -4,6 +4,7 @@ public class Address {
 	private String street;
 	private String postCode;
 	private City city;
+	private Eatery eatery;
 	
 	
 	//CONSTRUCTOR	
@@ -21,9 +22,26 @@ public class Address {
 	/**
 	 * @return the street
 	 */
+	
+	
+	
 	public String getStreet() {
 		return street;
 	}
+	/**
+	 * @return the eatery
+	 */
+	public Eatery getEatery() {
+		return eatery;
+	}
+
+	/**
+	 * @param eatery the eatery to set
+	 */
+	public void setEatery(Eatery eatery) {
+		this.eatery = eatery;
+	}
+
 	/**
 	 * @param street the street to set
 	 */

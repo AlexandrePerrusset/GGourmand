@@ -16,13 +16,15 @@ public class HBMain {
 		
 		// Creating session object
 		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
 		
 		Country c = session.get(Country.class, 8);
-		City city = new City(666, "DevilCity", "66666", true);
-		session.persist(city);
+		City city = new City(667, "DevilCity", "66666", true);
+		session.save(city);
 		
-		Transaction t = session.beginTransaction();
-		City city2 = session.get(City.class, 666);
+		
+		
+		City city2 = session.get(City.class, 667);
 		t.commit();
 		System.out.println(city2.toString());
 		session.close();
@@ -37,7 +39,8 @@ public class HBMain {
 			
 			sf = metadata.getSessionFactoryBuilder().build();
 		} catch (Throwable th) {
-			System.err.println("Initial SessionFactory creation failed " + th);
+//			System.err.println("Initial SessionFactory creation failed " + th);
+			th.printStackTrace();
 			
 		}
 		return sf;

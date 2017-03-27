@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 5.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-5.0.dtd">
 <hibernate-mapping package="com.infotel.gg.model">
 	<class name="Booking" table="booking">
 		<id name="id" column="id">
@@ -57,10 +57,11 @@
 		<many-to-one unique="true" name="menu" column="menu_id" />
 		<one-to-one name="practicalInformation" class="PracticalInformation" cascade="all"/>
 		<many-to-one unique="true" name="cookingStyle" column="cooking_style_id" />
-		<set name="eateryTags" table="eatery_eatery_tag">
+		<list name="eateryTags" table="eatery_eatery_tag">
 			<key column="id" />
+			<list-index/>
 			<many-to-many column="tag_id" class="EateryTag" />
-		</set>
+		</list>
 		<component name="address" class="Address" unique="true">
 			<parent name="eatery" />
 			<property name="street" column="street" />
@@ -74,10 +75,11 @@
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="name" />
-		<set name="eatery" inverse="true" table="eatery">
+		<list name="eateries" inverse="true" table="eatery">
 			<key column="id" />
+			<list-index/>
 			<many-to-many column="eatery_id" class="Eatery" />
-		</set>
+		</list>
 	</class>
 	<class name="ImageData" table="image_data">
 		<id name="id" column="id">

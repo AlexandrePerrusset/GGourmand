@@ -32,6 +32,7 @@ public class EateryTag{
 	public EateryTag() {
 	
 	}
+
 	/**
 	 * @return the eateries
 	 */
