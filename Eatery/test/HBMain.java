@@ -21,12 +21,13 @@ public class HBMain {
 		
 		Country c = session.get(Country.class, 1);
 		Region r = session.get(Region.class, 1);
+		
 		City city = new City(667, "DevilCity", "66666", true, r, c);
 		session.save(city);
 		
 		
 		
-		City city2 = session.get(City.class, 667);
+		City city2 = session.get(City.class, 32);
 		t.commit();
 		System.out.println(city2.toString());
 		session.close();
