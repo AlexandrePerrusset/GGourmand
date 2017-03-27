@@ -244,4 +244,18 @@ public class Eatery implements Serializable{
 				+ getCookingStyle() + ", getAddress()=" + getAddress() + ", getMenu()=" + getMenu()
 				+ ", getEateryManager()=" + getEateryManager() + "]";
 	}
+
+	/**
+	 * @return the practicalInformation
+	 */
+	public PracticalInformation getPracticalInformation() {
+		return practicalInformation;
+	}
+
+	/**
+	 * @param practicalInformation the practicalInformation to set
+	 */
+	public void setPracticalInformation(PracticalInformation practicalInformation) {
+		this.practicalInformation = practicalInformation;
+	}
 }
