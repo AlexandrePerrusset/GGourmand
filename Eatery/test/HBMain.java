@@ -8,6 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
+import com.infotel.gg.model.Region;
 
 public class HBMain {
 
@@ -18,8 +19,9 @@ public class HBMain {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		
-		Country c = session.get(Country.class, 8);
-		City city = new City(667, "DevilCity", "66666", true);
+		Country c = session.get(Country.class, 1);
+		Region r = session.get(Region.class, 1);
+		City city = new City(667, "DevilCity", "66666", true, r, c);
 		session.save(city);
 		
 		

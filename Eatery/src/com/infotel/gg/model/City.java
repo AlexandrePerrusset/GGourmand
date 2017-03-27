@@ -26,6 +26,20 @@ public class City implements Serializable{
 		this.setForemost(foreMost);
 	}
 	
+	
+	
+	public City(int id, String name, String postCode, boolean foreMost, Region region, Country country) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.postCode = postCode;
+		this.foreMost = foreMost;
+		this.region = region;
+		this.country = country;
+	}
+
+
+
 	public City() {
 	}
 	
