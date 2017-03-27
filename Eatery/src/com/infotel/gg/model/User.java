@@ -8,6 +8,12 @@ public class User {
 		this.setUsername(username);
 		this.setPassword(password);
 	}
+	
+
+	public User() {
+		
+	}
+
 
 	/**
 	 * @return the username

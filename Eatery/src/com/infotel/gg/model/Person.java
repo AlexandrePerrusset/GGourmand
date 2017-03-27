@@ -16,12 +16,22 @@ public abstract class Person extends User{
 		this.setLastName(lastName);
 	}
 	
+	
+	
+	public Person(String username, String password) {
+		super(username, password);
+	}
+
+
+
 	/**
 	 * @return the firstName
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
+	
+
 	/**
 	 * @param firstName the firstName to set
 	 */

@@ -30,6 +30,13 @@ public class PracticalInformation implements Serializable{
 		setGettingThere(gettingThere);
 		setParking(parking);
 	}
+	
+	
+	public PracticalInformation() {
+	
+	}
+
+
 	/**
 	 * @return the id
 	 */

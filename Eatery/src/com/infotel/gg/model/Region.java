@@ -21,6 +21,13 @@ public class Region {
 	}
 	
 	
+	
+	public Region() {
+		
+	}
+
+
+
 	//GETTERS AND SETTERS
 	/**
 	 * @return the id

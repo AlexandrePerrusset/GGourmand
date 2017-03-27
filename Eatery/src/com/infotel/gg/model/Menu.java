@@ -17,6 +17,15 @@ public class Menu{
 		setId(id);
 		setContent(content);
 	}
+	
+	
+
+
+	public Menu() {
+		
+	}
+
+
 
 
 	/**

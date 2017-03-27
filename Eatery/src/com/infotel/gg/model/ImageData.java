@@ -24,6 +24,12 @@ public class ImageData{
 		this.targetId = targetId;
 		this.size = size;
 	}
+	
+
+	public ImageData() {
+		
+	}
+
 
 	/**
 	 * @return the content

@@ -53,6 +53,12 @@ public class Eatery implements Serializable{
 	
 	
 	
+	
+	
+	public Eatery() {
+		
+	}
+
 	/**
 	 * @return the practicalIformation
 	 */
