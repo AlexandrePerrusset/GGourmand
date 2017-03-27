@@ -7,9 +7,9 @@
 			<generator class="sequence" />
 		</id>
 		<property name="dateTime" column="date_time"></property>
+		<property name="nbOfCustomer" column="nb_people" />
 		<many-to-one name="customer" column="customer_id"></many-to-one>
 		<many-to-one name="eatery" column="eatery_id"></many-to-one>
-		<property name="nbOfCustomer" column="nb_people" />
 	</class>
 	<class name="BookingReport" table="BOOKING_REPORT">
 		<id name="id" column="id">
@@ -21,7 +21,7 @@
 		<property name="takingAmount" column="taking_amount"></property>
 		<property name="dueAmount" column="due_amount"></property>
 		<many-to-one name="eM" column="manager_id"></many-to-one>
-		<many-to-one name="booking" column="booking_id"></many-to-one>
+		<many-to-one unique="true" name="booking" column="booking_id"></many-to-one>
 	</class>
 	<class name="City" table="CITY">
 		<id name="id" column="id">
@@ -51,6 +51,16 @@
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
+		<property name="name" column="name" />
+		<property name="description" column="description" />
+		<property name="executiveChef" column="executive_chef" />
+		<many-to-one unique="true" name="menu" column="menu_id" />
+		<one-to-one name="practicalInformation" class="PracticalInformation"/>
+		<many-to-one unique="true" name="cookingStyle" column="cooking_style_id" />
+		<set name="eateryTags" table="eatery_eatery_tag">
+			<key column="id" />
+			<many-to-many column="tag_id" class="EateryTag" />
+		</set>
 	</class>
 
 	<class name="EateryTag" table="EATERY_TAG">
@@ -72,6 +82,13 @@
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
+		<property name="hoursOfOperation1" column="hours_of_operation1" />
+		<property name="hoursOfOperation2" column="hours_of_operation2" />
+		<property name="price" column="price" />
+		<property name="paymentOptions" column="payment_options" />
+		<property name="gettingThere" column="getting_there" />
+		<property name="parking" column="parking" />
+		<one-to-one name="eatery" class="Eatery" constrained="true" />
 	</class>
 	<class name="Region" table="REGION">
 		<id name="id" column="id">
