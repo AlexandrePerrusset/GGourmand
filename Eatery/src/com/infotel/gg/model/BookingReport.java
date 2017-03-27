@@ -23,6 +23,9 @@ public class BookingReport{
 		this.takingAmount = takingAmount;
 		this.dueAmount = dueAmount;
 	}
+	
+	public BookingReport() {
+	}
 
 
 

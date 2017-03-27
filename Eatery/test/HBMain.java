@@ -18,10 +18,14 @@ public class HBMain {
 		Session session = factory.openSession();
 		
 		Country c = session.get(Country.class, 8);
-//		City city = new City(id, name, postCode, foreMost);
-//		session.persist(city);
+		City city = new City(666, "DevilCity", "66666", true);
+		session.persist(city);
 		
 		Transaction t = session.beginTransaction();
+		City city2 = session.get(City.class, 666);
+		t.commit();
+		System.out.println(city2.toString());
+		session.close();
 	}
 	
 	public static SessionFactory createWithHB5() {

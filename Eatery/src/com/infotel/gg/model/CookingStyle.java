@@ -16,7 +16,8 @@ public class CookingStyle{
 		setName(name);
 	}
 	
-
+	public CookingStyle() {
+	}
 
 	public int getId() {
 		return id;

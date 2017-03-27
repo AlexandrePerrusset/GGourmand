@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="model">
+<hibernate-mapping package="com.infotel.gg.model">
 	<class name="Booking" table="booking">
 		<id name="id" column="id">
 			<generator class="sequence" />
@@ -30,8 +30,8 @@
 		<property name="name" column="name" />
 		<property name="postCode" column="post_code" />
 		<property name="foremost" column="foremost" />
-		<many-to-one name="country_id" column="country_id" />
-		<many-to-one name="region_id" column="region_id" />
+		<many-to-one name="country" column="country_id" />
+		<many-to-one name="region" column="region_id" />
 	</class>
 	<class name="CookingStyle" table="cooking_style">
 		<id name="id" column="id">
@@ -111,7 +111,7 @@
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="name" />
-		<many-to-one name="country_id" column="country_id" />
+		<many-to-one name="country" column="country_id" />
 	</class>
 	<class name="Review" table="review">
 		<id name="id" column="id">

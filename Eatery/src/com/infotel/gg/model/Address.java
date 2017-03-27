@@ -14,11 +14,8 @@ public class Address {
 		this.setPostCode(postCode);
 	}
 	
-	
-	
-	
-
-
+	public Address() {
+	}
 
 	//GETTERS AND SETTERS
 	/**

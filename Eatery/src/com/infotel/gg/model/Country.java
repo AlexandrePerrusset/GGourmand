@@ -20,6 +20,9 @@ public class Country{
 		this.setName(name);
 	}
 	
+	public Country(){
+		
+	}
 	
 	//GETTERS AND SETTERS
 	/**

@@ -41,6 +41,9 @@ public class Booking implements Serializable{
 		this.customer = c;
 	}
 	
+	public Booking() {
+	}
+	
 
 	
 

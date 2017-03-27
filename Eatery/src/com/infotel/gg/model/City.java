@@ -26,6 +26,9 @@ public class City implements Serializable{
 		this.setForemost(foreMost);
 	}
 	
+	public City() {
+	}
+	
 	//GETTERS AND SETTERS
 	/**
 	 * @return the id

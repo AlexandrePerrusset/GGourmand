@@ -6,7 +6,7 @@
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bat</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/battest</property>
 		<property name="hibernate.dialect">
 			org.hibernate.dialect.MySQL5InnoDBDialect
 		</property>
@@ -18,7 +18,7 @@
 			thread
 		</property>
 		<!-- <property name="hibernate.connexion.autocommit">true</property> -->
-		<mapping resource = "AllClasses.hbm.xml"/>
+		<mapping resource = "Modeles.hbm.xml"/>
 
 
 <!-- 		<mapping class="com.infotel.lafourchette.model.Address" /> -->
