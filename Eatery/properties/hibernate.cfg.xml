@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/HibernateConfiguration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bat</property>
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQL5InnoDBDialect
+		</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<!-- <property name="hbm2ddl.auto">create</property> -->
+
+		<property name="hibernate.current_session_context_class">
+			thread
+		</property>
+		<!-- <property name="hibernate.connexion.autocommit">true</property> -->
+		<mapping resource = "AllClasses.hbm.xml"/>
+
+
+<!-- 		<mapping class="com.infotel.lafourchette.model.Address" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Booking" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.BookingReport" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.City" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.CookingStyle" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Country" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Customer" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Eatery" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.EateryManager" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.EateryTag" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.ImageData" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Menu" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.PracticalInformation" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Personne" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Region" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.Review" /> -->
+<!-- 		<mapping class="com.infotel.lafourchette.model.User" />  -->
+		
+	</session-factory>
+</hibernate-configuration>
