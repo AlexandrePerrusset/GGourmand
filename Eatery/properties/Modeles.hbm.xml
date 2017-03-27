@@ -2,20 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="model">
-	<class name="Booking" table="BOOKING">
+	<class name="Booking" table="booking">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
-		<property name="dateTime" column="date_time"></property>
+		<property name="dateTime" column="date_time" generated="always" type="java.util.Calendar"></property>
 		<property name="nbOfCustomer" column="nb_people" />
 		<many-to-one name="customer" column="customer_id"></many-to-one>
 		<many-to-one name="eatery" column="eatery_id"></many-to-one>
 	</class>
-	<class name="BookingReport" table="BOOKING_REPORT">
+	<class name="BookingReport" table="booking_report">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
-		<property name="date" column="input_date"></property>
+		<property name="date" column="input_date" generated="always" type="java.util.Calendar"></property>
 		<property name="fulfilled" column="fulfilled"></property>
 		<property name="comment" column="comment"></property>
 		<property name="takingAmount" column="taking_amount"></property>
@@ -23,7 +23,7 @@
 		<many-to-one name="eM" column="manager_id"></many-to-one>
 		<many-to-one unique="true" name="booking" column="booking_id"></many-to-one>
 	</class>
-	<class name="City" table="CITY">
+	<class name="City" table="city">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
@@ -33,21 +33,21 @@
 		<many-to-one name="country_id" column="country_id" />
 		<many-to-one name="region_id" column="region_id" />
 	</class>
-	<class name="CookingStyle" table="COOKING_STYLE">
+	<class name="CookingStyle" table="cooking_style">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="name" />
 	</class>
 
-	<class name="Country" table="COUNTRY">
+	<class name="Country" table="country">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="name" />
 	</class>
 
-	<class name="Eatery" table="EATERY">
+	<class name="Eatery" table="eatery">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
@@ -55,28 +55,44 @@
 		<property name="description" column="description" />
 		<property name="executiveChef" column="executive_chef" />
 		<many-to-one unique="true" name="menu" column="menu_id" />
-		<one-to-one name="practicalInformation" class="PracticalInformation"/>
+		<one-to-one name="practicalInformation" class="PracticalInformation" cascade="all"/>
 		<many-to-one unique="true" name="cookingStyle" column="cooking_style_id" />
 		<set name="eateryTags" table="eatery_eatery_tag">
 			<key column="id" />
 			<many-to-many column="tag_id" class="EateryTag" />
 		</set>
+		<component name="address" class="Address" unique="true">
+			<parent name="eatery" />
+			<property name="street" column="street" />
+			<property name="postCode" column="post_code" />
+			<many-to-one name="city" unique="true" column="city_id" />
+		</component>
 	</class>
 
-	<class name="EateryTag" table="EATERY_TAG">
+	<class name="EateryTag" table="eatery_tag">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
+		<property name="name" column="name" />
+		<set name="eatery" inverse="true" table="eatery">
+			<key column="id" />
+			<many-to-many column="eatery_id" class="Eatery" />
+		</set>
 	</class>
-	<class name="ImageData" table="IMAGE_DATA">
+	<class name="ImageData" table="image_data">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
+		<property name="content" column="content" />
+		<property name="target" column="target" />
+		<property name="targetId" column="target_id" />
+		<property name="size" column="size" />
 	</class>
-	<class name="Menu" table="MENU">
+	<class name="Menu" table="menu">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
+		<property name="content" column="content" />
 	</class>
 	<class name="PracticalInformation" table="practical_information">
 		<id name="id" column="id">
@@ -90,22 +106,35 @@
 		<property name="parking" column="parking" />
 		<one-to-one name="eatery" class="Eatery" constrained="true" />
 	</class>
-	<class name="Region" table="REGION">
+	<class name="Region" table="region">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
 		<property name="name" column="name" />
 		<many-to-one name="country_id" column="country_id" />
 	</class>
-	<class name="Review" table="REVIEW">
+	<class name="Review" table="review">
 		<id name="id" column="id">
 			<generator class="sequence" />
 		</id>
 	</class>
 
-	<class name="User" table="USER_DATA">
+	<class name="User" table="user_data">
 		<id name="username" column="username">
 			<generator class="assigned" />
 		</id>
+		<discriminator column="type" type="string" />
+		<property name="password" column="password" />
+		<subclass name="Customer" discriminator-value="customer">
+			<property name="firstName" column="first_name" />
+			<property name="lastName" column="last_name" />
+			<property name="title" column="title" />
+			<property name="phone" column="phone" />
+		</subclass>
+		<subclass name="EateryManager" discriminator-value="manager">
+			<property name="firstName" column="first_name" />
+			<property name="lastName" column="last_name" />
+			<many-to-one name="eatery" unique="true" column="eatery_id" />
+		</subclass>
 	</class>
 </hibernate-mapping>
