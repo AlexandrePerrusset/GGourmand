@@ -21,6 +21,10 @@ public class Customer extends Person{
 		this.setPhone(phone);
 	}
 	
+	public Customer() {
+		
+	}
+	
 	/**
 	 * @return the title
 	 */

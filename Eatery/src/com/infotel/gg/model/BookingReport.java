@@ -31,6 +31,20 @@ public class BookingReport{
 
 
 	/**
+	 * @return the date
+	 */
+	public Calendar getDate() {
+		return date;
+	}
+
+	/**
+	 * @param date the date to set
+	 */
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+
+	/**
 	 * @return the id
 	 */
 	public int getId() {

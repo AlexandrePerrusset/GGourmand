@@ -49,6 +49,12 @@ public class Booking implements Serializable{
 
 	
 	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	/**
 	 * @return the dateTime
 	 */
 	public Calendar getDateTime() {

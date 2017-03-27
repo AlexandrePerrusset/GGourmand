@@ -38,6 +38,22 @@ public class PracticalInformation implements Serializable{
 
 
 	/**
+	 * @return the eatery
+	 */
+	public Eatery getEatery() {
+		return eatery;
+	}
+
+
+	/**
+	 * @param eatery the eatery to set
+	 */
+	public void setEatery(Eatery eatery) {
+		this.eatery = eatery;
+	}
+
+
+	/**
 	 * @return the id
 	 */
 	public int getId() {

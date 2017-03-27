@@ -14,10 +14,9 @@ public class EateryManager extends Person{
 		super(firstName, lastName, login, mdp);
 	}
 
-	
-
-
-	
+	public EateryManager() {
+		
+	}
 
 
 	/**

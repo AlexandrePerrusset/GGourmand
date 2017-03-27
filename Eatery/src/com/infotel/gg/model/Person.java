@@ -22,7 +22,9 @@ public abstract class Person extends User{
 		super(username, password);
 	}
 
-
+	public Person() {
+		
+	}
 
 	/**
 	 * @return the firstName

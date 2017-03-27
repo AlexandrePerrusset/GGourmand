@@ -29,6 +29,20 @@ public class City implements Serializable{
 	public City() {
 	}
 	
+	/**
+	 * @return the foreMost
+	 */
+	public boolean isForeMost() {
+		return foreMost;
+	}
+
+	/**
+	 * @param foreMost the foreMost to set
+	 */
+	public void setForeMost(boolean foreMost) {
+		this.foreMost = foreMost;
+	}
+
 	//GETTERS AND SETTERS
 	/**
 	 * @return the id
