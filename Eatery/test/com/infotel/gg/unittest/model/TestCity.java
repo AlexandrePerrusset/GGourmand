@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Address;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
@@ -41,31 +40,40 @@ public class TestCity {
 		a=null;
 	}
 
-	//Tests Country
+//	//Tests Country
+//	@Test
+//	public void CountryOK() throws ModelException {
+//		country = new Country(1, "France");
+//		assertNotNull(country);		
+//	}
+//	
+//	@Test(expected=ModelException.class)
+//	public void CountryKO1() throws ModelException {
+//		country = new Country(-1, "France");		
+//	}
+//	
+//	@Test(expected=ModelException.class)
+//	public void CountryKO2() throws ModelException {
+//		country = new Country(1, "");		
+//	}
+//	
+//	@Test(expected=ModelException.class)
+//	public void CountryKO3() throws ModelException {
+//		country = new Country(1, " ");		
+//	}
+//	
+//	@Test(expected=ModelException.class)
+//	public void CountryKO4() throws ModelException {
+//		country = new Country(1, null);		
+//	}
+	
+	//Test Country
 	@Test
-	public void CountryOK() throws ModelException {
+	public void TestCountry(){
 		country = new Country(1, "France");
-		assertNotNull(country);		
-	}
-	
-	@Test(expected=ModelException.class)
-	public void CountryKO1() throws ModelException {
-		country = new Country(-1, "France");		
-	}
-	
-	@Test(expected=ModelException.class)
-	public void CountryKO2() throws ModelException {
-		country = new Country(1, "");		
-	}
-	
-	@Test(expected=ModelException.class)
-	public void CountryKO3() throws ModelException {
-		country = new Country(1, " ");		
-	}
-	
-	@Test(expected=ModelException.class)
-	public void CountryKO4() throws ModelException {
-		country = new Country(1, null);		
+		assertNotNull(country);
+		assertEquals(country.getId(), 1);
+		assertEquals(country.getName(), "France");
 	}
 	
 	//Test Address
