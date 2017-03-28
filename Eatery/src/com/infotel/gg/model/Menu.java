@@ -3,7 +3,7 @@ package com.infotel.gg.model;
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
 
-public class Menu{
+public class Menu {
 	/**
 	 * 
 	 */
@@ -11,22 +11,15 @@ public class Menu{
 	private int id;
 	private String content; // YAML format
 	private Eatery eatery;
-	
-	
-	public Menu(int id, String content) throws ModelException {
+
+	public Menu(int id, String content) {
 		setId(id);
 		setContent(content);
 	}
-	
-	
-
 
 	public Menu() {
-		
+
 	}
-
-
-
 
 	/**
 	 * @return the id
@@ -43,19 +36,14 @@ public class Menu{
 	}
 
 	/**
-	 * @param content the content to set
-	 * @throws ModelException 
+	 * @param content
+	 *            the content to set
+	 * @throws ModelException
 	 */
-	public void setContent(String content) throws ModelException {
-		if(content != null && !StringUtils.isEmptyOrWhitespaceOnly(content)) {
-			this.content = content;
-		} else {
-			throw new ModelException("Erreur Menu content");
-		}
+	public void setContent(String content) {
+		this.content = content;
 	}
-	
-	
-	
+
 	/**
 	 * @return the eatery
 	 */
@@ -63,34 +51,27 @@ public class Menu{
 		return eatery;
 	}
 
-
 	/**
-	 * @param eatery the eatery to set
-	 * @throws ModelException 
+	 * @param eatery
+	 *            the eatery to set
+	 * @throws ModelException
 	 */
-	public void setEatery(Eatery eatery) throws ModelException {
-		if(eatery != null) {
-			this.eatery = eatery;
-		} else {
-			throw new ModelException("Erreur Menu eatery");
-		}
+	public void setEatery(Eatery eatery) {
+		this.eatery = eatery;
 	}
 
-
 	/**
-	 * @param id the id to set
-	 * @throws ModelException 
+	 * @param id
+	 *            the id to set
+	 * @throws ModelException
 	 */
-	public void setId(int id) throws ModelException {
-		if(id > 0) {
-			this.id = id;
-		} else{
-			throw new ModelException("Erreur Menu id");
-		}
+	public void setId(int id) {
+		this.id = id;
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

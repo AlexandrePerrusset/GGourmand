@@ -3,7 +3,7 @@ package com.infotel.gg.model;
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
 
-public class CookingStyle{
+public class CookingStyle {
 	/**
 	 * 
 	 */
@@ -11,31 +11,28 @@ public class CookingStyle{
 	private int id;
 	private String name;
 
-	public CookingStyle(int id, String name) throws ModelException {
+	public CookingStyle(int id, String name) {
 		setId(id);
 		setName(name);
 	}
-	
+
 	public CookingStyle() {
 	}
 
 	public int getId() {
 		return id;
 	}
-	
-	
-	/**
-	 * @param id the id to set
-	 * @throws ModelException 
-	 */
-	public void setId(int id) throws ModelException {
-		if(id > 0) {
-			this.id = id;
-		} else{
-			throw new ModelException("Erreur CookingStyle id");
-		}
-	}
 
+	/**
+	 * @param id
+	 *            the id to set
+	 * @throws ModelException
+	 */
+	public void setId(int id) {
+
+		this.id = id;
+
+	}
 
 	/**
 	 * @return the name
@@ -44,22 +41,19 @@ public class CookingStyle{
 		return name;
 	}
 
-
 	/**
-	 * @param name the name to set
-	 * @throws ModelException 
+	 * @param name
+	 *            the name to set
+	 * @throws ModelException
 	 */
-	public void setName(String name) throws ModelException {
-		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
-			this.name = name;
-		} else {
-			throw new ModelException("Erreur CookingStyle name");
-		}
-		
+	public void setName(String name) {
+		this.name = name;
+
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

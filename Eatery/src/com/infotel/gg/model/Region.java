@@ -11,89 +11,73 @@ public class Region {
 	private int id;
 	private String name;
 	private Country country;
-	
-	
-	
-	//CONSTRUCTOR
-	public Region(int id, String name) throws ModelException {
+
+	// CONSTRUCTOR
+	public Region(int id, String name) {
 		this.setId(id);
 		this.setName(name);
 	}
-	
-	
-	
+
 	public Region() {
-		
+
 	}
 
-
-
-	//GETTERS AND SETTERS
+	// GETTERS AND SETTERS
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
-	
+
 	/**
-	 * @param id the id to set
-	 * @throws ModelException 
+	 * @param id
+	 *            the id to set
+	 * @throws ModelException
 	 */
-	public void setId(int id) throws ModelException {
-		if(id > 0) {
-			this.id = id;
-		} else{
-			throw new ModelException("Erreur Region id");
-		}
+	public void setId(int id) {
+		this.id = id;
 	}
-	
-	
+
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
+
 	/**
-	 * @param name the name to set
-	 * @throws ModelException 
+	 * @param name
+	 *            the name to set
+	 * @throws ModelException
 	 */
-	public void setName(String name) throws ModelException {
-		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
-			this.name = name;
-		} else {
-			throw new ModelException("Erreur Region name");
-		}
+	public void setName(String name) {
+		this.name = name;
 	}
-	
-	
+
 	/**
 	 * @return the country
 	 */
 	public Country getCountry() {
 		return country;
 	}
+
 	/**
-	 * @param country the country to set
+	 * @param country
+	 *            the country to set
 	 */
 	public void setCountry(Country country) {
 		this.country = country;
 	}
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Region [getId()=" + getId() + ", getName()=" + getName() + ", getCountry()=" + getCountry() + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }
