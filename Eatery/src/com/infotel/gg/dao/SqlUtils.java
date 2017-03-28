@@ -1,4 +1,4 @@
-package com.infotel.gg.dao.jdbc;
+package com.infotel.gg.dao;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

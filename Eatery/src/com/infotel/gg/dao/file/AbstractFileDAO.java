@@ -12,7 +12,6 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 
-
 import com.infotel.gg.dao.DAO;
 
 
@@ -58,10 +57,6 @@ public abstract class AbstractFileDAO<T,K> implements DAO<T,K> {
 	@Override
 	public void delete(T obj) {
 	}
-
-	@Override
-	public void deleteById(K id) {
-	}
 	
 	public String elementToFileName(T element){
 		StringBuilder sb = new StringBuilder();
@@ -74,6 +69,10 @@ public abstract class AbstractFileDAO<T,K> implements DAO<T,K> {
 		return sb.toString();
 	}
 	
+	private Object getId(T element) {
+		return null;
+	}
+
 	public abstract String idToFileName(K i);
 
 	

@@ -22,18 +22,4 @@ public class BookingDAO extends AbstractFileDAO<Booking, Integer>{
 		return null;
 	}
 
-	@Override
-	public Integer getId(Booking b) {
-		return b.getId();
-	}
-
-	@Override
-	public void setId(Integer id, Booking obj) {
-	}
-
-	
-
-	
-	
-	
 }

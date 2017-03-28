@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import com.infotel.gg.dao.jdbc.BookingDAO;
-import com.infotel.gg.dao.jdbc.CustomerDAO;
-import com.infotel.gg.dao.jdbc.EateryDAO;
-import com.infotel.gg.dao.jdbc.MenuDAO;
+import com.infotel.gg.dao.BookingDAO;
+import com.infotel.gg.dao.CustomerDAO;
+import com.infotel.gg.dao.EateryDAO;
+import com.infotel.gg.dao.MenuDAO;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.Eatery;

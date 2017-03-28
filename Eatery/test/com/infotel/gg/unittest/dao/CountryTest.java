@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.CountryDAO;
+import com.infotel.gg.dao.CountryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Country;
@@ -88,7 +88,7 @@ public class CountryTest {
 	public void deleteOk() throws DAOException, ModelException {	
 		c = new Country(5, "FranceDelete");		
 		cd.delete(c);		
-		assertNull("le pays n'est plus présent dans la base", cd.read(c.getId()));
+		assertNull("le pays n'est plus prï¿½sent dans la base", cd.read(c.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -101,7 +101,7 @@ public class CountryTest {
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
 		cd.deleteById(6);	
-		assertNull("le pays n'est plus présent dans la base", cd.read(6));
+		assertNull("le pays n'est plus prï¿½sent dans la base", cd.read(6));
 	}
 	
 	

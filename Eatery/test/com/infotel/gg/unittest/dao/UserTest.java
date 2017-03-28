@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.CustomerDAO;
+import com.infotel.gg.dao.CustomerDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Customer;
@@ -103,7 +103,7 @@ public class UserTest {
 		
 		cd.delete(c);
 		
-		assertNull("le cutsomer n'est plus présent dans la base", cd.read(c.getEmail()));
+		assertNull("le cutsomer n'est plus prï¿½sent dans la base", cd.read(c.getEmail()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -122,7 +122,7 @@ public class UserTest {
 		
 		cd.deleteById("delete2");
 		
-		assertNull("le cutsomer n'est plus présent dans la base", cd.read("delete2"));
+		assertNull("le cutsomer n'est plus prï¿½sent dans la base", cd.read("delete2"));
 	}
 	
 	@Test(expected=DAOException.class)

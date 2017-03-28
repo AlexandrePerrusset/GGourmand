@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.RegionDAO;
+import com.infotel.gg.dao.RegionDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Region;
@@ -91,7 +91,7 @@ public class RegionTest {
 	public void deleteOk() throws DAOException, ModelException {	
 		r = new Region(1, "Ile-de-France");		
 		rd.delete(r);		
-		assertNull("la region n'est plus présent dans la base", rd.read(r.getId()));
+		assertNull("la region n'est plus prï¿½sent dans la base", rd.read(r.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -104,7 +104,7 @@ public class RegionTest {
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
 		rd.deleteById(3);	
-		assertNull("la region n'est plus présent dans la base", rd.read(3));
+		assertNull("la region n'est plus prï¿½sent dans la base", rd.read(3));
 	}
 	
 	

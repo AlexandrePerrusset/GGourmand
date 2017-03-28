@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.CookingStyleDAO;
+import com.infotel.gg.dao.CookingStyleDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.CookingStyle;
@@ -92,7 +92,7 @@ public class CookingStyleTest {
 	public void deleteOk() throws DAOException, ModelException {	
 		cs = new CookingStyle(43, "Vietnamien");		
 		csd.delete(cs);		
-		assertNull("CookingStylen'est plus présent dans la base", csd.read(cs.getId()));
+		assertNull("CookingStylen'est plus prï¿½sent dans la base", csd.read(cs.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -105,7 +105,7 @@ public class CookingStyleTest {
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
 		csd.deleteById(3);	
-		assertNull("CookingStyle n'est plus présent dans la base", csd.read(3));
+		assertNull("CookingStyle n'est plus prï¿½sent dans la base", csd.read(3));
 	}
 	
 	

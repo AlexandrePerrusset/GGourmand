@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.PracticalInformationDAO;
+import com.infotel.gg.dao.PracticalInformationDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.PracticalInformation;
@@ -96,7 +96,7 @@ public class PracticalInformationTest {
 	public void deleteOk() throws DAOException, ModelException {	
 		pi = new PracticalInformation(10, "ho1", "ho2", "price","paymentoption","gettingthere","parking");		
 		pid.delete(pi);		
-		assertNull("PracticalInformation n'est plus présent dans la base", pid.read(pi.getId()));
+		assertNull("PracticalInformation n'est plus prï¿½sent dans la base", pid.read(pi.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -109,7 +109,7 @@ public class PracticalInformationTest {
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
 		pid.deleteById(33);	
-		assertNull("PracticalInformation n'est plus présent dans la base", pid.read(33));
+		assertNull("PracticalInformation n'est plus prï¿½sent dans la base", pid.read(33));
 	}
 	
 	

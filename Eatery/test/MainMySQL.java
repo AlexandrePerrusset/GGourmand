@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.infotel.gg.dao.jdbc.SqlUtils;
+import com.infotel.gg.dao.SqlUtils;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.EateryTag;

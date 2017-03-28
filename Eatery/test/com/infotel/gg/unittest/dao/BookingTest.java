@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.BookingDAO;
+import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Booking;
@@ -104,7 +104,7 @@ public class BookingTest {
 		
 		bd.delete(b);
 		
-		assertNull("le cutsomer n'est plus présent dans la base", bd.read(b.getId()));
+		assertNull("le cutsomer n'est plus prï¿½sent dans la base", bd.read(b.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -123,7 +123,7 @@ public class BookingTest {
 		
 		bd.deleteById(1);
 		
-		assertNull("le cutsomer n'est plus présent dans la base", bd.read(1));
+		assertNull("le cutsomer n'est plus prï¿½sent dans la base", bd.read(1));
 	}
 	
 	@Test(expected=DAOException.class)

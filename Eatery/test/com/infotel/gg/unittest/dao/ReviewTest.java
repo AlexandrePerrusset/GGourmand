@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.jdbc.ReviewDAO;
+import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.PracticalInformation;
@@ -97,7 +97,7 @@ public class ReviewTest {
 	public void deleteOk() throws DAOException, ModelException {	
 		r = new Review(4, 15,"comment4");		
 		rd.delete(r);		
-		assertNull("Review n'est plus présent dans la base", rd.read(r.getId()));
+		assertNull("Review n'est plus prï¿½sent dans la base", rd.read(r.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
@@ -110,7 +110,7 @@ public class ReviewTest {
 	@Test
 	public void deleteOk2() throws DAOException, ModelException {		
 		rd.deleteById(6);	
-		assertNull("Review n'est plus présent dans la base", rd.read(6));
+		assertNull("Review n'est plus prï¿½sent dans la base", rd.read(6));
 	}
 	
 	
