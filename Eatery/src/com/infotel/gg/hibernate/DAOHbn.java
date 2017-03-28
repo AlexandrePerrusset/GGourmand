@@ -2,6 +2,7 @@ package com.infotel.gg.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class DAOHbn {
@@ -17,6 +18,8 @@ public class DAOHbn {
 			cfg.configure("hibernate.cfg.xml");
 			factory = cfg.buildSessionFactory();
 		}
+		;
+		Transaction t = factory.getCurrentSession().beginTransaction();
 		return factory.getCurrentSession();
 	}
 }

@@ -10,6 +10,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.criterion.Restrictions;
 
+import com.infotel.gg.dao.CityDAO;
+import com.infotel.gg.hibernate.CityDAOHbn;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
 import com.infotel.gg.model.Eatery;
@@ -26,6 +28,7 @@ public class HBMain {
 		
 		// Creating session object
 		Session session = factory.openSession();
+
 //		Transaction t = session.beginTransaction();
 		
 //		Criteria crit = session.createCriteria(Region.class);
@@ -51,6 +54,31 @@ public class HBMain {
 //		
 //		City city = new City(667, "DevilCity", "66666", true, r, c);
 //		session.save(city);
+
+		Transaction t = session.beginTransaction();
+		
+		Criteria crit = session.createCriteria(Region.class);
+		crit.setMaxResults(5);
+		List<Region> regions = crit.list();
+		
+		for (Region reg : regions) {
+			System.out.println(reg);
+		}
+		
+		CityDAO cd = new CityDAOHbn();
+		City c = cd.read(1);
+		
+		System.out.println(c);
+		
+//		Country c = session.get(Country.class, 1);
+		Region r = session.get(Region.class, 1);
+		City c2 = session.get(City.class, 1);
+		
+		System.out.println(c2);
+//		
+//		City city = new City(667, "DevilCity", "66666", true, r, c);
+//		session.save(c);
+
 //		
 //		
 //		

@@ -14,6 +14,7 @@ import org.junit.Test;
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.hibernate.BookingDAOHbn;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.Eatery;
@@ -22,7 +23,7 @@ import DBUnit.DBUtils;
 
 public class BookingTest {
 	Booking b;
-	BookingDAO bd = new BookingDAO(); 
+	BookingDAO bd = new BookingDAOHbn(); 
 	Eatery e;
 	Customer c;
 	Calendar calendar;
@@ -116,25 +117,7 @@ public class BookingTest {
 		
 		
 	}
-	@Test
-	public void deleteOk2() throws DAOException, ModelException {
-		
-
-		
-		bd.deleteById(1);
-		
-		assertNull("le cutsomer n'est plus pr�sent dans la base", bd.read(1));
-	}
 	
-	@Test(expected=DAOException.class)
-	public void deleteKo2() throws DAOException, ModelException {
-		
-	
-		
-		bd.deleteById(54873);
-		
-		
-	}
 	
 
 }
