@@ -17,9 +17,10 @@ public class DAOHbn {
 			Configuration cfg = new Configuration();
 			cfg.configure("hibernate.cfg.xml");
 			factory = cfg.buildSessionFactory();
+			Transaction t = factory.getCurrentSession().beginTransaction();
 		}
-		;
-		Transaction t = factory.getCurrentSession().beginTransaction();
+		
+		
 		return factory.getCurrentSession();
 	}
 }

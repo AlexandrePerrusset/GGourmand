@@ -19,7 +19,9 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		try {
 			getSession().save(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
+			
 		}
 	}
 
@@ -29,6 +31,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		try {
 			return getSession().find(CookingStyle.class, i);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);
 		}	
 	}
@@ -39,6 +42,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		try {
 			getSession().saveOrUpdate(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de mettre a jour l'element",t);
 		}
 	}
@@ -49,6 +53,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		try {
 			getSession().delete(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de supprimer l'element",t);
 		}
 	}
