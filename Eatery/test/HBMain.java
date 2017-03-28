@@ -1,3 +1,6 @@
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -6,6 +9,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.infotel.gg.dao.CityDAO;
+import com.infotel.gg.hibernate.CityDAOHbn;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
 import com.infotel.gg.model.Region;
@@ -19,17 +24,33 @@ public class HBMain {
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
 		
-		Country c = session.get(Country.class, 1);
+		Criteria crit = session.createCriteria(Region.class);
+		crit.setMaxResults(5);
+		List<Region> regions = crit.list();
+		
+		for (Region reg : regions) {
+			System.out.println(reg);
+		}
+		
+		CityDAO cd = new CityDAOHbn();
+		City c = cd.read(1);
+		
+		System.out.println(c);
+		
+//		Country c = session.get(Country.class, 1);
 		Region r = session.get(Region.class, 1);
+		City c2 = session.get(City.class, 1);
 		
-		City city = new City(667, "DevilCity", "66666", true, r, c);
-		session.save(city);
-		
-		
-		
-		City city2 = session.get(City.class, 32);
-		t.commit();
-		System.out.println(city2.toString());
+		System.out.println(c2);
+//		
+//		City city = new City(667, "DevilCity", "66666", true, r, c);
+//		session.save(c);
+//		
+//		
+//		
+//		City city2 = session.get(City.class, 32);
+//		t.commit();
+//		System.out.println(city2.toString());
 		session.close();
 	}
 	
