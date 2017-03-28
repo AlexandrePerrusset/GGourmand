@@ -1,6 +1,7 @@
 package com.infotel.gg.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -219,7 +220,7 @@ public class Eatery implements Serializable{
 	@Override
 	public String toString() {
 		return "Eatery [getPracticalIformation()=" + getPracticalIformation() + ", getId()=" + getId()
-				+ ", getEateryTags()=" + getEateryTags() + ", getName()=" + getName() + ", getDescription()="
+				+ ", getName()=" + getName() + ", getDescription()="
 				+ getDescription() + ", getExecutiveChef()=" + getExecutiveChef() + ", getCookingStyle()="
 				+ getCookingStyle() + ", getAddress()=" + getAddress() + ", getMenu()=" + getMenu()
 				+ ", getEateryManager()=" + getEateryManager() + "]";

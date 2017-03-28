@@ -48,7 +48,7 @@ public class HBMain {
 		  
 		  List<Eatery> eateries = crit.list();
 		  for (Eatery eat:eateries){
-				System.out.println(eat);
+				System.out.println(eat+" "+eat.getId());
 			}
 		
 
