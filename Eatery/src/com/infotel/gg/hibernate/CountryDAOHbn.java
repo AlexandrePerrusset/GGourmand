@@ -5,11 +5,9 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.dao.CountryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
 
 public class CountryDAOHbn extends DAOHbn implements CountryDAO{
