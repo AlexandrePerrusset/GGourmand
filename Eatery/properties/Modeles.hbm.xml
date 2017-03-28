@@ -4,7 +4,7 @@
 <hibernate-mapping package="com.infotel.gg.model">
 	<class name="Booking" table="booking">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="dateTime" column="date_time" generated="always" type="java.util.Calendar"></property>
 		<property name="nbOfCustomer" column="nb_people" />
@@ -13,7 +13,7 @@
 	</class>
 	<class name="BookingReport" table="booking_report">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="date" column="input_date" generated="always" type="java.util.Calendar"></property>
 		<property name="fulfilled" column="fulfilled"></property>
@@ -25,7 +25,7 @@
 	</class>
 	<class name="City" table="city">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 		<property name="postCode" column="post_code" />
@@ -35,21 +35,21 @@
 	</class>
 	<class name="CookingStyle" table="cooking_style">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 	</class>
 
 	<class name="Country" table="country">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 	</class>
 
 	<class name="Eatery" table="eatery">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 		<property name="description" column="description" />
@@ -71,7 +71,7 @@
 
 	<class name="EateryTag" table="eatery_tag">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 		<set name="eateries" inverse="true" table="eatery_eatery_tag">
@@ -81,7 +81,7 @@
 	</class>
 	<class name="ImageData" table="image_data">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="content" column="content" />
 		<property name="target" column="target" />
@@ -90,13 +90,13 @@
 	</class>
 	<class name="Menu" table="menu">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="content" column="content" />
 	</class>
 	<class name="PracticalInformation" table="practical_information">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="hoursOfOperation1" column="hours_of_operation1" />
 		<property name="hoursOfOperation2" column="hours_of_operation2" />
@@ -108,14 +108,14 @@
 	</class>
 	<class name="Region" table="region">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 		<property name="name" column="name" />
 		<many-to-one name="country" column="country_id" />
 	</class>
 	<class name="Review" table="review">
 		<id name="id" column="id">
-			<generator class="identity" />
+			<generator class="assigned" />
 		</id>
 	</class>
 

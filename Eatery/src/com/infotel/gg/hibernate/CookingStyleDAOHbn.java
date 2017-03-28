@@ -4,6 +4,7 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.infotel.gg.dao.CookingStyleDAO;
@@ -17,7 +18,9 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 	@Override
 	public void create(CookingStyle obj) throws DAOException {
 		try {
+			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
+			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
@@ -29,6 +32,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 	@Override
 	public CookingStyle read(Integer i) throws ModelException {
 		try {
+			Transaction t = getSession().beginTransaction();
 			return getSession().find(CookingStyle.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
@@ -38,9 +42,11 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 
 	
 	@Override
-	public void update(CookingStyle obj) {
+	public void update(CookingStyle obj) throws DAOException{
 		try {
+			Transaction t = getSession().beginTransaction();
 			getSession().saveOrUpdate(obj);
+			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de mettre a jour l'element",t);
@@ -50,10 +56,18 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 	
 	@Override
 	public void delete(CookingStyle obj) throws DAOException {
+		Transaction tr;
 		try {
+			
+			tr = getSession().beginTransaction();
+			
+			if((getSession().find(CookingStyle.class, obj.getId())) == null) throw new Exception();
 			getSession().delete(obj);
+			tr.commit();
+
 		} catch (Throwable t) {
-			t.printStackTrace();
+			//if (tr!=null) tr.rollback();
+			t.printStackTrace();			
 			throw new DAOException("Impossible de supprimer l'element",t);
 		}
 	}

@@ -31,7 +31,7 @@ public class CookingStyleTest {
 	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		DBUtils.cleanDB();
+		//DBUtils.cleanDB();
 	}
 
 	
@@ -54,12 +54,7 @@ public class CookingStyleTest {
 	public void readOk2() {
 		assertNotNull("CookingStyle n'est pas nulle readOk2",csd.read(2));
 	}
-	
-	@Test
-	public void readKo() {
-		assertNull("CookingStyle est nulle readKo",csd.read(null));
-	}
-	
+
 	@Test
 	public void readKo2() {
 		assertNull("CookingStyle est nulle readKo2",csd.read(5699965));
@@ -98,8 +93,8 @@ public class CookingStyleTest {
 	
 	@Test(expected=DAOException.class)
 	public void deleteKo() throws DAOException, ModelException {		
-		cs = new CookingStyle(146, "CookingStylefake");		
-		csd.delete(cs);				
+		cs = new CookingStyle(146, "CookingStylefake");
+		csd.delete(cs);	
 	}
 	
 	
