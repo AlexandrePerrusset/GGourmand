@@ -67,8 +67,7 @@ public class BookingTest {
 	
 	@Test
 	public void createOk() throws DAOException, ModelException {
-//		e = new Eatery(1, "Brasserie du Louvre", "blablabla", "Denis Bellon");
-//		c = new Customer("Alexa737ndra", "Per325russet", "Mme", "24152163", "alex.perru@gmail.com", "sfgsh3783783fgseg");
+		
 		
 		b= new Booking(2, calendar, 10);
 		bd.create(b);
