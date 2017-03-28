@@ -58,7 +58,7 @@
 		<one-to-one name="practicalInformation" class="PracticalInformation" cascade="all"/>
 		<many-to-one unique="true" name="cookingStyle" column="cooking_style_id" />
 		<list name="eateryTags" table="eatery_eatery_tag">
-			<key column="id" />
+			<key column="eatery_id" />
 			<list-index/>
 			<many-to-many column="tag_id" class="EateryTag" />
 		</list>

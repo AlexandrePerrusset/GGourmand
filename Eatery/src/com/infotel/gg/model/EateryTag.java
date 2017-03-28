@@ -17,12 +17,12 @@ public class EateryTag{
 	
 	private List<Eatery> eateries;
 
-	public EateryTag(int id, String name, List<Eatery> eateries) throws ModelException {
+	public EateryTag(int id, String name, List<Eatery> eateries){
 		setId(id);
 		setName(name);
 		setEateries(eateries);
 	}
-	public EateryTag(int id, String name) throws ModelException {
+	public EateryTag(int id, String name){
 		setId(id);
 		setName(name);
 	
@@ -49,23 +49,19 @@ public class EateryTag{
 	 * @param name the name to set
 	 * @throws ModelException 
 	 */
-	public void setName(String name) throws ModelException {
-		if(name != null && !StringUtils.isEmptyOrWhitespaceOnly(name)) {
+	public void setName(String name){
+	
 			this.name = name;
-		} else {
-			throw new ModelException("Erreur EateryTag name");
-		}
+		
 	}
 	/**
 	 * @param eateries the eateries to set
 	 * @throws ModelException 
 	 */
-	public void setEateries(List<Eatery> eateries) throws ModelException {
-		if(eateries != null && eateries.size() > 0) {
+	public void setEateries(List<Eatery> eateries) {
+
 			this.eateries = eateries;
-		} else {
-			throw new ModelException("Erreur EateryTag eateries");
-		}
+		
 		
 	}
 	
@@ -78,12 +74,10 @@ public class EateryTag{
 	 * @param id the id to set
 	 * @throws ModelException 
 	 */
-	public void setId(int id) throws ModelException {
-		if(id > 0) {
+	public void setId(int id){
+	
 			this.id = id;
-		} else{
-			throw new ModelException("Erreur EateryTag id");
-		}
+		
 	}
 	
 	/* (non-Javadoc)

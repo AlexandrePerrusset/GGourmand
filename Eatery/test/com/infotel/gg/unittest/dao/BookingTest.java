@@ -36,7 +36,7 @@ public class BookingTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		
-		DBUtils.cleanDB();
+		//DBUtils.cleanDB();
 	}
 
 	@Before
