@@ -37,110 +37,40 @@ public class TestEatery {
 
 	// Tests constructeurs CookingStyle
 	@Test
-	public void constructeurCookingOK() throws ModelException {
-		cooking = new CookingStyle(1, "Thomas");
+	public void constructeurCookingOK() {
+		cooking = new CookingStyle(1, "Bidon");
 		assertNotNull(cooking);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurCookingKO2() throws ModelException {
-		cooking = new CookingStyle(-2, "  ");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurCookingKO3() throws ModelException {
-		cooking = new CookingStyle(2, "");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurCookingKO4() throws ModelException {
-		cooking = new CookingStyle(2, "  ");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurCookingKO5() throws ModelException {
-		cooking = new CookingStyle(2, null);
+		assertEquals(cooking.getId(), 1);
+		assertEquals(cooking.getName(), "Bidon");
 	}
 	
 	// Tests constructeurs Eatery
 	@Test
-	public void constructeurEateryOK1() throws ModelException {
+	public void constructeurEateryOK() {
 		e = new Eatery(3, "Alex", "coucou", "chef");
 		assertNotNull(e);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryKO1() throws ModelException {
-		e = new Eatery(-1, "", "", "");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryKO2() throws ModelException {
-		e = new Eatery(1, "", "", "");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryKO3() throws ModelException {
-		e = new Eatery(1, "  ", "  ", "  ");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryKO4() throws ModelException {
-		e = new Eatery(1, null, "ff", "ff");
+		assertEquals(e.getId(), 3);
+		assertEquals(e.getName(), "Alex");
+		assertEquals(e.getDescription(), "coucou");
+		assertEquals(e.getExecutiveChef(), "chef");
 	}
 	
 	// Tests constructeurs EateryTag
 	@Test
-	public void constructeurEateryTagOK1() throws ModelException {
+	public void constructeurEateryTagOK1() {
 		eatTag = new EateryTag(1, "ihjvxd");
 		assertNotNull(eatTag);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryTagKO3() throws ModelException {
-		eatTag = new EateryTag(2, "");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryTagKO4() throws ModelException {
-		eatTag = new EateryTag(2, "  ");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryTagKO5() throws ModelException {
-		eatTag = new EateryTag(2, null);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurEateryTagKO6() throws ModelException {
-		eatTag = new EateryTag(-2, "sfs");
+		assertEquals(eatTag.getId(), 1);
+		assertEquals(eatTag.getName(), "ihjvxd");
 	}
 	
 	// Tests constructeurs Menu
 	@Test
-	public void constructeurMenuOK1() throws ModelException {
+	public void constructeurMenuOK1() {
 		menu = new Menu(1, "fsfq");
 		assertNotNull(menu);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurMenuKO1() throws ModelException {
-		menu = new Menu(1, "");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurMenuKO2() throws ModelException {
-		menu = new Menu(1, " ");
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurMenuKO3() throws ModelException {
-		menu = new Menu(1, null);
-	}
-	
-	@Test(expected=ModelException.class)
-	public void constructeurMenuKO4() throws ModelException {
-		menu = new Menu(-1, "gd");
+		assertEquals(menu.getId(), 1);
+		assertEquals(menu.getContent(), "fsfq");
 	}
 	
 	// Tests constructeur PracticalInformation
