@@ -13,9 +13,10 @@ public class Region {
 	private Country country;
 
 	// CONSTRUCTOR
-	public Region(int id, String name) {
+	public Region(int id, String name, Country country) {
 		this.setId(id);
 		this.setName(name);
+		this.setCountry(country);
 	}
 
 	public Region() {

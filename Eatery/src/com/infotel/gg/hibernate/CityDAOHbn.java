@@ -16,6 +16,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		try {
 			getSession().save(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
 		}
 	}
@@ -25,6 +26,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		try {
 			return getSession().find(City.class, i);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);
 		}
 	}
@@ -34,6 +36,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		try {
 			getSession().saveOrUpdate(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de mettre a jour l'element",t);
 		}
 	}
@@ -43,6 +46,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		try {
 			getSession().delete(obj);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de supprimer l'element",t);
 		}
 	}
