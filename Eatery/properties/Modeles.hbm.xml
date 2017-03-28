@@ -57,11 +57,10 @@
 		<many-to-one unique="true" name="menu" column="menu_id" />
 		<one-to-one name="practicalInformation" class="PracticalInformation" cascade="all"/>
 		<many-to-one unique="true" name="cookingStyle" column="cooking_style_id" />
-		<list name="eateryTags" table="eatery_eatery_tag">
+		<set name="eateryTags" table="eatery_eatery_tag">
 			<key column="eatery_id" />
-			<list-index/>
 			<many-to-many column="tag_id" class="EateryTag" />
-		</list>
+		</set>
 		<component name="address" class="Address" unique="true">
 			<parent name="eatery" />
 			<property name="street" column="street" />
@@ -75,11 +74,10 @@
 			<generator class="identity" />
 		</id>
 		<property name="name" column="name" />
-		<list name="eateries" inverse="true" table="eatery">
-			<key column="id" />
-			<list-index/>
+		<set name="eateries" inverse="true" table="eatery_eatery_tag">
+			<key column="tag_id" />
 			<many-to-many column="eatery_id" class="Eatery" />
-		</list>
+		</set>
 	</class>
 	<class name="ImageData" table="image_data">
 		<id name="id" column="id">

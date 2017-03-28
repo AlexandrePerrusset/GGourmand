@@ -15,6 +15,7 @@ import com.infotel.gg.hibernate.CityDAOHbn;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
 import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.EateryTag;
 import com.infotel.gg.model.Region;
 
 import DBUnit.DBUtils;
@@ -37,19 +38,20 @@ public class HBMain {
 //			System.out.println(reg.toString());
 //		}
 		
-		session.load(Eatery.class, 1);
 		
 		Criteria crit = session.createCriteria(Eatery.class);
 		crit.setMaxResults(3);
-		 // crit.add( Restrictions.like("name", "A%") );
+	  //crit.add( Restrictions.like("name", "Auberge de Venise%") );
+		  
 //		  crit.add( Restrictions.or(
-//			        Restrictions.like( "executiveChef", "Bruno%"),
+//			        Restrictions.like("executiveChef", "Bruno%"),
 //			        Restrictions.like("executiveChef", "Bernard%")));
 		  
 		  List<Eatery> eateries = crit.list();
-		  for (Eatery eat:eateries){
-				System.out.println(eat+" "+eat.getId());
-			}
+		  for (Eatery eat:eateries){  
+				  System.out.println(eat);
+
+		}
 		
 
 		session.close();

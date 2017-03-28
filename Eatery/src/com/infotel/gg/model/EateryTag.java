@@ -1,6 +1,7 @@
 package com.infotel.gg.model;
 
 import java.util.List;
+import java.util.Set;
 
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
@@ -15,9 +16,9 @@ public class EateryTag{
 	private int id;
 	private String name;
 	
-	private List<Eatery> eateries;
+	private Set<Eatery> eateries;
 
-	public EateryTag(int id, String name, List<Eatery> eateries){
+	public EateryTag(int id, String name, Set<Eatery> eateries){
 		setId(id);
 		setName(name);
 		setEateries(eateries);
@@ -36,7 +37,7 @@ public class EateryTag{
 	/**
 	 * @return the eateries
 	 */
-	public List<Eatery> getEateries() {
+	public Set<Eatery> getEateries() {
 		return eateries;
 	}
 	/**
@@ -58,7 +59,7 @@ public class EateryTag{
 	 * @param eateries the eateries to set
 	 * @throws ModelException 
 	 */
-	public void setEateries(List<Eatery> eateries) {
+	public void setEateries(Set<Eatery> eateries) {
 
 			this.eateries = eateries;
 		

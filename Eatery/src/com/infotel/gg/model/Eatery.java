@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
@@ -24,13 +25,13 @@ public class Eatery implements Serializable{
 	private CookingStyle cookingStyle;
 	private Address address;
 	private Menu menu;
-	private List<EateryTag> eateryTags;
+	private Set<EateryTag> eateryTags;
 	private EateryManager eateryManager;
 	
 	
 	public Eatery(int id, String name, String description, String executiveChef,
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
-			List<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
+			Set<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
 
 		setId(id);
 		setName(name);
@@ -85,14 +86,14 @@ public class Eatery implements Serializable{
 	/**
 	 * @return the eateryTags
 	 */
-	public List<EateryTag> getEateryTags() {
+	public Set<EateryTag> getEateryTags() {
 		return eateryTags;
 	}
 	/**
 	 * @param eateryTags the eateryTags to set
 	 * @throws ModelException 
 	 */
-	public void setEateryTags(List<EateryTag> eateryTags) throws ModelException {
+	public void setEateryTags(Set<EateryTag> eateryTags) throws ModelException {
 	
 			this.eateryTags = eateryTags;
 		
@@ -217,14 +218,7 @@ public class Eatery implements Serializable{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "Eatery [getPracticalIformation()=" + getPracticalIformation() + ", getId()=" + getId()
-				+ ", getName()=" + getName() + ", getDescription()="
-				+ getDescription() + ", getExecutiveChef()=" + getExecutiveChef() + ", getCookingStyle()="
-				+ getCookingStyle() + ", getAddress()=" + getAddress() + ", getMenu()=" + getMenu()
-				+ ", getEateryManager()=" + getEateryManager() + "]";
-	}
+	
 
 	/**
 	 * @return the practicalInformation
@@ -233,10 +227,19 @@ public class Eatery implements Serializable{
 		return practicalInformation;
 	}
 
+	
+
 	/**
 	 * @param practicalInformation the practicalInformation to set
 	 */
 	public void setPracticalInformation(PracticalInformation practicalInformation) {
 		this.practicalInformation = practicalInformation;
+	}
+	
+	@Override
+	public String toString() {
+		return "Eatery [id=" + id + ", name=" + name + ", description=" + description + ", executiveChef="
+				+ executiveChef + ", practicalInformation=" + practicalInformation + ", cookingStyle=" + cookingStyle
+				+ ", address=" + address + ", menu=" + menu + "";
 	}
 }

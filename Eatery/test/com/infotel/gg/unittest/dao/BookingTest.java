@@ -56,7 +56,7 @@ public class BookingTest {
 	}
 	
 	
-	@Test
+	@Test(expected=DAOException.class)
 	public void ReadKo(){
 		assertNull("le booking est nul ReadKo",  bd.read(null));
 	}
