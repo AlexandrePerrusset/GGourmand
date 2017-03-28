@@ -12,13 +12,14 @@ import org.junit.Test;
 import com.infotel.gg.dao.CookingStyleDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.hibernate.CookingStyleDAOHbn;
 import com.infotel.gg.model.CookingStyle;
 import DBUnit.DBUtils;
 
 
 public class CookingStyleTest {
 	CookingStyle cs;
-	CookingStyleDAO csd = new CookingStyleDAO();
+	CookingStyleDAO csd = new CookingStyleDAOHbn();
 	
 
 
@@ -102,16 +103,6 @@ public class CookingStyleTest {
 	}
 	
 	
-	@Test
-	public void deleteOk2() throws DAOException, ModelException {		
-		csd.deleteById(3);	
-		assertNull("CookingStyle n'est plus pr�sent dans la base", csd.read(3));
-	}
-	
-	
-	@Test(expected=DAOException.class)
-	public void deleteKo2() throws DAOException, ModelException {
-	csd.deleteById(148);		
-	}
+
 
 }
