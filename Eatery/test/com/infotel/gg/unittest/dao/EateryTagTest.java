@@ -1,4 +1,6 @@
-
+/**
+ * 
+ */
 package com.infotel.gg.unittest.dao;
 
 import static org.junit.Assert.*;
@@ -9,20 +11,19 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.infotel.gg.dao.RegionDAO;
+import com.infotel.gg.dao.EateryTagDAO;
 import com.infotel.gg.exception.DAOException;
-import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.hibernate.RegionDAOHbn;
-import com.infotel.gg.model.Region;
+import com.infotel.gg.hibernate.EateryTagDAOHbn;
+import com.infotel.gg.model.EateryTag;
 
 import DBUnit.DBUtils;
 
 
-public class RegionTest {
-	
-	Region r;
-	RegionDAO rd = new RegionDAOHbn();
+public class EateryTagTest {
+	EateryTag et;
+	EateryTagDAO etd = new EateryTagDAOHbn();
 
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
@@ -42,30 +43,29 @@ public class RegionTest {
 	
 	@After
 	public void tearDown() throws Exception {
-		r=null;
+		et=null;
 	}
 
 	@Test
 	public void readOk() {
-		assertNotNull("la region n'est pas nulle readOk",rd.read(1));
+		assertNotNull("PracticalInformation n'est pas nulle readOk",etd.read(1));
 	}
 	
 	@Test
 	public void readOk2() {
-		assertNotNull("la region n'est pas nulle readOk2",rd.read(2));
+		assertNotNull("PracticalInformation n'est pas nulle readOk2",etd.read(2));
 	}
 	
 	@Test(expected=DAOException.class)
 	public void readKo() {
-		rd.read(null);
+		etd.read(null);
 	}
 	
 	@Test
 	public void readKo2() {
-		assertNull("la region est nulle readKo2",rd.read(5699965));
+		assertNull("PracticalInformation est nulle readKo2",etd.read(5699965));
 	}
+	
 
-	
-	
 
 }

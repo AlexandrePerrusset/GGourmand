@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.exception.DAOException;
-import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.hibernate.CityDAOHbn;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;

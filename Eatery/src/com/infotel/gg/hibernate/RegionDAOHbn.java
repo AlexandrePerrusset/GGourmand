@@ -22,19 +22,18 @@ public class RegionDAOHbn extends DAOHbn implements RegionDAO{
 	
 	@Override
 	public void create(Region obj) throws DAOException {
-		try {
-			getSession().save(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de creer l'element",t);
+			throw new DAOException("Impossible de creer l'element");
 		}
-	}
+	
 
 	
 	@Override
 	public Region read(Integer i) throws ModelException {
 		try {
+			getSession().beginTransaction();
 			return getSession().find(Region.class, i);
 		} catch (Throwable t) {
+			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);
 		}
 	}
@@ -42,22 +41,16 @@ public class RegionDAOHbn extends DAOHbn implements RegionDAO{
 	
 	@Override
 	public void update(Region obj) {
-		try {
-			getSession().saveOrUpdate(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de mettre a jour l'element",t);
+			throw new DAOException("Impossible de mettre a jour l'element");
 		}
-	}
+	
 
 	
 	@Override
 	public void delete(Region obj) throws DAOException {
-		try {
-			getSession().delete(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de supprimer l'element",t);
+			throw new DAOException("Impossible de supprimer l'element");
 		}
-	}
+	
 
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
