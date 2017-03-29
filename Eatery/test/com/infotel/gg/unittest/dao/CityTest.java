@@ -64,57 +64,6 @@ public class CityTest {
 	
 	@Test(expected=DAOException.class)
 	public void readKo2() {
-		assertNull("la ville est nulle readKo2",cd.read(5699965));
-	}
-	
-	@Test
-	public void CreateOk() throws DAOException, ModelException {
-		c = new City(141, "VilleFactice", "44444", true, reg, country);
-		cd.create(c);
-		assertNotNull("la ville n'est pas nulle CreateOk", cd.read(c.getId()));
-	}
-	
-	@Test
-	public void CreateOk2() throws DAOException, ModelException {
-		c = new City(100, "CityCreateOk2", "66666", true, reg, country);
-		cd.create(c);
-		assertNotNull("la ville n'est pas nulle CreateOk2", cd.read(c.getId()));
-	}
-	
-	@Test(expected=DAOException.class)
-	public void CreateKo() throws DAOException, ModelException {
-		c = new City(42, "FakeFake", "55555", false, reg, country);
-		cd.create(c);
-		assertNull("la ville est nulle CreateKo", cd.read(c.getId()));
-	}
-	
-	@Test(expected=DAOException.class)
-	public void CreateKo2() throws DAOException, ModelException {
-		c = new City(942, null, "55555", false, reg, country);
-		cd.create(c);
-		assertNull("la ville est nulle CreateKo2", cd.read(c.getId()));
-	}
-	
-	@Test(expected=DAOException.class)
-	public void CreateKo3() throws DAOException, ModelException {
-		c = new City(43, "AgainFactice", "66666", true, reg, country);
-		cd.create(c);
-		cd.create(c);
-	}
-	
-	@Test
-	public void deleteOk() throws DAOException, ModelException {
-		
-		c= new City(178, "FakeCity", "55663", false, reg, country);
-		cd.delete(c);
-		assertNull("la ville n'est plus présente en base de donnees deleteOk", cd.read(c.getId()));
-	}
-	
-	@Test(expected=DAOException.class)
-	public void deleteKo() throws DAOException, ModelException {
-		
-		c= new City(200, "City", "55663", false, reg, country);
-		cd.delete(c);
-		assertNull("la ville n'est plus présente en base de donnees deleteKo", cd.read(c.getId()));
+		assertNull("la ville est nulle readKo2",cd.read(5699));
 	}
 }

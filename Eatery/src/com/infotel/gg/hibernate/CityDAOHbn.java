@@ -3,6 +3,7 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.infotel.gg.dao.CityDAO;
@@ -14,7 +15,9 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@Override
 	public void create(City obj) throws DAOException {
 		try {
+			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
+			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
@@ -24,7 +27,8 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@Override
 	public City read(Integer i) throws DAOException {
 		try {
-			return getSession().find(City.class, i);
+			Transaction t = getSession().beginTransaction();
+			return getSession().load(City.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);
