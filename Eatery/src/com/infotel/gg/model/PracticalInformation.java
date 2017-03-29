@@ -2,20 +2,47 @@ package com.infotel.gg.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
+@Entity @Table(name="practical_information") 
 public class PracticalInformation implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 4536914283626180346L;
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="hours_of_operation1")
 	private String hoursOfOperation1;
+	
+	@Column(name="hours_of_operation2")
 	private String hoursOfOperation2;
+	
+	@Column(name="price")
 	private String price;
+	
+	@Column(name="payment_options")
 	private String paymentOptions;
+	
+	@Column(name="getting_there")
 	private String gettingThere;
+	
+	@Column(name="parking")
 	private String parking;
+	
+	@OneToOne(cascade=CascadeType.ALL)  @JoinColumn(name="id") 
+	@MapsId
 	private Eatery eatery;
 	
 	

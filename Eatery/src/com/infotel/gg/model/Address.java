@@ -1,9 +1,23 @@
 package com.infotel.gg.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Embeddable
 public class Address {
+	
+	@Column(name="street")
 	private String street;
+	
+	@Column(name="post_code")
 	private String postCode;
+	
+	@ManyToOne @JoinColumn(name="city_id", unique=true)
 	private City city;
+	
+	@ManyToOne @JoinColumn(name="id", unique=true,insertable=false, updatable=false)
 	private Eatery eatery;
 	
 	

@@ -18,26 +18,26 @@
 			thread
 		</property>
 		<!-- <property name="hibernate.connexion.autocommit">true</property> -->
-		<mapping resource = "Modeles.hbm.xml"/>
+		<!-- <mapping resource = "Modeles.hbm.xml"/> -->
 
 
-<!-- 		<mapping class="com.infotel.lafourchette.model.Address" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Booking" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.BookingReport" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.City" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.CookingStyle" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Country" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Customer" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Eatery" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.EateryManager" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.EateryTag" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.ImageData" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Menu" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.PracticalInformation" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Personne" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Region" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.Review" /> -->
-<!-- 		<mapping class="com.infotel.lafourchette.model.User" />  -->
+		<mapping class="com.infotel.gg.model.Address" /> -->
+		<mapping class="com.infotel.gg.model.Booking" />
+		<mapping class="com.infotel.gg.model.BookingReport" />
+		<mapping class="com.infotel.gg.model.City" />
+		<mapping class="com.infotel.gg.model.CookingStyle" />
+		<mapping class="com.infotel.gg.model.Country" />
+		<mapping class="com.infotel.gg.model.Customer" />
+		<mapping class="com.infotel.gg.model.Eatery" />
+		<mapping class="com.infotel.gg.model.EateryManager" />
+		<mapping class="com.infotel.gg.model.EateryTag" />
+		<mapping class="com.infotel.gg.model.ImageData" />
+		<mapping class="com.infotel.gg.model.Menu" />
+		<mapping class="com.infotel.gg.model.PracticalInformation" />
+		<mapping class="com.infotel.gg.model.Person" />
+		<mapping class="com.infotel.gg.model.Region" />
+		<mapping class="com.infotel.gg.model.Review" />
+		<mapping class="com.infotel.gg.model.User" /> 
 		
 	</session-factory>
 </hibernate-configuration>

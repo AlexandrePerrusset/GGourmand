@@ -1,7 +1,23 @@
 package com.infotel.gg.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+@Entity @Table(name="user_data") 
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
 public class User {
+	
+	@Id @Column(name="username")
 	private String username;
+	
+	@Column(name="password")
 	private String password;
 	
 	public User(String username, String password) {
@@ -15,9 +31,6 @@ public class User {
 	}
 
 
-	/**
-	 * @return the username
-	 */
 	public String getUsername() {
 		return username;
 	}

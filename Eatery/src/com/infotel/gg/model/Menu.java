@@ -1,16 +1,29 @@
 package com.infotel.gg.model;
 
-import com.infotel.gg.exception.ModelException;
-import com.mysql.jdbc.StringUtils;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import com.infotel.gg.exception.ModelException;
+
+
+@Entity @Table(name="menu") 
 public class Menu {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 2223377102082445657L;
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="content")
 	private String content; // YAML format
-	private Eatery eatery;
+	
+	
+	
 
 	public Menu(int id, String content) {
 		setId(id);
@@ -44,21 +57,7 @@ public class Menu {
 		this.content = content;
 	}
 
-	/**
-	 * @return the eatery
-	 */
-	public Eatery getEatery() {
-		return eatery;
-	}
-
-	/**
-	 * @param eatery
-	 *            the eatery to set
-	 * @throws ModelException
-	 */
-	public void setEatery(Eatery eatery) {
-		this.eatery = eatery;
-	}
+	
 
 	/**
 	 * @param id
@@ -76,6 +75,6 @@ public class Menu {
 	 */
 	@Override
 	public String toString() {
-		return "Menu [getId()=" + getId() + ", getContent()=" + getContent() + ", getEatery()=" + getEatery() + "]";
+		return "Menu [getId()=" + getId() + ", getContent()=" + getContent() + "]";
 	}
 }

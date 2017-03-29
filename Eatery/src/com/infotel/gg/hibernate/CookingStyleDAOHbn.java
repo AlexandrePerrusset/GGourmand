@@ -74,7 +74,8 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 	@Override
 	public List<CookingStyle> listAll() {
 		List<CookingStyle> result = null;
-		String request = "SELECT cs FROM CookingStyle cs";
+		String request = "SELECT eat.cookingStyle FROM Eatery eat "
+				+ "GROUP BY eat.cookingStyle.id ORDER BY count(*) DESC";
 		Session session = getSession();
 		Query q = session.createQuery(request);	
 		result = q.getResultList();

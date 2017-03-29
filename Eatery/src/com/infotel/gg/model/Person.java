@@ -1,8 +1,15 @@
 package com.infotel.gg.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public abstract class Person extends User{
 	
+	@Column(name="first_name")
 	private String firstName;
+	
+	@Column(name="last_name")
 	private String lastName;
 	
 	
