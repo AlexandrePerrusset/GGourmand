@@ -14,39 +14,32 @@ public class EateryManagerDAOHbn extends DAOHbn implements EateryManagerDAO {
 
 	@Override
 	public void create(EateryManager obj) throws DAOException {
-		try {
-			getSession().save(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de creer l'element",t);
+			throw new DAOException("Impossible de creer l'element");		
 		}
-	}
+	
 
 	@Override
-	public EateryManager read(Integer i) throws ModelException {
+	public EateryManager read(String i) throws ModelException {
 		try {
+			getSession().beginTransaction();
 			return getSession().find(EateryManager.class, i);
 		} catch (Throwable t) {
-			throw new DAOException("Impossible de lire l'element",t);
+			t.printStackTrace();
+			throw new DAOException("Impossible de lire l'element");
 		}
 	}
 
 	@Override
 	public void update(EateryManager obj) {
-		try {
-			getSession().saveOrUpdate(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de mettre a jour l'element",t);
+			throw new DAOException("Impossible de mettre a jour l'element");
 		}
-	}
+	
 
 	@Override
 	public void delete(EateryManager obj) throws DAOException {
-		try {
-			getSession().delete(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de supprimer l'element",t);
+			throw new DAOException("Impossible de supprimer l'element");
 		}
-	}
+	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
