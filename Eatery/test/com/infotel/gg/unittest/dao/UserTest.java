@@ -106,14 +106,7 @@ public class UserTest {
 		assertNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
-	@Test(expected=DAOException.class)
-	public void createKo() throws DAOException {
-		
-		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "alex.ru@gmail.com", "sfgshfgseg");
-		
-		cd.create(c);
-		cd.create(c);
-	}
+
 
 	@Test
 	public void deleteOk() throws DAOException {	
