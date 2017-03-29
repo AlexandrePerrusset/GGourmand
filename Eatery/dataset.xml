@@ -9,6 +9,31 @@
   <booking id="1" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <booking id="42" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <booking id="43" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <eatery_tag id="1" name="Coup de coeur"/>
+  <eatery_tag id="2" name="Vue exceptionnelle"/>
+  <eatery_eatery_tag eatery_id="1" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="3" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="5" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="20" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="23" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="70" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="76" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="76" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="104" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="131" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="132" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="138" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="143" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="143" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="153" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="161" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="229" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="230" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="411" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="419" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="421" tag_id="1"/>
+  <eatery_eatery_tag eatery_id="421" tag_id="2"/>
+  <eatery_eatery_tag eatery_id="474" tag_id="2"/>
   <city id="1" name="Paris" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="2" name="Versailles" post_code="" foremost="true" country_id="1" region_id="1"/>
   <city id="3" name="Boulogne-Billancourt" post_code="" foremost="true" country_id="1" region_id="1"/>
