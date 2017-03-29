@@ -88,14 +88,6 @@ public class BookingTest {
 		assertNull("le customer n'est pas nul CreateOk",  bd.read(b.getId()));
 	}
 	
-	@Test(expected=DAOException.class)
-	public void createKo() throws DAOException {
-		
-		b= new Booking(1, calendar, 10);
-		
-		bd.create(b);
-		bd.create(b);
-	}
 	
 	@Test
 	public void deleteOk() throws DAOException, ModelException {

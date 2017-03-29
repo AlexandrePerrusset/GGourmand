@@ -3,19 +3,23 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.CookingStyle;
 
 public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 
 	@Override
 	public void create(Booking obj) throws DAOException {
 		try {
+			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
+			t.commit();
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de creer l'element",t);
 		}
@@ -23,8 +27,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	}
 
 	@Override
-	public Booking read(Integer i) throws ModelException {
+	public Booking read(Integer i) throws DAOException {
 		try {
+			getSession().beginTransaction();
 			return getSession().find(Booking.class, i);
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de lire l'element",t);
@@ -34,7 +39,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public void update(Booking obj) {
 		try {
+			Transaction t = getSession().beginTransaction();
 			getSession().saveOrUpdate(obj);
+			t.commit();
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de mettre a jour l'element",t);
 		}
@@ -44,7 +51,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public void delete(Booking obj) throws DAOException {
 		try {
+			Transaction tr = getSession().beginTransaction();
 			getSession().delete(obj);
+			tr.commit();
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de supprimer l'element",t);
 		}
