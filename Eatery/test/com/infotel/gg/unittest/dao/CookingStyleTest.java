@@ -84,18 +84,7 @@ public class CookingStyleTest {
 	}
 	
 	
-	@Test
-	public void deleteOk() throws DAOException, ModelException {	
-		cs = new CookingStyle(43, "Vietnamien");		
-		csd.delete(cs);		
-		assertNull("CookingStylen'est plus pr�sent dans la base", csd.read(cs.getId()));
-	}
 	
-	@Test(expected=DAOException.class)
-	public void deleteKo() throws DAOException, ModelException {		
-		cs = new CookingStyle(146, "CookingStylefake");
-		csd.delete(cs);	
-	}
 	
 	
 

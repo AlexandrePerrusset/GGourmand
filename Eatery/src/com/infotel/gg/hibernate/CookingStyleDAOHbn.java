@@ -60,8 +60,6 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		try {
 			
 			tr = getSession().beginTransaction();
-			
-			if((getSession().find(CookingStyle.class, obj.getId())) == null) throw new Exception();
 			getSession().delete(obj);
 			tr.commit();
 
