@@ -33,6 +33,14 @@ public class Review{
 		this.comment = comment;
 	}
 	
+	public Review(int id, int rating, String comment, Booking booking) {
+		super();
+		this.id = id;
+		this.rating = rating;
+		this.comment = comment;
+		this.booking = booking;
+	}
+	
 
 
 	public Review() {
