@@ -1,13 +1,20 @@
 package com.infotel.gg.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-
+@Entity @DiscriminatorValue("customer")
 public class Customer extends Person{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7503481568662049568L;
+	
+	@Column(name="title")
 	private String title;
+	
+	@Column(name="phone")
 	private String phone;
 	
 	
