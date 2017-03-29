@@ -14,21 +14,14 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 
 	@Override
 	public void create(City obj) throws DAOException {
-		try {
-			Transaction t = getSession().beginTransaction();
-			getSession().save(obj);
-			t.commit();
-		} catch (Throwable t) {
-			t.printStackTrace();
-			throw new DAOException("Impossible de creer l'element",t);
-		}
+			throw new DAOException("Impossible de creer l'element");
 	}
 
 	@Override
 	public City read(Integer i) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
-			return getSession().load(City.class, i);
+			getSession().beginTransaction();
+			return getSession().find(City.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);
@@ -37,22 +30,12 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 
 	@Override
 	public void update(City obj) throws DAOException {
-		try {
-			getSession().saveOrUpdate(obj);
-		} catch (Throwable t) {
-			t.printStackTrace();
-			throw new DAOException("Impossible de mettre a jour l'element",t);
-		}
+			throw new DAOException("Impossible de mettre a jour l'element");
 	}
 
 	@Override
 	public void delete(City obj) throws DAOException {
-		try {
-			getSession().delete(obj);
-		} catch (Throwable t) {
-			t.printStackTrace();
-			throw new DAOException("Impossible de supprimer l'element",t);
-		}
+			throw new DAOException("Impossible de supprimer l'element");
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

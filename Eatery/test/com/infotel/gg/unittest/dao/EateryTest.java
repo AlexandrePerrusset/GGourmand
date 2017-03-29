@@ -11,6 +11,7 @@ import org.junit.Test;
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.hibernate.EateryDAOHbn;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Eatery;
 
@@ -18,7 +19,7 @@ import DBUnit.DBUtils;
 
 public class EateryTest {
 	Eatery eatery;
-	EateryDAO ed = new EateryDAO();
+	EateryDAO ed = new EateryDAOHbn();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -37,6 +38,7 @@ public class EateryTest {
 	@After
 	public void tearDown() throws Exception {
 		eatery = null;
+		ed = null;
 	}
 
 	@Test
@@ -44,13 +46,7 @@ public class EateryTest {
 		assertNotNull("l'eatery n'est pas nul readOk",ed.read(1));
 	}
 	
-	// TODO : readOk2
-//	@Test
-//	public void readOk2() {
-//		assertNotNull("l'eatery n'est pas nul readOk2",ed.read(2));
-//	}
-	
-	@Test
+	@Test(expected=DAOException.class)
 	public void readKo() {
 		assertNull("l'eatery est nul readKo",ed.read(null));
 	}
@@ -59,15 +55,4 @@ public class EateryTest {
 	public void readKo2() {
 		assertNull("l'eatery est nul readKo2",ed.read(159753));
 	}
-	
-	// TODO : CreateOk
-	@Test
-	public void CreateOk() throws DAOException, ModelException {
-		eatery = new Eatery(141, "new", "toutca", "chef");
-		ed.create(eatery);
-		assertNotNull("la ville n'est pas nulle CreateOk", ed.read(eatery.getId()));
-	}
-	
-	
-
 }

@@ -40,7 +40,6 @@ public class Review{
 	}
 
 
-
 	public int getId() {
 		return id;
 	}
@@ -108,5 +107,8 @@ public class Review{
 		this.id = id;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Review [id=" + id + ", rating=" + rating + ", comment=" + comment + ", booking=" + booking + "]";
+	}
 }

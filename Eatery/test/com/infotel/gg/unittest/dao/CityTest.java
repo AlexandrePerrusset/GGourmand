@@ -30,13 +30,12 @@ public class CityTest {
 
 	@Before
 	public void setUp() throws Exception {
-		country = new Country(3,"CountryCreateOk");
-		reg = new Region(11,"RegionCreateOk", country);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		c = null;
+		cd = null;
 		country = null;
 		reg = null;
 	}
@@ -56,13 +55,13 @@ public class CityTest {
 		assertNotNull("la ville n'est pas nulle readOk2",cd.read(2));
 	}
 	
-	@Test(expected=DAOException.class)
+	@Test
 	public void readKo() {
-		assertNull("la ville est nulle readKo",cd.read(null));
+		assertNull("la ville est nulle readKo2",cd.read(5566));
 	}
 	
 	@Test(expected=DAOException.class)
 	public void readKo2() {
-		assertNull("la ville est nulle readKo2",cd.read(5699));
+		cd.read(null);
 	}
 }
