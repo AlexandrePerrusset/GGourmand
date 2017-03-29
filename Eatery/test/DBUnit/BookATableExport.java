@@ -55,7 +55,7 @@ public class BookATableExport {
         partialDataSet.addTable("eatery","SELECT * FROM eatery WHERE id between 1 and 40");
         partialDataSet.addTable("menu","SELECT * FROM menu WHERE id between 1 and 40");
         partialDataSet.addTable("practical_information","SELECT * FROM practical_information WHERE id between 1 and 40");
-        partialDataSet.addTable("image_data", "Select * from image_data where target_id between 1 and 40");
+        partialDataSet.addTable("image_data", "Select * from image_data where target_id between 1 and 5");
         String fileName = userHome+"partial.xml";
         System.out.println(fileName);
         FlatXmlDataSet.write(partialDataSet, new FileOutputStream(fileName));
