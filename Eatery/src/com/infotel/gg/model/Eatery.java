@@ -6,9 +6,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import com.infotel.gg.exception.ModelException;
 import com.mysql.jdbc.StringUtils;
 
+@Entity @Table(name="eatery")
 public class Eatery implements Serializable{
 	
 	
@@ -16,17 +30,39 @@ public class Eatery implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 5737634769078321910L;
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="description")
 	private String description;
+	
+	@Column(name="executive_chef")
 	private String executiveChef;
 	
+	@OneToOne(mappedBy="eatery")
 	private PracticalInformation practicalInformation;
+	
+	@ManyToOne @JoinColumn(name="cooking_style_id", unique=true)
 	private CookingStyle cookingStyle;
+	
+	@Embedded
 	private Address address;
+	
+	@ManyToOne @JoinColumn(name="menu_id", unique=true)
 	private Menu menu;
+	
+	@ManyToMany
+	@JoinTable(name="eatery_eatery_tag",
+	joinColumns={@JoinColumn(name="eatery_id", referencedColumnName="id")},
+	inverseJoinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")})
 	private Set<EateryTag> eateryTags;
-	private EateryManager eateryManager;
+	
+
 	
 	
 	public Eatery(int id, String name, String description, String executiveChef,
@@ -42,7 +78,6 @@ public class Eatery implements Serializable{
 		setAddress(address);
 		setMenu(menu);
 		setEateryTags(eateryTags);
-		setEateryManager(eateryManager);
 	}
 	
 	public Eatery(int id, String name, String description, String executiveChef) throws ModelException {
@@ -190,21 +225,7 @@ public class Eatery implements Serializable{
 			this.menu = menu;
 		
 	}
-	/**
-	 * @return the eateryManager
-	 */
-	public EateryManager getEateryManager() {
-		return eateryManager;
-	}
-	/**
-	 * @param eateryManager the eateryManager to set
-	 * @throws ModelException 
-	 */
-	public void setEateryManager(EateryManager eateryManager) throws ModelException {
-		
-			this.eateryManager = eateryManager;
-		
-	}
+	
 	/**
 	 * @param id the id to set
 	 * @throws ModelException 

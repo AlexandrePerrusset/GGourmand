@@ -2,19 +2,40 @@ package com.infotel.gg.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
+@Entity @Table(name="city")
 public class City implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2406884507752812014L;
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="post_code")
 	private String postCode;
+	
+	@Column(name="foremost")
 	private boolean foreMost;
 	
+	@ManyToOne @JoinColumn(name="region_id", unique=true)
 	private Region region;
+	
+	@ManyToOne @JoinColumn(name="country_id", unique=true)
 	private Country country;
 	
 	
