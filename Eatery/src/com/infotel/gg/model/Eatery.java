@@ -60,14 +60,14 @@ public class Eatery implements Serializable{
 	@JoinTable(name="eatery_eatery_tag",
 	joinColumns={@JoinColumn(name="eatery_id", referencedColumnName="id")},
 	inverseJoinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")})
-	private Set<EateryTag> eateryTags;
+	private List<EateryTag> eateryTags;
 	
 
 	
 	
 	public Eatery(int id, String name, String description, String executiveChef,
 			PracticalInformation practicalIformation, CookingStyle cookingStyle, Address address, Menu menu,
-			Set<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
+			List<EateryTag> eateryTags, EateryManager eateryManager) throws ModelException {
 
 		setId(id);
 		setName(name);
@@ -121,14 +121,14 @@ public class Eatery implements Serializable{
 	/**
 	 * @return the eateryTags
 	 */
-	public Set<EateryTag> getEateryTags() {
+	public List<EateryTag> getEateryTags() {
 		return eateryTags;
 	}
 	/**
 	 * @param eateryTags the eateryTags to set
 	 * @throws ModelException 
 	 */
-	public void setEateryTags(Set<EateryTag> eateryTags) throws ModelException {
+	public void setEateryTags(List<EateryTag> eateryTags) throws ModelException {
 	
 			this.eateryTags = eateryTags;
 		

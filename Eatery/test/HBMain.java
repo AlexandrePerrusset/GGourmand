@@ -24,51 +24,49 @@ public class HBMain {
 
 	public static void main(String[] args) {
 		SessionFactory factory = createWithHB5();
-		
-		
+
 		// Creating session object
 		Session session = factory.openSession();
 
-//		Transaction t = session.beginTransaction();
-		
+		// Transaction t = session.beginTransaction();
+
 //		Criteria crit = session.createCriteria(Region.class);
 //		crit.setMaxResults(3);
 //		List<Region> regions = crit.list();
-//		for (Region reg:regions){
+//		for (Region reg : regions) {
 //			System.out.println(reg.toString());
-//		}
-		
-		
-		Criteria crit = session.createCriteria(Eatery.class);
-		crit.setMaxResults(3);
-	  //crit.add( Restrictions.like("name", "Auberge de Venise%") );
-		  
-//		  crit.add( Restrictions.or(
-//			        Restrictions.like("executiveChef", "Bruno%"),
-//			        Restrictions.like("executiveChef", "Bernard%")));
-		  
-		  List<Eatery> eateries = crit.list();
-		  for (Eatery eat:eateries){  
-				  System.out.println(eat);
+//			}
 
+			Criteria crit = session.createCriteria(Eatery.class);
+			crit.add(Restrictions.like("name", "Auberge de Ven%"));
+
+//			crit.add(Restrictions.or(Restrictions.like("executiveChef", "Bruno%"),
+//					Restrictions.like("executiveChef", "Bernard%")));
+
+			List<Eatery> eateries = crit.list();
+			for (Eatery eat : eateries) {
+				System.out.println(eat.getName());
+				for(EateryTag et : eat.getEateryTags())
+					System.out.println(et.getName());
+			}
+
+			session.close();
 		}
-		
 
-		session.close();
-	}
-	
 	public static SessionFactory createWithHB5() {
 		SessionFactory sf = null;
-		
+
 		try {
-			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+			StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
+					.configure("hibernate.cfg.xml").build();
 			Metadata metadata = new MetadataSources(standardRegistry).getMetadataBuilder().build();
-			
+
 			sf = metadata.getSessionFactoryBuilder().build();
 		} catch (Throwable th) {
-//			System.err.println("Initial SessionFactory creation failed " + th);
+			// System.err.println("Initial SessionFactory creation failed " +
+			// th);
 			th.printStackTrace();
-			
+
 		}
 		return sf;
 	}

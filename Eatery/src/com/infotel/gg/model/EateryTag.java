@@ -1,5 +1,6 @@
 package com.infotel.gg.model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -26,17 +27,11 @@ public class EateryTag{
 	
 	@Column(name="name")
 	private String name;
-	
-	@ManyToMany
-	@JoinTable(name="eatery_eatery_tag",
-	joinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")},
-	inverseJoinColumns={@JoinColumn(name="eatery_id", referencedColumnName="id")})
-	private Set<Eatery> eateries;
 
-	public EateryTag(int id, String name, Set<Eatery> eateries){
+	public EateryTag(int id, String name, List<Eatery> eateries){
 		setId(id);
 		setName(name);
-		setEateries(eateries);
+//		setEateries(eateries);
 	}
 	public EateryTag(int id, String name){
 		setId(id);
@@ -49,12 +44,6 @@ public class EateryTag{
 	
 	}
 
-	/**
-	 * @return the eateries
-	 */
-	public Set<Eatery> getEateries() {
-		return eateries;
-	}
 	/**
 	 * @return the name
 	 */
@@ -70,16 +59,7 @@ public class EateryTag{
 			this.name = name;
 		
 	}
-	/**
-	 * @param eateries the eateries to set
-	 * @throws ModelException 
-	 */
-	public void setEateries(Set<Eatery> eateries) {
-
-			this.eateries = eateries;
-		
-		
-	}
+	
 	
 	public int getId() {
 		return id;
@@ -101,6 +81,6 @@ public class EateryTag{
 	 */
 	@Override
 	public String toString() {
-		return "EateryTag [getEateries()=" + getEateries() + ", getName()=" + getName() + ", getId()=" + getId() + "]";
+		return "EateryTag [getEateries()=" + ", getName()=" + getName() + ", getId()=" + getId() + "]";
 	}
 }

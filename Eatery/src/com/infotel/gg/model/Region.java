@@ -35,6 +35,11 @@ public class Region {
 		this.setName(name);
 		this.setCountry(country);
 	}
+	
+	public Region(int id, String name) {
+		this.setId(id);
+		this.setName(name);
+	}
 
 	public Region() {
 
