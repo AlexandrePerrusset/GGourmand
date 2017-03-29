@@ -14,42 +14,35 @@ public class MenuDAOHbn extends DAOHbn implements MenuDAO{
 
 	@Override
 	public void create(Menu obj) throws DAOException {
-		try {
-			getSession().save(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de creer l'element",t);
+			throw new DAOException("Impossible de creer l'element");
 		}
 		
-	}
+	
 
 	@Override
 	public Menu read(Integer i) throws ModelException {
 		try {
+			getSession().beginTransaction();
 			return getSession().find(Menu.class, i);
 		} catch (Throwable t) {
-			throw new DAOException("Impossible de lire l'element",t);
+			t.printStackTrace();
+			throw new DAOException("Impossible de lire l'element");
 		}
 	}
 
 	@Override
 	public void update(Menu obj) {
-		try {
-			getSession().saveOrUpdate(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de mettre a jour l'element",t);
+			throw new DAOException("Impossible de mettre a jour l'element");
 		}
 		
-	}
+
 
 	@Override
 	public void delete(Menu obj) throws DAOException {
-		try {
-			getSession().delete(obj);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de supprimer l'element",t);
+			throw new DAOException("Impossible de supprimer l'element");
 		}
 		
-	}
+
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override

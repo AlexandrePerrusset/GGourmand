@@ -1,5 +1,7 @@
 package com.infotel.gg.model;
 
+import java.util.Base64;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -116,5 +118,11 @@ public class ImageData{
 		return id;
 	}
 
+	
+	public String getBase64URL() {
+		byte[]encodedBytes = Base64.getEncoder().encode(content);
+		return "data:image/jpeg;base64, " + new String(encodedBytes);
+	
+	}
 	
 }
