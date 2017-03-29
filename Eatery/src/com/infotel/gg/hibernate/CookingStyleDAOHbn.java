@@ -32,7 +32,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 	@Override
 	public CookingStyle read(Integer i) throws ModelException {
 		try {
-			Transaction t = getSession().beginTransaction();
+			getSession().beginTransaction();
 			return getSession().find(CookingStyle.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
@@ -76,8 +76,8 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		List<CookingStyle> result = null;
 		String request = "SELECT eat.cookingStyle FROM Eatery eat "
 				+ "GROUP BY eat.cookingStyle.id ORDER BY count(*) DESC";
-		Session session = getSession();
-		Query q = session.createQuery(request);	
+		Transaction t = getSession().beginTransaction();
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}
