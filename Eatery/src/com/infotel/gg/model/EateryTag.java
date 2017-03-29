@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.infotel.gg.exception.ModelException;
@@ -24,6 +27,10 @@ public class EateryTag{
 	@Column(name="name")
 	private String name;
 	
+	@ManyToMany
+	@JoinTable(name="eatery_eatery_tag",
+	joinColumns={@JoinColumn(name="tag_id", referencedColumnName="id")},
+	inverseJoinColumns={@JoinColumn(name="eatery_id", referencedColumnName="id")})
 	private Set<Eatery> eateries;
 
 	public EateryTag(int id, String name, Set<Eatery> eateries){
