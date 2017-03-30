@@ -15,6 +15,7 @@
   <booking id="1" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <booking id="42" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <booking id="43" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="456" eatery_id="11" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <eatery_tag id="1" name="Coup de coeur"/>
   <eatery_tag id="2" name="Vue exceptionnelle"/>
   <eatery_eatery_tag eatery_id="1" tag_id="1"/>

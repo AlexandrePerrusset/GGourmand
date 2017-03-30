@@ -100,17 +100,17 @@ public class BookingTest {
 	}
 	
 	
-//	@Test
-//	public void deleteOk() throws DAOException, ModelException {
-//		e = ed.read(2);
-//		c = cd.read("alex.perru@gmail.com");
-//		
-//		b= new Booking(43, calendar, 10);
-//		
-//		bd.delete(b);
-//		
-//		assertNull("le booking n'est plus pr�sent dans la base", bd.read(b.getId()));
-//	}
+	@Test
+	public void deleteOk() throws DAOException, ModelException {
+		e = ed.read(11);
+		c = cd.read("alex.perru@gmail.com");
+		
+		b= new Booking(456, calendar, 10, e , c);
+		
+		bd.delete(b);
+		
+		assertNull("le booking n'est plus pr�sent dans la base", bd.read(b.getId()));
+	}
 	
 	@Test(expected=DAOException.class)
 	public void deleteKo() throws DAOException, ModelException {

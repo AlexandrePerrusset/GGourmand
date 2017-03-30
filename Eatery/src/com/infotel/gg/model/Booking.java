@@ -3,6 +3,7 @@ package com.infotel.gg.model;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,9 +14,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
 
 
 
@@ -43,7 +48,6 @@ public class Booking implements Serializable{
 	
 	@Column(name="nb_people")
 	private int nbOfCustomer;
-	
 	
 	
 	
