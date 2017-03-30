@@ -12,9 +12,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.infotel.gg.dao.BookingDAO;
+import com.infotel.gg.dao.CustomerDAO;
+import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.hibernate.BookingDAOHbn;
+import com.infotel.gg.hibernate.CustomerDAOHbn;
+import com.infotel.gg.hibernate.EateryDAOHbn;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.Eatery;
@@ -24,6 +28,8 @@ import DBUnit.DBUtils;
 public class BookingTest {
 	Booking b;
 	BookingDAO bd = new BookingDAOHbn(); 
+	EateryDAO ed = new EateryDAOHbn(); 
+	CustomerDAO cd = new CustomerDAOHbn(); 
 	Eatery e;
 	Customer c;
 	Calendar calendar;
@@ -48,6 +54,8 @@ public class BookingTest {
 	public void tearDown() throws Exception {
 		b = null;
 		calendar = null;
+		e =null;
+		c = null;
 	}
 
 	@Test
@@ -68,35 +76,40 @@ public class BookingTest {
 	@Test
 	public void createOk() throws DAOException, ModelException {
 		
-		
-		b= new Booking(2, calendar, 10);
+		e = ed.read(2);
+		c = cd.read("alex.perru@gmail.com");
+		b= new Booking(2, calendar, 10, e, c);
 		bd.create(b);
-		assertNotNull("le customer n'est pas nul CreateOk", bd.read(b.getId()));
+		assertNotNull("le booking n'est pas nul CreateOk", bd.read(b.getId()));
 	}
 	
 	@Test
 	public void createOk2() throws DAOException, ModelException {
-		b= new Booking(47, calendar, 102);
+		e = ed.read(22);
+		c = cd.read("plop@gmail.com");
+		b= new Booking(47, calendar, 102, e, c);
 		bd.create(b);
-		assertNotNull("le customer n'est pas nul CreateOk",  bd.read(b.getId()));
+		assertNotNull("le booking n'est pas nul CreateOk",  bd.read(b.getId()));
 	}
 	
 	@Test(expected=DAOException.class)
 	public void createKo2() throws  DAOException, ModelException {
 		b= new Booking(42, calendar, 10);
 		bd.create(b);
-		assertNull("le customer n'est pas nul CreateOk",  bd.read(b.getId()));
+		assertNull("le booking n'est pas nul CreateOk",  bd.read(b.getId()));
 	}
 	
 	
 	@Test
 	public void deleteOk() throws DAOException, ModelException {
+		e = ed.read(2);
+		c = cd.read("alex.perru@gmail.com");
 		
 		b= new Booking(43, calendar, 10);
 		
 		bd.delete(b);
 		
-		assertNull("le cutsomer n'est plus pr�sent dans la base", bd.read(b.getId()));
+		assertNull("le booking n'est plus pr�sent dans la base", bd.read(b.getId()));
 	}
 	
 	@Test(expected=DAOException.class)

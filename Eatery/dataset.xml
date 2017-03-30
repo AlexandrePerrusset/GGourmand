@@ -12,9 +12,9 @@
   <user_data username="raphi@gmail.com" password="azerty" type="manager" first_name="ukeqsrg" last_name="euifgze" title="Mme" phone="6546874" eatery_id="1"/>
   <user_data username="delete2@gmail.com" password="zaflhzh" type="manager" first_name="aqzefhqei" last_name="azfha" title="zjfh" phone="65746546" eatery_id="4"/>
   <user_data username="delete@gmail.com" password="zegfze" type="manager" first_name="siehgsze" last_name="aifhaz" title="oiez" phone="654654689" eatery_id="3"/>
-  <booking id="1" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
-  <booking id="42" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
-  <booking id="43" eatery_id="12" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="1" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="42" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
+  <booking id="43" eatery_id="10" customer_id="alex.perru@gmail.com" date_time="2017-03-02 00:00:00.0" nb_people="10"/>
   <eatery_tag id="1" name="Coup de coeur"/>
   <eatery_tag id="2" name="Vue exceptionnelle"/>
   <eatery_eatery_tag eatery_id="1" tag_id="1"/>
