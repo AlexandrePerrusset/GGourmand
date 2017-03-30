@@ -110,15 +110,31 @@ public class ReviewTest {
 		assertNull("Review n'est plus present dans la base", rd.read(r.getId()));
 	}
 	
-	@Test(expected=DAOException.class)
+	@Test(expected=IllegalArgumentException.class)
 	public void deleteKo() throws DAOException, ModelException {		
 		r = new Review(5, 16,"comment5");		
 		rd.delete(r);				
 	}
 	
 	@Test
+	public void updateOk() throws DAOException, ModelException {
+		book = bd.read(1);
+		r = new Review(4, 15, "updateOk", book);
+		rd.update(r);
+		assertNotNull("Review n'est pas nulle updateOk", rd.read(r.getId()));
+	}
+	
+	@Test(expected=DAOException.class)
+	public void updateko() throws DAOException, ModelException {
+		book = bd.read(1);
+		r = new Review(10, 15, "updateKo", book);
+		rd.update(r);
+		assertNotNull("Review est nulle updateKo", rd.read(r.getId()));
+	}
+	
+	@Test
 	public void ListAll() {
-		List<Review> reviews = new ArrayList<Review>();
+		List<Review> reviews = rd.listAll();
 		assertEquals(reviews.get(0).getId(), 4);
 		assertEquals(reviews.get(1).getId(), 6);
 		assertEquals(reviews.get(2).getId(), 9);
