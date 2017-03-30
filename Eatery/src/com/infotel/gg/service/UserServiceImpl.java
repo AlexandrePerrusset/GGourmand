@@ -7,12 +7,13 @@ import com.infotel.gg.dao.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.hibernate.UserDAOHbn;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.EateryManager;
 import com.infotel.gg.model.User;
 
 public class UserServiceImpl implements UserService{
-	private UserDAO userDAO;
+	private UserDAO userDAO = new UserDAOHbn();
 
 
 

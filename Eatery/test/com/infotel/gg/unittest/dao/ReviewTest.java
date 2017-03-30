@@ -50,7 +50,6 @@ public class ReviewTest {
 	@After
 	public void tearDown() throws Exception {
 		r = null;
-		rd = null;
 	}
 
 	@Test
