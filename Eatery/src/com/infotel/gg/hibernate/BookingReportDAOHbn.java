@@ -39,27 +39,15 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 
 	@Override
 	public void update(BookingReport obj) throws DAOException {
-		try {
-			Transaction t = getSession().beginTransaction();
-			getSession().saveOrUpdate(obj);
-			t.commit();
-		} catch (Throwable t) {
-			t.printStackTrace();
-			throw new DAOException("Impossible de mettre a jour l'element",t);
+			throw new DAOException("Impossible de mettre a jour l'element");
 		}
-	}
+
 
 	@Override
-	public void delete(BookingReport obj) throws DAOException {
-		try {
-			Transaction t = getSession().beginTransaction();
-			getSession().delete(obj);
-			t.commit();
-		} catch (Throwable t) {
-			t.printStackTrace();
-			throw new DAOException("Impossible de supprimer l'element",t);
+	public void delete(BookingReport obj) throws DAOException {	
+			throw new DAOException("Impossible de supprimer l'element");
 		}
-	}
+
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override

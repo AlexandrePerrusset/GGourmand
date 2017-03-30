@@ -106,6 +106,13 @@ public class UserTest {
 		assertNull("le customer n'est pas nul CreateOk", cd.read(c.getEmail()));
 	}
 	
+	@Test
+	public void UpdateOK() throws DAOException {
+		c = new Customer("Alexandreupdate", "Perrusset", "Mr", "24152163", "alexupdate1@gmail.com", "sfgshfgseg");
+		cd.update(c);
+		assertNotNull("le customer n'est pas nul UpdateOk", cd.read(c.getEmail()));
+	}
+	
 
 
 	@Test
@@ -116,11 +123,7 @@ public class UserTest {
 	}
 	
 	
-	@Test(expected=DAOException.class)
-	public void deleteKo() throws DAOException {
-		c = new Customer("Alexandre", "Perrusset", "Mr", "24152163", "delezgzegzeete", "sfgshfgseg");
-		cd.delete(c);
-		
+	
 		
 	}
 	
@@ -136,4 +139,4 @@ public class UserTest {
 	
 	
 	
-}	
+	

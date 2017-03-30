@@ -93,21 +93,7 @@ public class BookingReportTest {
 	}
 	
 
-	@Test
-	public void deleteOk() throws DAOException {	
-		br = new BookingReport(48, calendar, true, "comment3", 0.7, 0.7);
-		brd.delete(br);	
-		assertNull("le BookingReport n'est plus pr�sent dans la base", brd.read(br.getId()));
-	}
 	
-	
-	@Test(expected=DAOException.class)
-	public void deleteKo() throws DAOException {
-		br = new BookingReport(49, calendar, true, "comment3", 0.7, 0.7);
-		brd.delete(br);
-		
-		
-	}
 	
 
 		
