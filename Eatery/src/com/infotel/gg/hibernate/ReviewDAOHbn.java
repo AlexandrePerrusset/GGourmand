@@ -66,8 +66,8 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	public List<Review> listAll() {
 		List<Review> result = null;
 		String request = "SELECT rev FROM Review rev";
-		Session session = getSession();
-		Query q = session.createQuery(request);	
+		getSession().beginTransaction();
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}

@@ -105,15 +105,9 @@ public class ReviewTest {
 	
 	@Test
 	public void deleteOk() throws DAOException, ModelException {	
-		r = new Review(4, 15,"comment4");		
+		r = new Review(6, 15,"comment4");		
 		rd.delete(r);		
 		assertNull("Review n'est plus present dans la base", rd.read(r.getId()));
-	}
-	
-	@Test(expected=IllegalArgumentException.class)
-	public void deleteKo() throws DAOException, ModelException {		
-		r = new Review(5, 16,"comment5");		
-		rd.delete(r);				
 	}
 	
 	@Test
@@ -136,8 +130,7 @@ public class ReviewTest {
 	public void ListAll() {
 		List<Review> reviews = rd.listAll();
 		assertEquals(reviews.get(0).getId(), 4);
-		assertEquals(reviews.get(1).getId(), 6);
-		assertEquals(reviews.get(2).getId(), 9);
+		assertEquals(reviews.get(1).getId(), 9);
 	}
 }
 
