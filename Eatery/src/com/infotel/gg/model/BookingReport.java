@@ -41,7 +41,7 @@ public class BookingReport{
 	@ManyToOne @JoinColumn(name="manager_id")
 	private EateryManager eM;
 	
-	@ManyToOne @JoinColumn(name="booking", unique=true)
+	@ManyToOne @JoinColumn(name="booking_id", unique=true)
 	private Booking booking;
 	
 	
