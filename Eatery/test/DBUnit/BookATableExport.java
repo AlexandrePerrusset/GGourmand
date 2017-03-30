@@ -44,6 +44,7 @@ public class BookATableExport {
 
         // partial database export
         QueryDataSet partialDataSet = new QueryDataSet(connection);
+        partialDataSet.addTable("booking_report");
         partialDataSet.addTable("eatery_tag");
         partialDataSet.addTable("eatery_eatery_tag");
         partialDataSet.addTable("user_data");

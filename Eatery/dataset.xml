@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
+  <booking_report id="1" fulfilled="true" comment="edyurti" input_date="2017-03-30 08:47:27.0" taking_amount="100.00" due_amount="5.00" booking_id="1" manager_id="raphi@gmail.com"/>
+  <booking_report id="2" fulfilled="false" comment="hiomiumi&#249;" input_date="2017-03-30 08:47:27.0" taking_amount="2000.00" due_amount="100.00" booking_id="1" manager_id="raphi2@gmail.com"/>
   <user_data username="alex.perru@gmail.com" password="sfgshfgseg" type="customer" first_name="Alexandre" last_name="Alexandre" title="Mr" phone="24152163"/>
   <user_data username="je@fr" password="fo" type="customer" first_name="Jean" last_name="Jean" title="Mr" phone="24153163"/>
   <user_data username="jefr" password="fo" type="customer" first_name="Jean" last_name="Jean" title="Mr" phone="24153163"/>
