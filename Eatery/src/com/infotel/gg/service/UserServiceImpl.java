@@ -55,8 +55,8 @@ public class UserServiceImpl implements UserService{
 	 */
 	@Override
 	public void register(UserDTO userDto) throws ModelException {
-		User user;
-		
+		Customer cust = new Customer(userDto.getFirstName(), userDto.getLastName(), userDto.getTitle(), userDto.getPhone(), userDto.getUsername(), userDto.getPassword());
+		userDAO.create(cust);
 	}
 	
 }

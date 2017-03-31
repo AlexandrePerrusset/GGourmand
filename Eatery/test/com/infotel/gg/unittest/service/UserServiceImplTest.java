@@ -8,7 +8,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.infotel.gg.DTO.UserDTO;
+import com.infotel.gg.dao.CustomerDAO;
 import com.infotel.gg.exception.GGourmandException;
+import com.infotel.gg.hibernate.CustomerDAOHbn;
+import com.infotel.gg.model.Customer;
 import com.infotel.gg.service.UserService;
 import com.infotel.gg.service.UserServiceImpl;
 
@@ -17,6 +20,8 @@ import DBUnit.DBUtils;
 public class UserServiceImplTest {
 	UserDTO udto = new UserDTO();
 	UserService us = new UserServiceImpl();
+	Customer cust;
+	CustomerDAO custdao = new CustomerDAOHbn();
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -48,6 +53,21 @@ public class UserServiceImplTest {
 	public void authenticateKo() throws GGourmandException{
 		udto = us.authenticate("existePas", "nonPlus");
 		assertNull("UserDTO est null",udto);
+	}
+	
+	@Test
+	public void registerOk() throws GGourmandException{
+		udto.setFirstName("Denis");
+		udto.setLastName("Sined");
+		udto.setLastName("Sined");
+		udto.setTitle( "Mr");
+		udto.setPhone("0223632595");
+		udto.setUsername("username");
+		udto.setPassword("pass");
+		udto.setType("customer");
+		
+		us.register(udto);
+		assertNotNull("le customer n'est pas null registerOk", custdao.read(udto.getUsername()));
 	}
 
 }
