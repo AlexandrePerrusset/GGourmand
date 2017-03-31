@@ -9,7 +9,9 @@ import org.junit.Test;
 
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.dao.CustomerDAO;
+import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.GGourmandException;
+import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.hibernate.CustomerDAOHbn;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.service.UserService;
@@ -59,7 +61,6 @@ public class UserServiceImplTest {
 	public void registerOk() throws GGourmandException{
 		udto.setFirstName("Denis");
 		udto.setLastName("Sined");
-		udto.setLastName("Sined");
 		udto.setTitle( "Mr");
 		udto.setPhone("0223632595");
 		udto.setUsername("username");
@@ -69,5 +70,18 @@ public class UserServiceImplTest {
 		us.register(udto);
 		assertNotNull("le customer n'est pas null registerOk", custdao.read(udto.getUsername()));
 	}
-
+	
+	// TODO
+	@Test(expected=ModelException.class)
+	public void registerKo() throws GGourmandException{
+		udto.setFirstName("Denis");
+		udto.setLastName("Sined");
+		udto.setTitle( "Mr");
+		udto.setPhone("0223632595");
+		udto.setPassword("pass");
+		udto.setType("customer");
+		
+		us.register(udto);
+		assertNull("le customer est null registerKo", custdao.read(udto.getUsername()));
+	}
 }
