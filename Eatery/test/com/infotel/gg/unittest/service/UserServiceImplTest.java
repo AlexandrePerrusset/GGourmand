@@ -9,9 +9,8 @@ import org.junit.Test;
 
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.dao.CustomerDAO;
-import com.infotel.gg.exception.DAOException;
+import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
-import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.hibernate.CustomerDAOHbn;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.service.UserService;
@@ -44,15 +43,15 @@ public class UserServiceImplTest {
 	}
 
 	@Test
-	public void authenticateOk() throws GGourmandException{
+	public void authenticateOk() throws AuthenticationException{
 		udto = us.authenticate("jefr", "fo");
 		assertNotNull("UserDTO n'est pas null",udto);
 		assertEquals("Identifiant correct", "jefr", udto.getUsername());
 		assertEquals("Mot de passe correct", "fo", udto.getPassword());
 	}
 	
-	@Test(expected=GGourmandException.class)
-	public void authenticateKo() throws GGourmandException{
+	@Test(expected=AuthenticationException.class)
+	public void authenticateKo() throws AuthenticationException{
 		udto = us.authenticate("existePas", "nonPlus");
 		assertNull("UserDTO est null",udto);
 	}
@@ -71,17 +70,18 @@ public class UserServiceImplTest {
 		assertNotNull("le customer n'est pas null registerOk", custdao.read(udto.getUsername()));
 	}
 	
-	// TODO
-	@Test(expected=ModelException.class)
-	public void registerKo() throws GGourmandException{
-		udto.setFirstName("Denis");
-		udto.setLastName("Sined");
-		udto.setTitle( "Mr");
-		udto.setPhone("0223632595");
-		udto.setPassword("pass");
-		udto.setType("customer");
-		
-		us.register(udto);
-		assertNull("le customer est null registerKo", custdao.read(udto.getUsername()));
-	}
+	// TODO : registerKo
+//	@Test(expected=GGourmandException.class)
+//	public void registerKo() throws GGourmandException{
+//		udto.setFirstName("Thomas");
+//		udto.setLastName("Samoht");
+//		udto.setTitle( "Mr");
+//		udto.setPhone("0222336655");
+//		udto.setUsername(null);
+//		udto.setPassword("pass2");
+//		udto.setType("customer");
+//		
+//		us.register(udto);
+//		assertNull("le customer est null registerKo", custdao.read(udto.getUsername()));
+//	}
 }

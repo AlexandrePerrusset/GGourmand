@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
 	 * @see com.infotel.gg.service.UserService#authenticate(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public UserDTO authenticate(String username, String password) throws GGourmandException {
+	public UserDTO authenticate(String username, String password) throws AuthenticationException {
 		User u = userDAO.read(username);
 		if(u == null){
 			throw new AuthenticationException ("authentification incorrect : utilisateur incorrect");
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
 	 * @see com.infotel.gg.service.UserService#register(com.infotel.gg.DTO.UserDTO)
 	 */
 	@Override
-	public void register(UserDTO userDto) throws ModelException {
+	public void register(UserDTO userDto) throws GGourmandException {
 		Customer cust = new Customer(userDto.getFirstName(), userDto.getLastName(), userDto.getTitle(), userDto.getPhone(), userDto.getUsername(), userDto.getPassword());
 		userDAO.create(cust);
 	}
