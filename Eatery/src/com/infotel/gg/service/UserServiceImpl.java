@@ -1,8 +1,6 @@
 package com.infotel.gg.service;
 
 import com.infotel.gg.DTO.UserDTO;
-import com.infotel.gg.dao.CustomerDAO;
-import com.infotel.gg.dao.DAO;
 import com.infotel.gg.dao.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
