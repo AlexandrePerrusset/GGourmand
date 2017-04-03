@@ -2,6 +2,7 @@ package com.infotel.gg.service;
 
 import java.util.List;
 
+import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.exception.GGourmandException;
@@ -25,5 +26,11 @@ public interface CatalogService {
 	List<Integer> findSmallImageForEatery(int eateryId);
 	
 	void review(ReviewDTO rdto) throws GGourmandException;
+	
+	List<CityDTO> getAllCitiesLike(String beginNameCity);
+
+	List<CityDTO> getAllCitiesForemost();
+
+	List<CityDTO> getAllCities();
 	
 }
