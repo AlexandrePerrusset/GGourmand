@@ -19,6 +19,9 @@ import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.dao.ImageDataDAO;
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
+import com.infotel.gg.hibernate.CityDAOHbn;
+import com.infotel.gg.hibernate.CookingStyleDAOHbn;
+import com.infotel.gg.hibernate.EateryDAOHbn;
 import com.infotel.gg.model.CookingStyle;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.DTO.MenuDTO;
@@ -40,11 +43,11 @@ public class CatalogServiceImpl implements CatalogService {
 	private final static Logger log = LogManager.getLogger(CatalogServiceImpl.class);
 
 
-	private CookingStyleDAO cookingStyleDAO;
-	private EateryDAO eateryDAO;
+	private CookingStyleDAO cookingStyleDAO = new CookingStyleDAOHbn();
+	private EateryDAO eateryDAO = new EateryDAOHbn();
 	private ImageDataDAO imageDataDAO;
 
-	private CityDAO cityDAO;
+	private CityDAO cityDAO = new CityDAOHbn();
 
 	private ReviewDAO reviewDAO;
 
@@ -131,7 +134,7 @@ public class CatalogServiceImpl implements CatalogService {
 		//				MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
 		//				e.setMenu(menu);
 		//			} catch (Exception e1) {
-		//				log.error("Echec désérialisation du menu", e1);
+		//				log.error("Echec dï¿½sï¿½rialisation du menu", e1);
 		//
 		//			}
 		//			
