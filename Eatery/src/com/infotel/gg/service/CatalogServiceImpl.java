@@ -18,6 +18,7 @@ import com.infotel.gg.dao.CookingStyleDAO;
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.dao.ImageDataDAO;
 import com.infotel.gg.dao.ReviewDAO;
+import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.CookingStyle;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.DTO.MenuDTO;
@@ -25,6 +26,7 @@ import com.infotel.gg.model.Address;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
 import com.infotel.gg.model.EateryTag;
+import com.infotel.gg.model.ImageData;
 import com.infotel.gg.model.PracticalInformation;
 import com.infotel.gg.model.Region;
 
@@ -56,10 +58,10 @@ public class CatalogServiceImpl implements CatalogService {
 			cookingStyleDto.setName(cs.getName());
 			result.add(cookingStyleDto);
 		}
-		
+
 		return result;
-		
-		
+
+
 	}
 
 	@Override
@@ -69,19 +71,19 @@ public class CatalogServiceImpl implements CatalogService {
 		EateryDTO edto = transform(eat, true);
 		return edto;
 	}
-	
+
 	@Override
 	public Eatery findOneRealEatery(int id) {
 		return eateryDAO.read(id);
 	}
-	
+
 	public EateryDTO transform(Eatery eat, boolean detail) {
 		EateryDTO e = new EateryDTO();
 		e.setId(eat.getId());
 		e.setName(eat.getName());
 		//e.setHighlightedName(eat.getHighlightedName());
 		e.setExecutiveChef(eat.getExecutiveChef());
-		
+
 		e.setCookingStyle(eat.getCookingStyle().getName());
 		e.setCookingStyleid(eat.getCookingStyle().getId());
 		Address ad = eat.getAddress();
@@ -117,51 +119,69 @@ public class CatalogServiceImpl implements CatalogService {
 			e.setGettingThere(pi.getGettingThere());
 			e.setParking(pi.getParking());
 		}
-//		if (detail) {
-//			imageIds = imageDataDAO.findBigByEateryId(eat.getId());
-//			e.setImageIds(imageIds);
-//
-//			// Menu
-//			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-//			try {
-//				MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
-//				e.setMenu(menu);
-//			} catch (Exception e1) {
-//				log.error("Echec désérialisation du menu", e1);
-//
-//			}
-//			
-//			//review
-//			reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
-//						.collect(Collectors.toList());
-//			 System.out.println(reviews);
-//			 e.setReviews(reviews);
-//			 
-//		} else {
-//			imageIds = imageDataDAO.findSmallByEateryId(eat.getId());
-//			e.setImageIds(imageIds);
-//		}
-//		if (!imageIds.isEmpty()) {
-//			e.setImageId(imageIds.get(0));
-//		}
-		
+		//		if (detail) {
+		//			imageIds = imageDataDAO.findBigByEateryId(eat.getId());
+		//			e.setImageIds(imageIds);
+		//
+		//			// Menu
+		//			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+		//			try {
+		//				MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
+		//				e.setMenu(menu);
+		//			} catch (Exception e1) {
+		//				log.error("Echec désérialisation du menu", e1);
+		//
+		//			}
+		//			
+		//			//review
+		//			reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
+		//						.collect(Collectors.toList());
+		//			 System.out.println(reviews);
+		//			 e.setReviews(reviews);
+		//			 
+		//		} else {
+		//			imageIds = imageDataDAO.findSmallByEateryId(eat.getId());
+		//			e.setImageIds(imageIds);
+		//		}
+		//		if (!imageIds.isEmpty()) {
+		//			e.setImageId(imageIds.get(0));
+		//		}
+
 		List<EateryTag> eatag = eat.getEateryTags();
 		if(eatag != null) {
-		List<String> eatagname = new ArrayList<>();
-		System.out.println(eat.getEateryTags());
-		for (int i = 0; i < eatag.size(); i++) {
-			if (eatag.get(i) != null) {
-				eatagname.add(eatag.get(i).getName());
+			List<String> eatagname = new ArrayList<>();
+			System.out.println(eat.getEateryTags());
+			for (int i = 0; i < eatag.size(); i++) {
+				if (eatag.get(i) != null) {
+					eatagname.add(eatag.get(i).getName());
+				}
 			}
-		}
-		e.setEateryTagName(eatagname);
+			e.setEateryTagName(eatagname);
 		}
 		return e;
 
 	}
 
-	
+	@Override
+	public ImageData findImageDataById(int id) throws GGourmandException {
+		ImageData image = imageDataDAO.read(id);
+		return image;
+	}
 
-	
+	@Override
+	public List<Integer> findBigImageForEatery(int eateryId) {
+		List<Integer> imagesDataId = imageDataDAO.findBigByEateryId(eateryId);
+		return imagesDataId;
+	}
+
+	@Override
+	public List<Integer> findSmallImageForEatery(int eateryId) {
+		List<Integer> imagesDataId = imageDataDAO.findSmallByEateryId(eateryId);
+		return imagesDataId;
+	}
+
+
+
+
 
 }
