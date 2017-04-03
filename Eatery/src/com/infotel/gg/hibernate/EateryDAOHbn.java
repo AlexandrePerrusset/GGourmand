@@ -11,6 +11,8 @@ import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.EateryResult;
+import com.infotel.gg.model.SearchCriteria;
 
 public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 
@@ -51,6 +53,38 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 		Query q = session.createQuery(request);	
 		result = q.getResultList();
 		return result;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public EateryResult findByCriteria(SearchCriteria criter) {		
+		String request = "select eat from Eatery eat where 1 = 1";
+		if(criter.getName()!=null) {
+			request +=" and eat.name LIKE :name";
+		}
+		if(criter.getCityId() != -1) {
+			request +=" and eat.address.city.id = :cityId";
+		} 
+		if(criter.getCookingStyleId() != -1) {
+			request +=" and eat.cookingStyle.id = :cookStyleId";
+		}
+		
+		Session session = factory.getCurrentSession();
+		Query q = session.createQuery(request);		
+		
+		if(criter.getName()!=null) {
+			q.setParameter("name", "%"+criter.getName()+"%");
+		}
+		if(criter.getCityId() != -1) {
+			q.setParameter("cityId", criter.getCityId());
+		}
+		if(criter.getCookingStyleId() != -1) {
+			q.setParameter("cookStyleId", criter.getCookingStyleId());
+		}
+		q.setMaxResults(10);
+		
+		List<Eatery> result = q.getResultList();
+		return new EateryResult(result.size(), result); 
 	}
 
 }

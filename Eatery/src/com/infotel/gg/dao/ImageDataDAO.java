@@ -11,4 +11,6 @@ public interface ImageDataDAO extends DAO<ImageData, Integer>{
 	List<Integer> findSmallByEateryId(int eateryId);
 	public List<Integer> findBigByEateryId(int eateryId);
 	
+	int findImageDataCityIdByTargetId(int id);
+	
 }

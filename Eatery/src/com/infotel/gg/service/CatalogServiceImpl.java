@@ -8,10 +8,11 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ReviewDTO;
+import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.dao.CookingStyleDAO;
@@ -34,6 +35,9 @@ import com.infotel.gg.model.PracticalInformation;
 import com.infotel.gg.model.Region;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Review;
+import com.infotel.gg.model.EateryResult;
+import com.infotel.gg.model.SearchCriteria;
+import com.infotel.gg.DTO.OrderDTO;
 
 
 
@@ -196,9 +200,100 @@ public class CatalogServiceImpl implements CatalogService {
 		reviewDAO.create(review);
 		
 	}
+	
+	
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////	
+	@Override
+	public List<CityDTO> getAllCities() {
+		List<CityDTO> result = new ArrayList<CityDTO>();
+		List<City> cities = cityDAO.listAll();
+		cities.stream().forEach(c -> result.add(transform(c)));
+		return result;
+	}
+
+	@Override
+	public List<CityDTO> getAllCitiesLike(String beginNameCity) {
+		List<CityDTO> result = new ArrayList<CityDTO>();
+		List<City> cities = cityDAO.listAll(beginNameCity);
+		cities.stream().forEach(c -> result.add(transform(c)));
+		return result;
+	}
+	@Override
+	public List<CityDTO> getAllCitiesForemost() {
+		List<CityDTO> result = new ArrayList<CityDTO>();
+		List<City> cities = cityDAO.listAllforemost();
+		cities.stream().forEach(c -> result.add(transform(c)));
+		return result;
+	}
+	
+	
+	private CityDTO transform(City c) {
+		CityDTO cityDto = new CityDTO();
+		cityDto.setId(Integer.toString(c.getId()));
+		cityDto.setName(c.getName());
+		cityDto.setForemost(String.valueOf(c.isForeMost()));
+		cityDto.setRegion_name(c.getRegion().getName());
+		cityDto.setCountry_name(c.getCountry().getName());
+//		if (c.isForemost()) {
+//			cityDto.setImageId(imageDataDAO.findImageDataCityIdByTargetId(c.getId()));
+//		} else {
+//			cityDto.setImageId(null);
+//		}
+
+		return cityDto;
+	}
+	
 
 
 
+	@Override
+	public List<EateryDTO> findEateryByCriteria(SearchCriteriaDTO criteria) {
+		SearchCriteria criter = new SearchCriteria();
+		criter = parse(criteria);
+		EateryResult daoresult = eateryDAO.findByCriteria(criter);
+		List<EateryDTO> result = daoresult.getEateries().stream().map(e -> transform(e, false))
+				.collect(Collectors.toList());
+		return sortByCriteria(result, criteria.getOrderBy());
+	}
+	
+	private SearchCriteria parse(SearchCriteriaDTO criteria) {
+		SearchCriteria criter = new SearchCriteria();
+		criter.setName(criteria.getName());
+		criter.setCityId(criteria.getCityId());
+		criter.setCookingStyleId(criteria.getCookingStyleId());
+		return criter;
+	}
 
+	private List<EateryDTO> sortByCriteria(List<EateryDTO> res, OrderDTO orderBy) {
+		switch (orderBy) {
+		case CITY:
+			Comparator<EateryDTO> byCity = (EateryDTO o1, EateryDTO o2) -> o1.getCity().compareTo(o2.getCity());
+			res.sort(byCity);
+			break;
+		case REGION:
+			Comparator<EateryDTO> byRegion = (EateryDTO o1, EateryDTO o2) -> o1.getRegion().compareTo(o2.getRegion());
+			res.sort(byRegion);
+			break;
+		case COOKINGSTYLE:
+			Comparator<EateryDTO> byCookingStyle = (EateryDTO o1, EateryDTO o2) -> o1.getCookingStyle()
+					.compareTo(o2.getCookingStyle());
+			res.sort(byCookingStyle);
+			break;
+		case PRICE:
+			Comparator<EateryDTO> byPrice = (EateryDTO o1, EateryDTO o2) -> o1.getPrice().compareTo(o2.getPrice());
+			res.sort(byPrice);
+			break;
+		default:
+			Comparator<EateryDTO> byName = (EateryDTO o1, EateryDTO o2) -> o1.getName().compareTo(o2.getName());
+			res.sort(byName);
+			break;
+		}
+		return res;
+	}
 
 }
+
+
+
+
