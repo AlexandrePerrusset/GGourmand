@@ -29,6 +29,8 @@ import com.infotel.gg.model.EateryTag;
 import com.infotel.gg.model.ImageData;
 import com.infotel.gg.model.PracticalInformation;
 import com.infotel.gg.model.Region;
+import com.infotel.gg.model.Booking;
+import com.infotel.gg.model.Review;
 
 
 
@@ -178,6 +180,18 @@ public class CatalogServiceImpl implements CatalogService {
 	public List<Integer> findSmallImageForEatery(int eateryId) {
 		List<Integer> imagesDataId = imageDataDAO.findSmallByEateryId(eateryId);
 		return imagesDataId;
+	}
+
+	@Override
+	public void review(ReviewDTO rdto) throws GGourmandException {
+		Review review = new Review();
+		review.setComment(rdto.getComment());
+		review.setRating(rdto.getRating());
+		Booking booking = bookingDAO.read(rdto.getBookingID());
+		review.setBooking(booking);
+		
+		reviewDAO.create(review);
+		
 	}
 
 

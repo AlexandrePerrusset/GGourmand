@@ -81,5 +81,14 @@ public class ImageDataDAOHbn extends DAOHbn implements ImageDataDAO {
 		List<Integer> result = q.getResultList();
 		return result;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public int findImageDataCityIdByTargetId(int targetId) {
+		String request = "select i.id from ImageData i where i.targetId=:targetId and (i.target='city')";
+		Session session = factory.getCurrentSession();
+		Query q = session.createQuery(request);
+		q.setParameter("targetId", targetId);
+		return (int) q.getSingleResult();
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.infotel.gg.hibernate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -69,6 +70,36 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 		getSession().beginTransaction();
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
+		return result;
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public List<Review> listAllByEateryId(int id) {
+		List<Review> result = new ArrayList<>();
+		String request = "SELECT re FROM Review re "
+				+ "Where re.booking.eatery.id= :id ORDER BY re.booking.dateTime DESC";
+		Session session = factory.getCurrentSession();
+		Query q = session.createQuery(request);
+		q.setParameter("id", id);
+		result = q.getResultList();
+		return result;
+	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public Review findByBookingId(int bookingId) {
+		Review result = null;
+		String request = "SELECT re FROM Review re "
+				+ "Where re.booking.id= :bookingid";
+		Session session = factory.getCurrentSession();
+		Query q = session.createQuery(request);
+		q.setParameter("bookingid", bookingId);
+		try{
+		result = (Review) q.getSingleResult();
+		}
+		catch (Exception e) {
+		
+		}
 		return result;
 	}
 

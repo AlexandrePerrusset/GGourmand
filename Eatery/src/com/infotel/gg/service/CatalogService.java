@@ -7,10 +7,7 @@ import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.ImageData;
-
-
-
-
+import com.infotel.gg.DTO.ReviewDTO;
 
 
 public interface CatalogService {
@@ -26,5 +23,7 @@ public interface CatalogService {
 	List<Integer> findBigImageForEatery(int eateryId);
 	
 	List<Integer> findSmallImageForEatery(int eateryId);
+	
+	void review(ReviewDTO rdto) throws GGourmandException;
 	
 }
