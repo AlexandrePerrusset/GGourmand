@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,16 +23,18 @@ import com.infotel.gg.service.UserServiceImpl;
 import DBUnit.DBUtils;
 
 public class UserServiceImplTest {
-	UserDTO udto;
+	UserDTO udto = new UserDTO();
 	static UserService us;
-	Customer cust;
-	CustomerDAO custdao;
+	Customer cust = new Customer();
+
+	static CustomerDAO custdao;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context-test.xml");
 		us = ctx.getBean(UserService.class);
+		custdao = ctx.getBean(CustomerDAO.class);
 	}
 
 	@AfterClass
