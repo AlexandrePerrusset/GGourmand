@@ -1,6 +1,7 @@
 
 package com.infotel.gg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.BookingReport;
+import com.infotel.gg.model.Review;
 
 
 
@@ -49,15 +51,19 @@ public class bookingServiceImpl implements BookingService{
 	
 	@Override
 	public List<BookingDTO> findBookingsByCustomer(String username) throws GGourmandException {
-		
-		return null;
+		List<BookingDTO> result = new ArrayList<BookingDTO>();
+		List<Booking> listBooking = bookingDao.findByCustomer(username);
+		listBooking.stream().forEach(b -> result.add(transform(b)));
+		return result;
 	}
 
 	
 	@Override
 	public List<BookingDTO> findBookingsByEatery(int eateryId) throws GGourmandException {
-		
-		return null;
+		List<BookingDTO> result = new ArrayList<BookingDTO>();
+		List<Booking> listBooking = bookingDao.findByEateryId(eateryId);
+		listBooking.stream().forEach(b -> result.add(transform(b)));
+		return result;
 	}
 
 	
@@ -71,5 +77,31 @@ public class bookingServiceImpl implements BookingService{
 		}
 	}
 	
+	private BookingDTO transform(Booking booking) {
+		BookingDTO bookingDto = new BookingDTO();
+		bookingDto.setId(Integer.toString(booking.getId()));
+		bookingDto.setDateTime(booking.getDateTime());	
+		bookingDto.setNumberOfPeople(Integer.toString(booking.getNbOfCustomer()));	
+		bookingDto.setFirstName(booking.getCustomer().getFirstName());
+		bookingDto.setLastName(booking.getCustomer().getLastName());
+		bookingDto.setCustomerId(booking.getCustomer().getUsername());
+		bookingDto.setEateryId(booking.getEatery().getId());
+		bookingDto.setEateryName(booking.getEatery().getName());
+		bookingDto.setPostcode(booking.getEatery().getAddress().getPostCode());
+		bookingDto.setStreet(booking.getEatery().getAddress().getStreet());
+		bookingDto.setCityName(booking.getEatery().getAddress().getCity().getName());
+		Review bookreview= reviewDAO.findByBookingId(booking.getId());
+		if(bookreview==null){
+			bookingDto.setComment(false);
+		}
+		else{
+			bookingDto.setComment(true);
+			bookingDto.setRating(bookreview.getRating());
+			bookingDto.setCommenttext(bookreview.getComment());
+		}
+		
+		return bookingDto;
+	}
+
 
 }

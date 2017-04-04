@@ -6,9 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+
+import com.infotel.gg.DTO.CustomerDTO;
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.exception.DAOException;
+import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Booking;
+
 
 @Repository
 public class BookingDAOHbn extends DAOHbn implements BookingDAO {
@@ -68,6 +72,40 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 		Query q = session.createQuery(request);	
 		result = q.getResultList();
 		return result;
+	}
+
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<Booking> listAll(CustomerDTO customerdto){
+		String request = "SELECT boo FROM Booking boo WHERE boo.customer.username ='"+customerdto.getUsername()+"'";
+		Session session = getSession();
+		Query q = session.createQuery(request);	
+		List<Booking> result = q.getResultList();
+		return result;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Booking> findByEateryId(int eateryId) throws GGourmandException {
+		String request = "from Booking b where b.eatery.id = :eateryId and "
+				+ "b not in (select br.booking from BookingReport br)";
+		Session session = factory.getCurrentSession();
+		Query query = session.createQuery(request);
+		query.setParameter("eateryId", eateryId);
+		List<Booking> bookings = query.getResultList();
+
+		return bookings;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Booking> findByCustomer(String username) {
+		Session session = getSession();
+		String hql = "select b from Booking b where b.customer.username = :customer_id order by b.dateTime";
+		Query query = session.createQuery(hql);
+		query.setParameter("customer_id", username);
+		List<Booking> bookings = query.getResultList();
+		return bookings;
 	}
 
 	

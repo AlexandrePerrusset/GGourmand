@@ -1,7 +1,7 @@
 package com.infotel.gg.DTO;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 
 
@@ -12,7 +12,7 @@ public class BookingDTO implements Serializable {
 	private String id;
 	
 	
-	private Date dateTime;
+	private Calendar dateTime;
 	
 	private String numberOfPeople;
 	
@@ -78,12 +78,12 @@ public class BookingDTO implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDateTime() {
+	public Calendar getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
+	public void setDateTime(Calendar calendar) {
+		this.dateTime = calendar;
 	}
 
 	public String getNumberOfPeople() {
