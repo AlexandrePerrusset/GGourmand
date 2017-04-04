@@ -22,5 +22,6 @@ public class Presentation {
 		for (String outil : metier.getOutils()) {
 			System.out.println(outil);
 		}
+		
 	}
 }

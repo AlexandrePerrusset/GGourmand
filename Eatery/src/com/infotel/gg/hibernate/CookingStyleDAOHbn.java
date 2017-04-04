@@ -3,15 +3,16 @@ package com.infotel.gg.hibernate;
 
 import java.util.List;
 
-import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.infotel.gg.dao.CookingStyleDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.CookingStyle;
 
+@Repository
 public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 
 
@@ -76,7 +77,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		List<CookingStyle> result = null;
 		String request = "SELECT eat.cookingStyle FROM Eatery eat "
 				+ "GROUP BY eat.cookingStyle.id ORDER BY count(*) DESC";
-		Transaction t = getSession().beginTransaction();
+		getSession().beginTransaction();
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;

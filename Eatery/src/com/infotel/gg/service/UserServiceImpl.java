@@ -1,5 +1,7 @@
 package com.infotel.gg.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.dao.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
@@ -11,7 +13,9 @@ import com.infotel.gg.model.EateryManager;
 import com.infotel.gg.model.User;
 
 public class UserServiceImpl implements UserService{
-	private UserDAO userDAO = new UserDAOHbn();
+	
+	@Autowired
+	private UserDAO userDAO;
 
 
 

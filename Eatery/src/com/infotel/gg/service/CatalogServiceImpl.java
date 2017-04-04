@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
@@ -25,7 +26,6 @@ import com.infotel.gg.hibernate.CookingStyleDAOHbn;
 import com.infotel.gg.hibernate.EateryDAOHbn;
 import com.infotel.gg.model.CookingStyle;
 import com.infotel.gg.model.Eatery;
-import com.infotel.gg.DTO.MenuDTO;
 import com.infotel.gg.model.Address;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Country;
@@ -46,15 +46,22 @@ public class CatalogServiceImpl implements CatalogService {
 
 	private final static Logger log = LogManager.getLogger(CatalogServiceImpl.class);
 
-
-	private CookingStyleDAO cookingStyleDAO = new CookingStyleDAOHbn();
-	private EateryDAO eateryDAO = new EateryDAOHbn();
+	@Autowired
+	private CookingStyleDAO cookingStyleDAO;
+	
+	@Autowired
+	private EateryDAO eateryDAO;
+	
+	@Autowired
 	private ImageDataDAO imageDataDAO;
+	
+	@Autowired
+	private CityDAO cityDAO;
 
-	private CityDAO cityDAO = new CityDAOHbn();
-
+	@Autowired
 	private ReviewDAO reviewDAO;
 
+	@Autowired
 	private BookingDAO bookingDAO;
 
 	@Override

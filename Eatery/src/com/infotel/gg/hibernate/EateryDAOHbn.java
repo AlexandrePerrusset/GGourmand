@@ -4,8 +4,8 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
@@ -14,6 +14,7 @@ import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.EateryResult;
 import com.infotel.gg.model.SearchCriteria;
 
+@Repository
 public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 
 	

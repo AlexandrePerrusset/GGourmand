@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.model.City;
 
+@Repository
 public class CityDAOHbn extends DAOHbn implements CityDAO {
 
 	@Override

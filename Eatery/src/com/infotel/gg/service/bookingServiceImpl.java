@@ -3,7 +3,7 @@ package com.infotel.gg.service;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.dao.BookingDAO;
@@ -18,8 +18,13 @@ import com.infotel.gg.model.BookingReport;
 
 public class bookingServiceImpl implements BookingService{
 
+	@Autowired
 	private BookingDAO bookingDao;
+	
+	@Autowired
 	private BookingReportDAO bookingReportDao;
+	
+	@Autowired
 	private ReviewDAO reviewDAO;
 
 	

@@ -2,11 +2,14 @@ package com.infotel.gg.hibernate;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.infotel.gg.dao.PracticalInformationDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.PracticalInformation;
 
+@Repository
 public class PracticalInformationDAOHbn extends DAOHbn implements PracticalInformationDAO{
 
 	@Override

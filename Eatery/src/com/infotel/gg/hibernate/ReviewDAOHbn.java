@@ -6,13 +6,14 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
 
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.model.CookingStyle;
 import com.infotel.gg.model.Review;
 
+@Repository
 public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 
 	@Override
@@ -85,7 +86,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 		result = q.getResultList();
 		return result;
 	}
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({"rawtypes" })
 	@Override
 	public Review findByBookingId(int bookingId) {
 		Review result = null;

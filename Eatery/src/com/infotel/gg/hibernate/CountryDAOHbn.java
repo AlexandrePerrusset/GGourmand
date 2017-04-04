@@ -2,12 +2,14 @@ package com.infotel.gg.hibernate;
 
 import java.util.List;
 
-import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
+
 import com.infotel.gg.dao.CountryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Country;
 
+@Repository
 public class CountryDAOHbn extends DAOHbn implements CountryDAO{
 
 	@Override
