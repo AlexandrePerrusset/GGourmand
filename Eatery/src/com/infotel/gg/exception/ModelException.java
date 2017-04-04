@@ -1,5 +1,6 @@
 package com.infotel.gg.exception;
 
+@SuppressWarnings("serial")
 public class ModelException extends RuntimeException{
 
 	public ModelException() {

@@ -1,5 +1,6 @@
 package com.infotel.gg.exception;
 
+@SuppressWarnings("serial")
 public class AuthenticationException extends GGourmandException {
 
 	public AuthenticationException() {

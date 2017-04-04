@@ -1,5 +1,6 @@
 package com.infotel.gg.exception;
 
+@SuppressWarnings("serial")
 public class GGourmandException extends Exception{
 
 	public GGourmandException() {

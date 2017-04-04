@@ -4,6 +4,7 @@ package com.infotel.gg.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.dao.BookingDAO;
@@ -15,7 +16,7 @@ import com.infotel.gg.model.BookingReport;
 
 
 
-
+@Transactional
 public class bookingServiceImpl implements BookingService{
 
 	@Autowired

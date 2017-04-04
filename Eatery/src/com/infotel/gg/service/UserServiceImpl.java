@@ -1,17 +1,17 @@
 package com.infotel.gg.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.dao.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
-import com.infotel.gg.exception.ModelException;
-import com.infotel.gg.hibernate.UserDAOHbn;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.EateryManager;
 import com.infotel.gg.model.User;
 
+@Transactional
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
