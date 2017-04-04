@@ -84,7 +84,6 @@ public class CatalogServiceImpl implements CatalogService {
 	@Override
 	public EateryDTO findOneEatery(int id) {
 		Eatery eat = eateryDAO.read(id);
-		System.out.println(eat);
 		EateryDTO edto = transform(eat, true);
 		return edto;
 	}
@@ -167,7 +166,6 @@ public class CatalogServiceImpl implements CatalogService {
 		List<EateryTag> eatag = eat.getEateryTags();
 		if(eatag != null) {
 			List<String> eatagname = new ArrayList<>();
-			System.out.println(eat.getEateryTags());
 			for (int i = 0; i < eatag.size(); i++) {
 				if (eatag.get(i) != null) {
 					eatagname.add(eatag.get(i).getName());
