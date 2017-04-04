@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +18,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	@Override
 	public void create(Review obj) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
-			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
@@ -31,7 +28,6 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	@Override
 	public Review read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(Review.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
@@ -42,9 +38,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	@Override
 	public void update(Review obj) {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().saveOrUpdate(obj);
-			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de mettre a jour l'element",t);
@@ -54,9 +48,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	@Override
 	public void delete(Review obj) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().delete(obj);
-			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de supprimer l'element",t);
@@ -68,7 +60,6 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	public List<Review> listAll() {
 		List<Review> result = null;
 		String request = "SELECT rev FROM Review rev";
-		getSession().beginTransaction();
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;

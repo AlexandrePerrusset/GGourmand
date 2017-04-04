@@ -32,7 +32,6 @@ public class UserDAOHbn extends DAOHbn implements UserDAO{
 	@Override
 	public User read(String i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(User.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

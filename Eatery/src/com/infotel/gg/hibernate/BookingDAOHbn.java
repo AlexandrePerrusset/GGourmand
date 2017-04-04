@@ -88,8 +88,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	public List<Booking> findByEateryId(int eateryId) throws GGourmandException {
 		String request = "from Booking b where b.eatery.id = :eateryId and "
 				+ "b not in (select br.booking from BookingReport br)";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		q.setParameter("eateryId", eateryId);
 		List<Booking> bookings = q.getResultList();
 

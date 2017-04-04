@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DAOHbn {
 	
 	@Autowired
-	protected SessionFactory factory;
-	
-	public DAOHbn() {
-		
-	}
+	private SessionFactory factory;
 
 	protected Session getSession() {
 		return factory.getCurrentSession();
