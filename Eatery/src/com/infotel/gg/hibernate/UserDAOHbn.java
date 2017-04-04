@@ -20,9 +20,7 @@ public class UserDAOHbn extends DAOHbn implements UserDAO{
 	@Override
 	public void create(User obj) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
-			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
@@ -46,9 +44,7 @@ public class UserDAOHbn extends DAOHbn implements UserDAO{
 	@Override
 	public void update(User obj) {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().saveOrUpdate(obj);
-			t.commit();
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de mettre a jour l'element",t);

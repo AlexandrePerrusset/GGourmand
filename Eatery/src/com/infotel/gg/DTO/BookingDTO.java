@@ -3,9 +3,11 @@ package com.infotel.gg.DTO;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 
+@XmlRootElement(name="Booking")
 public class BookingDTO implements Serializable {
 	
 	private static final long serialVersionUID = 8977381161000001L;

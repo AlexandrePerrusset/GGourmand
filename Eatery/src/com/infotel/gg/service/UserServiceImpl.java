@@ -1,6 +1,7 @@
 package com.infotel.gg.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.DTO.UserDTO;
@@ -11,6 +12,7 @@ import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.EateryManager;
 import com.infotel.gg.model.User;
 
+@Service("UserService")
 @Transactional
 public class UserServiceImpl implements UserService{
 	

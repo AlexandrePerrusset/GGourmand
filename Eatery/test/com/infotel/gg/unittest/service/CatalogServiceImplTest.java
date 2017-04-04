@@ -10,23 +10,36 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.ImageData;
 import com.infotel.gg.service.CatalogService;
 import com.infotel.gg.service.CatalogServiceImpl;
 
 import DBUnit.DBUtils;
 
 public class CatalogServiceImplTest {
-	CatalogService cs = new CatalogServiceImpl();
-	List<CookingStyleDTO> cookstyles;
-	Eatery eatery = new Eatery();
+	@Autowired
+	CatalogService cs;
+	List<CookingStyleDTO> cookstyledtos;
+	
+	@Autowired
+	Eatery eatery;
+	
+	@Autowired
+	ImageData image;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context-test.xml");
+		CatalogService catalog = ctx.getBean(CatalogService.class);
 	}
 
 	@AfterClass
@@ -44,10 +57,10 @@ public class CatalogServiceImplTest {
 
 	@Test
 	public void getAllCookingStylesOk() {
-		cookstyles = new ArrayList<CookingStyleDTO>();
-		cookstyles = cs.getAllCookingStyles();
+		cookstyledtos = new ArrayList<CookingStyleDTO>();
+		cookstyledtos = cs.getAllCookingStyles();
 		
-		for (CookingStyleDTO cook : cookstyles) {
+		for (CookingStyleDTO cook : cookstyledtos) {
 			assertNotNull(cook);
 		}
 	}
@@ -66,8 +79,14 @@ public class CatalogServiceImplTest {
 		assertEquals(eatery.getName(), "Pietro");
 	}
 	
-	
-	
-	
+	@Test
+	public void findImageDataByIdOk() throws GGourmandException {
+		image = cs.findImageDataById(2);
+		assertNotNull(image.getId());
+		assertNotNull(image.getContent());
+		assertNotNull(image.getTarget());	
+		assertNotNull(image.getTargetId());
+		assertNotNull(image.getSize());
+	}
 
 }

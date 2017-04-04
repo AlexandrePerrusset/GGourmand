@@ -8,21 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DAOHbn {
 	
 	@Autowired
-	protected SessionFactory factory = null;
+	protected SessionFactory factory;
 	
 	public DAOHbn() {
 		
 	}
 
 	protected Session getSession() {
-		if(factory == null) {
-			Configuration cfg = new Configuration();
-			cfg.configure("hibernate.cfg.xml");
-			factory = cfg.buildSessionFactory();
-			
-		}
-		
-		
 		return factory.getCurrentSession();
 	}
 }

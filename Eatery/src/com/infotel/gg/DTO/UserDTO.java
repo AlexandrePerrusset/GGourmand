@@ -3,6 +3,9 @@
  */
 package com.infotel.gg.DTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="User")
 public class UserDTO {
 	
 	private String username;
