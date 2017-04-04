@@ -67,8 +67,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	public List<Booking> listAll() {
 		List<Booking> result = null;
 		String request = "SELECT book FROM Booking book";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}
@@ -77,8 +76,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Booking> listAll(CustomerDTO customerdto){
 		String request = "SELECT boo FROM Booking boo WHERE boo.customer.username ='"+customerdto.getUsername()+"'";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		List<Booking> result = q.getResultList();
 		return result;
 	}
@@ -100,8 +98,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	public List<Booking> findByCustomer(String username) {
 		
 		String hql = "select b from Booking b where b.customer.username = :customer_id order by b.dateTime";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(hql);	
+		Query q = getSession().createQuery(hql);	
 		q.setParameter("customer_id", username);
 		List<Booking> bookings = q.getResultList();
 		return bookings;

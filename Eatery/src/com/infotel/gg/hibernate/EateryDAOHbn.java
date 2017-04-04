@@ -69,8 +69,7 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 			request +=" and eat.cookingStyle.id = :cookStyleId";
 		}
 		
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);		
+		Query q = getSession().createQuery(request);		
 		
 		if(criter.getName()!=null) {
 			q.setParameter("name", "%"+criter.getName()+"%");
