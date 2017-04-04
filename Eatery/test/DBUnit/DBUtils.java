@@ -21,7 +21,9 @@ public class DBUtils {
 			// Recupere la connection
 	        Connection jdbcConnection = DriverManager.getConnection(url,"root","");
 	        connection = new DatabaseConnection(jdbcConnection);
-	        FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(new File("dataset.xml"));
+	        FlatXmlDataSetBuilder fb = new FlatXmlDataSetBuilder();
+	        fb.setColumnSensing(true);
+	        FlatXmlDataSet dataSet = fb.build(new File("dataset.xml"));
 			DatabaseOperation.CLEAN_INSERT.execute(connection, dataSet);
 	        
 		} catch (Exception e) {
