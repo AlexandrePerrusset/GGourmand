@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.dao.CustomerDAO;
 import com.infotel.gg.exception.DAOException;
@@ -14,6 +15,7 @@ import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Customer;
 
 @Repository
+@Transactional
 public class CustomerDAOHbn extends DAOHbn implements CustomerDAO{
 
 	@Override
@@ -31,7 +33,7 @@ public class CustomerDAOHbn extends DAOHbn implements CustomerDAO{
 	@Override
 	public Customer read(String i) throws ModelException {
 		try {
-			return getSession().find(Customer.class, i);
+			return getSession().get(Customer.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de lire l'element",t);

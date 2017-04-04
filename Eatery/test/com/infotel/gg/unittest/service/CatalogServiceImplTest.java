@@ -10,6 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,13 +20,12 @@ import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.ImageData;
 import com.infotel.gg.service.CatalogService;
-
+import com.infotel.gg.service.CatalogServiceImpl;
 
 import DBUnit.DBUtils;
 
 public class CatalogServiceImplTest {
 	List<CookingStyleDTO> cookstyledtos;
-	
 	static CatalogService catservice;
 	
 	Eatery eatery;
