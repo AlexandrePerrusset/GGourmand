@@ -77,8 +77,7 @@ public class CookingStyleDAOHbn extends DAOHbn implements CookingStyleDAO {
 		List<CookingStyle> result = null;
 		String request = "SELECT eat.cookingStyle FROM Eatery eat "
 				+ "GROUP BY eat.cookingStyle.id ORDER BY count(*) DESC";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}

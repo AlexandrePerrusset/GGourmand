@@ -71,8 +71,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 		List<Review> result = new ArrayList<>();
 		String request = "SELECT re FROM Review re "
 				+ "Where re.booking.eatery.id= :id ORDER BY re.booking.dateTime DESC";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);
+		Query q = getSession().createQuery(request);
 		q.setParameter("id", id);
 		result = q.getResultList();
 		return result;
@@ -83,8 +82,7 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 		Review result = null;
 		String request = "SELECT re FROM Review re "
 				+ "Where re.booking.id= :bookingid";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);
+		Query q = getSession().createQuery(request);
 		q.setParameter("bookingid", bookingId);
 		try{
 		result = (Review) q.getSingleResult();
