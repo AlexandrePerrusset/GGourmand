@@ -18,9 +18,9 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 	@Override
 	public void create(BookingReport obj) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
+	
 			getSession().save(obj);
-			t.commit();
+
 		} catch (Throwable t) {
 			t.printStackTrace();
 			throw new DAOException("Impossible de creer l'element",t);
@@ -31,7 +31,7 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 	@Override
 	public BookingReport read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
+			
 			return getSession().find(BookingReport.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
@@ -56,7 +56,7 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 	public List<BookingReport> listAll() {
 		List<BookingReport> result = null;
 		String request = "SELECT br FROM BookingReport br";
-		Session session = getSession();
+		Session session = factory.getCurrentSession();
 		Query q = session.createQuery(request);	
 		result = q.getResultList();
 		return result;

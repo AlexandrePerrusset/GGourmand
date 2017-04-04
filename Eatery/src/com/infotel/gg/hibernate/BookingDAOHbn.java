@@ -20,9 +20,8 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public void create(Booking obj) throws DAOException {
 		try {
-			Transaction t = getSession().beginTransaction();
 			getSession().save(obj);
-			t.commit();
+			
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de creer l'element",t);
 		}
@@ -32,7 +31,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public Booking read(Integer i) throws DAOException {
 		try {
-			getSession().beginTransaction();
+			
 			return getSession().find(Booking.class, i);
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de lire l'element",t);
@@ -42,9 +41,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public void update(Booking obj) {
 		try {
-			Transaction t = getSession().beginTransaction();
+			
 			getSession().saveOrUpdate(obj);
-			t.commit();
+	
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de mettre a jour l'element",t);
 		}
@@ -54,9 +53,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@Override
 	public void delete(Booking obj) throws DAOException {
 		try {
-			Transaction tr = getSession().beginTransaction();
+	
 			getSession().delete(obj);
-			tr.commit();
+
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de supprimer l'element",t);
 		}
@@ -68,7 +67,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	public List<Booking> listAll() {
 		List<Booking> result = null;
 		String request = "SELECT book FROM Booking book";
-		Session session = getSession();
+		Session session = factory.getCurrentSession();
 		Query q = session.createQuery(request);	
 		result = q.getResultList();
 		return result;
@@ -78,7 +77,7 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Booking> listAll(CustomerDTO customerdto){
 		String request = "SELECT boo FROM Booking boo WHERE boo.customer.username ='"+customerdto.getUsername()+"'";
-		Session session = getSession();
+		Session session = factory.getCurrentSession();
 		Query q = session.createQuery(request);	
 		List<Booking> result = q.getResultList();
 		return result;
@@ -90,9 +89,9 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 		String request = "from Booking b where b.eatery.id = :eateryId and "
 				+ "b not in (select br.booking from BookingReport br)";
 		Session session = factory.getCurrentSession();
-		Query query = session.createQuery(request);
-		query.setParameter("eateryId", eateryId);
-		List<Booking> bookings = query.getResultList();
+		Query q = session.createQuery(request);	
+		q.setParameter("eateryId", eateryId);
+		List<Booking> bookings = q.getResultList();
 
 		return bookings;
 	}
@@ -100,11 +99,12 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Booking> findByCustomer(String username) {
-		Session session = getSession();
+		
 		String hql = "select b from Booking b where b.customer.username = :customer_id order by b.dateTime";
-		Query query = session.createQuery(hql);
-		query.setParameter("customer_id", username);
-		List<Booking> bookings = query.getResultList();
+		Session session = factory.getCurrentSession();
+		Query q = session.createQuery(hql);	
+		q.setParameter("customer_id", username);
+		List<Booking> bookings = q.getResultList();
 		return bookings;
 	}
 

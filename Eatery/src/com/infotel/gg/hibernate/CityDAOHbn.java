@@ -22,7 +22,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@Override
 	public City read(Integer i) throws DAOException {
 		try {
-			getSession().beginTransaction();
+	
 			return getSession().find(City.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();
