@@ -47,8 +47,8 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	public List<City> listAll() {
 		List<City> result = new ArrayList<>();
 		String request = "SELECT cit FROM City cit ORDER BY cit.foremost DESC, cit.name ASC";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}
@@ -58,8 +58,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	public List<City> listAll(String keyword) {
 		List<City> result = new ArrayList<>();
 		String request = "SELECT cit FROM City cit where cit.name like :name ORDER BY cit.foremost DESC, cit.name ASC";
-		Session session = factory.getCurrentSession();
-		Query<City> q = session.createQuery(request);
+		Query<City> q = getSession().createQuery(request);
 		q.setParameter("name", keyword+"%");
 		result = q.getResultList();
 		return result;
@@ -69,8 +68,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	public List<City> listAllforemost() {
 		List<City> result = new ArrayList<>();
 		String request = "SELECT cit FROM City cit WHERE cit.foremost=1 ORDER BY cit.name ASC";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}

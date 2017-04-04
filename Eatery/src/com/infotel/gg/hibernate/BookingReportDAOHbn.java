@@ -56,8 +56,8 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 	public List<BookingReport> listAll() {
 		List<BookingReport> result = null;
 		String request = "SELECT br FROM BookingReport br";
-		Session session = factory.getCurrentSession();
-		Query q = session.createQuery(request);	
+		
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}
