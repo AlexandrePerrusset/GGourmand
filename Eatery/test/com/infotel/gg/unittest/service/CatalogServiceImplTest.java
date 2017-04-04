@@ -25,21 +25,18 @@ import com.infotel.gg.service.CatalogServiceImpl;
 import DBUnit.DBUtils;
 
 public class CatalogServiceImplTest {
-	@Autowired
-	CatalogService cs;
 	List<CookingStyleDTO> cookstyledtos;
+	static CatalogService catservice;
 	
-	@Autowired
 	Eatery eatery;
 	
-	@Autowired
 	ImageData image;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context-test.xml");
-		CatalogService catalog = ctx.getBean(CatalogService.class);
+		catservice = ctx.getBean(CatalogService.class);
 	}
 
 	@AfterClass
@@ -58,7 +55,7 @@ public class CatalogServiceImplTest {
 	@Test
 	public void getAllCookingStylesOk() {
 		cookstyledtos = new ArrayList<CookingStyleDTO>();
-		cookstyledtos = cs.getAllCookingStyles();
+		cookstyledtos = catservice.getAllCookingStyles();
 		
 		for (CookingStyleDTO cook : cookstyledtos) {
 			assertNotNull(cook);
@@ -67,21 +64,21 @@ public class CatalogServiceImplTest {
 	
 	@Test
 	public void findOneEateryOk() {
-		EateryDTO edto = cs.findOneEatery(2);
+		EateryDTO edto = catservice.findOneEatery(2);
 		assertNotNull(edto);
 		assertEquals(edto.getName(), "Pietro");
 	}
 	
 	@Test
 	public void findOneRealEateryOk() {
-		eatery = cs.findOneRealEatery(2);
+		eatery = catservice.findOneRealEatery(2);
 		assertNotNull(eatery);
 		assertEquals(eatery.getName(), "Pietro");
 	}
 	
 	@Test
 	public void findImageDataByIdOk() throws GGourmandException {
-		image = cs.findImageDataById(2);
+		image = catservice.findImageDataById(2);
 		assertNotNull(image.getId());
 		assertNotNull(image.getContent());
 		assertNotNull(image.getTarget());	
