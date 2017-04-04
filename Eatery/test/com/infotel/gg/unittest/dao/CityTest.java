@@ -2,6 +2,9 @@ package com.infotel.gg.unittest.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,6 +23,7 @@ import DBUnit.DBUtils;
 public class CityTest {
 	City c;
 	CityDAO cd = new CityDAOHbn();
+	List<City> lc;
 	Country country;
 	Region reg;
 
@@ -38,6 +42,7 @@ public class CityTest {
 		cd = null;
 		country = null;
 		reg = null;
+		lc=null;
 	}
 	
 	@AfterClass
@@ -64,4 +69,22 @@ public class CityTest {
 	public void readKo2() {
 		cd.read(null);
 	}
+	
+	@Test
+	public void listAll() throws DAOException{
+		lc = cd.listAll();
+		assertEquals(lc.get(0).getName(),"Bordeaux" );
+		assertEquals(lc.get(1).getName(),"Boulogne-Billancourt" );
+		assertEquals(lc.get(2).getName(),"Lille" );
+		
+	}
+	
+//	@Test
+//	public void listAll(String keyword) throws DAOException{
+//		lc = cd.listAll("Paris");
+//		assertEquals(lc.get(0).getId(),1 );
+//		assertEquals(lc.get(0).isForeMost(),1 );		
+//	}
 }
+
+
