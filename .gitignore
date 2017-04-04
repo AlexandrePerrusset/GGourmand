@@ -217,3 +217,4 @@ pip-log.txt
 .mr.developer.cfg
 Eatery/test/HBMain.java
 *.MF
+Gourmand-rs/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
