@@ -26,7 +26,6 @@ public class EateryTagDAOHbn extends DAOHbn implements EateryTagDAO{
 	@Override
 	public EateryTag read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(EateryTag.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

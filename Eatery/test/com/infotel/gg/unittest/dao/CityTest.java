@@ -70,21 +70,7 @@ public class CityTest {
 		cd.read(null);
 	}
 	
-	@Test
-	public void listAll() throws DAOException{
-		lc = cd.listAll();
-		assertEquals(lc.get(0).getName(),"Bordeaux" );
-		assertEquals(lc.get(1).getName(),"Boulogne-Billancourt" );
-		assertEquals(lc.get(2).getName(),"Lille" );
-		
-	}
-	
-//	@Test
-//	public void listAll(String keyword) throws DAOException{
-//		lc = cd.listAll("Paris");
-//		assertEquals(lc.get(0).getId(),1 );
-//		assertEquals(lc.get(0).isForeMost(),1 );		
-//	}
+
 }
 
 

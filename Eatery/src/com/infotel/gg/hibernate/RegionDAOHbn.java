@@ -28,7 +28,6 @@ public class RegionDAOHbn extends DAOHbn implements RegionDAO{
 	@Override
 	public Region read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(Region.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

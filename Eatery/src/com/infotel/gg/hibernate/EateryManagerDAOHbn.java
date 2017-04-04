@@ -23,7 +23,6 @@ public class EateryManagerDAOHbn extends DAOHbn implements EateryManagerDAO {
 	@Override
 	public EateryManager read(String i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(EateryManager.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

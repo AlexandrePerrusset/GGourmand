@@ -24,7 +24,6 @@ public class MenuDAOHbn extends DAOHbn implements MenuDAO{
 	@Override
 	public Menu read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(Menu.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

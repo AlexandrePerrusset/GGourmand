@@ -22,7 +22,6 @@ public class PracticalInformationDAOHbn extends DAOHbn implements PracticalInfor
 	@Override
 	public PracticalInformation read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(PracticalInformation.class, i);
 		} catch (Throwable t) {
 			t.printStackTrace();

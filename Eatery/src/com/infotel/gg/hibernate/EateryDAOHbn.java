@@ -26,7 +26,6 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 	@Override
 	public Eatery read(Integer i) throws ModelException {
 		try {
-			getSession().beginTransaction();
 			return getSession().find(Eatery.class, i);
 		} catch (Throwable t) {
 			throw new DAOException("Impossible de lire l'element",t);
