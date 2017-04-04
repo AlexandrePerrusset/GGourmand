@@ -10,27 +10,27 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.ImageData;
 import com.infotel.gg.service.CatalogService;
-import com.infotel.gg.service.CatalogServiceImpl;
 
 import DBUnit.DBUtils;
 
 public class CatalogServiceImplTest {
 	List<CookingStyleDTO> cookstyledtos;
 	static CatalogService catservice;
-	
 	Eatery eatery;
-	
 	ImageData image;
+	List<Integer> bigimages;
+	List<Integer> smallimages;
+	ReviewDTO reviewdto = new ReviewDTO();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -67,6 +67,8 @@ public class CatalogServiceImplTest {
 		EateryDTO edto = catservice.findOneEatery(2);
 		assertNotNull(edto);
 		assertEquals(edto.getName(), "Pietro");
+		assertEquals(edto.getPostCode(), "75008");
+		assertEquals(edto.getStreet(), "28, rue Jean Mermoz");
 	}
 	
 	@Test
@@ -74,6 +76,9 @@ public class CatalogServiceImplTest {
 		eatery = catservice.findOneRealEatery(2);
 		assertNotNull(eatery);
 		assertEquals(eatery.getName(), "Pietro");
+		assertEquals(eatery.getAddress().getPostCode(), "75008");
+		assertEquals(eatery.getAddress().getCity().getId(), 1);
+		assertEquals(eatery.getAddress().getStreet(), "28, rue Jean Mermoz");
 	}
 	
 	@Test
@@ -84,5 +89,31 @@ public class CatalogServiceImplTest {
 		assertNotNull(image.getTarget());	
 		assertNotNull(image.getTargetId());
 	}
+	
+	@Test
+	public void findBigImageForEateryOk() {
+		bigimages = new ArrayList<Integer>();
+		bigimages = catservice.findBigImageForEatery(1);
+		
+		for (Integer i : bigimages) {
+			assertNotNull(i);
+		}
+	}
+	
+	@Test
+	public void findSmallImageForEateryOk() {
+		smallimages = new ArrayList<Integer>();
+		smallimages = catservice.findSmallImageForEatery(1);
+		
+		for (Integer i : smallimages) {
+			assertNotNull(i);
+		}
+	}
+	
+	// TODO : continuer reviewOk()
+//	@Test
+//	public void reviewOk() throws GGourmandException {
+////		catservice.review(reviewdto);
+//	}
 
 }
