@@ -83,7 +83,6 @@ public class CatalogServiceImplTest {
 		assertNotNull(image.getContent());
 		assertNotNull(image.getTarget());	
 		assertNotNull(image.getTargetId());
-		assertNotNull(image.getSize());
 	}
 
 }
