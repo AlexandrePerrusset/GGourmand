@@ -6,6 +6,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.dao.CustomerDAO;
@@ -13,20 +15,23 @@ import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.hibernate.CustomerDAOHbn;
 import com.infotel.gg.model.Customer;
+import com.infotel.gg.service.CatalogService;
 import com.infotel.gg.service.UserService;
 import com.infotel.gg.service.UserServiceImpl;
 
 import DBUnit.DBUtils;
 
 public class UserServiceImplTest {
-	UserDTO udto = new UserDTO();
-	UserService us = new UserServiceImpl();
+	UserDTO udto;
+	static UserService us;
 	Customer cust;
-	CustomerDAO custdao = new CustomerDAOHbn();
+	CustomerDAO custdao;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context-test.xml");
+		us = ctx.getBean(UserService.class);
 	}
 
 	@AfterClass
