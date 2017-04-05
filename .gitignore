@@ -219,3 +219,4 @@ pip-log.txt
 Eatery/test/HBMain.java
 *.MF
 Gourmand-rs/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+Gourmand-rs/target/m2e-wtp/web-resources/META-INF/maven/com.infotel.Gourmand-rs/Gourmand-rs/pom.properties

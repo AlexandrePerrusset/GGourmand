@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.DTO.CustomerDTO;
 import com.infotel.gg.dao.BookingDAO;
@@ -15,6 +16,7 @@ import com.infotel.gg.model.Booking;
 
 
 @Repository
+@Transactional
 public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 
 	@Override
