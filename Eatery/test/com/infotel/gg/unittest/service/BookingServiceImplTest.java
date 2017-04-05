@@ -45,6 +45,7 @@ public class BookingServiceImplTest {
 	static EateryManagerDAO eatmandao;
 	static BookingReportDAO bookingreportdao;
 	List<BookingDTO> bookingDTOs;
+	List<Booking> bookings;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -72,45 +73,45 @@ public class BookingServiceImplTest {
 	public void tearDown() throws Exception {
 	}
 
-//	@Test
-//	public void saveBookingOk() throws GGourmandException {
-//		customer = custdao.read("jefr");
-//		eatery = edao.read(6);
-//		booking = new Booking(2, calendar, 3, eatery, customer);
-//		bookservice.saveBooking(booking);
-//		
-//		Booking newBooking = new Booking();
-//		newBooking = bookdao.read(booking.getId());
-//		
-//		assertNotNull(newBooking);
-//		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
-//		assertEquals(newBooking.getEatery().getName(), eatery.getName());
-//		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
-//		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
-//	}
-//	
-//	@Test
-//	public void findBookingByIdOk() throws GGourmandException {
-//		booking = bookservice.findBookingById(42);
-//		assertNotNull(booking);
-//		assertEquals(booking.getNbOfCustomer(), 10);
-//	}
-//	
-//	@Test
-//	public void saveBookingReportOk() throws GGourmandException {
-//		booking = bookdao.read(42);
-//		eatman = eatmandao.read("raphi2@gmail.com");
-//		bookreport = new BookingReport(1, calendar, true, "comment", 0.5, 0.6, eatman, booking);
-//		bookservice.saveBookingReport(bookreport);
-//		
-//		BookingReport newbookreport = new BookingReport();
-//		newbookreport = bookingreportdao.read(bookreport.getId());
-//		
-//		assertNotNull(newbookreport);
-//		assertEquals(newbookreport.getComment(), bookreport.getComment());
-//		assertEquals(newbookreport.getDate(), bookreport.getDate());
-//	}
-//	
+	@Test
+	public void saveBookingOk() throws GGourmandException {
+		customer = custdao.read("jefr");
+		eatery = edao.read(6);
+		booking = new Booking(2, calendar, 3, eatery, customer);
+		bookservice.saveBooking(booking);
+		
+		Booking newBooking = new Booking();
+		newBooking = bookdao.read(booking.getId());
+		
+		assertNotNull(newBooking);
+		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
+		assertEquals(newBooking.getEatery().getName(), eatery.getName());
+		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
+		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
+	}
+	
+	@Test
+	public void findBookingByIdOk() throws GGourmandException {
+		booking = bookservice.findBookingById(42);
+		assertNotNull(booking);
+		assertEquals(booking.getNbOfCustomer(), 10);
+	}
+	
+	@Test
+	public void saveBookingReportOk() throws GGourmandException {
+		booking = bookdao.read(42);
+		eatman = eatmandao.read("raphi2@gmail.com");
+		bookreport = new BookingReport(1, calendar, true, "comment", 0.5, 0.6, eatman, booking);
+		bookservice.saveBookingReport(bookreport);
+		
+		BookingReport newbookreport = new BookingReport();
+		newbookreport = bookingreportdao.read(bookreport.getId());
+		
+		assertNotNull(newbookreport);
+		assertEquals(newbookreport.getComment(), bookreport.getComment());
+		assertEquals(newbookreport.getDate(), bookreport.getDate());
+	}
+	
 	@Test
 	public void findBookingsByCustomerOk() throws GGourmandException {
 		bookingDTOs = new ArrayList<BookingDTO>();
@@ -139,6 +140,13 @@ public class BookingServiceImplTest {
 			assertNotNull(bookingDTO);
 			System.out.println(bookingDTO);
 		}
+	}
+	
+	@Test
+	public void findBookingsByEateryWithoutReportOk() throws GGourmandException {
+		bookingDTOs = new ArrayList<BookingDTO>();
+		bookings = bookdao.findByEateryIdWithoutReport(11);
+		assertEquals(bookings.size(), 2);
 	}
 
 }
