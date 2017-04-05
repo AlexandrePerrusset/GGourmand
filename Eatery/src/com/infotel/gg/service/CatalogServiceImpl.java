@@ -11,9 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.MenuDTO;
 import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.dao.BookingDAO;
@@ -98,7 +101,6 @@ public class CatalogServiceImpl implements CatalogService {
 		EateryDTO e = new EateryDTO();
 		e.setId(eat.getId());
 		e.setName(eat.getName());
-		//e.setHighlightedName(eat.getHighlightedName());
 		e.setExecutiveChef(eat.getExecutiveChef());
 
 		e.setCookingStyle(eat.getCookingStyle().getName());
@@ -136,33 +138,32 @@ public class CatalogServiceImpl implements CatalogService {
 			e.setGettingThere(pi.getGettingThere());
 			e.setParking(pi.getParking());
 		}
-		//		if (detail) {
-		//			imageIds = imageDataDAO.findBigByEateryId(eat.getId());
-		//			e.setImageIds(imageIds);
-		//
-		//			// Menu
-		//			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-		//			try {
-		//				MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
-		//				e.setMenu(menu);
-		//			} catch (Exception e1) {
-		//				log.error("Echec d�s�rialisation du menu", e1);
-		//
-		//			}
-		//			
-		//			//review
-		//			reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
-		//						.collect(Collectors.toList());
-		//			 System.out.println(reviews);
-		//			 e.setReviews(reviews);
-		//			 
-		//		} else {
-		//			imageIds = imageDataDAO.findSmallByEateryId(eat.getId());
-		//			e.setImageIds(imageIds);
-		//		}
-		//		if (!imageIds.isEmpty()) {
-		//			e.setImageId(imageIds.get(0));
-		//		}
+				if (detail) {
+					imageIds = imageDataDAO.findBigByEateryId(eat.getId());
+					e.setImageIds(imageIds);
+		
+					// Menu
+					ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+					try {
+						MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
+						e.setMenu(menu);
+					} catch (Exception e1) {
+						log.error("Echec d�s�rialisation du menu", e1);
+		
+					}
+					
+//					//review
+//					reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
+//								.collect(Collectors.toList());
+//					 e.setReviews(reviews);
+					 
+				} else {
+					imageIds = imageDataDAO.findSmallByEateryId(eat.getId());
+					e.setImageIds(imageIds);
+				}
+				if (!imageIds.isEmpty()) {
+					e.setImageId(imageIds.get(0));
+				}
 
 		List<EateryTag> eatag = eat.getEateryTags();
 		if(eatag != null) {
@@ -257,14 +258,14 @@ public class CatalogServiceImpl implements CatalogService {
 	@Override
 	public List<EateryDTO> findEateryByCriteria(SearchCriteriaDTO criteria) {
 		SearchCriteria criter = new SearchCriteria();
-		criter = parse(criteria);
+		criter = parseCrit(criteria);
 		EateryResult daoresult = eateryDAO.findByCriteria(criter);
 		List<EateryDTO> result = daoresult.getEateries().stream().map(e -> transform(e, false))
 				.collect(Collectors.toList());
 		return sortByCriteria(result, criteria.getOrderBy());
 	}
 	
-	private SearchCriteria parse(SearchCriteriaDTO criteria) {
+	private SearchCriteria parseCrit(SearchCriteriaDTO criteria) {
 		SearchCriteria criter = new SearchCriteria();
 		criter.setName(criteria.getName());
 		criter.setCityId(criteria.getCityId());

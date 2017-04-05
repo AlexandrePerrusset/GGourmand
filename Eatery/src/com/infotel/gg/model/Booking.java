@@ -183,8 +183,7 @@ public class Booking implements Serializable{
 	@Override
 	public String toString() {
 		return "Booking [getDateTime()=" + getDateTime() + ", getCustomer()=" + getCustomer() + ", getEatery()="
-				+ getEatery() + ", getNbOfCustomer()=" + getNbOfCustomer() + ", getId()=" + getId() + ", isValid()="
-				+ isValid() + "]";
+				+ getEatery() + ", getNbOfCustomer()=" + getNbOfCustomer() + ", getId()=" + getId() + "]";
 	}
 	
 	
