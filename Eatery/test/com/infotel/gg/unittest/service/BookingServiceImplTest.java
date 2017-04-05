@@ -132,7 +132,7 @@ public class BookingServiceImplTest {
 	@Test
 	public void findBookingsByEateryOk2() throws GGourmandException {
 		bookingDTOs = new ArrayList<BookingDTO>();
-		bookingDTOs = bookservice.findBookingsByEatery(10);
+		bookingDTOs = bookservice.findBookingsByEatery(11);
 		System.out.println(bookingDTOs.size());
 		
 		for (BookingDTO bookingDTO : bookingDTOs) {

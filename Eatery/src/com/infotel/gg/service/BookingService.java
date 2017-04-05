@@ -23,5 +23,4 @@ public void saveBooking(Booking booking) throws GGourmandException;
 	public List<BookingDTO> findBookingsByEatery(int eateryId) throws GGourmandException;
 	
 	void saveBookingReport(BookingReport bookingReport) throws GGourmandException;
-
 }

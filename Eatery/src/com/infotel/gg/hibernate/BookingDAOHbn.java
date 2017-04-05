@@ -84,10 +84,20 @@ public class BookingDAOHbn extends DAOHbn implements BookingDAO {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@Override
-	public List<Booking> findByEateryId(int eateryId) throws GGourmandException {
+	public List<Booking> findByEateryIdWithoutReport(int eateryId) throws GGourmandException {
 		String request = "from Booking b where b.eatery.id = :eateryId and "
 				+ "b not in (select br.booking from BookingReport br)";
+		Query q = getSession().createQuery(request);	
+		q.setParameter("eateryId", eateryId);
+		List<Booking> bookings = q.getResultList();
+
+		return bookings;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Booking> findByEateryId(int eateryId) throws GGourmandException {
+		String request = "from Booking b where b.eatery.id = :eateryId";
 		Query q = getSession().createQuery(request);	
 		q.setParameter("eateryId", eateryId);
 		List<Booking> bookings = q.getResultList();

@@ -66,6 +66,13 @@ public class BookingServiceImpl implements BookingService{
 		listBooking.stream().forEach(b -> result.add(transform(b)));
 		return result;
 	}
+	
+	public List<BookingDTO> findBookingsByEateryWithoutReport(int eateryId) throws GGourmandException {
+		List<BookingDTO> result = new ArrayList<BookingDTO>();
+		List<Booking> listBooking = bookingDao.findByEateryIdWithoutReport(eateryId);
+		listBooking.stream().forEach(b -> result.add(transform(b)));
+		return result;
+	}
 
 	
 	@Override
@@ -103,6 +110,4 @@ public class BookingServiceImpl implements BookingService{
 		
 		return bookingDto;
 	}
-
-
 }
