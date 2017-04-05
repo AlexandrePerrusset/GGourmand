@@ -16,6 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.ImageDataDTO;
 import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.dao.EateryDAO;
@@ -33,7 +34,7 @@ public class CatalogServiceImplTest {
 	List<CookingStyleDTO> cookstyledtos;
 	static CatalogService catservice;
 	Eatery eatery;
-	ImageData image;
+	ImageDataDTO imageDto;
 	List<Integer> bigimages;
 	List<Integer> smallimages;
 	ReviewDTO reviewdto = new ReviewDTO();
@@ -93,11 +94,9 @@ public class CatalogServiceImplTest {
 	
 	@Test
 	public void findImageDataByIdOk() throws GGourmandException {
-		image = catservice.findImageDataById(2);
-		assertNotNull(image.getId());
-		assertNotNull(image.getContent());
-		assertNotNull(image.getTarget());	
-		assertNotNull(image.getTargetId());
+		imageDto = catservice.findImageDataById(4);
+		assertNotNull(imageDto);
+		assertEquals(imageDto.getSize(), "big");
 	}
 	
 	@Test

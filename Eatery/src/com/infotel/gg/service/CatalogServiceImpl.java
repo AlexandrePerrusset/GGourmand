@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.loader.custom.Return;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.ImageDataDTO;
 import com.infotel.gg.DTO.MenuDTO;
 import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
@@ -182,9 +184,10 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 
 	@Override
-	public ImageData findImageDataById(int id) throws GGourmandException {
+	public ImageDataDTO findImageDataById(int id) throws GGourmandException {
 		ImageData image = imageDataDAO.read(id);
-		return image;
+		ImageDataDTO imgdataDto = transform(image);
+		return imgdataDto;
 	}
 
 	@Override
@@ -255,6 +258,14 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 	
 
+	@SuppressWarnings("unused")
+	private ImageDataDTO transform(ImageData imgdata){
+		ImageDataDTO imgdataDto = new ImageDataDTO();
+		imgdataDto.setSize(imgdata.getSize());
+		imgdataDto.setContent(imgdata.getBase64URL());
+		return imgdataDto;
+	}
+	
 
 
 	@Override

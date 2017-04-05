@@ -5,6 +5,7 @@ import java.util.List;
 import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.ImageDataDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.ImageData;
@@ -20,7 +21,7 @@ public interface CatalogService {
 	
 	Eatery findOneRealEatery(int id);
 	
-	ImageData findImageDataById(int id) throws GGourmandException;
+	ImageDataDTO findImageDataById(int id) throws GGourmandException;
 	
 	List<Integer> findBigImageForEatery(int eateryId);
 	
