@@ -17,6 +17,9 @@ import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ReviewDTO;
+import com.infotel.gg.DTO.SearchCriteriaDTO;
+import com.infotel.gg.dao.EateryDAO;
+import com.infotel.gg.dao.EateryManagerDAO;
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.hibernate.ReviewDAOHbn;
@@ -34,6 +37,8 @@ public class CatalogServiceImplTest {
 	List<Integer> bigimages;
 	List<Integer> smallimages;
 	ReviewDTO reviewdto = new ReviewDTO();
+	SearchCriteriaDTO criteriadto = new SearchCriteriaDTO();
+	List<EateryDTO> eateriesdto;
 
 	List<CityDTO>citiesdto;
 
@@ -134,7 +139,6 @@ public class CatalogServiceImplTest {
 		}
 	}
 
-
 	
 	@Test
 	public void getAllCitiesForemostOk(){
@@ -160,5 +164,18 @@ public class CatalogServiceImplTest {
 		assertNotNull("Pays found", citiesdto.get(0).getCountry_name());
 		assertNotNull("Region found", citiesdto.get(0).getRegion_name());
 		System.out.println(citiesdto);
+	}
+	
+	
+	@Test
+	public void testFindEateryByCriteria(){
+		criteriadto.setName("eni");
+		criteriadto.setCityId(1);
+		criteriadto.setCookingStyleId(24);
+		eateriesdto = new ArrayList<EateryDTO>();
+		eateriesdto = catservice.findEateryByCriteria(criteriadto );
+		assertNotNull("liste eateries non null", eateriesdto.get(0).getName());
+		System.out.println(eateriesdto);
+		
 	}
 }
