@@ -13,10 +13,13 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ReviewDTO;
+import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
+import com.infotel.gg.hibernate.ReviewDAOHbn;
 import com.infotel.gg.model.Eatery;
 import com.infotel.gg.model.ImageData;
 import com.infotel.gg.service.CatalogService;
@@ -31,6 +34,8 @@ public class CatalogServiceImplTest {
 	List<Integer> bigimages;
 	List<Integer> smallimages;
 	ReviewDTO reviewdto = new ReviewDTO();
+
+	List<CityDTO>citiesdto;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -111,9 +116,49 @@ public class CatalogServiceImplTest {
 	}
 	
 	// TODO : continuer reviewOk()
-//	@Test
-//	public void reviewOk() throws GGourmandException {
-////		catservice.review(reviewdto);
-//	}
+	@Test
+	public void reviewOk() throws GGourmandException {
+		reviewdto.setBookingID(1);
+		reviewdto.setComment("comment1");
+		reviewdto.setRating(17);
+		catservice.review(reviewdto);
+		assertNotNull(reviewdto);
+	}
+	
+	@Test
+	public void getAllCitiesOk(){
+		citiesdto = new ArrayList<CityDTO>();
+		citiesdto = catservice.getAllCities();
+		for (CityDTO cit : citiesdto) {
+			assertNotNull(cit);
+		}
+	}
 
+
+	
+	@Test
+	public void getAllCitiesForemostOk(){
+		citiesdto = new ArrayList<CityDTO>();
+		citiesdto = catservice.getAllCitiesLike("Lyo");
+		assertNotNull("City found", citiesdto.get(0));
+		assertNotNull("Id found", citiesdto.get(0).getId());
+		assertNotNull("Name found", citiesdto.get(0).getName());
+		assertNotNull("Foremost found", citiesdto.get(0).getForemost());	
+		assertNotNull("Pays found", citiesdto.get(0).getCountry_name());
+		assertNotNull("Region found", citiesdto.get(0).getRegion_name());
+		System.out.println(citiesdto);
+	}
+	
+	@Test
+	public void testGetAllCitiesLike() {
+		citiesdto = new ArrayList<CityDTO>();
+		citiesdto = catservice.getAllCitiesLike("Lyo");
+		assertNotNull("City found", citiesdto.get(0));
+		assertNotNull("Id found", citiesdto.get(0).getId());
+		assertNotNull("Name found", citiesdto.get(0).getName());
+		assertNotNull("Foremost found", citiesdto.get(0).getForemost());	
+		assertNotNull("Pays found", citiesdto.get(0).getCountry_name());
+		assertNotNull("Region found", citiesdto.get(0).getRegion_name());
+		System.out.println(citiesdto);
+	}
 }

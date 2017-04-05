@@ -46,7 +46,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@Override
 	public List<City> listAll() {
 		List<City> result = new ArrayList<>();
-		String request = "SELECT cit FROM City cit ORDER BY cit.foremost DESC, cit.name ASC";
+		String request = "SELECT cit FROM City cit ORDER BY cit.foreMost DESC, cit.name ASC";
 		
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
@@ -57,7 +57,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@SuppressWarnings("unchecked")
 	public List<City> listAll(String keyword) {
 		List<City> result = new ArrayList<>();
-		String request = "SELECT cit FROM City cit where cit.name like :name ORDER BY cit.foremost DESC, cit.name ASC";
+		String request = "SELECT cit FROM City cit where cit.name like :name ORDER BY cit.foreMost DESC, cit.name ASC";
 		Query<City> q = getSession().createQuery(request);
 		q.setParameter("name", keyword+"%");
 		result = q.getResultList();
@@ -67,7 +67,7 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<City> listAllforemost() {
 		List<City> result = new ArrayList<>();
-		String request = "SELECT cit FROM City cit WHERE cit.foremost=1 ORDER BY cit.name ASC";
+		String request = "SELECT cit FROM City cit WHERE cit.foreMost=1 ORDER BY cit.name ASC";
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
