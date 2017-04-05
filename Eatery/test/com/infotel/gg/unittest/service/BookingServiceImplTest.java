@@ -27,7 +27,7 @@ import com.infotel.gg.service.BookingService;
 
 import DBUnit.DBUtils;
 
-public class BookingServiceImplTest extends DAOHbn {
+public class BookingServiceImplTest {
 	static BookingService bookservice;
 	Booking booking;
 	Customer customer;
@@ -68,25 +68,21 @@ public class BookingServiceImplTest extends DAOHbn {
 		booking = new Booking(2, calendar, 3, eatery, customer);
 		bookservice.saveBooking(booking);
 		
-//		Booking newBooking = new Booking();
-//		newBooking = bookdao.read(2);
-		String request = "select b from Booking b where b.eatery.id = :id";
-		Query q = getSession().createQuery(request);
-		q.setParameter("id", 6);
-		booking = (Booking) q.getSingleResult();
-		System.out.println(booking);
+		Booking newBooking = new Booking();
+		newBooking = bookdao.read(booking.getId());
 		
-		assertNotNull(booking);
-		assertEquals(booking.getNbOfCustomer(), booking.getNbOfCustomer());
-		assertEquals(booking.getEatery(), eatery);
-		assertEquals(booking.getCustomer(), customer);
+		assertNotNull(newBooking);
+		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
+		assertEquals(newBooking.getEatery().getName(), eatery.getName());
+		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
+		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
 	}
 	
 	@Test
 	public void findBookingByIdOk() throws GGourmandException {
-		booking = bookservice.findBookingById(458);
+		booking = bookservice.findBookingById(42);
 		assertNotNull(booking);
-		assertEquals(booking.getNbOfCustomer(), 3);
+		assertEquals(booking.getNbOfCustomer(), 10);
 	}
 
 }
