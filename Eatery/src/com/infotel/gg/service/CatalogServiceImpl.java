@@ -48,6 +48,8 @@ import com.infotel.gg.DTO.OrderDTO;
 @Service("CatalogService")
 @Transactional
 public class CatalogServiceImpl implements CatalogService {
+	
+	private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
 	private final static Logger log = LogManager.getLogger(CatalogServiceImpl.class);
 
@@ -143,7 +145,7 @@ public class CatalogServiceImpl implements CatalogService {
 					e.setImageIds(imageIds);
 		
 					// Menu
-					ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+					
 					try {
 						MenuDTO menu = mapper.readValue(eat.getMenu().getContent(), MenuDTO.class);
 						e.setMenu(menu);
