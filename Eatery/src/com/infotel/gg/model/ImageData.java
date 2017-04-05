@@ -122,7 +122,6 @@ public class ImageData{
 	public String getBase64URL() {
 		byte[]encodedBytes = Base64.getEncoder().encode(content);
 		return "data:image/jpeg;base64, " + new String(encodedBytes);
-	
 	}
 	
 }
