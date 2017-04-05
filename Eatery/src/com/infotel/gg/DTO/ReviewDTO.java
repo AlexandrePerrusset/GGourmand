@@ -1,6 +1,7 @@
 package com.infotel.gg.DTO;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,7 +12,7 @@ public class ReviewDTO implements Serializable{
 	private static final long serialVersionUID = 8977381161008051L;
 	
 
-	private Date dateTime;
+	private Calendar dateTime;
 	
 	private int numberOfPeople;
 	
@@ -34,11 +35,11 @@ public class ReviewDTO implements Serializable{
 				+ "]";
 	}
 
-	public Date getDateTime() {
+	public Calendar getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(Calendar dateTime) {
 		this.dateTime = dateTime;
 	}
 

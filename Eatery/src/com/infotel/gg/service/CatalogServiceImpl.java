@@ -156,10 +156,10 @@ public class CatalogServiceImpl implements CatalogService {
 		
 					}
 					
-//					//review
-//					reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
-//								.collect(Collectors.toList());
-//					 e.setReviews(reviews);
+					//review
+					reviews = reviewDAO.listAllByEateryId(eat.getId()).stream().map(r -> transform(r))
+							.collect(Collectors.toList());
+					 e.setReviews(reviews);
 					 
 				} else {
 					imageIds = imageDataDAO.findSmallByEateryId(eat.getId());
@@ -212,6 +212,18 @@ public class CatalogServiceImpl implements CatalogService {
 		
 		reviewDAO.create(review);
 		
+	}
+	
+	private ReviewDTO transform(Review r) {
+		ReviewDTO rev = new ReviewDTO();
+		rev.setComment(r.getComment());
+		rev.setDateTime(r.getBooking().getDateTime());
+		rev.setFirstName(r.getBooking().getCustomer().getFirstName());
+		rev.setLastName(r.getBooking().getCustomer().getLastName());
+		rev.setNumberOfPeople(r.getBooking().getNbOfCustomer());
+		rev.setRating(r.getRating());
+		rev.setUserName(r.getBooking().getCustomer().getUsername());
+		return rev;
 	}
 	
 	
