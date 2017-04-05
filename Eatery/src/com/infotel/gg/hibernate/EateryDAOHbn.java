@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
@@ -15,6 +16,7 @@ import com.infotel.gg.model.EateryResult;
 import com.infotel.gg.model.SearchCriteria;
 
 @Repository
+@Transactional
 public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 
 	
@@ -66,7 +68,7 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 			request +=" and eat.address.city.id = :cityId";
 		} 
 		if(criter.getCookingStyleId() != -1) {
-			request +=" and eat.cookingStyle.id = :cookStyleId";
+			request +=" and eat.cookingStyle.id = :cookingStyleId";
 		}
 		
 		Query q = getSession().createQuery(request);		
@@ -78,9 +80,9 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 			q.setParameter("cityId", criter.getCityId());
 		}
 		if(criter.getCookingStyleId() != -1) {
-			q.setParameter("cookStyleId", criter.getCookingStyleId());
+			q.setParameter("cookingStyleId", criter.getCookingStyleId());
 		}
-		q.setMaxResults(10);
+		q.setMaxResults(5);
 		
 		List<Eatery> result = q.getResultList();
 		return new EateryResult(result.size(), result); 
