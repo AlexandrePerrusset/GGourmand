@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import org.hibernate.query.Query;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +18,8 @@ import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.dao.CustomerDAO;
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.GGourmandException;
+import com.infotel.gg.hibernate.BookingDAOHbn;
+import com.infotel.gg.hibernate.DAOHbn;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Customer;
 import com.infotel.gg.model.Eatery;
@@ -24,7 +27,7 @@ import com.infotel.gg.service.BookingService;
 
 import DBUnit.DBUtils;
 
-public class BookingServiceImplTest {
+public class BookingServiceImplTest extends DAOHbn {
 	static BookingService bookservice;
 	Booking booking;
 	Customer customer;
@@ -65,11 +68,25 @@ public class BookingServiceImplTest {
 		booking = new Booking(2, calendar, 3, eatery, customer);
 		bookservice.saveBooking(booking);
 		
-		Booking newBooking = new Booking();
-		newBooking = bookdao.read(2);
-		assertEquals(newBooking.getNbOfCustomer(), 3);
-		assertEquals(newBooking.getEatery(), eatery);
-		assertEquals(newBooking.getCustomer(), customer);
+//		Booking newBooking = new Booking();
+//		newBooking = bookdao.read(2);
+		String request = "select b from Booking b where b.eatery.id = :id";
+		Query q = getSession().createQuery(request);
+		q.setParameter("id", 6);
+		booking = (Booking) q.getSingleResult();
+		System.out.println(booking);
+		
+		assertNotNull(booking);
+		assertEquals(booking.getNbOfCustomer(), booking.getNbOfCustomer());
+		assertEquals(booking.getEatery(), eatery);
+		assertEquals(booking.getCustomer(), customer);
+	}
+	
+	@Test
+	public void findBookingByIdOk() throws GGourmandException {
+		booking = bookservice.findBookingById(458);
+		assertNotNull(booking);
+		assertEquals(booking.getNbOfCustomer(), 3);
 	}
 
 }
