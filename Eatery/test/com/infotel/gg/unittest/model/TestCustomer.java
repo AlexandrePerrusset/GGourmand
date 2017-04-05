@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.model.Customer;
@@ -16,7 +17,7 @@ import com.infotel.gg.model.EateryManager;
  * @author formation
  *
  */
-public class TestCustomer {
+@Ignore public class TestCustomer {
 
 		Customer cus;
 	

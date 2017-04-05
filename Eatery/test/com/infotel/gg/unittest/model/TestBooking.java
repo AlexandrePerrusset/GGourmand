@@ -7,12 +7,13 @@ import java.util.Calendar;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Review;
 
-public class TestBooking {
+@Ignore public class TestBooking {
 	Booking booking;
 	Calendar cal;
 	Review rev;

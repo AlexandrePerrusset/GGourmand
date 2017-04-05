@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.RegionDAO;
@@ -18,7 +19,7 @@ import com.infotel.gg.model.Region;
 import DBUnit.DBUtils;
 
 
-public class RegionTest {
+@Ignore public class RegionTest {
 	
 	Region r;
 	RegionDAO rd = new RegionDAOHbn();

@@ -9,13 +9,14 @@ import java.util.Calendar;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.model.BookingReport;
 import com.infotel.gg.model.EateryManager;
 
 
-public class TestBookingReport {
+@Ignore public class TestBookingReport {
 	
 	BookingReport br;
 	EateryManager em;

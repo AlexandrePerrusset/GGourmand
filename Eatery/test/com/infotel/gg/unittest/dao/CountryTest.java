@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.CountryDAO;
@@ -18,7 +19,7 @@ import DBUnit.DBUtils;
 
 
 
-public class CountryTest {
+@Ignore public class CountryTest {
 	Country c ;
 	CountryDAO cd = new CountryDAOHbn();
 

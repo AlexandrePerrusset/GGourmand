@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.CityDAO;
@@ -20,7 +21,7 @@ import com.infotel.gg.model.Region;
 
 import DBUnit.DBUtils;
 
-public class CityTest {
+@Ignore public class CityTest {
 	City c;
 	CityDAO cd = new CityDAOHbn();
 	List<City> lc;

@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.BookingDAO;
@@ -25,7 +26,7 @@ import com.infotel.gg.model.Eatery;
 
 import DBUnit.DBUtils;
 
-public class BookingTest {
+@Ignore public class BookingTest {
 	Booking b;
 	BookingDAO bd = new BookingDAOHbn(); 
 	EateryDAO ed = new EateryDAOHbn(); 

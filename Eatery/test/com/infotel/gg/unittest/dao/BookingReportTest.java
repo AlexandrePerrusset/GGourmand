@@ -12,6 +12,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.BookingDAO;
@@ -28,7 +29,7 @@ import com.infotel.gg.model.EateryManager;
 import DBUnit.DBUtils;
 
 
-public class BookingReportTest {
+@Ignore public class BookingReportTest {
 	BookingReport br;
 	BookingReportDAO brd = new BookingReportDAOHbn();
 	Calendar calendar;

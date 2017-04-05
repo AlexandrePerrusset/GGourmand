@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.PracticalInformationDAO;
@@ -16,7 +17,7 @@ import com.infotel.gg.model.PracticalInformation;
 import DBUnit.DBUtils;
 
 
-public class PracticalInformationTest {
+@Ignore public class PracticalInformationTest {
 	PracticalInformation pi;
 	PracticalInformationDAO pid = new PracticalInformationDAOHbn();
 

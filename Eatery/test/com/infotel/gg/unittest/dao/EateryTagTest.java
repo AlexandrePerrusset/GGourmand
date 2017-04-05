@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.EateryTagDAO;
@@ -19,7 +20,7 @@ import com.infotel.gg.model.EateryTag;
 import DBUnit.DBUtils;
 
 
-public class EateryTagTest {
+@Ignore public class EateryTagTest {
 	EateryTag et;
 	EateryTagDAO etd = new EateryTagDAOHbn();
 

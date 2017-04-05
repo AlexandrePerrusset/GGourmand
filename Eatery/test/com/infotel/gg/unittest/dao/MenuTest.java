@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.dao.MenuDAO;
@@ -19,7 +20,7 @@ import com.infotel.gg.model.Menu;
 import DBUnit.DBUtils;
 
 
-public class MenuTest {
+@Ignore public class MenuTest {
 	Menu m;
 	MenuDAO md = new MenuDAOHbn();
 

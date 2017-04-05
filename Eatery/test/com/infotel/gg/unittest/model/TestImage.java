@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.infotel.gg.model.ImageData;
@@ -15,7 +16,7 @@ import com.infotel.gg.model.ImageData;
  * @author formation
  *
  */
-public class TestImage {
+@Ignore public class TestImage {
 	
 	ImageData img;
 
