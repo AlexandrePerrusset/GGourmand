@@ -130,6 +130,8 @@ public class CatalogServiceImplTest {
 		assertNotNull(reviewdto);
 	}
 	
+
+	
 	@Test
 	public void getAllCitiesOk(){
 		citiesdto = new ArrayList<CityDTO>();
@@ -143,7 +145,7 @@ public class CatalogServiceImplTest {
 	@Test
 	public void getAllCitiesForemostOk(){
 		citiesdto = new ArrayList<CityDTO>();
-		citiesdto = catservice.getAllCitiesLike("Lyo");
+		citiesdto = catservice.getAllCitiesForemost();
 		assertNotNull("City found", citiesdto.get(0));
 		assertNotNull("Id found", citiesdto.get(0).getId());
 		assertNotNull("Name found", citiesdto.get(0).getName());
