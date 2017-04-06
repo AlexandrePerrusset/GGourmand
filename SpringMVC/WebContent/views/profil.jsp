@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF8"
+    pageEncoding="UTF8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +10,8 @@
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -130,7 +133,7 @@
  
             
                   <div class="collection">
-                    <a href="#!" class="collection-item active">Mes r�servations</a>
+                    <a href="#!" class="collection-item active">Mes réservations</a>
                     <a href="#!" class="collection-item ">Mes informations</a>
                     <a href="#!" class="collection-item">Mes avis</a>
                   </div>
@@ -139,7 +142,7 @@
 
 <div class="col s9">
 
-        <h5 class="titreresa">Mes r�servations</h5>
+        <h5 class="titreresa">Mes réservations</h5>
         <div class="card horizontal">
           <div class="row">
                 <div class="col s3"><div class="card-image"><img src="sources/resto.jpg" class="responsive-img"></div></div>
@@ -187,7 +190,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright Text
+        Â© 2014 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
@@ -208,7 +211,7 @@ $(document).ready(function(){
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   format: 'dd/mm/yyyy',
-  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aoû', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
+  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'AoÃ»', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
   monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
   weekdaysFull: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
   weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],

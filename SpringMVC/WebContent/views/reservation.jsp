@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF8"
+    pageEncoding="UTF8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +10,8 @@
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -24,7 +27,7 @@
              <a href="index.html" class="brand-logo logoGG text-darken-2 titleStyle"><i class="fa fa-cutlery" aria-hidden="true"></i> Gastronome  Gourmand</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#modal1">Se connecter</a></li>
-          <li><a href="#modal2">Cr�er un compte</a></li>
+          <li><a href="#modal2">Créer un compte</a></li>
         </ul>
       </div>
     </nav>
@@ -75,7 +78,7 @@
             </div>
             <div class="input-field col s5">
               <input id="last_name" type="text" class="validate">
-              <label for="last_name">Pr�nom</label>
+              <label for="last_name">Prénom</label>
             </div>
           </div>
           <div class="row">
@@ -96,10 +99,10 @@
             <div class="input-field col s12">
               <i class="material-icons prefix">phone</i>
               <input id="icon_telephone" type="tel" class="validate">
-              <label for="icon_telephone">t�l�phone</label>
+              <label for="icon_telephone">téléphone</label>
             </div>
           </div>
-          <input type="submit" class="waves-effect waves-light btn-large modalLink"  value="Cr�er mon compte"/> 
+          <input type="submit" class="waves-effect waves-light btn-large modalLink"  value="Créer mon compte"/> 
         </form>
       </div>
 
@@ -204,7 +207,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright Text
+        Â© 2014 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
@@ -225,7 +228,7 @@ $(document).ready(function(){
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   format: 'dd/mm/yyyy',
-  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aoû', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
+  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'AoÃ»', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
   monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
   weekdaysFull: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
   weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],

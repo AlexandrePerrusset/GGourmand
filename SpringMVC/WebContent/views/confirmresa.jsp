@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF8"
+    pageEncoding="UTF8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF8" />
   <meta name="language" content="fr" />
   <title>Gastronome Gourmand</title>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -47,7 +49,7 @@
 <div class="contourc">
 <div class="traitrouge"></div>
 
-<h3 class="titrer�sa">R�servation</h3>
+<h3 class="titrerésa">Réservation</h3>
 
 <div class="milieu">
 <div class="container">
@@ -62,14 +64,14 @@
   <div class="card">
     <div class="card-content">
       <i class="material-icons">today</i>
-    <span>Date : date de la r�servation</span>
+    <span>Date : date de la réservation</span>
     </div>
   </div>
 
     <div class="card">
     <div class="card-content">
     <i class="material-icons">query_builder</i>
-  <span>Heure : heure de la r�servation</span>
+  <span>Heure : heure de la réservation</span>
     </div>
   </div>  
 
@@ -112,7 +114,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright Text
+        Â© 2014 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
@@ -133,7 +135,7 @@ $(document).ready(function(){
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   format: 'dd/mm/yyyy',
-  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aoû', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
+  monthsFull: [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'AoÃ»', 'Septembre', 'Octobre', 'Novembre', 'Decembre' ],
   monthsShort: [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
   weekdaysFull: [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi' ],
   weekdaysShort: [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam' ],
