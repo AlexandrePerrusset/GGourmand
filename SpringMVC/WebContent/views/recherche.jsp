@@ -25,7 +25,7 @@
 									class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 								<ul id="nav-mobile" class="right hide-on-med-and-down">
 									<li><a href="#modal1">Se connecter</a></li>
-									<li><a href="#modal2">CrÃ©er un compte</a></li>
+									<li><a href="#modal2">Créer un compte</a></li>
 								</ul>
 							</div>
 						</nav>
@@ -71,7 +71,7 @@
 				            </div>
 				            <div class="input-field col s5">
 				              <input id="last_name" type="text" class="validate">
-				              <label for="last_name">PrÃ©nom</label>
+				              <label for="last_name">Prénom</label>
 				            </div>
 				          </div>
 				          <div class="row">
@@ -92,10 +92,10 @@
 				            <div class="input-field col s12">
 				              <i class="material-icons prefix">phone</i>
 				              <input id="icon_telephone" type="tel" class="validate">
-				              <label for="icon_telephone">tÃ©lÃ©phone</label>
+				              <label for="icon_telephone">téléphone</label>
 				            </div>
 				          </div>
-				          <input type="submit" class="waves-effect waves-light btn-large modalLink" value="CrÃ©er mon compte"/> 
+				          <input type="submit" class="waves-effect waves-light btn-large modalLink" value="Créer mon compte"/> 
 				        </form>
 				      </div>
 
@@ -161,14 +161,14 @@
 											</p>
 											<p>
 												<input type="checkbox" class="filled-in checkbox-green" id="parking" /> <label for="parking">Parking
-													Ã  proximitÃ©</label>
+													Ã  proximité</label>
 											</p>
 									</div>
 										</form>
 
 								</div>
 								<div class="col s9">
-									<h5 class="titreResultats">RÃ©sultats</h5>
+									<h5 class="titreResultats">Résultats</h5>
 									<div class="card horizontal">
 										<div class="row">
 											<div class="col s3">
