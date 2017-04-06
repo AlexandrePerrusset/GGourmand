@@ -45,7 +45,15 @@
   	<dependency>
   		<groupId>com.infotel.gg</groupId>
   		<artifactId>gourmand</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>com.infotel.gg</groupId>
+  			<artifactId>gourmand</artifactId>
+  			<version>0.0.1-SNAPSHOT</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>

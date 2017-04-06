@@ -1,5 +1,6 @@
 package com.infotel.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -13,21 +14,21 @@ import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.service.CatalogService;
 
-@Controller
+//Controller
 public class SearchController {
 
-	@Autowired
+	//@Autowired
 	CatalogService service;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search(Locale locale, Model model) {
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName("enise");
-		List<EateryDTO> eateriesDto = service.findEateryByCriteria(criteria);
+		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>(); // >service.findEateryByCriteria(criteria);
 		model.addAttribute("eateriesDto", eateriesDto);
 		if(eateriesDto.size() > 0 ) {
-			return "page resultat";
+			return "index";
 		}
-		return "pas de resultats";
+		return "noresults";
 	}
 }
