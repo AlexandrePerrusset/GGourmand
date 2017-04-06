@@ -1,0 +1,306 @@
+nav {
+	background-color:#e8bf76;
+}
+
+.imageCards{
+max-width: 800px;
+max-height: 200px;
+}
+
+.titleStyle{
+font-family: "Segoe print", Courier, monospace
+}
+
+.buttonSpe{
+background-color: #BDB3AB;
+
+}
+.modalLink{
+background-color: #BDB3AB;
+
+}
+.searchLink{
+	color : #fff;
+}
+
+.modalBox{
+width: 20%;
+text-align: center;
+
+}
+
+.modalBox2{
+width: 30%;
+text-align: center;
+}
+.row{
+margin-bottom: 0;
+}
+
+.paraBox{
+background-color: #E5E0DB;
+height: 50%;
+}
+
+.filters{
+width: 60%;
+color: #FFFFFF;
+}
+
+.logo1{
+width: 50px;
+height: 50px;
+margin-top: 7px;
+margin-right: 13px;
+margin-left: 20px;
+}
+
+footer.page-footer{
+background-color: #e8bf76;
+}
+
+.parallax-container{
+height: 370px;
+}
+.photoresto{
+padding-left: 10px;
+}
+.barrerecherche{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.milieu{
+background-color: #800b03;
+}
+
+.contourc{
+background-color: #800b03;
+}
+.traitrouge{
+height: 60px;
+}
+
+.tabs .tab a{
+        color:#800b03;
+    } 
+
+.tabs .tab a:hover {
+    background-color:white;
+    color:#800b03;
+    } /*Text color on hover*/
+
+    .tabs .tab a.active {
+        background-color:white;
+        color:#800b03;
+    } /*Background and text color when a tab is active*/
+
+    .tabs .indicator {
+        background-color:#800b03;
+    } /*Color of underline*/
+
+
+.collection a.collection-item{
+color : #800b03;
+
+}
+
+.collection .collection-item.active{
+background-color: #e8bf76;
+color: #800b03;
+}
+
+.card .card-image img.circle.responsive-img{
+height: 120px;
+width: 170px;
+margin-left: auto;
+margin-right: auto;
+max-width: 35%;
+display: block;
+
+}
+
+img.circle.responsive-img{
+padding-top: 15px;
+}
+
+p.user{
+text-align: center;
+}
+
+
+h5.titreresa{
+color: white;
+}
+
+h5.titreResultats{
+color: white;
+}
+
+.card.horizontal .card-image{
+max-width: 100%;
+max-height: 100%;
+padding-top: 16px
+padding-left: 16px;
+}
+
+.resultats{
+background-color: #800b03;
+height: auto;
+}
+
+.card-panel.white .filters {
+margin: auto;
+}
+
+
+#lien_hp{
+margin-left: 92%;
+}
+
+.col.s3 .card-panel.white .filters {
+margin: auto;
+width: auto;
+height: auto;
+}
+
+.pagination{
+margin-left: 75%;
+}
+
+.filters{
+max-width: 100%;
+}
+
+/*slider tag color*/
+input[type=range]+.thumb{
+background-color: #800b03;
+}
+
+/*slider tag value*/
+input[type=range] + .thumb.active .value {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+/*slider à déplacer*/
+input[type=range]::-webkit-slider-thumb {
+    background-color: #800b03;
+  }
+
+
+
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #800b03;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #e8bf76;
+ box-shadow: 0 1px 0 0 #e8bf76;
+}
+
+.input-field input[type=tel]:focus + label {
+ color: #800b03;
+}
+
+.input-field input[type=tel]:focus {
+ border-bottom: 1px solid #e8bf76;
+ box-shadow: 0 1px 0 0 #e8bf76;
+}
+
+.input-field input[type=email]:focus + label {
+ color: #800b03;
+}
+
+.input-field input[type=email]:focus {
+ border-bottom: 1px solid #e8bf76;
+ box-shadow: 0 1px 0 0 #e8bf76;
+}
+
+.input-field input[type=password]:focus + label {
+ color: #800b03;
+}
+
+.input-field input[type=password]:focus {
+ border-bottom: 1px solid #e8bf76;
+ box-shadow: 0 1px 0 0 #e8bf76;
+}
+
+
+
+
+
+
+
+
+
+.picker__date-display, .picker__weekday-display{
+background-color: #e8bf76;
+}
+
+div.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted {
+    background-color: #e8bf76;
+}
+
+button.picker__today, button.picker__close {
+    color: #e8bf76;
+}
+
+div.picker__day.picker__day--today {
+    color: #e8bf76;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color:  #800b03;
+}
+
+
+
+
+
+.filters p label{
+	font-size: 15px;
+}
+
+.titrerésa{
+	text-align: center;
+	color: white;
+}
+
+
+
+
+
+
+.checkbox-green[type="checkbox"].filled-in:checked + label:after{
+    background-color: green;
+}
+
+.waves-effect.waves-light.btn-large.modalLink{
+	background-color: white;
+	color: #800b03;
+}
+
+.waves-effect.waves-light.btn-large.modalLink:hover{
+background-color:  #e8bf76;
+}
+
+.checkbox-green[type="checkbox"].filled-in:checked + label:after{
+    background-color: #800b03;
+    border: 2px solid #800b03;
+
+.waves-effect.waves-light.btn{
+	background-color: white;
+	color: #800b03;
+}
+
+.waves-effect.waves-light.btn:hover{
+background-color:  #e8bf76;
+}
+
+.waves-effect.waves-light.buttonSpe{
+background-color: #e8bf76;
+}
