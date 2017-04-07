@@ -9,7 +9,7 @@
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/style.css"/>
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -115,10 +115,10 @@
   <div class="section paraBox">
     <div class="row container">
       <div class="row">
-        <form class="col s12">
+        <form class="col s12" action="eateries" method="get">
           <div class="row">
             <div class="input-field col s4">
-              <input id="icon_prefix" type="text" class="validate">
+              <input id="icon_prefix" type="text" class="validate" name="recherche">
               <label for="icon_prefix">Cherchez un restaurant ou un plat !</label>
             </div>
             <div class="input-field col s2">
@@ -147,9 +147,8 @@
               <label for="icon_prefix">Combien ?</label>
             </div>
             <div class="input-field col s2">
-              <a class="searchLink" href="recherche.html"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="action">Chercher</a>
-                <i class="material-icons right">search</i>
-              </button>
+              <a class="searchLink" href="recherche.html"><button class="btn waves-effect waves-light buttonSpe" type="submit">Chercher
+              <i class="material-icons right">search</i></button></a>
             </div>
           </div>
         </form>
