@@ -17,24 +17,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<header>
-	<div class="navbar-fixed">
-		<nav>
-			<div class="nav-wrapper">
-				<img src="sources/logo.jpg" class="logo1"> <a
-					href="index.html"
-					class="brand-logo logoGG text-darken-2 titleStyle"><i
-					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">Créer un compte</a></li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-</header>
-
-<body>
-	<h1>NO RESULTS</h1>
-</body>
+<body>NO RESULT</body>
 </html>
+
