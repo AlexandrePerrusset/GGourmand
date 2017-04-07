@@ -178,23 +178,21 @@
 				<div class="col s9">
 					<h5 class="titreResultats">Résultats</h5>
 
-					<c:forEach items="${eateriesDto}" var="eatery">
+					<c:forEach items="${eateriesDto}" var="eatery" varStatus="status">
 						<div class="card horizontale">
 							<div class="row">
 								<div class="col s3">
 									<span class="card-title">${eatery.name}</span>
 									<div class="card-image">
-										<img src="${eatery.imageIds}">
+										<img src="${imgdto[status.index].content}">
 									</div>
 								</div>
 								<div class="col s9">
 									<div class="card-content">
-										<span class="card-title activator grey-text text-darken-4">En
-											savoir plus<i class="material-icons right">more_vert</i>
-										</span>
-										<p>I am a very simple card. I am good at containing small
-											bits of information. I am convenient because I require little
-											markup to use effectively.</p>
+										<p>${eatery.description}</p>
+										<p>${eatery.imageId}</p>
+
+
 									</div>
 								</div>
 							</div>

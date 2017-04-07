@@ -190,6 +190,7 @@ public class CatalogServiceImpl implements CatalogService {
 		return imgdataDto;
 	}
 
+
 	@Override
 	public List<Integer> findBigImageForEatery(int eateryId) {
 		List<Integer> imagesDataId = imageDataDAO.findBigByEateryId(eateryId);
