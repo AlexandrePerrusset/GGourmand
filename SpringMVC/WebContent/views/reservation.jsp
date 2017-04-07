@@ -163,7 +163,8 @@
 <div class="container">
   <div class="card">
     <div class="card-content">
-    <h5>Nom du Restaurant</h5>
+    <h5>${eateryid}</h5>
+    <h5>${eatery.name}</h5>
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">

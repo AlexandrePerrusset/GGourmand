@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,7 @@ public class SearchController {
 	CatalogService service;
 
 	@RequestMapping(value = "/eateries", method = RequestMethod.GET)
-	public String search(@RequestParam("recherche") String recherche, Model model) throws GGourmandException {
+	public String search(@RequestParam("recherche") String recherche, Model model) {
 			
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName(recherche);
@@ -35,15 +36,16 @@ public class SearchController {
 		
 		List<ImageDataDTO> imgList = new ArrayList<>();
 		for (EateryDTO eateryDTO : eateriesDto) {
-			if(service.findImageDataById(eateryDTO.getImageId()) != null)
-				imgList.add(service.findImageDataById(eateryDTO.getImageId()));
-			else
-				imgList.add(service.findImageDataById(eateriesDto.get(0).getImageId()));
+			try {
+				if(service.findImageDataById(eateryDTO.getImageId()) != null)
+					imgList.add(service.findImageDataById(eateryDTO.getImageId()));
+				else
+					imgList.add(service.findImageDataById(eateriesDto.get(0).getImageId()));
+			} catch (GGourmandException e) {
+				//model.addAttribute("error", "Impossible de repondre");	
+			}
 		}
-		
-		
-		
-		
+				
 		model.addAttribute("eateriesDto", eateriesDto);
 		model.addAttribute("imgdto", imgList);
 		
@@ -52,4 +54,20 @@ public class SearchController {
 		}
 		return "noresults";
 	}
+	
+	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
+	public String reservation(@PathVariable("id") Integer id, Model model) {
+			
+		EateryDTO eatery = service.findOneEatery(id);
+		model.addAttribute("eateryid", id);	
+		model.addAttribute("eatery", eatery);
+		return "redirect:/reservation";
+		
+	}
+	
+	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
+	public String reservation(Model model) {
+		return "reservation";
+	}
+				
 }

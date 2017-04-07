@@ -168,8 +168,8 @@
 							</p>
 							<p>
 								<input type="checkbox" class="filled-in checkbox-green"
-									id="parking" /> <label for="parking">Parking Ã 
-									proximitÃ©</label>
+									id="parking" /> <label for="parking">Parking à 
+									proximité</label>
 							</p>
 					</div>
 					</form>
@@ -182,7 +182,7 @@
 						<div class="card horizontale">
 							<div class="row">
 								<div class="col s3">
-									<span class="card-title">${eatery.name}</span>
+									<a href="eateries/reservation/${eatery.id}"><span class="card-title">${eatery.name}</span></a>
 									<div class="card-image">
 										<img src="${imgdto[status.index].content}">
 									</div>
@@ -190,9 +190,6 @@
 								<div class="col s9">
 									<div class="card-content">
 										<p>${eatery.description}</p>
-										<p>${eatery.imageId}</p>
-
-
 									</div>
 								</div>
 							</div>
