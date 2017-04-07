@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
@@ -56,17 +58,23 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
-	public String reservation(@PathVariable("id") Integer id, Model model) {
-			
-		EateryDTO eatery = service.findOneEatery(id);
-		model.addAttribute("eateryid", id);	
-		model.addAttribute("eatery", eatery);
-		return "redirect:/reservation";
+	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
 		
+		EateryDTO eatery = service.findOneEatery(id);
+		ModelAndView modelAndView = new ModelAndView(); 
+		modelAndView.setViewName("redirect:/reservation");
+		redir.addFlashAttribute("eatery",eatery);
+		return modelAndView;
+		    
+		/*EateryDTO eatery = service.findOneEatery(id);
+		model.addFlashAttribute("eatery", eatery);
+		return "redirect:/reservation";
+		*/
 	}
 	
 	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
 	public String reservation(Model model) {
+		
 		return "reservation";
 	}
 				

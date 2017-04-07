@@ -163,7 +163,7 @@
 <div class="container">
   <div class="card">
     <div class="card-content">
-    <h5>${eateryid}</h5>
+    <h5>${xyz}</h5>
     <h5>${eatery.name}</h5>
     </div>
     <div class="card-tabs">
