@@ -145,12 +145,16 @@
 								class="datepicker"> <label for="icon_prefix">Date</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i> <select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+							<i class="material-icons prefix">supervisor_account</i>
+							<select>
+								<c:forEach var="i" begin="1" end="15" step="1">
+									<option value="${i}">${i}</option>
+								</c:forEach>
+<!-- 								<option value="1">1</option> -->
+<!-- 								<option value="2">2</option> -->
+<!-- 								<option value="3">3</option> -->
+<!-- 								<option value="4">4</option> -->
+<!-- 								<option value="5">5</option> -->
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">

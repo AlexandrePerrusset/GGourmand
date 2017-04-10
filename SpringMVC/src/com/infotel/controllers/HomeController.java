@@ -22,7 +22,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
-		System.out.println(cookingDto);
 		model.addAttribute("cookingDto", cookingDto);
 		return "index";
 	}
