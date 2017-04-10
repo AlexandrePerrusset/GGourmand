@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ImageDataDTO;
+import com.infotel.gg.DTO.MenuDTO;
 import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.exception.GGourmandException;
@@ -94,7 +95,8 @@ public class SearchController {
 	
 	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
 	public String reservation(Model model) {
-		
+		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
+		model.addAttribute("cookingDto", cookingDto);
 		return "reservation";
 	}
 				
