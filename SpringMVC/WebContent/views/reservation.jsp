@@ -179,7 +179,7 @@
 						<div><img class="imgdto" src="${imgdto.content}"></div>
 					</div>
 		        	<div class="col s8">
-		        		<h6>Style de cuisine</h6>
+		        		<h6>Type de cuisine</h6>
 		      			<p>${eatery.cookingStyle}</p>		      		
 		      			<hr>
 		      			<h6>Horaires d'ouverture</h6>
@@ -187,7 +187,7 @@
 		      			<p>${eatery.hoursOfOperation2}</p>
 		      			<hr>
 		      			<h6>Coordonnées et localisation</h6>
-		      			<p><b>Adresse :</b> ${eatery.street}, ${eatery.postCode} ${eatery.city}</p>
+		      			<p><b>Adresse :</b> ${eatery.street} - ${eatery.postCode} ${eatery.city}</p>
 		      			<p><b>Comment y accéder :</b> ${eatery.gettingThere}</p>
 		      			<p><b>Parking :</b> ${eatery.parking}</p>
 		      			<hr/>		    
@@ -199,8 +199,16 @@
 		      <div id="menu">
 		      <h5 class="titre">${eatery.price}</h5>
 		      <div>${eatery.menu}</div>
-		      </div>		
-		      <div id="avis">${eatery.reviews}</div>		
+		      </div>
+		      	
+		      <div id="avis">
+		      <c:forEach items="${eatery.reviews}" var="review">
+		      <p>${review.lastName} ${review.dateTime}</p>
+		      <p><b>Note : </b>${review.rating}/20</p>
+		      <p><b>Commentaire : </b>${review.comment}</p>
+		      <hr>
+			</c:forEach>
+			 </div>	
     </div>
   </div>
 </div>

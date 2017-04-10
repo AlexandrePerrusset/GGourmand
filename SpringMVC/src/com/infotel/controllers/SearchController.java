@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -73,12 +74,16 @@ public class SearchController {
 			}
 		} catch (GGourmandException e) {
 		}
+		
 
-	
+
+		
+		
 		ModelAndView modelAndView = new ModelAndView(); 
 		modelAndView.setViewName("redirect:/reservation");
 		redir.addFlashAttribute("eatery",eatery);
 		redir.addFlashAttribute("imgdto",imgdto);
+
 		return modelAndView;
 		    
 		/*EateryDTO eatery = service.findOneEatery(id);
