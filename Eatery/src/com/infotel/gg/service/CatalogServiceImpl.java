@@ -77,19 +77,13 @@ public class CatalogServiceImpl implements CatalogService {
 	public List<CookingStyleDTO> getAllCookingStyles() {
 		List<CookingStyleDTO> result = new ArrayList<CookingStyleDTO>();
 		List<CookingStyle> cookingstyles = cookingStyleDAO.listAll();
-		System.out.println("liste recupere : " + cookingstyles);
-		CookingStyleDTO cookingStyleDto = new CookingStyleDTO();
 		for(CookingStyle cs : cookingstyles){
+			CookingStyleDTO cookingStyleDto = new CookingStyleDTO();
 			cookingStyleDto.setId(Integer.toString(cs.getId()));
 			cookingStyleDto.setName(cs.getName());
 			result.add(cookingStyleDto);
-			System.out.println(result);
 		}
-//		System.out.println(cookingstyles);
-
 		return result;
-
-
 	}
 
 	@Override
