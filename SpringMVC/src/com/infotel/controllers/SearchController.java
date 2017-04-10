@@ -65,7 +65,11 @@ public class SearchController {
 		EateryDTO eatery = service.findOneEatery(id);
 		ImageDataDTO imgdto = new ImageDataDTO();
 		try {
-			 imgdto = service.findImageDataById(eatery.getImageId());
+			if(eatery.getImageId() > 0){
+				imgdto = service.findImageDataById(eatery.getImageId());
+			}else{
+				imgdto = service.findImageDataDefault();
+			}
 		} catch (GGourmandException e) {
 		}
 
