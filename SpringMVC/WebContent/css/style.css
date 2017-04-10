@@ -291,7 +291,7 @@ background-color:  #e8bf76;
 .checkbox-green[type="checkbox"].filled-in:checked + label:after{
     background-color: #800b03;
     border: 2px solid #800b03;
-
+}
 .waves-effect.waves-light.btn{
 	background-color: white;
 	color: #800b03;
@@ -303,4 +303,19 @@ background-color:  #e8bf76;
 
 .waves-effect.waves-light.buttonSpe{
 background-color: #e8bf76;
+}
+
+h6 {
+	color :#800b03;
+	font-size: 18px;
+}
+
+.imgdto {
+	width: 370px;
+	height: 290px;
+}
+
+.titre{
+	color : #800b03;
+	font-size: 30px;
 }

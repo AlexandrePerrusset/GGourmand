@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ImageDataDTO;
+import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.CatalogService;
@@ -63,9 +64,21 @@ public class SearchController {
 	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
 		
 		EateryDTO eatery = service.findOneEatery(id);
+		ImageDataDTO imgdto = new ImageDataDTO();
+		try {
+			if(eatery.getImageId() > 0){
+				imgdto = service.findImageDataById(eatery.getImageId());
+			}else{
+				imgdto = service.findImageDataDefault();
+			}
+		} catch (GGourmandException e) {
+		}
+
+	
 		ModelAndView modelAndView = new ModelAndView(); 
 		modelAndView.setViewName("redirect:/reservation");
 		redir.addFlashAttribute("eatery",eatery);
+		redir.addFlashAttribute("imgdto",imgdto);
 		return modelAndView;
 		    
 		/*EateryDTO eatery = service.findOneEatery(id);
