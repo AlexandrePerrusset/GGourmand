@@ -62,9 +62,16 @@ public class SearchController {
 	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
 		
 		EateryDTO eatery = service.findOneEatery(id);
+		ImageDataDTO imgdto = new ImageDataDTO();
+		try {
+			 imgdto = service.findImageDataById(eatery.getImageId());
+		} catch (GGourmandException e) {
+		}
+	
 		ModelAndView modelAndView = new ModelAndView(); 
 		modelAndView.setViewName("redirect:/reservation");
 		redir.addFlashAttribute("eatery",eatery);
+		redir.addFlashAttribute("imgdto",imgdto);
 		return modelAndView;
 		    
 		/*EateryDTO eatery = service.findOneEatery(id);

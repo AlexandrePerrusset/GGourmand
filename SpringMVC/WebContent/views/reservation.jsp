@@ -163,20 +163,41 @@
 <div class="container">
   <div class="card">
     <div class="card-content">
-    <h5>${xyz}</h5>
     <h5>${eatery.name}</h5>
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
-        <li class="tab"><a class="active" href="#test4">Informations pratiques</a></li>
-        <li class="tab"><a href="#test5">Menu</a></li>
-        <li class="tab"><a href="#test6">Avis</a></li>
+        <li class="tab"><a class="active" href="#infos">Informations pratiques</a></li>
+        <li class="tab"><a href="#menu">Menu</a></li>
+        <li class="tab"><a href="#description">Description</a></li>
+        <li class="tab"><a href="#avis">Avis</a></li>
       </ul>
     </div>
-    <div class="card-content">
-      <div id="test4"> <img src="sources/resto.jpg" class="photoresto"></div>
-      <div id="test5">Test 2</div>
-      <div id="test6">Test 3</div>
+    <div class="card-content">   	
+		      <div id="infos" class="row">
+					<div class="col s4">
+						<div><img src="${imgdto.content}"></div>
+					</div>
+		        	<div class="col s8">
+		        		<h6>Cuisine</h6>
+		      			<p>${eatery.cookingStyle}</p>		      		
+		      			<hr>
+		      			<h6>Horaires d'ouverture</h6>
+		      			<p>${eatery.hoursOfOperation1}</p>
+		      			<p>${eatery.hoursOfOperation2}</p>
+		      			<hr>
+		      			<h6>Coordonnées et localisation</h6>
+		      			<p><b>Adresse :</b> ${eatery.street}, ${eatery.postCode} ${eatery.city}</p>
+		      			<p><b>Comment y accéder :</b> ${eatery.gettingThere}</p>
+		      			<p><b>Parking :</b> ${eatery.parking}</p>
+		      			<hr/>		    
+		      			<h6>Options de paiement</h6>
+		      			<p>${eatery.paymentOptions}</p>
+		    		</div>	      
+		      </div>	
+		      <div id="menu">${eatery.menu}</div>
+		      <div id="description">${eatery.description}</div>			
+		      <div id="avis">${eatery.reviews}</div>		
     </div>
   </div>
 </div>
