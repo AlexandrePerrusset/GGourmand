@@ -138,7 +138,7 @@
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
-							</select>
+							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
 							<i class="material-icons prefix">today</i> <input type="date"
@@ -150,11 +150,6 @@
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>
-<!-- 								<option value="1">1</option> -->
-<!-- 								<option value="2">2</option> -->
-<!-- 								<option value="3">3</option> -->
-<!-- 								<option value="4">4</option> -->
-<!-- 								<option value="5">5</option> -->
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">

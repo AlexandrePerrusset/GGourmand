@@ -121,9 +121,9 @@
 						<div class="input-field col s2">
 							<select>
 								<option value="" disabled selected>Type cuisine</option>
-								<option value="1">Libanais</option>
-								<option value="2">Chinois</option>
-								<option value="3">Japonais</option>
+								<c:forEach items="${cookingDto}" var="cookingstyle">
+									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
+								</c:forEach>
 							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
@@ -132,11 +132,9 @@
 						</div>
 						<div class="input-field col s2">
 							<i class="material-icons prefix">supervisor_account</i> <select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+								<c:forEach var="i" begin="1" end="15" step="1">
+									<option value="${i}">${i}</option>
+								</c:forEach>
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">

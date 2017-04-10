@@ -37,7 +37,7 @@ public class SearchController {
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName(recherche);
 		List<EateryDTO> eateriesDto = service.findEateryByCriteria(criteria);
-//		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
+		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
 		List<ImageDataDTO> imgList = new ArrayList<>();
 		for (EateryDTO eateryDTO : eateriesDto) {
 			try {
@@ -53,7 +53,7 @@ public class SearchController {
 				
 		model.addAttribute("eateriesDto", eateriesDto);
 		model.addAttribute("imgdto", imgList);
-//		model.addAttribute("cookingDto", cookingDto);
+		model.addAttribute("cookingDto", cookingDto);
 		
 		if(eateriesDto.size() > 0 ) {
 			return "search";
