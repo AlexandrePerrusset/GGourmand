@@ -2,6 +2,12 @@ package com.infotel.gg.DTO;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@XmlRootElement(name="CookingStyle") @JsonInclude(Include.NON_NULL)
 public class CookingStyleDTO implements Serializable {
 
 	/**

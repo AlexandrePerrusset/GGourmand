@@ -83,6 +83,7 @@ public class CatalogServiceImpl implements CatalogService {
 			cookingStyleDto.setName(cs.getName());
 			result.add(cookingStyleDto);
 		}
+		log.warn("test mapping service");
 		return result;
 	}
 
