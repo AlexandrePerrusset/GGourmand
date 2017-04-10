@@ -39,5 +39,7 @@ public interface CatalogService {
 
 	List<CityDTO> getAllCities();
 
+	ImageDataDTO findImageDataDefault() throws GGourmandException;
+
 	
 }

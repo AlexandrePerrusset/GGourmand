@@ -39,10 +39,11 @@ public class SearchController {
 		List<ImageDataDTO> imgList = new ArrayList<>();
 		for (EateryDTO eateryDTO : eateriesDto) {
 			try {
-				if(service.findImageDataById(eateryDTO.getImageId()) != null)
+				
+				if(eateryDTO.getImageId() != null)
 					imgList.add(service.findImageDataById(eateryDTO.getImageId()));
 				else
-					imgList.add(service.findImageDataById(eateriesDto.get(0).getImageId()));
+					imgList.add(service.findImageDataDefault());
 			} catch (GGourmandException e) {
 				//model.addAttribute("error", "Impossible de repondre");	
 			}
