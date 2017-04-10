@@ -163,23 +163,23 @@
 <div class="container">
   <div class="card">
     <div class="card-content">
-    <h5>${eatery.name}</h5>
+    <h5 class="titre">${eatery.name}</h5>
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
         <li class="tab"><a class="active" href="#infos">Informations pratiques</a></li>
-        <li class="tab"><a href="#menu">Menu</a></li>
         <li class="tab"><a href="#description">Description</a></li>
+        <li class="tab"><a href="#menu">Menu</a></li>
         <li class="tab"><a href="#avis">Avis</a></li>
       </ul>
     </div>
     <div class="card-content">   	
 		      <div id="infos" class="row">
 					<div class="col s4">
-						<div><img src="${imgdto.content}"></div>
+						<div><img class="imgdto" src="${imgdto.content}"></div>
 					</div>
 		        	<div class="col s8">
-		        		<h6>Cuisine</h6>
+		        		<h6>Style de cuisine</h6>
 		      			<p>${eatery.cookingStyle}</p>		      		
 		      			<hr>
 		      			<h6>Horaires d'ouverture</h6>
@@ -195,8 +195,11 @@
 		      			<p>${eatery.paymentOptions}</p>
 		    		</div>	      
 		      </div>	
-		      <div id="menu">${eatery.menu}</div>
-		      <div id="description">${eatery.description}</div>			
+		      <div id="description">${eatery.description}</div>	
+		      <div id="menu">
+		      <h5 class="titre">${eatery.price}</h5>
+		      <div>${eatery.menu}</div>
+		      </div>		
 		      <div id="avis">${eatery.reviews}</div>		
     </div>
   </div>
