@@ -211,9 +211,13 @@
 								<p>${eatery.paymentOptions}</p>
 							</div>
 						</div>
-						<div id="description">${eatery.description}</div>
+						<div id="description" class="description">${eatery.description}</div>
 						<div id="menu">
 							<h5 class="titre">Prix moyen d'un repas - ${eatery.price}</h5>
+							<h6>
+							<c:if test="${eatery.executiveChef == null}"></c:if>
+							<c:if test="${eatery.executiveChef != null}"><b>Chef cuisinier : </b>${eatery.executiveChef}</c:if>
+							</h6>
 							<br/>
 							<c:forEach items="${eatery.menu.parts}" var="part">
 									<h6>${part.title}</h6>

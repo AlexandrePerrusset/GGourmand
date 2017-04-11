@@ -180,14 +180,14 @@
 						<div class="card horizontale">
 							<div class="row">
 								<div class="col s3">
-									<a href="eateries/reservation/${eatery.id}"><span class="card-title">${eatery.name}</span></a>
+									<a href="eateries/reservation/${eatery.id}"><div class="titresearch">${eatery.name}</div></a>
 									<div class="card-image">
-										<img src="${imgdto[status.index].content}">
+										<img src="${imgdto[status.index].content}" class="imgsearch">
 									</div>
 								</div>
 								<div class="col s9">
 									<div class="card-content">
-										<p>${eatery.description}</p>
+										<p class="description">${eatery.description}</p>
 									</div>
 								</div>
 							</div>
