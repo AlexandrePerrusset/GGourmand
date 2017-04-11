@@ -203,7 +203,7 @@
 									<b>Comment y accéder :</b> ${eatery.gettingThere}
 								</p>
 								<p>
-									<c:if test="${eatery.parking == null}">Pas de parking à proximité</c:if>
+									<c:if test="${eatery.parking == null}"></c:if>
 									<c:if test="${eatery.parking != null}"><b>Parking : </b>${eatery.parking}</c:if>
 								</p>
 								<hr />
