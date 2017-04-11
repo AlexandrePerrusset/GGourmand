@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.DTO.BookingDTO;
+import com.infotel.gg.DTO.BookingReportDTO;
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.dao.BookingReportDAO;
+import com.infotel.gg.dao.CustomerDAO;
+import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Booking;
@@ -30,12 +33,18 @@ public class BookingServiceImpl implements BookingService{
 	
 	@Autowired
 	private ReviewDAO reviewDAO;
+	
+	@Autowired
+	private EateryDAO eateryDAO;
 
+	@Autowired
+	private CustomerDAO customerDAO;
 	
 	@Override
-	public void saveBooking(Booking booking) throws GGourmandException {
+	public void saveBooking(BookingDTO booking) throws GGourmandException {
+		Booking b = new Booking(Integer.parseInt(booking.getId()), booking.getDateTime(), Integer.parseInt(booking.getNumberOfPeople()), eateryDAO.read(booking.getEateryId()), customerDAO.read(booking.getCustomerId()));
 		try {
-			bookingDao.create(booking);	
+			bookingDao.create(b);	
 		}
 		catch(Exception e){
 			throw new GGourmandException();
@@ -76,9 +85,10 @@ public class BookingServiceImpl implements BookingService{
 
 	
 	@Override
-	public void saveBookingReport(BookingReport bookingReport) throws GGourmandException {
+	public void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException {
+		BookingReport br = new BookingReport(bookingReport.getId(),bookingReport.getDate(), bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getDueAmount() );
 		try {
-			bookingReportDao.create(bookingReport);
+			bookingReportDao.create(br);
 		}
 		catch(Exception e){
 			throw new GGourmandException();
