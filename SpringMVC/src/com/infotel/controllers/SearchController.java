@@ -33,11 +33,13 @@ public class SearchController {
 	CatalogService service;
 
 	@RequestMapping(value = "/eateries", method = RequestMethod.GET)
-	public String search(@RequestParam("recherche") String recherche, @RequestParam("cooking") int cooking, Model model) {
+	public String search(@RequestParam("recherche") String recherche, @RequestParam(value = "cooking") int cooking, Model model) {
 			
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName(recherche);
-		criteria.setCookingStyleId(cooking);
+		if(cooking!=0){
+			criteria.setCookingStyleId(cooking);
+		}
 		List<EateryDTO> eateriesDto = service.findEateryByCriteria(criteria);
 		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
 		List<ImageDataDTO> imgList = new ArrayList<>();

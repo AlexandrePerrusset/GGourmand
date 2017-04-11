@@ -70,41 +70,41 @@
 	<div id="modal2" class="modal col s12 modalBox2">
 		<div class="modal-content">
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" action="register" method="post">
 					<div class="row">
 						<div class="input-field col s2">
-							<select id="type">
+							<select name="title" id="type">
 								<option value="mr">Mr</option>
 								<option value="mme">Mme</option>
 							</select>
 						</div>
 						<div class="input-field col s5">
 							<input id="first_name" type="text" class="validate"> <label
-								for="first_name">Nom</label>
+								for="first_name" name="nom">Nom</label>
 						</div>
 						<div class="input-field col s5">
 							<input id="last_name" type="text" class="validate"> <label
-								for="last_name">Prénom</label>
+								for="last_name" name="prenom">Prénom</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">vpn_key</i> <input id="password"
-								type="password" class="validate"> <label for="password">Mot
+								type="password" class="validate"> <label for="password" name="password">Mot
 								de passe</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> <input id="email"
-								type="email" class="validate"> <label for="email">Email</label>
+								type="email" class="validate"> <label name="username" for="email">Email</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone">téléphone</label>
+								for="icon_telephone" name="tel">téléphone</label>
 						</div>
 					</div>
 					<input type="submit"
@@ -134,7 +134,7 @@
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
-								<option value="" selected>Type cuisine</option>
+								<option value="0" selected>Type cuisine</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
