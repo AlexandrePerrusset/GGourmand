@@ -203,8 +203,8 @@
 									<b>Comment y accéder :</b> ${eatery.gettingThere}
 								</p>
 								<p>
-									<b>Parking :</b> <c:if test="${eatery.parking == null}">Pas de parking à proximité</c:if>
-									<c:if test="${eatery.parking != null}">${eatery.parking}</c:if>
+									<c:if test="${eatery.parking == null}">Pas de parking à proximité</c:if>
+									<c:if test="${eatery.parking != null}"><b>Parking : </b>${eatery.parking}</c:if>
 								</p>
 								<hr />
 								<h6>Options de paiement</h6>
