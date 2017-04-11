@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
 	pageEncoding="UTF8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,24 +21,19 @@
 </head>
 
 
+
+
 <header>
 	<div class="navbar-fixed">
-		<ul id="dropdown1" class="dropdown-content">
-			<li><a href="#!">one</a></li>
-			<li><a href="#!">two</a></li>
-			<li class="divider"></li>
-			<li><a href="#!">three</a></li>
-		</ul>
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
 					href="index.html"
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
-				<ul id="nav-mobile" class="right">
-					<li><a class="dropdown-button" href="#!"
-						data-activates="dropdown1">Dropdown<i
-							class="material-icons right">arrow_drop_down</i></a></li>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#modal1">Se connecter</a></li>
+					<li><a href="#modal2">Créer un compte</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -44,55 +41,122 @@
 </header>
 
 
+
+
+
+
 <body>
 
 	<div id="modal1" class="modal col s3 modalBox">
 		<div class="modal-content">
-			<form class="col s3">
+			<form class="col s3"
+				action="http://localhost:8080/HelloWorldTest/bonjour" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						id="icon_prefix" type="text" class="validate"> <label
-						for="icon_prefix">Nom de compte</label>
+						id="icon_prefix" name="nom" type="text" class="validate">
+					<label for="icon_prefix">Nom de compte</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input
 						id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
-				<a class="waves-effect waves-light btn-large modalLink">Se
-					connecter</a>
+				<input type="submit"
+					class="waves-effect waves-light btn-large modalLink"
+					value="Se connecter" />
 			</form>
 
 		</div>
 	</div>
 
-<!-- TODO : liste des bookings avec cases à cocher pour valider les bookings par restaurant -->
+	<div id="modal2" class="modal col s12 modalBox2">
+		<div class="modal-content">
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s2">
+							<select id="type">
+								<option value="mr">Mr</option>
+								<option value="mme">Mme</option>
+							</select>
+						</div>
+						<div class="input-field col s5">
+							<input id="first_name" type="text" class="validate"> <label
+								for="first_name">Nom</label>
+						</div>
+						<div class="input-field col s5">
+							<input id="last_name" type="text" class="validate"> <label
+								for="last_name">Prénom</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">vpn_key</i> <input id="password"
+								type="password" class="validate"> <label for="password">Mot
+								de passe</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail</i> <input id="email"
+								type="email" class="validate"> <label for="email">Email</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">phone</i> <input
+								id="icon_telephone" type="tel" class="validate"> <label
+								for="icon_telephone">téléphone</label>
+						</div>
+					</div>
+					<input type="submit"
+						class="waves-effect waves-light btn-large modalLink"
+						value="Créer mon compte" />
+				</form>
+			</div>
 
-	<div class="col s9">
-		<h5 class="titreNomRestaurant">Réservations du restaurant : ${eatery.name}</h5>
-		<br/>
-		<table>
-			<c:forEach items="${bookings}" var="booking" varStatus="status">
-				<tr>
-					<th><b>Date</b></th>
-					<th><b>Nombre de personnes</b></th>
-					<th><b>Utilisateur</b></th>
-					<th><b>Mail utilisateur</b></th>
-					<th><b>Check</b></th>
-				</tr>
-				<tr>
-					<td>${booking.dateTime}</td>
-					<td>${booking.numberOfPeople}</td>
-					<td>${booking.firstName} ${booking.lastName}</td>
-					<td>${booking.customerId}</td>
-					<td>case à cocher</td>
-				</tr>
-			</c:forEach>
-		</table>
+		</div>
 	</div>
-</body>
+	</div>
 
+	<div class="contourc">
+		<div class="traitrouge"></div>
+
+		<div class="milieu">
+			<div class="container">
+				<div class="card">
+					<div class="col s9">
+						<h5 class="titreNomRestaurant">Réservations du restaurant :
+							${eatery.name}</h5>
+						<br />
+						<table id="bookingsManager">
+							<c:forEach items="${bookings}" var="booking" varStatus="status">
+								<tr>
+									<th><b>Date</b></th>
+									<th><b>Nombre de personnes</b></th>
+									<th><b>Utilisateur</b></th>
+									<th><b>Mail utilisateur</b></th>
+									<th><b>Check</b></th>
+								</tr>
+								<tr>
+									<td>${booking.dateTime.time}</td>
+									<td>${booking.numberOfPeople}</td>
+									<td>${booking.firstName}${booking.lastName}</td>
+									<td>${booking.customerId}</td>
+									<td>case à cocher</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="traitrouge"></div>
+	</div>
+
+
+</body>
 
 <!-- Footer -->
 <footer class="page-footer">
@@ -131,4 +195,35 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.parallax').parallax();
+	});
+	$('.datepicker').pickadate(
+			{
+				selectMonths : true, // Creates a dropdown to control month
+				format : 'dd/mm/yyyy',
+				monthsFull : [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai',
+						'Juin', 'Juillet', 'AoÃ»', 'Septembre', 'Octobre',
+						'Novembre', 'Decembre' ],
+				monthsShort : [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin',
+						'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
+				weekdaysFull : [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
+						'Jeudi', 'Vendredi', 'Samedi' ],
+				weekdaysShort : [ 'Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven',
+						'Sam' ],
+				weekdaysLetter : [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
+				today : '',
+				clear : 'Raz',
+				close : 'Fermer'
+
+			});
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+	$(document).ready(function() {
+		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		$('.modal').modal();
+	});
+</script>
 </html>

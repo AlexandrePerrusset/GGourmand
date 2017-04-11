@@ -23,7 +23,7 @@ public class ManagerController {
 	@Autowired
 	CatalogService serviceCatalog;
 
-	@RequestMapping(value = "/manager/bookings", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookings", method = RequestMethod.GET)
 	public String searchBookings(Model model) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
 		bookings = serviceBooking.findBookingsByEatery(11);

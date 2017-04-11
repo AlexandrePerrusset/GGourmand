@@ -340,3 +340,15 @@ h6 {
 	color : #800b03;
 	font-size: 30px;
 }
+
+table#bookingsManager{
+	width: 100%; 
+    background-color: #f1f1c1;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.titreNomRestaurant {
+	text-align: center;
+	font-weight: bold;
+}
