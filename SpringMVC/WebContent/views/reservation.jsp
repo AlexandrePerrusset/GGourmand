@@ -210,8 +210,16 @@
 						</div>
 						<div id="description">${eatery.description}</div>
 						<div id="menu">
-							<h5 class="titre">${eatery.price}</h5>
-							<div>${eatery.menu}</div>
+							<h5 class="titre">Prix moyen d'un repas - ${eatery.price}</h5>
+							<br/>
+							<c:forEach items="${eatery.menu.parts}" var="part">
+									<h6>${part.title}</h6>
+									<br/>
+								<c:forEach items="${part.items}" var="item">
+									<div>${item.title} - ${item.price}</div>
+								</c:forEach>
+								<br/>
+							</c:forEach>
 						</div>
 
 						<div id="avis">
