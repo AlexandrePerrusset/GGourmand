@@ -195,6 +195,9 @@
 								</div>
 							</div>
 							<div class="col s8">
+								<c:forEach items="${eatery.eateryTagName}" var="tag">
+									<h6>${tag}</h6>
+								</c:forEach>
 								<h6>Type de cuisine</h6>
 								<p>${eatery.cookingStyle}</p>
 								<hr>

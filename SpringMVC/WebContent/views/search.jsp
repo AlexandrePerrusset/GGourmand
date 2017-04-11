@@ -28,7 +28,7 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">CrÃ©er un compte</a></li>
+					<li><a href="#modal2">Créer un compte</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -187,6 +187,9 @@
 								</div>
 								<div class="col s9">
 									<div class="card-content">
+										<c:forEach items="${eatery.eateryTagName}" var="tag">
+											<h6>${tag}</h6>
+										</c:forEach>
 										<p class="description">${eatery.description}</p>
 									</div>
 								</div>
