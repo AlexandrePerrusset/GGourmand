@@ -167,9 +167,17 @@
 		<div class="milieu">
 			<div class="container">
 				<div class="card">
+				
+				
 					<div class="card-content">
-						<h5 class="titre">${eatery.name}</h5>
+					<div class="row">
+						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
+						<div class="input-field col s8"><a class="resabutton"><button class="btn waves-effect waves-light buttonSpe" type="submit">Réserver<i class="material-icons right">done</i></button></a></div>
 					</div>
+					</div>
+					
+		
+					
 					<div class="card-tabs">
 						<ul class="tabs tabs-fixed-width">
 							<li class="tab"><a class="active" href="#infos">Informations
