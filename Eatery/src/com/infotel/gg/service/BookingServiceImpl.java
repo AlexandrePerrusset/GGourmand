@@ -86,7 +86,7 @@ public class BookingServiceImpl implements BookingService{
 	
 	@Override
 	public void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException {
-		BookingReport br = new BookingReport(bookingReport.getId(),bookingReport.getDate(), bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getDueAmount() );
+		BookingReport br = new BookingReport(bookingReport.getId(),bookingReport.getDate(), bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getTakingAmount()*5/100 );
 		try {
 			bookingReportDao.create(br);
 		}
