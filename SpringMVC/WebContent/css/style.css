@@ -320,7 +320,7 @@ h6 {
 	max-width: 100%;
 	max-height: 100%;
 	margin-left: 10%;
-	margin-top: 10%; 
+	margin-top: 15%; 
 	margin-bottom: 10%;
 }
 
@@ -336,6 +336,7 @@ a.titre2 {
 
 .material-icons{
 	margin-right:15px;
+	
 }
 
 .description{

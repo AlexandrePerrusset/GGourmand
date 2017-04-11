@@ -191,14 +191,14 @@
 									<span class="titrecity">${eatery.city}</span>
 									<ul>
 									<li><i class="material-icons prefix">restaurant</i>${eatery.cookingStyle}</li>
-									<li><i class="material-icons prefix">currency-eur</i>${eatery.price} en moyenne par personne</li>						
+									<li><i class="material-icons prefix">money</i>${eatery.price} en moyenne par personne</li>						
+									<c:forEach items="${eatery.eateryTagName}" var="tag">
+											<li><i class="material-icons prefix">favorite</i>${tag} </li>
+										</c:forEach>
 									</ul>
 					
 
-										<c:forEach items="${eatery.eateryTagName}" var="tag">
-											<h6>${tag}</h6>
-										</c:forEach>
-										<p class="description">${eatery.description}</p>
+										
 
 									</div>
 								</div>
