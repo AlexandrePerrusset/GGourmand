@@ -133,8 +133,8 @@
 								un restaurant ou un plat !</label>
 						</div>
 						<div class="input-field col s2">
-							<select>
-								<option value="" disabled selected>Type cuisine</option>
+							<select name="cooking" type="int">
+								<option value="" selected>Type cuisine</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
