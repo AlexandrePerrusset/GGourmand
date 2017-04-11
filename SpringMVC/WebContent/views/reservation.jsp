@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
 	pageEncoding="UTF8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,7 +227,7 @@
 
 						<div id="avis">
 							<c:forEach items="${eatery.reviews}" var="review">
-								<p>${review.lastName}${review.dateTime}</p>
+								<p><b>Avis publié par</b> ${review.lastName} <b>le</b> <fmt:formatDate dateStyle="long"  value="${review.dateTime.time}" /></p>
 								<p>
 									<b>Note : </b>${review.rating}/20</p>
 								<p>

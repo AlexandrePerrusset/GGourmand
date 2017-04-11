@@ -2,16 +2,17 @@ package com.infotel.gg.DTO;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
-
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement(name="Review")
 public class ReviewDTO implements Serializable{
 	
 	private static final long serialVersionUID = 8977381161008051L;
 	
-
+	@XmlElement(name = "dateTime", required = true) 
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Calendar dateTime;
 	
 	private int numberOfPeople;
