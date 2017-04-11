@@ -139,22 +139,25 @@
 							<th><b>Montant payé</b></th>
 							<th><b>Commentaire</b></th>
 							<th><b>Check</b></th>
-							<c:forEach items="${bookings}" var="booking" varStatus="status">
-							<form action="report">
-							<input type="hidden" name="bookingId" value="${booking.id}">
-							<input type="hidden" name="bookingDate" value="${booking.dateTime.time}">
-								<tr>
-									<td>${booking.dateTime.time}</td>
-									<td>${booking.numberOfPeople}</td>
-									<td>${booking.firstName} ${booking.lastName}</td>
-									<td>${booking.customerId}</td>
-									<td><input name="presence" type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /></td>
-									<td><input name="montantPaye" type="number"/></td>
-									<td><input name="comment" type="text"/></td>
-									<td><input type="submit" value="Submit"/></td>
-								</tr>
-							</form>
-							</c:forEach>
+								<c:forEach items="${bookings}" var="booking" varStatus="status">
+								<form action="report">
+										<input type="hidden" name="bookingId" value="${booking.id}"/>
+										<input type="hidden" name="bookingDate"
+											value="${booking.dateTime.time}"/>
+										<tr>
+											<td>${booking.dateTime.time}</td>
+											<td>${booking.numberOfPeople}</td>
+											<td>${booking.firstName} ${booking.lastName}</td>
+											<td>${booking.customerId}</td>
+											<td>
+												<input name="presence" type="checkbox"/>
+											</td>
+											<td><input name="montantPaye" type="number"/></td>
+											<td><input name="comment" type="text" /></td>
+											<td><input type="submit" value="Submit" /></td>
+										</tr>
+								</form>
+								</c:forEach>
 						</table>
 					</div>
 				</div>
