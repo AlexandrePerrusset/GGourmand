@@ -172,7 +172,7 @@
 					<div class="card-content">
 					<div class="row">
 						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
-						<div class="input-field col s8"><a class="resabutton"><button class="btn waves-effect waves-light buttonSpe" type="submit">Réserver<i class="material-icons right">done</i></button></a></div>
+						<div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div>
 					</div>
 					</div>
 					
