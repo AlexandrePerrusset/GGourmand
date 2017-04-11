@@ -69,28 +69,28 @@
 
 <!-- TODO : liste des bookings avec cases à cocher pour valider les bookings par restaurant -->
 
-<!-- 	<div class="col s9"> -->
-<%-- 		<h5 class="titreResultats">Réservations du restaurant : ${eatery.name}</h5> --%>
-
-<%-- 		<c:forEach items="${bookings}" var="booking" varStatus="status"> --%>
-<!-- 			<div class="card horizontale"> -->
-<!-- 				<div class="row"> -->
-<!-- 					<div class="col s3"> -->
-<%-- 						<a href="manager/bookings/${eatery.id}"><span --%>
-<%-- 							class="card-title">${eatery.name}</span></a> --%>
-<!-- 						<div class="card-image"> -->
-<%-- 							<img src="${imgdto[status.index].content}"> --%>
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="col s9"> -->
-<!-- 						<div class="card-content"> -->
-<%-- 							<p>${eatery.description}</p> --%>
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<%-- 		</c:forEach> --%>
-<!-- 	</div> -->
+	<div class="col s9">
+		<h5 class="titreNomRestaurant">Réservations du restaurant : ${eatery.name}</h5>
+		<br/>
+		<table>
+			<c:forEach items="${bookings}" var="booking" varStatus="status">
+				<tr>
+					<th><b>Date</b></th>
+					<th><b>Nombre de personnes</b></th>
+					<th><b>Utilisateur</b></th>
+					<th><b>Mail utilisateur</b></th>
+					<th><b>Check</b></th>
+				</tr>
+				<tr>
+					<td>${booking.dateTime}</td>
+					<td>${booking.numberOfPeople}</td>
+					<td>${booking.firstName} ${booking.lastName}</td>
+					<td>${booking.customerId}</td>
+					<td>case à cocher</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 </body>
 
 
