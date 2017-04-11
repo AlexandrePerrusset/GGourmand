@@ -127,25 +127,33 @@
 			<div class="container">
 				<div class="card">
 					<div class="col s9">
-						<h5 class="titreNomRestaurant">Réservations du restaurant :
-							${eatery.name}</h5>
-						<br />
 						<table id="bookingsManager">
+							<tr>
+								<h5 class="titreNomRestaurant">Réservations du restaurant : ${eatery.name}</h5>
+							</tr>
+							<th><b>Date</b></th>
+							<th><b>Nombre de personnes</b></th>
+							<th><b>Utilisateur</b></th>
+							<th><b>Mail utilisateur</b></th>
+							<th><b>Présence client</b></th>
+							<th><b>Montant payé</b></th>
+							<th><b>Commentaire</b></th>
+							<th><b>Check</b></th>
 							<c:forEach items="${bookings}" var="booking" varStatus="status">
-								<tr>
-									<th><b>Date</b></th>
-									<th><b>Nombre de personnes</b></th>
-									<th><b>Utilisateur</b></th>
-									<th><b>Mail utilisateur</b></th>
-									<th><b>Check</b></th>
-								</tr>
+							<form action="report">
+							<input type="hidden" name="bookingId" value="${booking.id}">
+							<input type="hidden" name="bookingDate" value="${booking.dateTime.time}">
 								<tr>
 									<td>${booking.dateTime.time}</td>
 									<td>${booking.numberOfPeople}</td>
-									<td>${booking.firstName}${booking.lastName}</td>
+									<td>${booking.firstName} ${booking.lastName}</td>
 									<td>${booking.customerId}</td>
-									<td>case à cocher</td>
+									<td><input name="presence" type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /></td>
+									<td><input name="montantPaye" type="number"/></td>
+									<td><input name="comment" type="text"/></td>
+									<td><input type="submit" value="Submit"/></td>
 								</tr>
+							</form>
 							</c:forEach>
 						</table>
 					</div>

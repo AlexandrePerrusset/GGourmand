@@ -341,7 +341,7 @@ h6 {
 	font-size: 30px;
 }
 
-table#bookingsManager{
+table#bookingsManager th, td{
 	width: 100%; 
     background-color: #f1f1c1;
     border: 1px solid black;

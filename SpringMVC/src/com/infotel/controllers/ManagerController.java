@@ -1,6 +1,7 @@
 package com.infotel.controllers;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.DTO.EateryDTO;
@@ -26,10 +28,13 @@ public class ManagerController {
 	@RequestMapping(value = "/bookings", method = RequestMethod.GET)
 	public String searchBookings(Model model) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
-		bookings = serviceBooking.findBookingsByEatery(11);
-		System.out.println("liste recuperee : " + bookings);
+		bookings = serviceBooking.findBookingsByEateryWithoutReport(11);
+		
 		EateryDTO eateryDto = new EateryDTO();
 		eateryDto = serviceCatalog.findOneEatery(11);
+		
+//		BookingDTO bookingDto = new BookingDTO();
+//		bookingDto = serviceBooking.
 		
 		model.addAttribute("bookings", bookings);
 		model.addAttribute("eatery", eateryDto);
@@ -39,5 +44,10 @@ public class ManagerController {
 		} else {
 			return "noresults";
 		}
+	}
+	
+	@RequestMapping(value = "/bookings", method = RequestMethod.POST)
+	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) {
+		BookingReportDTO brd = new 
 	}
 }
