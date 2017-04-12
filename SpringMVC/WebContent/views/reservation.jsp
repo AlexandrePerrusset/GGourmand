@@ -172,8 +172,8 @@
 					<div class="card-content">
 					<div class="row">
 						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
-						<c:if test="${udto.username != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>
-						<c:if test="${udto.username == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>					
+						<c:if test="${sessionScope.user != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>
+						<c:if test="${sessionScope.user == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>					
 					</div>
 					</div>
 					

@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,15 +40,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/authent", method=RequestMethod.POST)
-	private String authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) throws AuthenticationException{
-		
+	private String authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
+		UserDTO user =null;
 		if (isConnected(request) == true) {
-			return "profil";
+			return "index";
 		}else {
-			UserDTO user = service.authenticate(username, password);
+			
+			try {
+				user = service.authenticate(username, password);
+			} catch (AuthenticationException e) {
+;
+			}
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
-				return "profil";
+				return "index";
 			}
 		}
 		

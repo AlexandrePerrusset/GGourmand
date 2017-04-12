@@ -20,7 +20,6 @@ import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ImageDataDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
-import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
@@ -74,7 +73,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
-	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir, @RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) throws AuthenticationException {
+	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
 		
 		EateryDTO eatery = service.findOneEatery(id);
 		ImageDataDTO imgdto = new ImageDataDTO();
@@ -88,20 +87,17 @@ public class SearchController {
 		}
 		
 		
-		UserDTO udto = userservice.authenticate(username, password);
+	
 	
 		ModelAndView modelAndView = new ModelAndView(); 
 		modelAndView.setViewName("redirect:/reservation");
 		redir.addFlashAttribute("eatery",eatery);
 		redir.addFlashAttribute("imgdto",imgdto);
-		redir.addFlashAttribute("udto",udto);
+
 
 		return modelAndView;
 		    
-		/*EateryDTO eatery = service.findOneEatery(id);
-		model.addFlashAttribute("eatery", eatery);
-		return "redirect:/reservation";
-		*/
+
 	}
 	
 	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
