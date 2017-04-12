@@ -79,16 +79,16 @@
 	<div id="modalM" class="modal col s5 modalBox">
 		<div class="modal-content">
 			<form class="col s3"
-				action="authent" method="POST">
+				action="authentM" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="username" id="icon_prefix" name="nom" type="text" class="validate">
+						name="usernameM" id="icon_prefix" name="nom" type="text" class="validate">
 					<label for="icon_prefix">Nom de compte</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input
-						name="password" id="icon_telephone" type="tel" class="validate"> <label
+						name="passwordM" id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div >
