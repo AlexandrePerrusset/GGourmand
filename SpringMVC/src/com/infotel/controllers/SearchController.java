@@ -2,6 +2,9 @@ package com.infotel.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,9 +20,12 @@ import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ImageDataDTO;
 import com.infotel.gg.DTO.SearchCriteriaDTO;
+import com.infotel.gg.DTO.UserDTO;
+import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
+import com.infotel.gg.service.UserService;
 
 @Controller
 @EnableTransactionManagement
@@ -30,6 +36,9 @@ public class SearchController {
 	
 	@Autowired
 	BookingService bkservice;
+	
+	@Autowired
+	UserService userservice;
 
 	@RequestMapping(value = "/eateries", method = RequestMethod.GET)
 	public String search(@RequestParam("recherche") String recherche, @RequestParam(value = "cooking") int cooking, Model model) {
@@ -65,7 +74,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
-	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
+	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir, @RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) throws AuthenticationException {
 		
 		EateryDTO eatery = service.findOneEatery(id);
 		ImageDataDTO imgdto = new ImageDataDTO();
@@ -79,10 +88,13 @@ public class SearchController {
 		}
 		
 		
+		UserDTO udto = userservice.authenticate(username, password);
+	
 		ModelAndView modelAndView = new ModelAndView(); 
 		modelAndView.setViewName("redirect:/reservation");
 		redir.addFlashAttribute("eatery",eatery);
 		redir.addFlashAttribute("imgdto",imgdto);
+		redir.addFlashAttribute("udto",udto);
 
 		return modelAndView;
 		    

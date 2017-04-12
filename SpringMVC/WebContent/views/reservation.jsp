@@ -172,7 +172,8 @@
 					<div class="card-content">
 					<div class="row">
 						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
-						<div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div>
+						<c:if test="${udto.username != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>
+						<c:if test="${udto.username == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>					
 					</div>
 					</div>
 					
@@ -190,14 +191,17 @@
 					<div class="card-content">
 						<div id="infos" class="row">
 							<div class="col s4">
-								<div>
-									<img class="imgdto" src="${imgdto.content}">
-								</div>
+								
+									<div><img class="imgdto" src="${imgdto.content}"></div>
+									<br>
+									<div class="chip">
+										<c:forEach items="${eatery.eateryTagName}" var="tag">
+											<div class="chips">${tag}</div>
+										</c:forEach>
+									</div>
+								
 							</div>
 							<div class="col s8">
-								<c:forEach items="${eatery.eateryTagName}" var="tag">
-									<h6>${tag}</h6>
-								</c:forEach>
 								<h6>Type de cuisine</h6>
 								<p>${eatery.cookingStyle}</p>
 								<hr>

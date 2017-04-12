@@ -46,8 +46,8 @@ public class ManagerController {
 		}
 	}
 	
-	@RequestMapping(value = "/bookings", method = RequestMethod.POST)
-	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) {
-		BookingReportDTO brd = new 
-	}
+//	@RequestMapping(value = "/bookings", method = RequestMethod.POST)
+//	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) {
+//		BookingReportDTO brd = new 
+//	}
 }
