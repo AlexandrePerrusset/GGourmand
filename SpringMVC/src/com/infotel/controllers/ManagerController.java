@@ -24,6 +24,7 @@ import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
+import com.infotel.gg.service.UserService;
 
 @Controller
 @EnableTransactionManagement
@@ -33,14 +34,19 @@ public class ManagerController {
 	
 	@Autowired
 	CatalogService serviceCatalog;
+	
+	@Autowired
+	UserService serviceUser;
 
 	@RequestMapping(value = "/bookings", method = RequestMethod.GET)
-	public String searchBookings(Model model) throws GGourmandException {
+	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
-		bookings = serviceBooking.findBookingsByEateryWithoutReport(11);
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("userM");
+		int eateryId = serviceUser.findManagerByUsername(udto.getUsername()).getEateryId();
+		bookings = serviceBooking.findBookingsByEateryWithoutReport(eateryId);
 		
 		EateryDTO eateryDto = new EateryDTO();
-		eateryDto = serviceCatalog.findOneEatery(11);
+		eateryDto = serviceCatalog.findOneEatery(eateryId);
 		
 		model.addAttribute("bookings", bookings);
 		model.addAttribute("eatery", eateryDto);
