@@ -16,6 +16,7 @@ import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.dao.BookingReportDAO;
 import com.infotel.gg.dao.CustomerDAO;
 import com.infotel.gg.dao.EateryDAO;
+import com.infotel.gg.dao.EateryManagerDAO;
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.model.Booking;
@@ -41,6 +42,10 @@ public class BookingServiceImpl implements BookingService{
 
 	@Autowired
 	private CustomerDAO customerDAO;
+	
+	@Autowired
+	private EateryManagerDAO eMDAO;
+
 	
 	@Override
 	public void saveBooking(BookingDTO booking) throws GGourmandException {
@@ -89,7 +94,7 @@ public class BookingServiceImpl implements BookingService{
 	@Override
 	public void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException {
 		Calendar c = Calendar.getInstance();
-		BookingReport br = new BookingReport(bookingReport.getId(), c, bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getTakingAmount()*5/100 );
+		BookingReport br = new BookingReport(c, bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getTakingAmount()*5/100, eMDAO.read(bookingReport.geteMId()), bookingDao.read(bookingReport.getBookingId()) );
 		try {
 			bookingReportDao.create(br);
 		}

@@ -75,6 +75,17 @@ public class BookingReport{
 		this.booking = booking;
 	}
 
+	public BookingReport(Calendar date, boolean fulfilled, String comment, double takingAmount,
+			double dueAmount, EateryManager eM, Booking booking) {
+		this.date = date;
+		this.fulfilled = fulfilled;
+		this.comment = comment;
+		this.takingAmount = takingAmount;
+		this.dueAmount = dueAmount;
+		this.eM = eM;
+		this.booking = booking;
+	}
+
 	/**
 	 * @return the date
 	 */
