@@ -1,11 +1,11 @@
 package com.infotel.controllers;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +19,7 @@ import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
 
 @Controller
+@EnableTransactionManagement
 public class ManagerController {
 	@Autowired
 	BookingService serviceBooking;
@@ -34,9 +35,6 @@ public class ManagerController {
 		EateryDTO eateryDto = new EateryDTO();
 		eateryDto = serviceCatalog.findOneEatery(11);
 		
-//		BookingDTO bookingDto = new BookingDTO();
-//		bookingDto = serviceBooking.
-		
 		model.addAttribute("bookings", bookings);
 		model.addAttribute("eatery", eateryDto);
 
@@ -51,13 +49,13 @@ public class ManagerController {
 
 
 	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) throws GGourmandException {
+	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment) throws GGourmandException {
 		BookingReportDTO brd = new BookingReportDTO();
 		brd.setBookingId(reportId);
-		brd.setDate(date);
 		brd.setFulfilled(presence);
 		brd.setComment(comment);
 		brd.setTakingAmount(montant);
+		brd.seteMId("raphi2@gmail.com");
 		
 		serviceBooking.saveBookingReport(brd);
 		return "manager";

@@ -161,11 +161,9 @@
 	<script>
 		function updateForm(element) {
 			var parent = $(element).parent();
-			var bookid = $(parent).children().eq(0).text();
-			var bookdate = $(parent).children().eq(1).text();	
+			var bookid = $(parent).children().eq(0).text();	
 				
 			$('#bookingform input').eq(0).val(bookid);
-			$('#bookingform input').eq(1).val(bookdate);
 			
 
 			
@@ -174,14 +172,14 @@
 
 	<div id="modalForm" class="modal col s12 modalBox2">
 		<div class="modal-content">
-		<FORM id="bookingform">		
-			<input type="hidden" name="bookingId"/>
-			<input type="hidden" name="bookingDate"/>			
-			<input name="presence" type="checkbox" />
-			<input name="montantPaye" type="number" />
-			<input name="comment" type="text" />
-			<input type="submit" value="Submit" />
-		</FORM>
+			<FORM id="bookingform" action="report" method="post">		
+				<input type="hidden" name="bookingId"/>	
+				<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
+				<br/>			
+				<label>Montant payé</label><input name="montantPaye" type="number"/>
+				<label>Commentaire</label><input name="comment" type="text"/>
+				<input type="submit" value="Valider"/>
+			</FORM>
 		</div>
 	</div>
 </body>
