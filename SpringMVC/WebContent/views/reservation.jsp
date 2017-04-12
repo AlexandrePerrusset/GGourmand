@@ -62,9 +62,10 @@
 						id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
-				<input type="submit"
-					class="waves-effect waves-light btn-large modalLink"
-					value="Se connecter" />
+				<div id="divbtn">
+					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
+					<a href="#modal2"><input name="creation" type="submit" value="Créer un compte" class="waves-effect waves-light btn modalLink" /></a>
+				</div>
 			</form>
 
 		</div>
