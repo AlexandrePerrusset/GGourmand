@@ -58,7 +58,7 @@ public class UserController {
 			}
 		}
 		
-		return "noresults";
+		return "index";
 	}
 	public boolean isConnected(HttpServletRequest request){
 		if (request.getSession().getAttribute("user") != null) {
