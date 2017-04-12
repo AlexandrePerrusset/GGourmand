@@ -2,6 +2,8 @@
 package com.infotel.gg.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +88,8 @@ public class BookingServiceImpl implements BookingService{
 	
 	@Override
 	public void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException {
-		BookingReport br = new BookingReport(bookingReport.getId(),bookingReport.getDate(), bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getTakingAmount()*5/100 );
+		Calendar c = Calendar.getInstance();
+		BookingReport br = new BookingReport(bookingReport.getId(), c, bookingReport.isFulfilled(),bookingReport.getComment(), bookingReport.getTakingAmount(), bookingReport.getTakingAmount()*5/100 );
 		try {
 			bookingReportDao.create(br);
 		}
