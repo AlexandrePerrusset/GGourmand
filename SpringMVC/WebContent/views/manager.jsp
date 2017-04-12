@@ -139,7 +139,6 @@
 								<th><b>Mail utilisateur</b></th>
 								<TH>Actions</TH>
 							</tr>
-
 							<c:forEach items="${bookings}" var="booking" varStatus="status">
 								<tr>
 									<td>${booking.id}</td>
@@ -173,7 +172,7 @@
 	<div id="modalForm" class="modal col s12 modalBox2">
 		<div class="modal-content">
 			<FORM id="bookingform" action="report" method="post">		
-				<input type="hidden" name="bookingId"/>	
+				<input type="hidden" name="bookingId"/>
 				<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
 				<br/>			
 				<label>Montant payé</label><input name="montantPaye" type="number"/>

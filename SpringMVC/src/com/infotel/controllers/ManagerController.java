@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,24 +41,20 @@ public class ManagerController {
 		model.addAttribute("bookings", bookings);
 		model.addAttribute("eatery", eateryDto);
 
-		if (bookings.size() > 0) {
-			return "manager";
-		} else {
-			return "noresults";
-		}
+		return "manager";
 	}
 	
 
 
 
 	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public ModelAndView saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, RedirectAttributes redir) throws GGourmandException {
+	public ModelAndView saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence", required=false) boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, RedirectAttributes redir) throws GGourmandException {
 		BookingReportDTO brd = new BookingReportDTO();
 		brd.setBookingId(reportId);
 		brd.setFulfilled(presence);
 		brd.setComment(comment);
 		brd.setTakingAmount(montant);
-		brd.seteMId("raphi2@gmail.com");
+		brd.seteMId(SessionScope);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/bookings");
