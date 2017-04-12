@@ -19,15 +19,15 @@ public class BookingReportDTO {
 	
 	private double dueAmount;
 	
-	private int eMId;
+	private String eMId;
 	
 	private int bookingId;
 
-	public int geteMId() {
+	public String geteMId() {
 		return eMId;
 	}
 
-	public void seteMId(int eMId) {
+	public void seteMId(String eMId) {
 		this.eMId = eMId;
 	}
 

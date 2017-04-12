@@ -48,11 +48,16 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="#modal1">Se connecter</a></li>
+
 					<li><a href="#modal2">Créer un compte</a></li>					
 					<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se Connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 <!--  				
 	<li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-beloworigin="true" data-activates="dropdown">Se Connecter</a></li>
  -->				</ul>
+
+					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+				</ul>
+
 			</div>
 		</nav>
 	</div>
@@ -106,7 +111,7 @@
 						</div>
 						<div class="input-field col s5">
 							<input name="prenom" id="last_name" type="text" class="validate"> <label
-								for="last_name">Prénom</label></input>
+								for="last_name">Pr&eacute;nom</label></input>
 						</div>
 					</div>
 					<div class="row">
@@ -126,12 +131,12 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								name="tel" id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone" >téléphone</label></input>
+								for="icon_telephone" >t&eacute;l&eacute;phone</label></input>
 						</div>
 					</div>
 					<input type="submit"
 						class="waves-effect waves-light btn-large modalLink"
-						value="Créer mon compte" />
+						value="Cr&eacute;er mon compte" />
 				</form>
 			</div>
 

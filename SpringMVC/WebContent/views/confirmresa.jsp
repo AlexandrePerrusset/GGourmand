@@ -49,7 +49,7 @@
 <div class="contourc">
 <div class="traitrouge"></div>
 
-<h3 class="titrerésa">Réservation</h3>
+<h3 class="titreresa">R&eacute;servation</h3>
 
 <div class="milieu">
 <div class="container">
@@ -64,14 +64,14 @@
   <div class="card">
     <div class="card-content">
       <i class="material-icons">today</i>
-    <span>Date : date de la réservation</span>
+    <span>Date : date de la r&eacute;servation</span>
     </div>
   </div>
 
     <div class="card">
     <div class="card-content">
     <i class="material-icons">query_builder</i>
-  <span>Heure : heure de la réservation</span>
+  <span>Heure : heure de la r&eacute;servation</span>
     </div>
   </div>  
 

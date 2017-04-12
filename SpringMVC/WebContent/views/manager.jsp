@@ -33,7 +33,7 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">Créer un compte</a></li>
+					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -87,7 +87,7 @@
 						</div>
 						<div class="input-field col s5">
 							<input id="last_name" type="text" class="validate"> <label
-								for="last_name">Prénom</label>
+								for="last_name">Pr&eacute;nom</label>
 						</div>
 					</div>
 					<div class="row">
@@ -107,12 +107,12 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone">téléphone</label>
+								for="icon_telephone">t&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
 						class="waves-effect waves-light btn-large modalLink"
-						value="Créer mon compte" />
+						value="Cr&eacute;er mon compte" />
 				</form>
 			</div>
 
@@ -127,7 +127,7 @@
 			<div class="container">
 				<div class="card">
 					<div class="col s9">
-						<h5 class="titreNomRestaurant">Réservations du restaurant :
+						<h5 class="titreNomRestaurant">R&eacute;servations du restaurant :
 							${eatery.name}</h5>
 
 						<table id="bookingsManager">
@@ -147,7 +147,7 @@
 									<td>${booking.numberOfPeople}</td>
 									<td>${booking.firstName} ${booking.lastName}</td>
 									<td>${booking.customerId}</td>
-									<td onclick="updateForm(this)" ><a href="#modalForm">reporter</a></td>
+									<td onclick="updateForm(this)" ><a href="#modalForm">Reporter</a></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -161,11 +161,9 @@
 	<script>
 		function updateForm(element) {
 			var parent = $(element).parent();
-			var bookid = $(parent).children().eq(0).text();
-			var bookdate = $(parent).children().eq(1).text();	
+			var bookid = $(parent).children().eq(0).text();	
 				
 			$('#bookingform input').eq(0).val(bookid);
-			$('#bookingform input').eq(1).val(bookdate);
 			
 
 			
@@ -174,14 +172,14 @@
 
 	<div id="modalForm" class="modal col s12 modalBox2">
 		<div class="modal-content">
-		<FORM id="bookingform">		
-			<input type="hidden" name="bookingId"/>
-			<input type="hidden" name="bookingDate"/>			
-			<input name="presence" type="checkbox" />
-			<input name="montantPaye" type="number" />
-			<input name="comment" type="text" />
-			<input type="submit" value="Submit" />
-		</FORM>
+			<FORM id="bookingform" action="report" method="post">		
+				<input type="hidden" name="bookingId"/>	
+				<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
+				<br/>			
+				<label>Montant payé</label><input name="montantPaye" type="number"/>
+				<label>Commentaire</label><input name="comment" type="text"/>
+				<input type="submit" value="Valider"/>
+			</FORM>
 		</div>
 	</div>
 </body>

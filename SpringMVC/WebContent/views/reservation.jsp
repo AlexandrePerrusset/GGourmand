@@ -33,7 +33,7 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">Créer un compte</a></li>
+					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -88,7 +88,7 @@
 						</div>
 						<div class="input-field col s5">
 							<input id="last_name" type="text" class="validate"> <label
-								for="last_name">Prénom</label>
+								for="last_name">Pr&eacute;nom</label>
 						</div>
 					</div>
 					<div class="row">
@@ -108,12 +108,12 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone">téléphone</label>
+								for="icon_telephone">t&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
 						class="waves-effect waves-light btn-large modalLink"
-						value="Créer mon compte" />
+						value="Cr&eacute;er mon compte" />
 				</form>
 			</div>
 
@@ -173,8 +173,8 @@
 					<div class="card-content">
 					<div class="row">
 						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
-						<c:if test="${sessionScope.user != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>
-						<c:if test="${sessionScope.user == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">Réserver<i class="material-icons right">done</i></button></a></div></c:if>					
+						<c:if test="${sessionScope.user != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">R&eacute;server<i class="material-icons right">done</i></button></a></div></c:if>
+						<c:if test="${sessionScope.user == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">R&eacute;server<i class="material-icons right">done</i></button></a></div></c:if>					
 					</div>
 					</div>
 					
@@ -210,13 +210,13 @@
 								<p>${eatery.hoursOfOperation1}</p>
 								<p>${eatery.hoursOfOperation2}</p>
 								<hr>
-								<h6>Coordonnées et localisation</h6>
+								<h6>Coordonn&eacute;es et localisation</h6>
 								<p>
 									<b>Adresse :</b> ${eatery.street} - ${eatery.postCode}
 									${eatery.city}
 								</p>
 								<p>
-									<b>Comment y accéder :</b> ${eatery.gettingThere}
+									<b>Comment y acc&eacute;der :</b> ${eatery.gettingThere}
 								</p>
 								<p>
 									<c:if test="${eatery.parking == null}"></c:if>
@@ -247,7 +247,7 @@
 
 						<div id="avis">
 							<c:forEach items="${eatery.reviews}" var="review">
-								<p><b>Avis publié par</b> ${review.lastName} <b>le</b> <fmt:formatDate dateStyle="long"  value="${review.dateTime.time}" /></p>
+								<p><b>Avis publi&eacute; par</b> ${review.lastName} <b>le</b> <fmt:formatDate dateStyle="long"  value="${review.dateTime.time}" /></p>
 								<p>
 									<b>Note : </b>${review.rating}/20</p>
 								<p>
