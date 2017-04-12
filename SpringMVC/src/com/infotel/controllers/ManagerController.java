@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.infotel.gg.DTO.BookingDTO;
+import com.infotel.gg.DTO.BookingReportDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
@@ -46,8 +47,21 @@ public class ManagerController {
 		}
 	}
 	
-//	@RequestMapping(value = "/bookings", method = RequestMethod.POST)
-//	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) {
-//		BookingReportDTO brd = new 
-//	}
+
+
+
+	@RequestMapping(value = "/report", method = RequestMethod.POST)
+	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, @RequestParam(value="bookingDate") Calendar date) throws GGourmandException {
+		BookingReportDTO brd = new BookingReportDTO();
+		brd.setBookingId(reportId);
+		brd.setDate(date);
+		brd.setFulfilled(presence);
+		brd.setComment(comment);
+		brd.setTakingAmount(montant);
+		
+		serviceBooking.saveBookingReport(brd);
+		return "manager";
+	}
+	
+
 }

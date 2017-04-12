@@ -127,33 +127,28 @@
 			<div class="container">
 				<div class="card">
 					<div class="col s9">
+						<h5 class="titreNomRestaurant">Réservations du restaurant :
+							${eatery.name}</h5>
+
 						<table id="bookingsManager">
 							<tr>
-								<h5 class="titreNomRestaurant">Réservations du restaurant : ${eatery.name}</h5>
+								<th><b>Id du booking</b></th>
+								<th><b>Date</b></th>
+								<th><b>Nombre de personnes</b></th>
+								<th><b>Utilisateur</b></th>
+								<th><b>Mail utilisateur</b></th>
+								<TH>Actions</TH>
 							</tr>
-							<th><b>Date</b></th>
-							<th><b>Nombre de personnes</b></th>
-							<th><b>Utilisateur</b></th>
-							<th><b>Mail utilisateur</b></th>
-							<th><b>Présence client</b></th>
-							<th><b>Montant payé</b></th>
-							<th><b>Commentaire</b></th>
-							<th><b>Check</b></th>
+
 							<c:forEach items="${bookings}" var="booking" varStatus="status">
-							<form action="report">
-							<input type="hidden" name="bookingId" value="${booking.id}">
-							<input type="hidden" name="bookingDate" value="${booking.dateTime.time}">
 								<tr>
+									<td>${booking.id}</td>
 									<td>${booking.dateTime.time}</td>
 									<td>${booking.numberOfPeople}</td>
 									<td>${booking.firstName} ${booking.lastName}</td>
 									<td>${booking.customerId}</td>
-									<td><input name="presence" type="checkbox" class="filled-in" id="filled-in-box" checked="checked" /></td>
-									<td><input name="montantPaye" type="number"/></td>
-									<td><input name="comment" type="text"/></td>
-									<td><input type="submit" value="Submit"/></td>
+									<td onclick="updateForm(this)" ><a href="#modalForm">reporter</a></td>
 								</tr>
-							</form>
 							</c:forEach>
 						</table>
 					</div>
@@ -163,7 +158,32 @@
 		<div class="traitrouge"></div>
 	</div>
 
+	<script>
+		function updateForm(element) {
+			var parent = $(element).parent();
+			var bookid = $(parent).children().eq(0).text();
+			var bookdate = $(parent).children().eq(1).text();	
+				
+			$('#bookingform input').eq(0).val(bookid);
+			$('#bookingform input').eq(1).val(bookdate);
+			
 
+			
+		}
+	</script>
+
+	<div id="modalForm" class="modal col s12 modalBox2">
+		<div class="modal-content">
+		<FORM id="bookingform">		
+			<input type="hidden" name="bookingId"/>
+			<input type="hidden" name="bookingDate"/>			
+			<input name="presence" type="checkbox" />
+			<input name="montantPaye" type="number" />
+			<input name="comment" type="text" />
+			<input type="submit" value="Submit" />
+		</FORM>
+		</div>
+	</div>
 </body>
 
 <!-- Footer -->
