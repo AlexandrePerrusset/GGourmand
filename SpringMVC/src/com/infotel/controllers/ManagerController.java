@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.DTO.BookingReportDTO;
@@ -49,7 +51,7 @@ public class ManagerController {
 
 
 	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public String saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment) throws GGourmandException {
+	public ModelAndView saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence") boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, RedirectAttributes redir) throws GGourmandException {
 		BookingReportDTO brd = new BookingReportDTO();
 		brd.setBookingId(reportId);
 		brd.setFulfilled(presence);
@@ -57,8 +59,11 @@ public class ManagerController {
 		brd.setTakingAmount(montant);
 		brd.seteMId("raphi2@gmail.com");
 		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/bookings");
+		
 		serviceBooking.saveBookingReport(brd);
-		return "manager";
+		return modelAndView;
 	}
 	
 

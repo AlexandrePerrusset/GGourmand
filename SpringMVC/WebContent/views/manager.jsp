@@ -147,7 +147,7 @@
 									<td>${booking.numberOfPeople}</td>
 									<td>${booking.firstName} ${booking.lastName}</td>
 									<td>${booking.customerId}</td>
-									<td onclick="updateForm(this)" ><a href="#modalForm">reporter</a></td>
+									<td onclick="updateForm(this)" ><a href="#modalForm">Reporter</a></td>
 								</tr>
 							</c:forEach>
 						</table>
