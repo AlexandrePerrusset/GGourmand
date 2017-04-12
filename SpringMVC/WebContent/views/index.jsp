@@ -22,40 +22,23 @@
 
 <header>
 	<div class="navbar-fixed">
-	<!-- <ul id="dropdown" class="dropdown-content">
-  <li><a href="#modal1"><i class="material-icons">person</i>Utilisateur</a></li>
-  <li><a href="#!">Manager</a></li> -->
-  <ul id="dropdown" class="dropdown-content collection">
-		<li class="collection-item avatar">
-				<img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">
-				<span class="title">Name</span>
-				<p>First Line</p>
-				<a href="#!" class="secondary-content"><i class="material-icons">contact_mail</i></a>
-		</li>
-		<li class="collection-item avatar">
-				<img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">
-				<span class="title">Name</span>
-				<p>First Line</p>
-				<a href="#!" class="secondary-content"><i class="material-icons">contact_mail</i></a>
-		</li>
-  	
-</ul>
+	<ul id="dropdown" class="dropdown-content">
+  <li><a href="#modalU"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
+  <li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
+
+  </ul>
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
 					href="index.html"
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#modal1">Se connecter</a></li>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">							
+					<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+					<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+				</ul>
 
-					<li><a href="#modal2">Créer un compte</a></li>					
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se Connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-<!--  				
-	<li><a class="dropdown-button" href="#!" data-constrainwidth="false" data-beloworigin="true" data-activates="dropdown">Se Connecter</a></li>
- -->				</ul>
-
-					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+	
 				</ul>
 
 			</div>
@@ -70,7 +53,7 @@
 
 <body>
 
-	<div id="modal1" class="modal col s5 modalBox">
+	<div id="modalU" class="modal col s5 modalBox">
 		<div class="modal-content">
 			<form class="col s3"
 				action="authent" method="POST">
@@ -85,9 +68,31 @@
 						name="password" id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
-				<div id="divbtn">
+				<div>
 					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
-					<a href="#modal2"><input name="creation" type="submit" value="Créer un compte" class="waves-effect waves-light btn modalLink" /></a>
+				</div>
+			</form>
+
+		</div>
+	</div>
+	
+	<div id="modalM" class="modal col s5 modalBox">
+		<div class="modal-content">
+			<form class="col s3"
+				action="authent" method="POST">
+
+				<div class="input-field col s3">
+					<i class="material-icons prefix">account_circle</i> <input
+						name="username" id="icon_prefix" name="nom" type="text" class="validate">
+					<label for="icon_prefix">Nom de compte</label>
+				</div>
+				<div class="input-field col s3">
+					<i class="material-icons prefix">vpn_key</i> <input
+						name="password" id="icon_telephone" type="tel" class="validate"> <label
+						for="icon_telephone">Mot de passe</label>
+				</div>
+				<div >
+					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
 				</div>
 			</form>
 
@@ -264,5 +269,6 @@
 		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 		$('.modal').modal();
 	});
+	        
 </script>
 </html>
