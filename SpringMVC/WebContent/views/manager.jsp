@@ -33,7 +33,7 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">Créer un compte</a></li>
+					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -87,7 +87,7 @@
 						</div>
 						<div class="input-field col s5">
 							<input id="last_name" type="text" class="validate"> <label
-								for="last_name">Prénom</label>
+								for="last_name">Pr&eacute;nom</label>
 						</div>
 					</div>
 					<div class="row">
@@ -107,12 +107,12 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone">téléphone</label>
+								for="icon_telephone">t&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
 						class="waves-effect waves-light btn-large modalLink"
-						value="Créer mon compte" />
+						value="Cr&eacute;er mon compte" />
 				</form>
 			</div>
 
@@ -127,7 +127,7 @@
 			<div class="container">
 				<div class="card">
 					<div class="col s9">
-						<h5 class="titreNomRestaurant">Réservations du restaurant :
+						<h5 class="titreNomRestaurant">R&eacute;servations du restaurant :
 							${eatery.name}</h5>
 
 						<table id="bookingsManager">

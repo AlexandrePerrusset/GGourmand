@@ -133,7 +133,7 @@
  
             
                   <div class="collection">
-                    <a href="#!" class="collection-item active">Mes réservations</a>
+                    <a href="#!" class="collection-item active">Mes r&eacute;servations</a>
                     <a href="#!" class="collection-item ">Mes informations</a>
                     <a href="#!" class="collection-item">Mes avis</a>
                   </div>
@@ -142,7 +142,7 @@
 
 <div class="col s9">
 
-        <h5 class="titreresa">Mes réservations</h5>
+        <h5 class="titreresa">Mes r&eacute;servations</h5>
         <div class="card horizontal">
           <div class="row">
                 <div class="col s3"><div class="card-image"><img src="sources/resto.jpg" class="responsive-img"></div></div>
