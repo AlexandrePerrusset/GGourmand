@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.infotel.gg.DTO.CustomerDTO;
+import com.infotel.gg.DTO.EateryManagerDTO;
 import com.infotel.gg.DTO.UserDTO;
+import com.infotel.gg.dao.EateryManagerDAO;
 import com.infotel.gg.dao.UserDAO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
@@ -18,6 +21,10 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private EateryManagerDAO managerDAO;
+
 
 
 
@@ -62,6 +69,23 @@ public class UserServiceImpl implements UserService{
 		Customer cust = new Customer(userDto.getFirstName(), userDto.getLastName(), userDto.getTitle(), userDto.getPhone(), userDto.getUsername(), userDto.getPassword());
 		userDAO.create(cust);
 	}
+	@Override
+	public EateryManagerDTO findManagerByUsername(String username){
+		EateryManager em = managerDAO.read(username);
+		EateryManagerDTO emd = new EateryManagerDTO();
+		emd.setUsername(em.getUsername());
+		emd.setEateryId(em.getEatery().getId());
+		emd.setFirstName(em.getFirstName());
+		emd.setLastName(em.getLastName());
+		return emd;
+	}
+
+	@Override
+	public CustomerDTO findCustomerByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 }
 

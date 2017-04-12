@@ -82,7 +82,7 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 		if(criter.getCookingStyleId() != -1) {
 			q.setParameter("cookingStyleId", criter.getCookingStyleId());
 		}
-		q.setMaxResults(5);
+		q.setMaxResults(25);
 		
 		List<Eatery> result = q.getResultList();
 		return new EateryResult(result.size(), result); 
