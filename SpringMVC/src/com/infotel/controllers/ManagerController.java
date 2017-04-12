@@ -3,6 +3,9 @@ package com.infotel.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.catalina.mbeans.UserMBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.DTO.BookingReportDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
@@ -48,13 +52,14 @@ public class ManagerController {
 
 
 	@RequestMapping(value = "/report", method = RequestMethod.POST)
-	public ModelAndView saveReport(@RequestParam(value="bookingId") int reportId, @RequestParam(value="presence", required=false) boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, RedirectAttributes redir) throws GGourmandException {
+	public ModelAndView saveReport(HttpServletRequest request, @RequestParam(value="bookingId") int reportId, @RequestParam(value="presence", required=false) boolean presence, @RequestParam(value="montantPaye") double montant, @RequestParam(value="comment") String comment, RedirectAttributes redir) throws GGourmandException {
 		BookingReportDTO brd = new BookingReportDTO();
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("userM");
 		brd.setBookingId(reportId);
 		brd.setFulfilled(presence);
 		brd.setComment(comment);
 		brd.setTakingAmount(montant);
-		brd.seteMId(SessionScope);
+		brd.seteMId(udto.getUsername());
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/bookings");
