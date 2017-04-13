@@ -155,15 +155,16 @@
 	<div class="barrerecherche">
 		<div class="row container">
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" action="eateries" method="get">
 					<div class="row">
 						<div class="input-field col s4">
-							<input id="icon_prefix" type="text" class="validate"> <label
-								for="icon_prefix">Cherchez un restaurant ou un plat !</label>
+							<input id="icon_prefix" type="text" class="validate"
+								name="recherche"> <label for="icon_prefix">Cherchez
+								un restaurant ou un plat !</label>
 						</div>
 						<div class="input-field col s2">
-							<select>
-								<option value="" disabled selected>Type cuisine</option>
+							<select name="cooking" type="int">
+								<option value="0" selected>Type cuisine</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
@@ -174,17 +175,18 @@
 								class="datepicker"> <label for="icon_prefix">Date</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i> <select>
+							<i class="material-icons prefix">supervisor_account</i>
+							<select>
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">
-							<a class="searchLink" href="recherche.html"><button
-									class="btn waves-effect waves-light buttonSpe" type="submit"
-									name="action">Chercher</a> <i class="material-icons right">search</i>
-							</button>
+							<a class="searchLink" ><button
+									class="btn waves-effect waves-light buttonSpe" type="submit">
+									Chercher <i class="material-icons right">search</i>
+								</button></a>
 						</div>
 					</div>
 				</form>

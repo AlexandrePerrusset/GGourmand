@@ -61,7 +61,8 @@ public class SearchController {
 				//model.addAttribute("error", "Impossible de repondre");	
 			}
 		}
-				
+
+		model.addAttribute("recherche", recherche);
 		model.addAttribute("eateriesDto", eateriesDto);
 		model.addAttribute("imgdto", imgList);
 		model.addAttribute("cookingDto", cookingDto);

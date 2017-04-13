@@ -27,7 +27,7 @@
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#modal1">Se connecter</a></li>
+					<li><a href="#modalU">Se connecter</a></li>
 					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 				</ul>
 			</div>
@@ -37,24 +37,24 @@
 
 <body>
 
-	<div id="modal1" class="modal col s3 modalBox">
+	<div id="modalU" class="modal col s5 modalBox">
 		<div class="modal-content">
 			<form class="col s3"
-				action="http://localhost:8080/HelloWorldTest/bonjour" method="POST">
+				action="authent" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						id="icon_prefix" name="nom" type="text" class="validate">
+						name="username" id="icon_prefix" name="nom" type="text" class="validate">
 					<label for="icon_prefix">Nom de compte</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input
-						id="icon_telephone" type="tel" class="validate"> <label
+						name="password" id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
-				<input type="submit"
-					class="waves-effect waves-light btn-large modalLink"
-					value="Se connecter" />
+				<div>
+					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
+				</div>
 			</form>
 
 		</div>
@@ -112,15 +112,16 @@
 	<div class="barrerecherche">
 		<div class="row container">
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" action="eateries" method="get">
 					<div class="row">
 						<div class="input-field col s4">
-							<input id="icon_prefix" type="text" class="validate"> <label
-								for="icon_prefix">Cherchez un restaurant ou un plat !</label>
+							<input id="icon_prefix" type="text" class="validate"
+								name="recherche"> <label for="icon_prefix">Cherchez
+								un restaurant ou un plat !</label>
 						</div>
 						<div class="input-field col s2">
-							<select>
-								<option value="" disabled selected>Type cuisine</option>
+							<select name="cooking" type="int">
+								<option value="0" selected>Type cuisine</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
@@ -131,17 +132,18 @@
 								class="datepicker"> <label for="icon_prefix">Date</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i> <select>
+							<i class="material-icons prefix">supervisor_account</i>
+							<select>
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">
-							<a class="searchLink" href="recherche.html"><button
-									class="btn waves-effect waves-light buttonSpe" type="submit"
-									name="action">Chercher</a> <i class="material-icons right">search</i>
-							</button>
+							<a class="searchLink" ><button
+									class="btn waves-effect waves-light buttonSpe" type="submit">
+									Chercher <i class="material-icons right">search</i>
+								</button></a>
 						</div>
 					</div>
 				</form>

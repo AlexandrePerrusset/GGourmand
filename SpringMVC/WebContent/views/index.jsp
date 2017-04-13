@@ -185,7 +185,7 @@
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">
-							<a class="searchLink" href="recherche.html"><button
+							<a class="searchLink" ><button
 									class="btn waves-effect waves-light buttonSpe" type="submit">
 									Chercher <i class="material-icons right">search</i>
 								</button></a>
