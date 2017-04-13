@@ -43,5 +43,7 @@ public interface CatalogService {
 
 	List<EateryDTO> getAllEateries();
 
+	String getCookingNameById(int id);
+
 	
 }

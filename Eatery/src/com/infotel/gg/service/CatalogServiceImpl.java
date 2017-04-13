@@ -86,6 +86,11 @@ public class CatalogServiceImpl implements CatalogService {
 		log.warn("test mapping service");
 		return result;
 	}
+	
+	@Override 
+	public String getCookingNameById(int id){
+		return cookingStyleDAO.read(id).getName();
+	}
 	@Override
 	public List<EateryDTO> getAllEateries(){
 		List<EateryDTO> result = new ArrayList<EateryDTO>();
