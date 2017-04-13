@@ -86,6 +86,14 @@ public class CatalogServiceImpl implements CatalogService {
 		log.warn("test mapping service");
 		return result;
 	}
+	@Override
+	public List<EateryDTO> getAllEateries(){
+		List<EateryDTO> result = new ArrayList<EateryDTO>();
+		List<Eatery> eateries = eateryDAO.listAll();
+		eateries.stream().forEach(e -> result.add(transform(e, false)));
+		return result;
+		
+	}
 
 	@Override
 	public EateryDTO findOneEatery(int id) {

@@ -1,6 +1,7 @@
 
 package com.infotel.gg.hibernate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -49,10 +50,9 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Eatery> listAll() {
-		List<Eatery> result = null;
+		List<Eatery> result = new ArrayList<>();
 		String request = "SELECT eat FROM Eatery eat";
-		Session session = getSession();
-		Query q = session.createQuery(request);	
+		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
 	}

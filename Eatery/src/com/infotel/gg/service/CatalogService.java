@@ -41,5 +41,7 @@ public interface CatalogService {
 
 	ImageDataDTO findImageDataDefault() throws GGourmandException;
 
+	List<EateryDTO> getAllEateries();
+
 	
 }
