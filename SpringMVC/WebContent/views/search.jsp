@@ -120,7 +120,7 @@
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
-								<option value="0" selected></option>
+								<option value="0" selected>${sessionScope.cookingname}</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>

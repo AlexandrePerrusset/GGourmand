@@ -71,6 +71,29 @@ public class UserController {
 		
 		return "index";
 	}
+	
+	@RequestMapping(value="/authentResa", method=RequestMethod.POST)
+	private String authentificationResa(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
+		UserDTO user =null;
+		if (isConnected(request) == true) {
+			return "index";
+		}else {
+			
+			try {
+				user = userService.authenticate(username, password);
+			} catch (AuthenticationException e) {
+;
+			}
+			if (user != null) {
+				request.getSession().setAttribute("user", user);
+				return "confirmresa";
+			}
+		}
+		
+		return "index";
+	}
+	
+	
 	public boolean isConnected(HttpServletRequest request){
 		if (request.getSession().getAttribute("user") != null) {
 			return true;
@@ -78,6 +101,7 @@ public class UserController {
 			return false;
 		}
 	}
+	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	private String logout(HttpServletRequest request){
 		

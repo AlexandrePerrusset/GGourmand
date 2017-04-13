@@ -54,11 +54,13 @@ public class SearchController {
 		if (NbPer != 0) {
 			request.getSession().setAttribute("NbPer", NbPer);
 		}
+		
+		String cookingname = service.getCookingNameById(cooking);
 
 
-//		if (cookingname != null) {
-//			request.getSession().setAttribute("cookingname", cookingname);
-//		}
+		if (cookingname != null) {
+			request.getSession().setAttribute("cookingname", cookingname);
+		}
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM, yyyy", Locale.FRENCH);
 		String string = date;

@@ -59,7 +59,7 @@
 	<div id="modal1" class="modal col s5 modalBox">
 		<div class="modal-content">
 			<form class="col s3"
-				action="authent" method="POST">
+				action="authentResa" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
@@ -163,7 +163,7 @@
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
-								<option value="0" selected>Type cuisine</option>
+								<option value="0" selected>${sessionScope.cookingname}</option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
@@ -228,11 +228,13 @@
 								
 									<div><img class="imgdto" src="${imgdto.content}"></div>
 									<br>
+								
 									<div class="chip">
 										<c:forEach items="${eatery.eateryTagName}" var="tag">
 											<div class="chips">${tag}</div>
 										</c:forEach>
 									</div>
+			
 								
 							</div>
 							<div class="col s8">
