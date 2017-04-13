@@ -150,12 +150,12 @@ public class UserController {
 	@RequestMapping(value = "/bookingsUser", method = RequestMethod.GET)
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
-//		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
-		CustomerDTO cdto = (CustomerDTO) request.getSession().getAttribute("user");
-//		int eateryId = service.findManagerByUsername(udto.getUsername()).getEateryId();
-//		bookings = serviceBooking.findBookingsByEateryWithoutReport(eateryId);
-		
-		
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
+		bookings = bookService.findBookingsByCustomer(udto.getUsername());
+		for (BookingDTO bookingDTO : bookings) {
+			System.out.println(bookingDTO);
+		}
+
 		model.addAttribute("bookings", bookings);
 
 		return "profil";
