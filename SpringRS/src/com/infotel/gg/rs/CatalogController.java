@@ -38,7 +38,6 @@ public class CatalogController {
 	
 	@RequestMapping(value="/cookingStyles")
 	public List<CookingStyleDTO> getCookingStyles() {
-		log.warn("test mapping coté rest");
 		return service.getAllCookingStyles();
 	}
 	
