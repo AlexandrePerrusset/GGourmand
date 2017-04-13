@@ -32,7 +32,7 @@ public class BookingDTO implements Serializable {
 	
 	private String street;
 	
-	private String cityname;
+	private String cityName;
 
 	private boolean comment;
 	
@@ -137,11 +137,11 @@ public class BookingDTO implements Serializable {
 	}
 
 	public String getCityName() {
-		return cityname;
+		return cityName;
 	}
 
 	public void setCityName(String cityname) {
-		this.cityname = cityname;
+		this.cityName = cityname;
 	}
 	
 
@@ -157,7 +157,7 @@ public class BookingDTO implements Serializable {
 	public String toString() {
 		return "BookingDTO [id=" + id + ", dateTime=" + dateTime + ", numberOfPeople=" + numberOfPeople + ", firstName="
 				+ firstName + ", lastName=" + lastName + ", customerId=" + customerId + ", eateryId=" + eateryId
-				+ ", eateryName=" + eateryName + ", postcode=" + postcode + ", street=" + street + ", cityname=" + cityname
+				+ ", eateryName=" + eateryName + ", postcode=" + postcode + ", street=" + street + ", cityname=" + cityName
 				+ "]";
 	}
 
