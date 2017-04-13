@@ -116,24 +116,24 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="icon_prefix" type="text" class="validate"
-								name="recherche"> <label for="icon_prefix">Cherchez
-								un restaurant ou un plat !</label>
+								name="recherche"> <label for="icon_prefix">${sessionScope.recherche}</label>
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
-								<option value="0" selected>Type cuisine</option>
+								<option value="0" selected></option>
 								<c:forEach items="${cookingDto}" var="cookingstyle">
 									<option value="${cookingstyle.id}">${cookingstyle.name}</option>
 								</c:forEach>
 							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">today</i> <input type="date"
-								class="datepicker"> <label for="icon_prefix">Date</label>
+							<i class="material-icons prefix">today</i> <input name="date" type="date"
+								class="datepicker"> <label for="icon_prefix">${sessionScope.date}</label>
 						</div>
 						<div class="input-field col s2">
 							<i class="material-icons prefix">supervisor_account</i>
-							<select>
+							<select name="NbPer">
+								<option>${sessionScope.NbPer}</option>
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>

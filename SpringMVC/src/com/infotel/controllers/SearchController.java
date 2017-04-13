@@ -1,7 +1,12 @@
 package com.infotel.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,8 +45,39 @@ public class SearchController {
 	UserService userservice;
 
 	@RequestMapping(value = "/eateries", method = RequestMethod.GET)
-	public String search(@RequestParam("recherche") String recherche, @RequestParam(value = "cooking") int cooking, Model model) {
+	public ModelAndView search(@RequestParam("recherche") String recherche, @RequestParam(value = "cooking") int cooking,@RequestParam(value = "date") String date, @RequestParam(value = "NbPer") int NbPer, RedirectAttributes redir, HttpServletRequest request) {
+		
+		if (recherche != null) {
+			request.getSession().setAttribute("recherche", recherche);
+		}
+		
+		if (NbPer != 0) {
+			request.getSession().setAttribute("NbPer", NbPer);
+		}
+
+
+//		if (cookingname != null) {
+//			request.getSession().setAttribute("cookingname", cookingname);
+//		}
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM, yyyy", Locale.FRENCH);
+		String string = date;
+		try {
 			
+			Date date1 = formatter.parse(string);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Calendar calendar = Calendar.getInstance();
+		
+		if (date != null) {
+			request.getSession().setAttribute("date", date);
+		}
+		
+		
+		
+		
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName(recherche);
 		if(cooking!=0){
@@ -61,16 +97,20 @@ public class SearchController {
 				//model.addAttribute("error", "Impossible de repondre");	
 			}
 		}
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/search");
 
-		model.addAttribute("recherche", recherche);
-		model.addAttribute("eateriesDto", eateriesDto);
-		model.addAttribute("imgdto", imgList);
-		model.addAttribute("cookingDto", cookingDto);
+		redir.addFlashAttribute("recherche", recherche);
+		redir.addFlashAttribute("eateriesDto", eateriesDto);
+		redir.addFlashAttribute("imgdto", imgList);
+		redir.addFlashAttribute("cookingDto", cookingDto);
 		
 		if(eateriesDto.size() > 0 ) {
-			return "search";
+			return modelAndView;
 		}
-		return "noresults";
+		modelAndView.setViewName("index");
+		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
@@ -108,7 +148,10 @@ public class SearchController {
 		return "reservation";
 	}
 	
-	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String confirmresa1(Model model) {
+		return "search";
+	}
 	
 	
 	

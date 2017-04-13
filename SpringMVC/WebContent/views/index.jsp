@@ -173,12 +173,12 @@
 							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">today</i> <input type="date"
+							<i class="material-icons prefix">today</i> <input name="date" type="date"
 								class="datepicker"> <label for="icon_prefix">Date</label>
 						</div>
 						<div class="input-field col s2">
 							<i class="material-icons prefix">supervisor_account</i>
-							<select>
+							<select name="NbPer">
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>
