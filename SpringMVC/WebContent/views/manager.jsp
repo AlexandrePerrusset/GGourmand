@@ -132,7 +132,7 @@
 
 						<table id="bookingsManager">
 							<tr>
-								<th><b>Id du booking</b></th>
+								<th><b>R&eacute;servation</b></th>
 								<th><b>Date</b></th>
 								<th><b>Nombre de personnes</b></th>
 								<th><b>Utilisateur</b></th>
