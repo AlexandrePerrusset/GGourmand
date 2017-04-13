@@ -10,6 +10,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -77,7 +78,7 @@ public class SearchController {
 			request.getSession().setAttribute("date", date);
 		}
 		
-		
+
 		
 		
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
@@ -116,7 +117,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}", method = RequestMethod.GET)
-	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir) {
+	public ModelAndView reservation(@PathVariable("id") Integer id, RedirectAttributes redir, HttpServletRequest request) {
 		
 		EateryDTO eatery = service.findOneEatery(id);
 		ImageDataDTO imgdto = new ImageDataDTO();
@@ -129,7 +130,8 @@ public class SearchController {
 		} catch (GGourmandException e) {
 		}
 		
-		
+		request.getSession().setAttribute("eatery", eatery);
+		request.getSession().setAttribute("imgdto", imgdto);
 	
 	
 		ModelAndView modelAndView = new ModelAndView(); 
