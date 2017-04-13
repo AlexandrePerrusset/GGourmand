@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
 	pageEncoding="UTF8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,7 @@
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
-					href="index.html"
+					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"> Gastronome
 					Gourmand</a>
 				<ul id="nav-mobile" class="right">
@@ -132,7 +134,7 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">Nom de l'utilisateur</p>
+								<p class="user">${user.firstName} ${user.lastName}</p>
 							</div>
 						</div>
 
@@ -144,30 +146,29 @@
 						</div>
 					</div>
 
-					
-						<div class="col s9">
-							<h5 class="titreresa">Mes r&eacute;servations</h5>
-							<c:forEach items="${bookings}" var="booking" varStatus="status">
-								<div class="card horizontal">
-									<div class="row">
-<!-- 										<div class="col s3"> -->
-<!-- 											<div class="card-image"> -->
-<!-- 												<img src="sources/resto.jpg" class="responsive-img"> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-										<div class="col s9">
-											<div class="card-content">
-												<div>Date : ${booking.dateTime.time}</div>
-												<div>Nombre de personnes : ${booking.numberOfPeople}</div>
-												<div>Nom du restaurant : ${booking.eateryName}</div>
-												<div>Adresse du restaurant : ${booking.street} ${booking.cityName}</div>
-											</div>
-										</div>
+
+					<div class="col s9">
+						<h5 class="titreresa">Mes r&eacute;servations</h5>
+						<c:forEach items="${bookings}" var="booking" varStatus="status">
+							<div class="card horizontal">
+								<div class="row">
+									<!-- 										<div class="col s3"> -->
+									<!-- 											<div class="card-image"> -->
+									<!-- 												<img src="sources/resto.jpg" class="responsive-img"> -->
+									<!-- 											</div> -->
+									<!-- 										</div> -->
+									<div class="card-content">
+									
+										<div><b>Date : </b><fmt:formatDate value="${booking.dateTime.time}" type="both" dateStyle="short" timeStyle="short"/></div>
+										<div><b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
+										<div><b>Nom du restaurant : </b>${booking.eateryName}</div>
+										<div><b>Adresse du restaurant : </b>${booking.street} ${booking.cityName}</div>
 									</div>
-		
 								</div>
-							</c:forEach>
-						</div>
+
+							</div>
+						</c:forEach>
+					</div>
 				</div>
 				<div class="traitrouge"></div>
 			</div>

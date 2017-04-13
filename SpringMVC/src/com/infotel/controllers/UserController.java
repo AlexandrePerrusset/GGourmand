@@ -61,7 +61,7 @@ public class UserController {
 			try {
 				user = userService.authenticate(username, password);
 			} catch (AuthenticationException e) {
-;
+				e.printStackTrace();
 			}
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
@@ -151,6 +151,7 @@ public class UserController {
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
+		System.out.println(udto);
 		bookings = bookService.findBookingsByCustomer(udto.getUsername());
 		for (BookingDTO bookingDTO : bookings) {
 			System.out.println(bookingDTO);

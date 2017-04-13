@@ -43,7 +43,6 @@ public class UserServiceImpl implements UserService{
 		
 		UserDTO uDto = new UserDTO();
 		uDto.setUsername(u.getUsername());
-		uDto.setPassword(u.getPassword());
 		
 		if(u instanceof Customer){
 			uDto.setType("CUSTOMER");
