@@ -88,7 +88,10 @@ public class CatalogServiceImpl implements CatalogService {
 	
 	@Override 
 	public String getCookingNameById(int id){
-		return cookingStyleDAO.read(id).getName();
+		if(id > 0){
+			return cookingStyleDAO.read(id).getName();
+		}
+		return null;
 	}
 	@Override
 	public List<EateryDTO> getAllEateries(){
