@@ -7,6 +7,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.DTO.EateryDTO;
+import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
@@ -53,29 +57,33 @@ public class confirmresaController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}/confirmresa/profil", method = RequestMethod.GET)
-	public ModelAndView confirmresaProfil(@PathVariable("id") Integer id, @RequestParam("date") String date, @RequestParam("nbper") String nbper, @RequestParam("name") String name,RedirectAttributes redir) {
+	public ModelAndView confirmresaProfil(@PathVariable("id") Integer id, @RequestParam("date") String date, @RequestParam("nbper") String nbper, @RequestParam("name") String name,RedirectAttributes redir, HttpServletRequest request) {
 		
 	BookingDTO booking = new BookingDTO();
-	SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM, yyyy", Locale.FRENCH);
-	String string = date;
+	
+	
+//	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
+//	String string = date;
 //	try {
 //		Date date1 = formatter.parse(string);
 //	} catch (ParseException e1) {
 //		// TODO Auto-generated catch block
 //		e1.printStackTrace();
 //	}
+	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 	Calendar calendar = Calendar.getInstance();
 	try {
-		calendar.setTime(formatter.parse(string));
+		calendar.setTime(formatter.parse(date));
 	} catch (ParseException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
-	
+	String madate = formatter.format(calendar.getTime());
+	UserDTO userdto =(UserDTO) request.getSession().getAttribute("user");
 	booking.setDateTime(calendar);
 	booking.setNumberOfPeople(nbper);
-	System.out.println(nbper);
-	booking.setEateryName(name);
+	booking.setEateryId(id);
+	booking.setCustomerId(userdto.getUsername());
 	try {
 		bkservice.saveBooking(booking);
 	} catch (GGourmandException e) {
@@ -85,15 +93,15 @@ public class confirmresaController {
 		
 		
 		ModelAndView modelAndView = new ModelAndView(); 
-		modelAndView.setViewName("redirect:/profil");
+		modelAndView.setViewName("redirect:/bookingsUser");
 
 
 		return modelAndView;
 	}
-	
-	@RequestMapping(value = "/profil", method = RequestMethod.GET)
-	public String confirmresaProfil(Model model) {
-		return "profil";
-	}
+//	
+//	@RequestMapping(value = "/profil", method = RequestMethod.GET)
+//	public String confirmresaProfil(Model model) {
+//		return "profil";
+//	}
 
 }

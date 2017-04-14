@@ -54,26 +54,37 @@ public class SearchController {
 			request.getSession().setAttribute("NbPer", NbPer);
 		}
 		
-		String cookingname = service.getCookingNameById(cooking);
-
-
-		if (cookingname != null) {
-			request.getSession().setAttribute("cookingname", cookingname);
-		}
+//		String cookingname = service.getCookingNameById(cooking);
+//
+//
+//		if (cookingname != null) {
+//			request.getSession().setAttribute("cookingname", cookingname);
+//		}
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM, yyyy", Locale.FRENCH);
-		String string = date;
+//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
+//		String string = date;
+//		try {
+//			
+//			Date date1 = formatter.parse(string);
+//		} catch (ParseException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		Calendar calendar = Calendar.getInstance();
+//		
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
+		Calendar calendar = Calendar.getInstance();
 		try {
-			
-			Date date1 = formatter.parse(string);
+			calendar.setTime(formatter.parse(date));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		Calendar calendar = Calendar.getInstance();
+		String madate = formatter.format(calendar.getTime());
 		
 		if (date != null) {
-			request.getSession().setAttribute("date", date);
+			request.getSession().setAttribute("date", madate);
 		}
 		
 
@@ -83,6 +94,10 @@ public class SearchController {
 		criteria.setName(recherche);
 		if(cooking!=0){
 			criteria.setCookingStyleId(cooking);
+			String cookingname = service.getCookingNameById(cooking);
+			if (cookingname != null) {
+				request.getSession().setAttribute("cookingname", cookingname);
+			}				
 		}
 		List<EateryDTO> eateriesDto = service.findEateryByCriteria(criteria);
 		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();

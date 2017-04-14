@@ -82,11 +82,12 @@
     </div>
   </div> 
 
-<c:if test="${sessionScope.NbPer != null && sessionScope.date != null && eatery.name != null }">
+<c:if test="${ sessionScope.date != null}">
 <form action="eateries/reservation/${eatery.id}/confirmresa/profil">
-<input type="hidden" name="nbper">${sessionScope.NbPer}</input>
-<input type="hidden" name="date">${sessionScope.date}</input>
-<input type="hidden" name="name">${eatery.name}</input>
+<input type="hidden" name="nbper" value="${sessionScope.NbPer}"/>
+<input type="hidden" name="date" value="${sessionScope.date}"/>
+<input type="hidden" name="name" value="${sessionScope.eatery.name}"/>
+
 <button class="waves-effect waves-light btn" type="submit" name="resa">Confirmer<i class="material-icons left">thumb_up</i></button>
 </form></c:if>
 
