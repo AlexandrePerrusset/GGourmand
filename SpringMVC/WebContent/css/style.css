@@ -396,6 +396,10 @@ a.titre2 {
 	margin-left: 100px;
 }
 
+.titreNomRestaurant{
+	text-align: center;
+	color: white;
+}
 #formulaire button {
     float: left;
 } 

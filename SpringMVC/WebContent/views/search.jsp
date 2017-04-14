@@ -69,7 +69,7 @@
 	<div id="modal2" class="modal col s12 modalBox2">
 		<div class="modal-content">
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" action="register">
 					<div class="row">
 						<div class="input-field col s2">
 							<select id="type">

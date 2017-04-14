@@ -32,7 +32,9 @@ public class UserController {
 	BookingService bookService;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String createAccount(@RequestParam(value="title", required=true) String title, @RequestParam(value="nom", required=true) String nom,@RequestParam(value="prenom", required=true) String prenom,@RequestParam(value="password", required=true) String password, @RequestParam(value="username", required=true) String username,@RequestParam(value="tel", required=true) String tel, HttpServletRequest request) throws GGourmandException {
+	public ModelAndView createAccount(@RequestParam(value="title", required=true) String title, @RequestParam(value="nom", required=true) String nom,@RequestParam(value="prenom", required=true) String prenom,@RequestParam(value="password", required=true) String password, @RequestParam(value="username", required=true) String username,@RequestParam(value="tel", required=true) String tel, HttpServletRequest request) throws GGourmandException {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/");
 		
 		UserDTO uDto = new UserDTO();
 		uDto.setTitle(title);
@@ -45,7 +47,27 @@ public class UserController {
 		
 		userService.register(uDto);
 		
-		return "index";
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping(value = "/registerResa", method = RequestMethod.POST)
+	public ModelAndView createAccountResa(@RequestParam(value="title", required=true) String title, @RequestParam(value="nom", required=true) String nom,@RequestParam(value="prenom", required=true) String prenom,@RequestParam(value="password", required=true) String password, @RequestParam(value="username", required=true) String username,@RequestParam(value="tel", required=true) String tel, HttpServletRequest request) throws GGourmandException {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/reservation");
+		
+		UserDTO uDto = new UserDTO();
+		uDto.setTitle(title);
+		uDto.setFirstName(prenom);
+		uDto.setLastName(nom);
+		uDto.setUsername(username);
+		uDto.setPhone(tel);
+		uDto.setType("customer");
+		uDto.setPassword(password);
+		
+		userService.register(uDto);
+		
+		return modelAndView;
 		
 	}
 	
@@ -68,25 +90,23 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/authentResa", method=RequestMethod.POST)
-	private String authentificationResa(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
-		UserDTO user =null;
-		if (isConnected(request) == true) {
-			return "index";
-		}else {
+	private ModelAndView authentificationResa(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
+		UserDTO user = null;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/confirmresa");
 			
 			try {
 				user = userService.authenticate(username, password);
 			} catch (AuthenticationException e) {
-;
+				e.printStackTrace();
 			}
+			
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
-				return "confirmresa";
 			}
+			
+			return modelAndView;
 		}
-		
-		return "index";
-	}
 	
 	
 	public boolean isConnected(HttpServletRequest request){

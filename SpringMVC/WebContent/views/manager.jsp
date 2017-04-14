@@ -127,44 +127,49 @@
 
 		</div>
 	</div>
-	</div>
 
 	<div class="contourc">
 		<div class="traitrouge"></div>
 
 		<div class="milieu">
-			<div class="container">
-				<div class="card">
-					<div class="col s9">
-						<h5 class="titreNomRestaurant">R&eacute;servations du
-							restaurant : ${eatery.name}</h5>
-
-						<table id="bookingsManager">
-							<tr>
-								<th><b>R&eacute;servation</b></th>
-								<th><b>Date</b></th>
-								<th><b>Nombre de personnes</b></th>
-								<th><b>Utilisateur</b></th>
-								<th><b>Mail utilisateur</b></th>
-								<TH>Actions</TH>
-							</tr>
-							<c:forEach items="${bookings}" var="booking" varStatus="status">
-								<tr>
-									<td>${booking.id}</td>
-									<td><fmt:formatDate value="${booking.dateTime.time}"
-											dateStyle="short" /></td>
-									<td>${booking.numberOfPeople}</td>
-									<td>${booking.firstName}${booking.lastName}</td>
-									<td>${booking.customerId}</td>
-									<td onclick="updateForm(this)"><a href="#modalForm">Reporter</a></td>
-								</tr>
-							</c:forEach>
-						</table>
+			<div class="col s9">
+				<h5 class="titreNomRestaurant">R&eacute;servations du
+					restaurant : ${eatery.name}</h5>
+				<div class="container">
+					<div class="card">
+						<c:forEach items="${bookings}" var="booking" varStatus="status">
+							<div class="card horizontal">
+								<div class="row">
+									<div class="card-content">
+										<div>
+											<b>R&eacute;servation n° : </b>${booking.id}
+										</div>
+										<div>
+											<b>Date : </b>
+											<fmt:formatDate value="${booking.dateTime.time}"
+												dateStyle="short" />
+										</div>
+										<div>
+											<b>Nombre de personnes : </b>${booking.numberOfPeople}
+										</div>
+										<div>
+											<b>Utilisateur : </b>${booking.firstName} ${booking.lastName}
+										</div>
+										<div>
+											<b>Mail utilisateur : </b>${booking.customerId}
+										</div>
+										<div onclick="updateForm(this)">
+											<a href="#modalForm"><b>Confirmer</b></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 					</div>
 				</div>
+				<div class="traitrouge"></div>
 			</div>
 		</div>
-		<div class="traitrouge"></div>
 	</div>
 
 	<script>
