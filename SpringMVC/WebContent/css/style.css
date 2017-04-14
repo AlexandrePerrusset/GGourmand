@@ -70,8 +70,15 @@ padding-left: 10px;
 	margin-bottom: 30px;
 }
 
+.milieuresa{
+background-color: #800b03;
+width: 60%;
+margin: 0 auto;
+}
+
 .milieu{
 background-color: #800b03;
+
 }
 
 .contourc{
@@ -79,6 +86,7 @@ background-color: #800b03;
 }
 .traitrouge{
 height: 60px;
+background-color: #800b03;
 }
 
 .tabs .tab a{
@@ -386,4 +394,18 @@ a.titre2 {
 	display: block;
 	float: left;
 	margin-left: 100px;
+}
+
+#formulaire button {
+    float: left;
+} 
+
+#btnannuler{
+	margin-left: 10px;
+	 float: left;
+}
+
+.traitrougebtn{
+	background-color: #800b03;
+	height: 50px;
 }

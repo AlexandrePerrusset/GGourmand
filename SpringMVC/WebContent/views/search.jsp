@@ -156,7 +156,7 @@
 			</div>
 		</div>
 	</div>
-	</div>
+	
 
 	<div class="resultats">
 		<div class="container">

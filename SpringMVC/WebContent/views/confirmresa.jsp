@@ -40,20 +40,20 @@
 						data-activates="dropdown1">Dropdown<i
 							class="material-icons right">arrow_drop_down</i></a></li>
 
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<c:if test="${user.username != null}">
-						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
-						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
-					</c:if>
-					<c:if test="${user.username == null}">
-						<li><a class="dropdown-button" href="#!"
-							data-activates="dropdown" data-beloworigin="true">Se
-								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
-						</a></li>
-						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
-					</c:if>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<c:if test="${user.username != null}">
+							<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+							<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
+						</c:if>
+						<c:if test="${user.username == null}">
+							<li><a class="dropdown-button" href="#!"
+								data-activates="dropdown" data-beloworigin="true">Se
+									connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+							</a></li>
+							<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+						</c:if>
 
-				</ul>
+					</ul>
 			</div>
 		</nav>
 	</div>
@@ -73,7 +73,7 @@
 		<h3 class="titreresa">R&eacute;servation</h3>
 
 
-		<div class="milieu">
+		<div class="milieuresa">
 			<div class="container">
 				<div class="card">
 					<div class="card-content">
@@ -82,76 +82,78 @@
 					</div>
 				</div>
 
-				
+
+<div id="formulaire">
+				<form class="col s12"
+					action="eateries/reservation/${eatery.id}/confirmresa/profil"
+					method="get">
 					<div class="card">
 						<div class="card-content">
-							<div class="row">
-								<div class="input-field col s6">
-									<i class="material-icons">today</i> <input name="date"
-										type="date" class="datepicker" required="true"> <label
-										for="icon_prefix">${sessionScope.date}</label>
-								</div>
-
-								<div class="input-field col s6">
-									<i class="material-icons prefix">supervisor_account</i> <select
-										name="NbPer">
-										<option>${sessionScope.NbPer}</option>
-										<c:forEach var="i" begin="1" end="15" step="1">
-											<option value="${i}">${i}</option>
-										</c:forEach>
-									</select> <label for="icon_prefix">Combien ?</label>
-								</div>
-
+							<div class="row ">
+								
+									<div class="input-field col s6">
+										<i class="material-icons prefix">today</i> <input name="date"
+											type="date" class="datepicker"> <label
+											for="icon_prefix">${sessionScope.date}</label>
+									</div>
+									<div class="input-field col s6">
+										<i class="material-icons prefix">supervisor_account</i> <select
+											name="nbper">
+											<option>${sessionScope.NbPer}</option>
+											<c:forEach var="i" begin="1" end="15" step="1">
+												<option value="${i}">${i}</option>
+											</c:forEach>
+										</select> <label for="icon_prefix">Combien ?</label>
+									</div>
+								
 							</div>
 						</div>
 					</div>
+					<button class="waves-effect waves-light btn" type="submit"
+						name="resa">
+						Confirmer<i class="material-icons left">thumb_up</i>
+					</button>
 
-
-					<c:if test="${ sessionScope.date != null}">
-						<form
-							action="eateries/reservation/${eatery.id}/confirmresa/profil">
-							<input type="hidden" name="nbper" value="${sessionScope.NbPer}" />
-							<input type="hidden" name="date" value="${sessionScope.date}" />
-							<button class="waves-effect waves-light btn" type="submit"
-								name="resa">
-								Confirmer<i class="material-icons left">thumb_up</i>
-							</button>
-						</form>
-					</c:if>
-
-					<c:if test="${ sessionScope.date == null}">
-						<form
-							action="eateries/reservation/${eatery.id}/confirmresa/profil">
-							<input type="hidden" name="nbper" value="${sessionScope.NbPer}" />
-							<input type="hidden" name="date" value="${sessionScope.date}" />
-							<button class="waves-effect waves-light btn" type="submit"
-								name="resa">
-								Confirmer<i class="material-icons left">thumb_up</i>
-							</button>
-						</form>
-					</c:if>
-
-
-
-					<c:if test="${sessionScope.user == null}">
-						<div class="input-field col s8">
-							<a href="#modal1"><button
-									class="btn waves-effect waves-light buttonSpe" type="submit"
-									name="resa">
-									R&eacute;server<i class="material-icons right">done</i>
-								</button></a>
-						</div>
-					</c:if>
-					<a class="waves-effect waves-light btn"><i
-						class="material-icons left">thumb_down</i>Annuler</a>
-
+					
+				</form>
+				<a href="/SpringMVC/eateries/reservation/${eatery.id}"><button
+							class="waves-effect waves-light btn"  name="resa"
+							id="btnannuler">
+							Annuler<i class="material-icons left">thumb_up</i>
+						</button></a>
 				</div>
-			</div>
-			<div class="traitrouge"></div>
-		</div>
 
-	
+				<%-- <c:if test="${ sessionScope.date != null}">	
+				<div id="formulaire">		
+					<form action="eateries/reservation/${eatery.id}/confirmresa/profil">
+						<input type="hidden" name="nbper" value="${sessionScope.NbPer}" />
+						<input type="hidden" name="date" value="${sessionScope.date}" />
+						<button class="waves-effect waves-light btn" type="submit"
+							name="resa">
+							Confirmer<i class="material-icons left">thumb_up</i>
+						</button>
+					</form>
+			
+					<form action="eateries/reservation/${eatery.id}/">
+						<input type="hidden" name="nbper" value="${sessionScope.NbPer}" />
+						<input type="hidden" name="date" value="${sessionScope.date}" />
+						<button class="waves-effect waves-light btn" type="submit"
+							name="resa" id="btnannuler">
+							Annuler<i class="material-icons left">thumb_up</i>
+						</button>
+					</form>	
+					</div>			
+				</c:if>
+ --%>
+
+
+			</div>
 		</div>
+		<div class="traitrouge"></div>
+	</div>
+
+
+	</div>
 	</div>
 	<div class="traitrouge"></div>
 	</div>
