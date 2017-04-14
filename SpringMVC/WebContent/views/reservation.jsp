@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
 	pageEncoding="UTF8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -25,23 +25,32 @@
 
 <header>
 	<div class="navbar-fixed">
-	<ul id="dropdown" class="dropdown-content">
-  <li><a href="#modal1"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
-  <li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
+		<ul id="dropdown" class="dropdown-content">
+			<li><a href="#modal1"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
+			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
 
-  </ul>
+		</ul>
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
 					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">							
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-					<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<c:if test="${user.username != null}">
+						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
+					</c:if>
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+					</c:if>
 				</ul>
 
-	
+
 				</ul>
 
 			</div>
@@ -58,45 +67,49 @@
 
 	<div id="modal1" class="modal col s5 modalBox">
 		<div class="modal-content">
-			<form class="col s3"
-				action="authentResa" method="POST">
+			<form class="col s3" action="authentResa" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="username" id="icon_prefix" name="nom" type="text" class="validate">
-					<label for="icon_prefix">Nom de compte</label>
+						name="username" id="icon_prefix" name="nom" type="text"
+						class="validate"> <label for="icon_prefix">Nom de
+						compte</label>
 				</div>
 				<div class="input-field col s3">
-					<i class="material-icons prefix">vpn_key</i> <input
-						name="password" id="icon_telephone" type="tel" class="validate"> <label
+					<i class="material-icons prefix">vpn_key</i> <input name="password"
+						id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div id="divbtn">
-					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
-					<a href="#modal2"><input name="creation" type="submit" value="Créer un compte" class="waves-effect waves-light btn modalLink" /></a>
+					<input name="connection" type="submit" value="Se connecter"
+						class="waves-effect waves-light btn modalLink" /> <a
+						href="#modal2"><input name="creation" type="submit"
+						value="Créer un compte"
+						class="waves-effect waves-light btn modalLink" /></a>
 				</div>
 			</form>
 
 		</div>
 	</div>
-	
+
 	<div id="modalM" class="modal col s5 modalBox">
 		<div class="modal-content">
-			<form class="col s3"
-				action="authent" method="POST">
+			<form class="col s3" action="authent" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="username" id="icon_prefix" name="nom" type="text" class="validate">
-					<label for="icon_prefix">Nom de compte</label>
+						name="username" id="icon_prefix" name="nom" type="text"
+						class="validate"> <label for="icon_prefix">Nom de
+						compte</label>
 				</div>
 				<div class="input-field col s3">
-					<i class="material-icons prefix">vpn_key</i> <input
-						name="password" id="icon_telephone" type="tel" class="validate"> <label
+					<i class="material-icons prefix">vpn_key</i> <input name="password"
+						id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div id="divbtn">
-					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
+					<input name="connection" type="submit" value="Se connecter"
+						class="waves-effect waves-light btn modalLink" />
 				</div>
 			</form>
 
@@ -115,32 +128,33 @@
 							</select>
 						</div>
 						<div class="input-field col s5">
-							<input name="nom" id="first_name" type="text" class="validate"> <label
-								for="first_name" >Nom</label></input>
+							<input name="nom" id="first_name" type="text" class="validate">
+							<label for="first_name">Nom</label></input>
 						</div>
 						<div class="input-field col s5">
-							<input name="prenom" id="last_name" type="text" class="validate"> <label
-								for="last_name">Pr&eacute;nom</label></input>
+							<input name="prenom" id="last_name" type="text" class="validate">
+							<label for="last_name">Pr&eacute;nom</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">vpn_key</i> <input name="password" id="password"
-								type="password" class="validate"> <label for="password" >Mot
-								de passe</label></input>
+							<i class="material-icons prefix">vpn_key</i> <input
+								name="password" id="password" type="password" class="validate">
+							<label for="password">Mot de passe</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">mail</i> <input name="username" id="email"
-								type="email" class="validate"> <label for="email">Email</label></input>
+							<i class="material-icons prefix">mail</i> <input name="username"
+								id="email" type="email" class="validate"> <label
+								for="email">Email</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">phone</i> <input
-								name="tel" id="icon_telephone" type="tel" class="validate"> <label
-								for="icon_telephone" >t&eacute;l&eacute;phone</label></input>
+							<i class="material-icons prefix">phone</i> <input name="tel"
+								id="icon_telephone" type="tel" class="validate"> <label
+								for="icon_telephone">t&eacute;l&eacute;phone</label></input>
 						</div>
 					</div>
 					<input type="submit"
@@ -170,20 +184,20 @@
 							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">today</i> <input type="date" name="date"
-								class="datepicker"> <label for="icon_prefix">${sessionScope.date}</label>
+							<i class="material-icons prefix">today</i> <input type="date"
+								name="date" class="datepicker"> <label for="icon_prefix">${sessionScope.date}</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i>
-							<select name="NbPer">
-							<option>${sessionScope.NbPer}</option>
+							<i class="material-icons prefix">supervisor_account</i> <select
+								name="NbPer">
+								<option>${sessionScope.NbPer}</option>
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
 								</c:forEach>
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">
-							<a class="searchLink" ><button
+							<a class="searchLink"><button
 									class="btn waves-effect waves-light buttonSpe" type="submit">
 									Chercher <i class="material-icons right">search</i>
 								</button></a>
@@ -201,18 +215,36 @@
 		<div class="milieu">
 			<div class="container">
 				<div class="card">
-				
-				
+
+
 					<div class="card-content">
-					<div class="row">
-						<div class="input-field col s4"><h5 class="titre">${eatery.name}</h5></div>
-						<c:if test="${sessionScope.user != null}"><div class="input-field col s8"><a href="eateries/reservation/${eatery.id}/confirmresa"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">R&eacute;server<i class="material-icons right">done</i></button></a></div></c:if>
-						<c:if test="${sessionScope.user == null}"><div class="input-field col s8"><a href="#modal1"><button class="btn waves-effect waves-light buttonSpe" type="submit" name="resa">R&eacute;server<i class="material-icons right">done</i></button></a></div></c:if>					
+						<div class="row">
+							<div class="input-field col s4">
+								<h5 class="titre">${eatery.name}</h5>
+							</div>
+							<c:if test="${sessionScope.user != null}">
+								<div class="input-field col s8">
+									<a href="eateries/reservation/${eatery.id}/confirmresa"><button
+											class="btn waves-effect waves-light buttonSpe" type="submit"
+											name="resa">
+											R&eacute;server<i class="material-icons right">done</i>
+										</button></a>
+								</div>
+							</c:if>
+							<c:if test="${sessionScope.user == null}">
+								<div class="input-field col s8">
+									<a href="#modal1"><button
+											class="btn waves-effect waves-light buttonSpe" type="submit"
+											name="resa">
+											R&eacute;server<i class="material-icons right">done</i>
+										</button></a>
+								</div>
+							</c:if>
+						</div>
 					</div>
-					</div>
-					
-		
-					
+
+
+
 					<div class="card-tabs">
 						<ul class="tabs tabs-fixed-width">
 							<li class="tab"><a class="active" href="#infos">Informations
@@ -225,17 +257,19 @@
 					<div class="card-content">
 						<div id="infos" class="row">
 							<div class="col s4">
-								
-									<div><img class="imgdto" src="${imgdto.content}"></div>
-									<br>
-								
-									<div class="chip">
-										<c:forEach items="${eatery.eateryTagName}" var="tag">
-											<div class="chips">${tag}</div>
-										</c:forEach>
-									</div>
-			
-								
+
+								<div>
+									<img class="imgdto" src="${imgdto.content}">
+								</div>
+								<br>
+
+								<div class="chip">
+									<c:forEach items="${eatery.eateryTagName}" var="tag">
+										<div class="chips">${tag}</div>
+									</c:forEach>
+								</div>
+
+
 							</div>
 							<div class="col s8">
 								<h6>Type de cuisine</h6>
@@ -255,7 +289,8 @@
 								</p>
 								<p>
 									<c:if test="${eatery.parking == null}"></c:if>
-									<c:if test="${eatery.parking != null}"><b>Parking : </b>${eatery.parking}</c:if>
+									<c:if test="${eatery.parking != null}">
+										<b>Parking : </b>${eatery.parking}</c:if>
 								</p>
 								<hr />
 								<h6>Options de paiement</h6>
@@ -266,23 +301,28 @@
 						<div id="menu">
 							<h5 class="titre">Prix moyen d'un repas - ${eatery.price}</h5>
 							<h6>
-							<c:if test="${eatery.executiveChef == null}"></c:if>
-							<c:if test="${eatery.executiveChef != null}"><b>Chef cuisinier : </b>${eatery.executiveChef}</c:if>
+								<c:if test="${eatery.executiveChef == null}"></c:if>
+								<c:if test="${eatery.executiveChef != null}">
+									<b>Chef cuisinier : </b>${eatery.executiveChef}</c:if>
 							</h6>
-							<br/>
+							<br />
 							<c:forEach items="${eatery.menu.parts}" var="part">
-									<h6>${part.title}</h6>
-									<br/>
+								<h6>${part.title}</h6>
+								<br />
 								<c:forEach items="${part.items}" var="item">
-									<div>${item.title} - ${item.price}</div>
+									<div>${item.title}- ${item.price}</div>
 								</c:forEach>
-								<br/>
+								<br />
 							</c:forEach>
 						</div>
 
 						<div id="avis">
 							<c:forEach items="${eatery.reviews}" var="review">
-								<p><b>Avis publi&eacute; par</b> ${review.lastName} <b>le</b> <fmt:formatDate dateStyle="long"  value="${review.dateTime.time}" /></p>
+								<p>
+									<b>Avis publi&eacute; par</b> ${review.lastName} <b>le</b>
+									<fmt:formatDate dateStyle="long"
+										value="${review.dateTime.time}" />
+								</p>
 								<p>
 									<b>Note : </b>${review.rating}/20</p>
 								<p>

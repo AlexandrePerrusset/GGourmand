@@ -25,7 +25,7 @@
 	<ul id="dropdown" class="dropdown-content">
   <li><a href="#modalU"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
   <li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
-
+	
   </ul>
 		<nav>
 			<div class="nav-wrapper">
@@ -33,9 +33,15 @@
 					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">							
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-					<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<c:if test="${user.username != null}">
+						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
+					</c:if>
+					<c:if test="${user.username == null}">		
+						<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+					</c:if>
 				</ul>
 
 	

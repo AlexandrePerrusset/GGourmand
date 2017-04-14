@@ -138,12 +138,6 @@ public class UserController {
 			return false;
 		}
 	}
-	@RequestMapping(value="/logoutM", method=RequestMethod.GET)
-	private String logoutM(HttpServletRequest request){
-		
-		request.getSession().invalidate();
-		return "index";
-	}
 	
 	@RequestMapping(value = "/bookingsUser", method = RequestMethod.GET)
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
@@ -158,5 +152,14 @@ public class UserController {
 		model.addAttribute("bookings", bookings);
 
 		return "profil";
+	}
+	
+	@RequestMapping(value = "/SpringMVC/bookingsUser", method = RequestMethod.GET)
+	public String displayProfile (HttpServletRequest request) {
+		if(request.getSession().getAttribute("user") != null) {
+			return "profil";
+		} else {
+			return "index";
+		}
 	}
 }

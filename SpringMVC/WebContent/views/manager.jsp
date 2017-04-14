@@ -32,8 +32,17 @@
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#modal1">Se connecter</a></li>
-					<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+					<c:if test="${user.username != null}">
+						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
+					</c:if>
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</nav>
@@ -127,8 +136,8 @@
 			<div class="container">
 				<div class="card">
 					<div class="col s9">
-						<h5 class="titreNomRestaurant">R&eacute;servations du restaurant :
-							${eatery.name}</h5>
+						<h5 class="titreNomRestaurant">R&eacute;servations du
+							restaurant : ${eatery.name}</h5>
 
 						<table id="bookingsManager">
 							<tr>
@@ -142,11 +151,12 @@
 							<c:forEach items="${bookings}" var="booking" varStatus="status">
 								<tr>
 									<td>${booking.id}</td>
-									<td><fmt:formatDate value="${booking.dateTime.time}" type="both" dateStyle="short" timeStyle="short"/></td>
+									<td><fmt:formatDate value="${booking.dateTime.time}"
+											dateStyle="short" /></td>
 									<td>${booking.numberOfPeople}</td>
-									<td>${booking.firstName} ${booking.lastName}</td>
+									<td>${booking.firstName}${booking.lastName}</td>
 									<td>${booking.customerId}</td>
-									<td onclick="updateForm(this)" ><a href="#modalForm">Reporter</a></td>
+									<td onclick="updateForm(this)"><a href="#modalForm">Reporter</a></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -160,24 +170,21 @@
 	<script>
 		function updateForm(element) {
 			var parent = $(element).parent();
-			var bookid = $(parent).children().eq(0).text();	
-				
-			$('#bookingform input').eq(0).val(bookid);
-			
+			var bookid = $(parent).children().eq(0).text();
 
-			
+			$('#bookingform input').eq(0).val(bookid);
+
 		}
 	</script>
 
 	<div id="modalForm" class="modal col s12 modalBox2">
 		<div class="modal-content">
-			<FORM id="bookingform" action="report" method="post">		
-				<input type="hidden" name="bookingId"/>
-				<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
-				<br/>			
-				<label>Montant payé</label><input name="montantPaye" type="number"/>
-				<label>Commentaire</label><input name="comment" type="text"/>
-				<input type="submit" value="Valider"/>
+			<FORM id="bookingform" action="report" method="post">
+				<input type="hidden" name="bookingId" /> <input id="presence"
+					name="presence" type="checkbox" /><label for="presence">Présence
+					client</label> <br /> <label>Montant payé</label><input name="montantPaye"
+					type="number" /> <label>Commentaire</label><input name="comment"
+					type="text" /> <input type="submit" value="Valider" />
 			</FORM>
 		</div>
 	</div>
