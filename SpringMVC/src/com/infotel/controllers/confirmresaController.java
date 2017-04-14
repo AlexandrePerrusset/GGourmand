@@ -57,7 +57,7 @@ public class confirmresaController {
 	}
 	
 	@RequestMapping(value = "/eateries/reservation/{id}/confirmresa/profil", method = RequestMethod.GET)
-	public ModelAndView confirmresaProfil(@PathVariable("id") Integer id, @RequestParam("date") String date, @RequestParam("nbper") String nbper, @RequestParam("name") String name,RedirectAttributes redir, HttpServletRequest request) {
+	public ModelAndView confirmresaProfil(@PathVariable("id") Integer id, @RequestParam("date") String date, @RequestParam("nbper") String nbper, RedirectAttributes redir, HttpServletRequest request) {
 		
 	BookingDTO booking = new BookingDTO();
 	

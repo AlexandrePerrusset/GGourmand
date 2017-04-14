@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -54,12 +55,7 @@ public class SearchController {
 			request.getSession().setAttribute("NbPer", NbPer);
 		}
 		
-//		String cookingname = service.getCookingNameById(cooking);
-//
-//
-//		if (cookingname != null) {
-//			request.getSession().setAttribute("cookingname", cookingname);
-//		}
+
 		
 //		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 //		String string = date;
@@ -71,10 +67,12 @@ public class SearchController {
 //			e1.printStackTrace();
 //		}
 //		Calendar calendar = Calendar.getInstance();
-//		
+//		if (date != null) {
+//		request.getSession().setAttribute("date", madate);
+//	}
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
-		Calendar calendar = Calendar.getInstance();
+		Calendar calendar = new GregorianCalendar();
 		try {
 			calendar.setTime(formatter.parse(date));
 		} catch (ParseException e1) {
