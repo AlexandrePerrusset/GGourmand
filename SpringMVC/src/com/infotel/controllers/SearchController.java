@@ -123,7 +123,7 @@ public class SearchController {
 		if(eateriesDto.size() > 0 ) {
 			return modelAndView;
 		}
-		modelAndView.setViewName("index");
+		modelAndView.setViewName("redirect:/");
 		return modelAndView;
 	}
 	

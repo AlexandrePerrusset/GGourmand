@@ -50,11 +50,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/authent", method=RequestMethod.POST)
-	private String authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
+	private ModelAndView authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
 		UserDTO user =null;
-		if (isConnected(request) == true) {
-			return "index";
-		}else {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/");
 			
 			try {
 				user = userService.authenticate(username, password);
@@ -63,11 +62,9 @@ public class UserController {
 			}
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
-				return "index";
 			}
-		}
-		
-		return "index";
+
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/authentResa", method=RequestMethod.POST)
@@ -101,10 +98,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
-	private String logout(HttpServletRequest request){
+	private ModelAndView logout(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/");
 		
 		request.getSession().invalidate();
-		return "index";
+		return modelAndView;
 	}
 	
 	
@@ -138,12 +137,6 @@ public class UserController {
 			return false;
 		}
 	}
-	@RequestMapping(value="/logoutM", method=RequestMethod.GET)
-	private String logoutM(HttpServletRequest request){
-		
-		request.getSession().invalidate();
-		return "index";
-	}
 	
 	@RequestMapping(value = "/bookingsUser", method = RequestMethod.GET)
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
@@ -157,6 +150,10 @@ public class UserController {
 
 		model.addAttribute("bookings", bookings);
 
-		return "profil";
+		if(request.getSession().getAttribute("user") != null) {
+			return "profil";
+		} else {
+			return "index";
+		}
 	}
 }

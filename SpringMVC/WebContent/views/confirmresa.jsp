@@ -34,10 +34,25 @@
 					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
+
 				<ul id="nav-mobile" class="right">
 					<li><a class="dropdown-button" href="#!"
 						data-activates="dropdown1">Dropdown<i
 							class="material-icons right">arrow_drop_down</i></a></li>
+
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<c:if test="${user.username != null}">
+						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
+					</c:if>
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
+					</c:if>
+
 				</ul>
 			</div>
 		</nav>
@@ -56,6 +71,7 @@
 		<div class="traitrouge"></div>
 
 		<h3 class="titreresa">R&eacute;servation</h3>
+
 
 		<div class="milieu">
 			<div class="container">
@@ -133,6 +149,14 @@
 			</div>
 			<div class="traitrouge"></div>
 		</div>
+
+	
+		</div>
+	</div>
+	<div class="traitrouge"></div>
+	</div>
+
+
 </body>
 
 <!-- Footer -->
