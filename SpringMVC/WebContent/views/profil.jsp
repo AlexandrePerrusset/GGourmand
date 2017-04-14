@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF8"
 	pageEncoding="UTF8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -79,41 +79,14 @@
 	<div class="barrerecherche">
 		<div class="row container">
 			<div class="row">
-				<form class="col s12">
-					<div class="row">
-						<div class="input-field col s4">
-							<input id="icon_prefix" type="text" class="validate"> <label
-								for="icon_prefix">Cherchez un restaurant ou un plat !</label>
-						</div>
-						<div class="input-field col s2">
-							<select>
-								<option value="" disabled selected>Type cuisine</option>
-								<option value="1">Libanais</option>
-								<option value="2">Chinois</option>
-								<option value="3">Japonais</option>
-							</select> <label for="icon_prefix">Cuisine</label>
-						</div>
-						<div class="input-field col s2">
-							<i class="material-icons prefix">today</i> <input type="date"
-								class="datepicker"> <label for="icon_prefix">Date</label>
-						</div>
-						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i> <select>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select> <label for="icon_prefix">Combien ?</label>
-						</div>
-						<div class="input-field col s2">
-							<a class="searchLink" href="recherche.html"><button
-									class="btn waves-effect waves-light buttonSpe" type="submit"
-									name="action">Chercher</a> <i class="material-icons right">search</i>
-							</button>
-						</div>
-					</div>
-				</form>
+				<div class="row">
+					<a class="searchLink" href="/SpringMVC">
+						<button class="btn waves-effect waves-light buttonSpe" id="btnNewSearch"
+							type="submit" name="action">
+							Chercher <i class="material-icons right">search</i>
+						</button>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -134,7 +107,7 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName} ${user.lastName}</p>
+								<p class="user">${user.firstName}${user.lastName}</p>
 							</div>
 						</div>
 
@@ -158,11 +131,19 @@
 									<!-- 											</div> -->
 									<!-- 										</div> -->
 									<div class="card-content">
-									
-										<div><b>Date : </b><fmt:formatDate value="${booking.dateTime.time}" type="both" dateStyle="short" timeStyle="short"/></div>
-										<div><b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
-										<div><b>Nom du restaurant : </b>${booking.eateryName}</div>
-										<div><b>Adresse du restaurant : </b>${booking.street} ${booking.cityName}</div>
+
+										<div>
+											<b>Date : </b>
+											<fmt:formatDate value="${booking.dateTime.time}" dateStyle="short"/>
+										</div>
+										<div>
+											<b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
+										<div>
+											<b>Nom du restaurant : </b>${booking.eateryName}</div>
+										<div>
+											<b>Adresse du restaurant : </b>${booking.street}
+											${booking.cityName}
+										</div>
 									</div>
 								</div>
 

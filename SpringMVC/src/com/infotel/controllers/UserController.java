@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infotel.gg.DTO.BookingDTO;
-import com.infotel.gg.DTO.CustomerDTO;
-import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
@@ -150,8 +148,8 @@ public class UserController {
 	@RequestMapping(value = "/bookingsUser", method = RequestMethod.GET)
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
 		List<BookingDTO> bookings = new ArrayList<BookingDTO>();
+		
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
-		System.out.println(udto);
 		bookings = bookService.findBookingsByCustomer(udto.getUsername());
 		for (BookingDTO bookingDTO : bookings) {
 			System.out.println(bookingDTO);

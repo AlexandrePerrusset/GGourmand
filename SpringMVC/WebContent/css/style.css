@@ -381,3 +381,9 @@ a.titre2 {
   z-index: 1;
   will-change: width, height;
 }
+
+#btnNewSearch{
+	display: block;
+	float: left;
+	margin-left: 100px;
+}
