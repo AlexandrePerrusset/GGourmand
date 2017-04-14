@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infotel.gg.DTO.BookingDTO;
+import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
@@ -50,11 +51,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/authent", method=RequestMethod.POST)
-	private String authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
+	private ModelAndView authentification(@RequestParam(value = "username", required=true) String username, @RequestParam(value = "password", required=true) String password, HttpServletRequest request) {
 		UserDTO user =null;
-		if (isConnected(request) == true) {
-			return "index";
-		}else {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/");
 			
 			try {
 				user = userService.authenticate(username, password);
@@ -63,11 +63,9 @@ public class UserController {
 			}
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
-				return "index";
 			}
-		}
-		
-		return "index";
+
+		return modelAndView;
 	}
 	
 	@RequestMapping(value="/authentResa", method=RequestMethod.POST)
@@ -151,11 +149,6 @@ public class UserController {
 
 		model.addAttribute("bookings", bookings);
 
-		return "profil";
-	}
-	
-	@RequestMapping(value = "/SpringMVC/bookingsUser", method = RequestMethod.GET)
-	public String displayProfile (HttpServletRequest request) {
 		if(request.getSession().getAttribute("user") != null) {
 			return "profil";
 		} else {
