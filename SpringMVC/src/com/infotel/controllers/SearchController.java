@@ -12,6 +12,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.ui.Model;
@@ -108,10 +109,10 @@ public class SearchController {
 			eateriesByName = eateriesByCity;
 		}
 		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
-		if (eateriesByName.size() <= 25) {
+		if (eateriesByName.size() <= 50) {
 			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());
 		}else{
-			eateriesDto  = eateriesByName.subList(0, 24);
+			eateriesDto  = eateriesByName.subList(0, 49);
 		}
 		
 		
@@ -127,6 +128,9 @@ public class SearchController {
 				//model.addAttribute("error", "Impossible de repondre");	
 			}
 		}
+		
+		PagedListHolder<EateryDTO> pagedListHolder = new PagedListHolder<EateryDTO>(eateriesDto);
+        pagedListHolder.setPageSize(10);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/search");
