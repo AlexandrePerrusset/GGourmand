@@ -65,69 +65,6 @@
 
 		<h3 class="titreresa">R&eacute;servation</h3>
 
-		<div class="milieu">
-			<div class="container">
-				<div class="card">
-					<div class="card-content">
-						<h5>${sessionScope.eatery.name}</h5>
-						<span>${eatery.street} - ${eatery.postCode} ${eatery.city}</span>
-					</div>
-				</div>
-
-
-				<div class="card">
-					<div class="card-content">
-						<i class="material-icons">today</i> <span><b>Date :</b>
-							${sessionScope.date}</span>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-content">
-						<i class="material-icons">query_builder</i> <span><b>Heure
-								:</b> heure de la r&eacute;servation</span>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-content">
-						<i class="material-icons">perm_identity</i> <span><b>Nombre
-								de personnes :</b> ${sessionScope.NbPer}</span>
-					</div>
-				</div>
-
-				<c:if
-					test="${sessionScope.NbPer != null && sessionScope.date != null && eatery.name != null }">
-					<form action="eateries/reservation/${eatery.id}/confirmresa/profil">
-						<input type="hidden" name="nbper">${sessionScope.NbPer}</input> <input
-							type="hidden" name="date">${sessionScope.date}</input> <input
-							type="hidden" name="name">${eatery.name}</input>
-						<button class="waves-effect waves-light btn" type="submit"
-							name="resa">
-							Confirmer<i class="material-icons left">thumb_up</i>
-						</button>
-					</form>
-				</c:if>
-
-
-
-
-				<c:if test="${sessionScope.user == null}">
-					<div class="input-field col s8">
-						<a href="#modal1"><button
-								class="btn waves-effect waves-light buttonSpe" type="submit"
-								name="resa">
-								R&eacute;server<i class="material-icons right">done</i>
-							</button></a>
-					</div>
-				</c:if>
-				<a class="waves-effect waves-light btn"><i
-					class="material-icons left">thumb_down</i>Annuler</a>
-
-			</div>
-		</div>
-		<div class="traitrouge"></div>
-	</div>
 	<div class="milieu">
 		<div class="container">
 			<div class="card">

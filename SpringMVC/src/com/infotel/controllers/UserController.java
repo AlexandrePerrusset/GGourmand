@@ -99,10 +99,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
-	private String logout(HttpServletRequest request){
+	private ModelAndView logout(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/");
 		
 		request.getSession().invalidate();
-		return "index";
+		return modelAndView;
 	}
 	
 	
