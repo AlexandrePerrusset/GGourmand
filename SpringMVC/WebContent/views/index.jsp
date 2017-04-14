@@ -117,31 +117,31 @@
 							</select>
 						</div>
 						<div class="input-field col s5">
-							<input name="nom" id="first_name" type="text" class="validate"> <label
+							<input name="nom" id="first_name" type="text" class="validate" required="true"> <label
 								for="first_name" >Nom</label></input>
 						</div>
 						<div class="input-field col s5">
-							<input name="prenom" id="last_name" type="text" class="validate"> <label
+							<input name="prenom" id="last_name" type="text" class="validate" required="true"> <label
 								for="last_name">Pr&eacute;nom</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">vpn_key</i> <input name="password" id="password"
-								type="password" class="validate"> <label for="password" >Mot
+								type="password" class="validate" required="true"> <label for="password" >Mot
 								de passe</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> <input name="username" id="email"
-								type="email" class="validate"> <label for="email">Email</label></input>
+								type="email" class="validate" required="true"> <label for="email">Email</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
-								name="tel" id="icon_telephone" type="tel" class="validate"> <label
+								name="tel" id="icon_telephone" type="tel" class="validate" required="true"> <label
 								for="icon_telephone" >t&eacute;l&eacute;phone</label></input>
 						</div>
 					</div>

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infotel.gg.DTO.BookingDTO;
-import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;

@@ -78,37 +78,37 @@
 							</select>
 						</div>
 						<div class="input-field col s5">
-							<input id="first_name" type="text" class="validate"> <label
+							<input id="first_name" type="text" class="validate" required="true"> <label
 								for="first_name">Nom</label>
 						</div>
 						<div class="input-field col s5">
-							<input id="last_name" type="text" class="validate"> <label
+							<input id="last_name" type="text" class="validate" required="true"> <label
 								for="last_name">Pr&eacute;nom</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">vpn_key</i> <input id="password"
-								type="password" class="validate"> <label for="password">Mot
+								type="password" class="validate" required="true"> <label for="password">Mot
 								de passe</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> <input id="email"
-								type="email" class="validate"> <label for="email">Email</label>
+								type="email" class="validate" required="true"> <label for="email">Email</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
-								id="icon_telephone" type="tel" class="validate"> <label
+								id="icon_telephone" type="tel" class="validate" required="true"> <label
 								for="icon_telephone">t&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
 						class="waves-effect waves-light btn-large modalLink"
-						value="CrÃ©er mon compte" />
+						value="Cr&eacute;er mon compte" />
 				</form>
 			</div>
 
