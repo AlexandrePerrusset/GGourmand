@@ -45,5 +45,7 @@ public interface CatalogService {
 
 	String getCookingNameById(int id);
 
+	List<EateryDTO> findEateryByCity(SearchCriteriaDTO criteria);
+
 	
 }

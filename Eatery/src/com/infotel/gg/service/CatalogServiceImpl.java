@@ -265,6 +265,8 @@ public class CatalogServiceImpl implements CatalogService {
 		cities.stream().forEach(c -> result.add(transform(c)));
 		return result;
 	}
+	
+	
 	@Override
 	public List<CityDTO> getAllCitiesForemost() {
 		List<CityDTO> result = new ArrayList<CityDTO>();
@@ -298,7 +300,15 @@ public class CatalogServiceImpl implements CatalogService {
 		imgdataDto.setContent(imgdata.getBase64URL());
 		return imgdataDto;
 	}
-	
+	@Override
+	public List<EateryDTO> findEateryByCity(SearchCriteriaDTO criteria) {
+		SearchCriteria criter = new SearchCriteria();
+		criter = parseCrit(criteria);
+		List<Eatery> daoresult = cityDAO.findByCriteria(criter);
+		List<EateryDTO> result = daoresult.stream().map(e -> transform(e, false))
+				.collect(Collectors.toList());
+		return result;
+	}
 
 
 	@Override

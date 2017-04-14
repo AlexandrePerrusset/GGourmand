@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.model.City;
+import com.infotel.gg.model.Eatery;
+import com.infotel.gg.model.EateryResult;
+import com.infotel.gg.model.SearchCriteria;
 
 @Repository
 public class CityDAOHbn extends DAOHbn implements CityDAO {
@@ -71,5 +74,25 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		Query q = getSession().createQuery(request);	
 		result = q.getResultList();
 		return result;
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public List<Eatery> findByCriteria(SearchCriteria criter) {		
+		String request = "select eat from Eatery eat, City c where eat.address.city.id = c.id and c.name LIKE :name";
+		
+		if(criter.getCookingStyleId() != -1) {
+			request +=" and eat.cookingStyle.id = :cookingStyleId";
+		}
+		
+		Query q = getSession().createQuery(request);		
+
+		if(criter.getCookingStyleId() != -1) {
+			q.setParameter("cookingStyleId", criter.getCookingStyleId());
+		}
+		q.setParameter("name", "%"+criter.getName()+"%");
+		
+		List<Eatery> result = q.getResultList();
+		return result; 
 	}
 }

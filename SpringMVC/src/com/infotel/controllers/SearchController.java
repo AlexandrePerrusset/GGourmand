@@ -97,9 +97,25 @@ public class SearchController {
 				request.getSession().setAttribute("cookingname", cookingname);
 			}				
 		}
-		List<EateryDTO> eateriesDto = service.findEateryByCriteria(criteria);
+		
+		List<EateryDTO> eateriesByName = service.findEateryByCriteria(criteria);
+		List<EateryDTO> eateriesByCity = service.findEateryByCity(criteria);
 		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
 		List<ImageDataDTO> imgList = new ArrayList<>();
+		
+	
+		if(eateriesByName.size() < eateriesByCity.size()){
+			eateriesByName = eateriesByCity;
+		}
+		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
+		if (eateriesByName.size() <= 25) {
+			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());
+		}else{
+			eateriesDto  = eateriesByName.subList(0, 24);
+		}
+		
+		
+		
 		for (EateryDTO eateryDTO : eateriesDto) {
 			try {
 				
