@@ -25,12 +25,6 @@
 
 <header>
 	<div class="navbar-fixed">
-		<ul id="dropdown1" class="dropdown-content">
-			<li><a href="#!">one</a></li>
-			<li><a href="#!">two</a></li>
-			<li class="divider"></li>
-			<li><a href="#!">three</a></li>
-		</ul>
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a

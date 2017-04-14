@@ -20,6 +20,11 @@
 
 <header>
 	<div class="navbar-fixed">
+		<ul id="dropdown" class="dropdown-content">
+			<li><a href="#modalU"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
+			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
+		</ul>
+
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
@@ -31,9 +36,12 @@
 						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
-					<c:if test="${user.username == null}">		
-						<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-						<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -45,21 +53,22 @@
 
 	<div id="modalU" class="modal col s5 modalBox">
 		<div class="modal-content">
-			<form class="col s3"
-				action="authent" method="POST">
+			<form class="col s3" action="authent" method="POST">
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="username" id="icon_prefix" name="nom" type="text" class="validate">
-					<label for="icon_prefix">Nom de compte</label>
+						name="username" id="icon_prefix" name="nom" type="text"
+						class="validate"> <label for="icon_prefix">Nom de
+						compte</label>
 				</div>
 				<div class="input-field col s3">
-					<i class="material-icons prefix">vpn_key</i> <input
-						name="password" id="icon_telephone" type="tel" class="validate"> <label
+					<i class="material-icons prefix">vpn_key</i> <input name="password"
+						id="icon_telephone" type="tel" class="validate"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
-					<input name="connection" type="submit" value="Se connecter" class="waves-effect waves-light btn modalLink" />
+					<input name="connection" type="submit" value="Se connecter"
+						class="waves-effect waves-light btn modalLink" />
 				</div>
 			</form>
 
@@ -78,32 +87,33 @@
 							</select>
 						</div>
 						<div class="input-field col s5">
-							<input id="first_name" type="text" class="validate" required="true"> <label
-								for="first_name">Nom</label>
+							<input id="first_name" type="text" class="validate"
+								required="true"> <label for="first_name">Nom</label>
 						</div>
 						<div class="input-field col s5">
-							<input id="last_name" type="text" class="validate" required="true"> <label
-								for="last_name">Pr&eacute;nom</label>
+							<input id="last_name" type="text" class="validate"
+								required="true"> <label for="last_name">Pr&eacute;nom</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">vpn_key</i> <input id="password"
-								type="password" class="validate" required="true"> <label for="password">Mot
-								de passe</label>
+								type="password" class="validate" required="true"> <label
+								for="password">Mot de passe</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">mail</i> <input id="email"
-								type="email" class="validate" required="true"> <label for="email">Email</label>
+								type="email" class="validate" required="true"> <label
+								for="email">Email</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
-								id="icon_telephone" type="tel" class="validate" required="true"> <label
-								for="icon_telephone">t&eacute;l&eacute;phone</label>
+								id="icon_telephone" type="tel" class="validate" required="true">
+							<label for="icon_telephone">t&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
@@ -133,12 +143,12 @@
 							</select> <label for="icon_prefix">Cuisine</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">today</i> <input name="date" type="date"
-								class="datepicker"> <label for="icon_prefix">${sessionScope.date}</label>
+							<i class="material-icons prefix">today</i> <input name="date"
+								type="date" class="datepicker"> <label for="icon_prefix">${sessionScope.date}</label>
 						</div>
 						<div class="input-field col s2">
-							<i class="material-icons prefix">supervisor_account</i>
-							<select name="NbPer">
+							<i class="material-icons prefix">supervisor_account</i> <select
+								name="NbPer">
 								<option>${sessionScope.NbPer}</option>
 								<c:forEach var="i" begin="1" end="15" step="1">
 									<option value="${i}">${i}</option>
@@ -146,7 +156,7 @@
 							</select> <label for="icon_prefix">Combien ?</label>
 						</div>
 						<div class="input-field col s2">
-							<a class="searchLink" ><button
+							<a class="searchLink"><button
 									class="btn waves-effect waves-light buttonSpe" type="submit">
 									Chercher <i class="material-icons right">search</i>
 								</button></a>
@@ -156,7 +166,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div class="resultats">
 		<div class="container">
@@ -189,45 +199,50 @@
 							<div class="row">
 								<div class="col s3">
 									<div class="card-image">
-										<a href="eateries/reservation/${eatery.id}"><img src="${imgdto[status.index].content}" class="imgsearch"></a>
+										<a href="eateries/reservation/${eatery.id}"><img
+											src="${imgdto[status.index].content}" class="imgsearch"></a>
 									</div>
 								</div>
 								<div class="col s9">
 									<div class="card-content">
 
-									<h5 style="display:inline;"><a class="titre2" href="eateries/reservation/${eatery.id}">${eatery.name}</a></h5>		
-									<span class="titrecity">${eatery.city}</span>
-									<ul>
-									<li><i class="material-icons prefix">restaurant</i>${eatery.cookingStyle}</li>
-									<li><i class="material-icons prefix">euro_symbol</i>${eatery.price} en moyenne par personne</li>						
-									<c:forEach items="${eatery.eateryTagName}" var="tag">
-											<li><i class="material-icons prefix">favorite</i>${tag} </li>
-										</c:forEach>
-							
-									</ul>
-					
+										<h5 style="display: inline;">
+											<a class="titre2" href="eateries/reservation/${eatery.id}">${eatery.name}</a>
+										</h5>
+										<span class="titrecity">${eatery.city}</span>
+										<ul>
+											<li><i class="material-icons prefix">restaurant</i>${eatery.cookingStyle}</li>
+											<li><i class="material-icons prefix">euro_symbol</i>${eatery.price}
+												en moyenne par personne</li>
+											<c:forEach items="${eatery.eateryTagName}" var="tag">
+												<li><i class="material-icons prefix">favorite</i>${tag}
+												</li>
+											</c:forEach>
 
-										
+										</ul>
+
+
+
 
 									</div>
 								</div>
 							</div>
 						</div>
 					</c:forEach>
-					
-			
 
-					
+
+
+
 
 				</div>
 				<ul class="pagination">
-					
+
 					<li class="waves-effect"><a href="">1</a></li>
 					<li class="waves-effect"><a href="#!">2</a></li>
 					<li class="waves-effect"><a href="#!">3</a></li>
 					<li class="waves-effect"><a href="#!">4</a></li>
 					<li class="waves-effect"><a href="#!">5</a></li>
-					
+
 				</ul>
 			</div>
 		</div>
