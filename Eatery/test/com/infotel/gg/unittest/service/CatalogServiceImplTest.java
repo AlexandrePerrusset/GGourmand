@@ -42,6 +42,7 @@ public class CatalogServiceImplTest {
 	List<EateryDTO> eateriesdto;
 
 	List<CityDTO>citiesdto;
+	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -151,7 +152,6 @@ public class CatalogServiceImplTest {
 		assertNotNull("Foremost found", citiesdto.get(0).getForemost());	
 		assertNotNull("Pays found", citiesdto.get(0).getCountry_name());
 		assertNotNull("Region found", citiesdto.get(0).getRegion_name());
-		System.out.println(citiesdto);
 	}
 	
 	@Test
@@ -164,7 +164,6 @@ public class CatalogServiceImplTest {
 		assertNotNull("Foremost found", citiesdto.get(0).getForemost());	
 		assertNotNull("Pays found", citiesdto.get(0).getCountry_name());
 		assertNotNull("Region found", citiesdto.get(0).getRegion_name());
-		System.out.println(citiesdto);
 	}
 	
 	
@@ -176,7 +175,6 @@ public class CatalogServiceImplTest {
 		eateriesdto = new ArrayList<EateryDTO>();
 		eateriesdto = catservice.findEateryByCriteria(criteriadto );
 		assertNotNull("liste eateries non null", eateriesdto.get(0).getName());
-		System.out.println(eateriesdto);
 		
 	}
 }

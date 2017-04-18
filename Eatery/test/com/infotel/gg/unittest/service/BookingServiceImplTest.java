@@ -149,7 +149,6 @@ public class BookingServiceImplTest {
 		
 		for (BookingDTO bookingDTO : bookingDTOs) {
 			assertNotNull(bookingDTO);
-			System.out.println(bookingDTO);
 		}
 	}
 	
