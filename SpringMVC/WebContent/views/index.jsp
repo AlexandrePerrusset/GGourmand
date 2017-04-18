@@ -70,12 +70,11 @@
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
 						name="username" id="icon_prefix" name="nom" type="text"
-						class="validate"> <label for="icon_prefix">Nom de
-						compte</label>
+						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input name="password"
-						id="icon_telephone" type="tel" class="validate"> <label
+						id="icon_telephone" type="tel" class="validate" required="true"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
@@ -94,12 +93,11 @@
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
 						name="usernameM" id="icon_prefix" name="nom" type="text"
-						class="validate"> <label for="icon_prefix">Nom de
-						compte</label>
+						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input
-						name="passwordM" id="icon_telephone" type="tel" class="validate">
+						name="passwordM" id="icon_telephone" type="tel" class="validate" required="true">
 					<label for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
@@ -150,7 +148,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input name="tel"
 								id="icon_telephone" type="tel" class="validate" required="true">
-							<label for="icon_telephone">t&eacute;l&eacute;phone</label></input>
+							<label for="icon_telephone">T&eacute;l&eacute;phone</label></input>
 						</div>
 					</div>
 					<input type="submit"
@@ -261,9 +259,9 @@
 			{
 				selectMonths : true, // Creates a dropdown to control month
 				format : 'dd/mm/yyyy',
-				monthsFull : [ 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai',
-						'Juin', 'Juillet', 'AoÃ»', 'Septembre', 'Octobre',
-						'Novembre', 'Decembre' ],
+				monthsFull : [ 'Janvier', 'F&eacute;vrier', 'Mars', 'Avril', 'Mai',
+						'Juin', 'Juillet', 'Ao&ucirc;t', 'Septembre', 'Octobre',
+						'Novembre', 'D&eacute;cembre' ],
 				monthsShort : [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin',
 						'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
 				weekdaysFull : [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
@@ -274,7 +272,6 @@
 				today : '',
 				clear : 'Raz',
 				close : 'Fermer'
-
 			});
 	$(document).ready(function() {
 		$('select').material_select();
@@ -283,5 +280,16 @@
 		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 		$('.modal').modal();
 	});
+	
+// 	var dateToday = new Date();
+// 	$('.datepicker').change(function() {
+// 		var updatedDate = $(this).val();
+// 		var instance = $(this).data("datepicker");
+// 		var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
+		
+// 		if(date < dateToday) {
+// 			$(this).datepicker("setDate", dateToday);
+// 		}
+// 	});
 </script>
 </html>

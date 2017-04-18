@@ -58,12 +58,11 @@
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
 						name="username" id="icon_prefix" name="nom" type="text"
-						class="validate"> <label for="icon_prefix">Nom de
-						compte</label>
+						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input name="password"
-						id="icon_telephone" type="tel" class="validate"> <label
+						id="icon_telephone" type="tel" class="validate" required="true"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
@@ -113,7 +112,7 @@
 						<div class="input-field col s12">
 							<i class="material-icons prefix">phone</i> <input
 								id="icon_telephone" type="tel" class="validate" required="true">
-							<label for="icon_telephone">t&eacute;l&eacute;phone</label>
+							<label for="icon_telephone">T&eacute;l&eacute;phone</label>
 						</div>
 					</div>
 					<input type="submit"
