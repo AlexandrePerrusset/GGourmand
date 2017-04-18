@@ -78,18 +78,4 @@ public class UserServiceImplTest {
 		assertNotNull("le customer n'est pas null registerOk", custdao.read(udto.getUsername()));
 	}
 	
-	// TODO : registerKo
-//	@Test(expected=GGourmandException.class)
-//	public void registerKo() throws GGourmandException{
-//		udto.setFirstName("Thomas");
-//		udto.setLastName("Samoht");
-//		udto.setTitle( "Mr");
-//		udto.setPhone("0222336655");
-//		udto.setUsername(null);
-//		udto.setPassword("pass2");
-//		udto.setType("customer");
-//		
-//		us.register(udto);
-//		assertNull("le customer est null registerKo", custdao.read(udto.getUsername()));
-//	}
 }

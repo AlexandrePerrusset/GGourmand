@@ -14,8 +14,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.infotel.gg.DTO.BookingDTO;
+import com.infotel.gg.DTO.BookingReportDTO;
 import com.infotel.gg.dao.BookingDAO;
 import com.infotel.gg.dao.BookingReportDAO;
 import com.infotel.gg.dao.CustomerDAO;
@@ -31,6 +33,7 @@ import com.infotel.gg.service.BookingService;
 
 import DBUnit.DBUtils;
 
+@EnableTransactionManagement
 public class BookingServiceImplTest {
 	static BookingService bookservice;
 	Booking booking;
@@ -73,22 +76,25 @@ public class BookingServiceImplTest {
 	public void tearDown() throws Exception {
 	}
 
-//	@Test
-//	public void saveBookingOk() throws GGourmandException {
-//		customer = custdao.read("jefr");
-//		eatery = edao.read(6);
-//		booking = new Booking(2, calendar, 3, eatery, customer);
-//		bookservice.saveBooking(booking);
-//		
-//		Booking newBooking = new Booking();
-//		newBooking = bookdao.read(booking.getId());
-//		
-//		assertNotNull(newBooking);
-//		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
-//		assertEquals(newBooking.getEatery().getName(), eatery.getName());
-//		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
-//		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
-//	}
+	@Test
+	public void saveBookingOk() throws GGourmandException {
+		
+		BookingDTO bDTO = new BookingDTO();
+		bDTO.setDateTime(calendar);
+		bDTO.setCustomerId("jefr");
+		bDTO.setEateryId(6);
+		bDTO.setNumberOfPeople("3");
+		bookservice.saveBooking(bDTO);
+		
+		Booking newBooking = new Booking();
+		newBooking = bookdao.read(booking.getId());
+		
+		assertNotNull(newBooking);
+		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
+		assertEquals(newBooking.getEatery().getName(), eatery.getName());
+		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
+		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
+	}
 	
 	@Test
 	public void findBookingByIdOk() throws GGourmandException {
@@ -97,21 +103,26 @@ public class BookingServiceImplTest {
 		assertEquals(booking.getNbOfCustomer(), 10);
 	}
 	
-//	@Test
-//	public void saveBookingReportOk() throws GGourmandException {
-//		booking = bookdao.read(42);
-//		eatman = eatmandao.read("raphi2@gmail.com");
-//		bookreport = new BookingReport(1, calendar, true, "comment", 0.5, 0.6, eatman, booking);
-//		bookservice.saveBookingReport(bookreport);
-//		
-//		BookingReport newbookreport = new BookingReport();
-//		newbookreport = bookingreportdao.read(bookreport.getId());
-//		
-//		assertNotNull(newbookreport);
-//		assertEquals(newbookreport.getComment(), bookreport.getComment());
-//		assertEquals(newbookreport.getDate(), bookreport.getDate());
-//	}
-//	
+	@Test
+	public void saveBookingReportOk() throws GGourmandException {
+		
+		BookingReportDTO brd = new BookingReportDTO();
+		brd.setBookingId(42);
+		brd.setComment("comment");
+		brd.setDate(calendar);
+		brd.setDueAmount(0.5);
+		brd.setTakingAmount(0.6);
+		brd.seteMId("raphi2@gmail.com");
+		bookservice.saveBookingReport(brd);
+		
+		BookingReport newbookreport = new BookingReport();
+		newbookreport = bookingreportdao.read(bookreport.getId());
+		
+		assertNotNull(newbookreport);
+		assertEquals(newbookreport.getComment(), bookreport.getComment());
+		assertEquals(newbookreport.getDate(), bookreport.getDate());
+	}
+	
 	@Test
 	public void findBookingsByCustomerOk() throws GGourmandException {
 		bookingDTOs = new ArrayList<BookingDTO>();
@@ -126,7 +137,7 @@ public class BookingServiceImplTest {
 	public void findBookingsByEateryOk() throws GGourmandException {
 		bookingDTOs = new ArrayList<BookingDTO>();
 		bookingDTOs = bookservice.findBookingsByEatery(1);
-		System.out.println(bookingDTOs.size());
+
 		assertEquals(bookingDTOs.size(), 0);
 	}
 	
@@ -134,7 +145,7 @@ public class BookingServiceImplTest {
 	public void findBookingsByEateryOk2() throws GGourmandException {
 		bookingDTOs = new ArrayList<BookingDTO>();
 		bookingDTOs = bookservice.findBookingsByEatery(11);
-		System.out.println(bookingDTOs.size());
+	
 		
 		for (BookingDTO bookingDTO : bookingDTOs) {
 			assertNotNull(bookingDTO);
