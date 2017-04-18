@@ -173,8 +173,8 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="icon_prefix" type="text" class="validate"
-								name="recherche"> <label for="icon_prefix">Cherchez
-								un restaurant ou un plat !</label>
+								name="recherche" required="true"> <label for="icon_prefix">Cherchez
+								un restaurant ou une ville !</label>
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">

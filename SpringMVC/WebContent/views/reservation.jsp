@@ -171,7 +171,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="icon_prefix" type="text" class="validate"
-								name="recherche"> <label for="icon_prefix">${sessionScope.recherche}</label>
+								name="recherche" required="true"> <label for="icon_prefix">${sessionScope.recherche}</label>
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
