@@ -164,9 +164,6 @@ public class UserController {
 		
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
 		bookings = bookService.findBookingsByCustomer(udto.getUsername());
-		for (BookingDTO bookingDTO : bookings) {
-			System.out.println(bookingDTO);
-		}
 
 		model.addAttribute("bookings", bookings);
 
