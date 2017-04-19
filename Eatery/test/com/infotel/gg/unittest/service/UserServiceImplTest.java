@@ -1,6 +1,9 @@
 package com.infotel.gg.unittest.service;
 
 import static org.junit.Assert.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,6 +31,7 @@ public class UserServiceImplTest {
 	Customer cust = new Customer();
 
 	static CustomerDAO custdao;
+	private final static Logger log = LogManager.getLogger(UserServiceImplTest.class);
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -48,6 +52,7 @@ public class UserServiceImplTest {
 
 	@After
 	public void tearDown() throws Exception {
+		udto = null;
 	}
 
 	@Test
@@ -55,7 +60,7 @@ public class UserServiceImplTest {
 		udto = us.authenticate("jefr", "fo");
 		assertNotNull("UserDTO n'est pas null",udto);
 		assertEquals("Identifiant correct", "jefr", udto.getUsername());
-		assertEquals("Mot de passe correct", "fo", udto.getPassword());
+		assertEquals("Prenom correct", "Jean", udto.getFirstName());
 	}
 	
 	@Test(expected=AuthenticationException.class)

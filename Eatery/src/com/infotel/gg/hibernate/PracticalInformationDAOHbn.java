@@ -3,6 +3,7 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.dao.PracticalInformationDAO;
 import com.infotel.gg.exception.DAOException;
@@ -10,6 +11,7 @@ import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.PracticalInformation;
 
 @Repository
+@Transactional
 public class PracticalInformationDAOHbn extends DAOHbn implements PracticalInformationDAO{
 
 	@Override

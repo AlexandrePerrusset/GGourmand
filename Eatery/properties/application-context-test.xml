@@ -21,4 +21,6 @@
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
+	
+	<tx:annotation-driven/>
 </beans>

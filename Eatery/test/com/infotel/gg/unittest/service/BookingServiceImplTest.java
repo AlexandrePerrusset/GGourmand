@@ -7,6 +7,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -50,6 +52,8 @@ public class BookingServiceImplTest {
 	List<BookingDTO> bookingDTOs;
 	List<Booking> bookings;
 
+	private final static Logger log = LogManager.getLogger(UserServiceImplTest.class);
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		DBUtils.startDB();
@@ -85,15 +89,16 @@ public class BookingServiceImplTest {
 		bDTO.setEateryId(6);
 		bDTO.setNumberOfPeople("3");
 		bookservice.saveBooking(bDTO);
-		
+		bDTO = bookservice.findBookingsByCustomer("jefr").get(0);
+
 		Booking newBooking = new Booking();
-		newBooking = bookdao.read(booking.getId());
+		newBooking = bookdao.read(Integer.parseInt(bDTO.getId()));
 		
+
 		assertNotNull(newBooking);
-		assertEquals(newBooking.getNbOfCustomer(), booking.getNbOfCustomer());
-		assertEquals(newBooking.getEatery().getName(), eatery.getName());
-		assertEquals(newBooking.getCustomer().getLastName(), customer.getLastName());
-		assertEquals(newBooking.getCustomer().getPhone(), customer.getPhone());
+		assertEquals(newBooking.getNbOfCustomer(), Integer.parseInt(bDTO.getNumberOfPeople()));
+		assertEquals(newBooking.getEatery().getId(), bDTO.getEateryId());
+		
 	}
 	
 	@Test
@@ -116,11 +121,11 @@ public class BookingServiceImplTest {
 		bookservice.saveBookingReport(brd);
 		
 		BookingReport newbookreport = new BookingReport();
-		newbookreport = bookingreportdao.read(bookreport.getId());
+		newbookreport = bookingreportdao.listBookReportByBookId(42).get(0);
 		
 		assertNotNull(newbookreport);
-		assertEquals(newbookreport.getComment(), bookreport.getComment());
-		assertEquals(newbookreport.getDate(), bookreport.getDate());
+		assertEquals(newbookreport.getComment(), brd.getComment());
+		assertEquals(newbookreport.geteM().getUsername(), brd.geteMId());
 	}
 	
 	@Test

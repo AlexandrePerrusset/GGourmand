@@ -6,6 +6,7 @@ package com.infotel.gg.hibernate;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.dao.EateryTagDAO;
 import com.infotel.gg.exception.DAOException;
@@ -13,6 +14,7 @@ import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.EateryTag;
 
 @Repository
+@Transactional
 public class EateryTagDAOHbn extends DAOHbn implements EateryTagDAO{
 
 

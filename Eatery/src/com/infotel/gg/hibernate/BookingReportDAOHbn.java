@@ -64,4 +64,16 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 		return result;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public List<BookingReport> listBookReportByBookId(int id) {
+		List<BookingReport> result = null;
+		String request = "SELECT br FROM BookingReport br, Booking b where br.booking.id = b.id and br.booking.id = :id";
+		
+		Query q = getSession().createQuery(request);	
+		q.setParameter("id", id);
+		result = q.getResultList();
+		return result;
+	}
+	
 }

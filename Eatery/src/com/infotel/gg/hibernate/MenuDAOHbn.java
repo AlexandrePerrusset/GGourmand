@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.infotel.gg.dao.MenuDAO;
 import com.infotel.gg.exception.DAOException;
@@ -12,6 +13,7 @@ import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Menu;
 
 @Repository
+@Transactional
 public class MenuDAOHbn extends DAOHbn implements MenuDAO{
 
 	@Override
