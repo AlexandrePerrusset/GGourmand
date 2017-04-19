@@ -1,5 +1,6 @@
 package com.infotel.gg.rs;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -64,8 +65,19 @@ public class CatalogController {
 			consumes=MediaType.APPLICATION_JSON_VALUE,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<EateryDTO> searchEateriesJson(@RequestBody SearchCriteriaDTO crit) {
-		List<EateryDTO> eateries =  service.findEateryByCriteria(crit);
-		return eateries;
+		List<EateryDTO> eateriesByName =  service.findEateryByCriteria(crit);
+		List<EateryDTO> eateriesByCity = service.findEateryByCity(crit);
+		
+		if(eateriesByName.size() < eateriesByCity.size()){
+			eateriesByName = eateriesByCity;
+		}
+		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
+		if (eateriesByName.size() <= 50) {
+			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());
+		}else{
+			eateriesDto  = eateriesByName.subList(0, 49);
+		}
+		return eateriesDto;
 	}
 	
 	@RequestMapping("/cities")
