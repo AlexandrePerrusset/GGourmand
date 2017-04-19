@@ -4,12 +4,12 @@ package com.infotel.controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -31,6 +31,8 @@ import com.infotel.gg.service.CatalogService;
 @Controller
 @EnableTransactionManagement
 public class confirmresaController {
+	
+	
 	
 	@Autowired
 	CatalogService service;
@@ -61,24 +63,25 @@ public class confirmresaController {
 		
 	BookingDTO booking = new BookingDTO();
 	
+
 	
-//	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
-//	String string = date;
-//	try {
-//		Date date1 = formatter.parse(string);
-//	} catch (ParseException e1) {
-//		// TODO Auto-generated catch block
-//		e1.printStackTrace();
-//	}
+	if(date.isEmpty())
+		date = (String) request.getSession().getAttribute("date");
+	
 	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 	Calendar calendar = Calendar.getInstance();
+
 	try {
 		calendar.setTime(formatter.parse(date));
+		
+		
 	} catch (ParseException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
 	String madate = formatter.format(calendar.getTime());
+	
+	
 	UserDTO userdto =(UserDTO) request.getSession().getAttribute("user");
 	booking.setDateTime(calendar);
 	booking.setNumberOfPeople(nbper);
@@ -98,10 +101,6 @@ public class confirmresaController {
 
 		return modelAndView;
 	}
-//	
-//	@RequestMapping(value = "/profil", method = RequestMethod.GET)
-//	public String confirmresaProfil(Model model) {
-//		return "profil";
-//	}
+
 
 }

@@ -22,6 +22,12 @@
 
 <header>
 	<div class="navbar-fixed">
+		<ul id="dropdown1" class="dropdown-content">
+			<li><a href="#!">one</a></li>
+			<li><a href="#!">two</a></li>
+			<li class="divider"></li>
+			<li><a href="#!">three</a></li>
+		</ul>
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
@@ -29,7 +35,11 @@
 					class="brand-logo logoGG text-darken-2 titleStyle"><i
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 
-					
+				<ul id="nav-mobile" class="right">
+					<li><a class="dropdown-button" href="#!"
+						data-activates="dropdown1">Dropdown<i
+							class="material-icons right">arrow_drop_down</i></a></li>
+
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
 						<c:if test="${user.username != null}">
 							<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
@@ -42,6 +52,7 @@
 							</a></li>
 							<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 						</c:if>
+
 					</ul>
 			</div>
 		</nav>
@@ -81,7 +92,7 @@
 							<div class="row ">
 								
 									<div class="input-field col s6">
-										<i class="material-icons prefix">today</i> <input name="date"
+										<i class="material-icons prefix">today</i> <input name="date" value="${sessionScope.date}"
 											type="date" class="datepicker"> <label
 											for="icon_prefix">${sessionScope.date}</label>
 									</div>
