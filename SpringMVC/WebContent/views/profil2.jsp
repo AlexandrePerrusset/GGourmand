@@ -35,9 +35,12 @@
 					<c:if test="${user.username != null}">
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
-					<c:if test="${user.username == null}">		
-						<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-						<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -79,8 +82,8 @@
 			<div class="row">
 				<div class="row">
 					<a class="searchLink" href="/SpringMVC">
-						<button class="btn waves-effect waves-light buttonSpe" id="btnNewSearch"
-							type="submit" name="action">
+						<button class="btn waves-effect waves-light buttonSpe"
+							id="btnNewSearch" type="submit" name="action">
 							Chercher <i class="material-icons right">search</i>
 						</button>
 					</a>
@@ -105,52 +108,63 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName} ${user.lastName}</p>
+								<p class="user">${user.firstName}${user.lastName}</p>
 							</div>
 						</div>
 
 
 						<div class="collection">
-							<a href="#!" class="collection-item active">Mes
-								r&eacute;servations</a> <a href="/SpringMVC/infos" class="collection-item ">Mes
+							<a href="/SpringMVC/bookingsUser" class="collection-item">Mes
+								r&eacute;servations</a> <a href="#!" class="collection-item active">Mes
 								informations</a> <a href="#!" class="collection-item">Mes avis</a>
 						</div>
 					</div>
 
 
 					<div class="col s9">
-						<h5 class="titreresa">Mes r&eacute;servations</h5>
-						<c:forEach items="${bookings}" var="booking" varStatus="status">
-							<div class="card horizontal">
+						<h5 class="titreresa">Mes informations</h5>
+						<p id="titreinfo">Voici les informations vous concernant que nous
+							transmettrons au restaurant</p>
+						<div class="card horizontal">
+							<div class="input-field col s12">
 								<div class="row">
-									<!-- 										<div class="col s3"> -->
-									<!-- 											<div class="card-image"> -->
-									<!-- 												<img src="sources/resto.jpg" class="responsive-img"> -->
-									<!-- 											</div> -->
-									<!-- 										</div> -->
-									<div class="card-content">
-
-										<div>
-											<b>Date : </b>
-											<fmt:formatDate value="${booking.dateTime.time}" dateStyle="short"/>
-										</div>
-										<div>
-											<b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
-										<div>
-											<b>Nom du restaurant : </b>${booking.eateryName}</div>
-										<div>
-											<b>Adresse du restaurant : </b>${booking.street}
-											${booking.cityName}
-										</div>
+									<div class="input-field col s2">
+										<input name="nom" id="first_name" type="text" ><label for="first_name">${sessionScope.user.title}</label></input>
+									</div>
+									<div class="input-field col s5">
+										<input name="nom" id="first_name" type="text" class="validate"
+											required="true"> <label for="first_name">${sessionScope.user.firstName}</label></input>
+									</div>
+									<div class="input-field col s5">
+										<input name="prenom" id="last_name" type="text"
+											class="validate" required="true"> <label
+											for="last_name">${sessionScope.user.lastName}</label></input>
 									</div>
 								</div>
-
+								
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">mail</i> <input
+											name="username" id="email" type="email" class="validate"
+											required="true"> <label for="email">${sessionScope.user.username}</label></input>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">phone</i> <input name="tel"
+											id="icon_telephone" type="tel" class="validate"
+											required="true"> <label for="icon_telephone">${sessionScope.user.phone}</label></input>
+									</div>
+								</div>
 							</div>
-						</c:forEach>
+
+						</div>
 					</div>
+
 				</div>
-				<div class="traitrouge"></div>
 			</div>
+			<div class="traitrouge"></div>
+		</div>
 </body>
 
 <!-- Footer -->

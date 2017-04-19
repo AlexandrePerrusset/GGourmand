@@ -413,3 +413,12 @@ a.titre2 {
 	background-color: #800b03;
 	height: 50px;
 }
+
+#titreinfo{
+	color: white;
+	text-align: center;
+}
+
+i.material-icons.prefix.active{
+	color: #800b03;
+}

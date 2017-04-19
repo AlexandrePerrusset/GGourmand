@@ -173,4 +173,11 @@ public class UserController {
 			return "index";
 		}
 	}
+	
+	@RequestMapping(value = "/infos", method = RequestMethod.GET)
+	public String infos(Model model) {
+		return "profil2";
+	}
+	
+	
 }
