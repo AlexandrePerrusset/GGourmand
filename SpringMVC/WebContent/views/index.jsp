@@ -281,15 +281,26 @@
 		$('.modal').modal();
 	});
 	
-// 	var dateToday = new Date();
-// 	$('.datepicker').change(function() {
-// 		var updatedDate = $(this).val();
-// 		var instance = $(this).data("datepicker");
-// 		var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
-		
-// 		if(date < dateToday) {
-// 			$(this).datepicker("setDate", dateToday);
-// 		}
+// 	$document.ready(function() {
+// 		var dateToday = new Date();
+// 		$('.datepicker').change(function() {
+// 			var updatedDate = $(this).val();
+// 			var instance = $(this).data("datepicker");
+// 			var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
+			
+// 			if(date < dateToday) {
+// 				$(this).datepicker("setDate", dateToday);
+// 			}
+// 		});
 // 	});
+
+	$('.datepicker').datepicker(
+         { 
+            beforeShow: function() {
+            $(this).datepicker('option', 'minDate', $('.datepicker').val());
+            if($('.datepicker').val() === '') $(this).datepicker('option', 'minDate', 0);
+          }
+       });
+	
 </script>
 </html>
