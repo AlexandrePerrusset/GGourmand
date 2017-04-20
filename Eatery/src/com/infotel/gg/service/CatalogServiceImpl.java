@@ -298,6 +298,7 @@ public class CatalogServiceImpl implements CatalogService {
 		ImageDataDTO imgdataDto = new ImageDataDTO();
 		imgdataDto.setSize(imgdata.getSize());
 		imgdataDto.setContent(imgdata.getBase64URL());
+		imgdataDto.setContentRest(imgdata.getContent());
 		return imgdataDto;
 	}
 	@Override

@@ -5,8 +5,18 @@ public class ImageDataDTO {
 	
 	private String content;
 	private String size;
+	private byte[] contentRest;
 	
 	
+	
+	public byte[] getContentRest() {
+		return contentRest;
+	}
+
+	public void setContentRest(byte[] contentRest) {
+		this.contentRest = contentRest;
+	}
+
 	public String getContent() {
 		return content;
 	}
