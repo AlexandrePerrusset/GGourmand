@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.infotel.gg.DTO.CityDTO;
 import com.infotel.gg.DTO.CookingStyleDTO;
 import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.DTO.ImageDataDTO;
@@ -58,19 +59,7 @@ public class SearchController {
 		
 
 		
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
-//		String string = date;
-//		try {
-//			
-//			Date date1 = formatter.parse(string);
-//		} catch (ParseException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		Calendar calendar = Calendar.getInstance();
-//		if (date != null) {
-//		request.getSession().setAttribute("date", madate);
-//	}
+
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH);
 		Calendar calendar = new GregorianCalendar();
@@ -131,6 +120,10 @@ public class SearchController {
 		
 		PagedListHolder<EateryDTO> pagedListHolder = new PagedListHolder<EateryDTO>(eateriesDto);
         pagedListHolder.setPageSize(10);
+        
+        
+        List<CityDTO> citiesDto = service.getAllCitiesForemost();
+        
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/search");
@@ -139,6 +132,7 @@ public class SearchController {
 		redir.addFlashAttribute("eateriesDto", eateriesDto);
 		redir.addFlashAttribute("imgdto", imgList);
 		redir.addFlashAttribute("cookingDto", cookingDto);
+		redir.addFlashAttribute("citiesDto ", citiesDto );
 		
 		if(eateriesDto.size() > 0 ) {
 			return modelAndView;

@@ -236,8 +236,7 @@
 	</div>
 	<div class="footer-copyright">
 		<div class="container">
-			Â© 2014 Copyright Text <a class="grey-text text-lighten-4 right"
-				href="#!">More Links</a>
+			@2017, Infotel
 		</div>
 	</div>
 </footer>
