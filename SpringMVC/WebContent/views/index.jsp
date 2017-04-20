@@ -231,6 +231,7 @@
 
 <footer class="page-footer">
 	<div class="container">
+<div id="espace-footer"></div>
 	<div class="image-grid">
 		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
 				<div class="card">
@@ -243,7 +244,7 @@
 		</div>
 	</div>
 
-
+<div id="espace-footer"></div>
 
 
 	<div class="footer-copyright">

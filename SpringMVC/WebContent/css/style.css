@@ -453,6 +453,8 @@ i.material-icons.prefix.active{
 	font-weight : bold;
 	font-size: 20px;
 	color:  #800b03;
-
 }
 
+#espace-footer{
+	height: 70px;
+}
