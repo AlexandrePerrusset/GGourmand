@@ -3,6 +3,11 @@
  */
 package com.infotel.gg.hibernate;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -18,7 +23,9 @@ import com.infotel.gg.model.ImageData;
 @Repository
 @Transactional
 public class ImageDataDAOHbn extends DAOHbn implements ImageDataDAO {
-
+	
+	private final static Path IMAGE_DIR = 
+			Paths.get("D:\\dev\\images");
 	
 	@Override
 	public void create(ImageData obj) throws DAOException {
@@ -26,14 +33,30 @@ public class ImageDataDAOHbn extends DAOHbn implements ImageDataDAO {
 	}
 
 	
+//	@Override
+//	public ImageData read(Integer i) throws ModelException {
+//		try {
+//				
+//			return getSession().find(ImageData.class, i);
+//		} catch (Throwable t) {
+//			throw new DAOException("Impossible de lire l'element",t);
+//		}
+//	}
+	
 	@Override
-	public ImageData read(Integer i) throws ModelException {
+	public ImageData read(Integer id) {
+		ImageData image = getSession().get(ImageData.class, id);
+		
 		try {
-				
-			return getSession().find(ImageData.class, i);
-		} catch (Throwable t) {
-			throw new DAOException("Impossible de lire l'element",t);
+			Path imgPath = IMAGE_DIR.resolve(id + ".png");
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			Files.copy(imgPath, baos);
+			image.setContent(baos.toByteArray());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+
+		return image;
 	}
 
 	

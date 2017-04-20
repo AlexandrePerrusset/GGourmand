@@ -48,13 +48,14 @@ public class CatalogController {
 	}
 	
 	@RequestMapping("/image/{id}")
-	public ResponseEntity<String> getImages(@PathVariable("id") int id) throws GGourmandException {
+	public ResponseEntity<byte[]> getImages(@PathVariable("id") int id) throws GGourmandException {
 		ImageDataDTO image = service.findImageDataById(id);
-		if(image != null) {
+		if (image != null) {
 			HttpHeaders headers = new HttpHeaders();
-			headers.add(HttpHeaders.CONTENT_TYPE, MediaType.IMAGE_PNG_VALUE);
-			headers.setContentLength(image.getContent().length());
-			ResponseEntity<String> resp = new ResponseEntity<>(image.getContent(),headers,HttpStatus.OK);
+			headers.setContentType(MediaType.IMAGE_PNG);
+			headers.setContentLength(image.getContentRest().length);
+			ResponseEntity<byte[]> resp = 
+					new ResponseEntity<>(image.getContentRest(), headers, HttpStatus.OK);
 			return resp;
 		}
 		
@@ -72,10 +73,10 @@ public class CatalogController {
 			eateriesByName = eateriesByCity;
 		}
 		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
-		if (eateriesByName.size() <= 50) {
+		if (eateriesByName.size() <= 10) {
 			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());
 		}else{
-			eateriesDto  = eateriesByName.subList(0, 49);
+			eateriesDto  = eateriesByName.subList(0, 9);
 		}
 		return eateriesDto;
 	}
