@@ -27,7 +27,7 @@
 			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
 
 		</ul>
-		
+
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
@@ -74,8 +74,8 @@
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input name="password"
-						id="icon_telephone" type="tel" class="validate" required="true"> <label
-						for="icon_telephone">Mot de passe</label>
+						id="icon_telephone" type="tel" class="validate" required="true">
+					<label for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
 					<input name="connection" type="submit" value="Se connecter"
@@ -97,8 +97,9 @@
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input
-						name="passwordM" id="icon_telephone" type="tel" class="validate" required="true">
-					<label for="icon_telephone">Mot de passe</label>
+						name="passwordM" id="icon_telephone" type="tel" class="validate"
+						required="true"> <label for="icon_telephone">Mot
+						de passe</label>
 				</div>
 				<div>
 					<input name="connection" type="submit" value="Se connecter"
@@ -173,8 +174,8 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="icon_prefix" type="text" class="validate"
-								name="recherche" required="true"> <label for="icon_prefix">Cherchez
-								un restaurant ou une ville !</label>
+								name="recherche" required="true"> <label
+								for="icon_prefix">Cherchez un restaurant ou une ville !</label>
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
@@ -215,29 +216,38 @@
 </body>
 
 <!-- Footer -->
+<%-- <footer class="page-footer">
+	<div class="container">
+	<div class="image-grid">
+		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
+			<div>
+			<img src="${imgdto[status.index].content}"> 
+			</div>			
+		</c:forEach>
+		</div>
+	</div> --%>
+
+
+
 <footer class="page-footer">
 	<div class="container">
-		<div class="row">
-			<div class="col l6 s12">
-				<h5 class="white-text">Footer Content</h5>
-				<p class="grey-text text-lighten-4">You can use rows and columns
-					here to organize your footer content.</p>
-			</div>
-			<div class="col l4 offset-l2 s12">
-				<h5 class="white-text">Links</h5>
-				<ul>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-				</ul>
-			</div>
+	<div class="image-grid">
+		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
+				<div class="card">
+					<div class="card-image">
+						<img id="imgville" src="${imgdto[status.index].content}">
+						<span id="ville" class="card-title">${cities.name}</span>
+					</div>
+				</div>			
+		</c:forEach>
 		</div>
 	</div>
+
+
+
+
 	<div class="footer-copyright">
-		<div class="container">
-			@2017, Infotel
-		</div>
+		<div class="container">@2017, Infotel</div>
 	</div>
 </footer>
 
@@ -258,9 +268,9 @@
 			{
 				selectMonths : true, // Creates a dropdown to control month
 				format : 'dd/mm/yyyy',
-				monthsFull : [ 'Janvier', 'F&eacute;vrier', 'Mars', 'Avril', 'Mai',
-						'Juin', 'Juillet', 'Ao&ucirc;t', 'Septembre', 'Octobre',
-						'Novembre', 'D&eacute;cembre' ],
+				monthsFull : [ 'Janvier', 'F&eacute;vrier', 'Mars', 'Avril',
+						'Mai', 'Juin', 'Juillet', 'Ao&ucirc;t', 'Septembre',
+						'Octobre', 'Novembre', 'D&eacute;cembre' ],
 				monthsShort : [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin',
 						'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
 				weekdaysFull : [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
@@ -279,27 +289,26 @@
 		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 		$('.modal').modal();
 	});
-	
-// 	$document.ready(function() {
-// 		var dateToday = new Date();
-// 		$('.datepicker').change(function() {
-// 			var updatedDate = $(this).val();
-// 			var instance = $(this).data("datepicker");
-// 			var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
-			
-// 			if(date < dateToday) {
-// 				$(this).datepicker("setDate", dateToday);
-// 			}
-// 		});
-// 	});
 
-	$('.datepicker').datepicker(
-         { 
-            beforeShow: function() {
-            $(this).datepicker('option', 'minDate', $('.datepicker').val());
-            if($('.datepicker').val() === '') $(this).datepicker('option', 'minDate', 0);
-          }
-       });
-	
+	// 	$document.ready(function() {
+	// 		var dateToday = new Date();
+	// 		$('.datepicker').change(function() {
+	// 			var updatedDate = $(this).val();
+	// 			var instance = $(this).data("datepicker");
+	// 			var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
+
+	// 			if(date < dateToday) {
+	// 				$(this).datepicker("setDate", dateToday);
+	// 			}
+	// 		});
+	// 	});
+
+	$('.datepicker').datepicker({
+		beforeShow : function() {
+			$(this).datepicker('option', 'minDate', $('.datepicker').val());
+			if ($('.datepicker').val() === '')
+				$(this).datepicker('option', 'minDate', 0);
+		}
+	});
 </script>
 </html>

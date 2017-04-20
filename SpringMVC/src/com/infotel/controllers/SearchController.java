@@ -122,7 +122,10 @@ public class SearchController {
         pagedListHolder.setPageSize(10);
         
         
-        List<CityDTO> citiesDto = service.getAllCitiesForemost();
+        
+      
+
+        
         
 		
 		ModelAndView modelAndView = new ModelAndView();
@@ -132,7 +135,8 @@ public class SearchController {
 		redir.addFlashAttribute("eateriesDto", eateriesDto);
 		redir.addFlashAttribute("imgdto", imgList);
 		redir.addFlashAttribute("cookingDto", cookingDto);
-		redir.addFlashAttribute("citiesDto ", citiesDto );
+
+	
 		
 		if(eateriesDto.size() > 0 ) {
 			return modelAndView;

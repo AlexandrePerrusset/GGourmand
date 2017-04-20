@@ -283,11 +283,11 @@ public class CatalogServiceImpl implements CatalogService {
 		cityDto.setForemost(String.valueOf(c.isForeMost()));
 		cityDto.setRegion_name(c.getRegion().getName());
 		cityDto.setCountry_name(c.getCountry().getName());
-//		if (c.isForemost()) {
-//			cityDto.setImageId(imageDataDAO.findImageDataCityIdByTargetId(c.getId()));
-//		} else {
-//			cityDto.setImageId(null);
-//		}
+		if (c.isForemost()) {
+			cityDto.setImageId(imageDataDAO.findImageDataCityIdByTargetId(c.getId()));
+		} else {
+			cityDto.setImageId(null);
+		}
 
 		return cityDto;
 	}
