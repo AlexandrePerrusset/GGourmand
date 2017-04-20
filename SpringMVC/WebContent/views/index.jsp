@@ -27,7 +27,7 @@
 			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
 
 		</ul>
-		
+
 		<nav>
 			<div class="nav-wrapper">
 				<img src="sources/logo.jpg" class="logo1"> <a
@@ -68,15 +68,14 @@
 			<form class="col s3" action="authent" method="POST">
 
 				<div class="input-field col s3">
-					<i class="material-icons prefix">account_circle</i>
-					<input
+					<i class="material-icons prefix">account_circle</i> <input
 						name="username" id="icon_prefix" name="nom" type="text"
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input name="password"
-						id="icon_telephone" type="password" type="tel" class="validate" required="true"> <label
-						for="icon_telephone">Mot de passe</label>
+						id="icon_telephone" type="tel" class="validate" required="true">
+					<label for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
 					<input name="connection" type="submit" value="Se connecter"
@@ -97,10 +96,10 @@
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
-					<i class="material-icons prefix">vpn_key</i>
-					<input
-						name="passwordM" id="icon_telephone" type="password" type="tel" class="validate" required="true">
-					<label for="icon_telephone">Mot de passe</label>
+					<i class="material-icons prefix">vpn_key</i> <input
+						name="passwordM" id="icon_telephone" type="tel" class="validate"
+						required="true"> <label for="icon_telephone">Mot
+						de passe</label>
 				</div>
 				<div>
 					<input name="connection" type="submit" value="Se connecter"
@@ -133,17 +132,17 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">mail</i> <input name="username"
-								id="email" type="email" class="validate" required="true">
-							<label for="email">Email</label></input>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
 							<i class="material-icons prefix">vpn_key</i> <input
 								name="password" id="password" type="password" class="validate"
 								required="true"> <label for="password">Mot de
 								passe</label></input>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mail</i> <input name="username"
+								id="email" type="email" class="validate" required="true">
+							<label for="email">Email</label></input>
 						</div>
 					</div>
 					<div class="row">
@@ -175,8 +174,8 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="icon_prefix" type="text" class="validate"
-								name="recherche" required="true"> <label for="icon_prefix">Cherchez
-								un restaurant ou une ville !</label>
+								name="recherche" required="true"> <label
+								for="icon_prefix">Cherchez un restaurant ou une ville !</label>
 						</div>
 						<div class="input-field col s2">
 							<select name="cooking" type="int">
@@ -217,29 +216,38 @@
 </body>
 
 <!-- Footer -->
+<%-- <footer class="page-footer">
+	<div class="container">
+	<div class="image-grid">
+		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
+			<div>
+			<img src="${imgdto[status.index].content}"> 
+			</div>			
+		</c:forEach>
+		</div>
+	</div> --%>
+
+
+
 <footer class="page-footer">
 	<div class="container">
-		<div class="row">
-			<div class="col l6 s12">
-				<h5 class="white-text">Footer Content</h5>
-				<p class="grey-text text-lighten-4">You can use rows and columns
-					here to organize your footer content.</p>
-			</div>
-			<div class="col l4 offset-l2 s12">
-				<h5 class="white-text">Links</h5>
-				<ul>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-				</ul>
-			</div>
+	<div class="image-grid">
+		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
+				<div class="card">
+					<div class="card-image">
+						<img id="imgville" src="${imgdto[status.index].content}">
+						<span id="ville" class="card-title">${cities.name}</span>
+					</div>
+				</div>			
+		</c:forEach>
 		</div>
 	</div>
+
+
+
+
 	<div class="footer-copyright">
-		<div class="container">
-			@2017, Infotel
-		</div>
+		<div class="container">@2017, Infotel</div>
 	</div>
 </footer>
 
@@ -260,9 +268,9 @@
 			{
 				selectMonths : true, // Creates a dropdown to control month
 				format : 'dd/mm/yyyy',
-				monthsFull : [ 'Janvier', 'F&eacute;vrier', 'Mars', 'Avril', 'Mai',
-						'Juin', 'Juillet', 'Ao&ucirc;t', 'Septembre', 'Octobre',
-						'Novembre', 'D&eacute;cembre' ],
+				monthsFull : [ 'Janvier', 'F&eacute;vrier', 'Mars', 'Avril',
+						'Mai', 'Juin', 'Juillet', 'Ao&ucirc;t', 'Septembre',
+						'Octobre', 'Novembre', 'D&eacute;cembre' ],
 				monthsShort : [ 'Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Juin',
 						'Juil', 'Aout', 'Sep', 'Oct', 'Nov', 'Dec' ],
 				weekdaysFull : [ 'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
@@ -304,6 +312,5 @@
             
           }
        });
-	
 </script>
 </html>
