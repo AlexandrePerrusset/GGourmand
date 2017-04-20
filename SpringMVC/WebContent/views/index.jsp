@@ -68,13 +68,14 @@
 			<form class="col s3" action="authent" method="POST">
 
 				<div class="input-field col s3">
-					<i class="material-icons prefix">account_circle</i> <input
+					<i class="material-icons prefix">account_circle</i>
+					<input
 						name="username" id="icon_prefix" name="nom" type="text"
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
 					<i class="material-icons prefix">vpn_key</i> <input name="password"
-						id="icon_telephone" type="tel" class="validate" required="true"> <label
+						id="icon_telephone" type="password" type="tel" class="validate" required="true"> <label
 						for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
@@ -96,8 +97,9 @@
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
-					<i class="material-icons prefix">vpn_key</i> <input
-						name="passwordM" id="icon_telephone" type="tel" class="validate" required="true">
+					<i class="material-icons prefix">vpn_key</i>
+					<input
+						name="passwordM" id="icon_telephone" type="password" type="tel" class="validate" required="true">
 					<label for="icon_telephone">Mot de passe</label>
 				</div>
 				<div>
@@ -131,17 +133,17 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">vpn_key</i> <input
-								name="password" id="password" type="password" class="validate"
-								required="true"> <label for="password">Mot de
-								passe</label></input>
+							<i class="material-icons prefix">mail</i> <input name="username"
+								id="email" type="email" class="validate" required="true">
+							<label for="email">Email</label></input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<i class="material-icons prefix">mail</i> <input name="username"
-								id="email" type="email" class="validate" required="true">
-							<label for="email">Email</label></input>
+							<i class="material-icons prefix">vpn_key</i> <input
+								name="password" id="password" type="password" class="validate"
+								required="true"> <label for="password">Mot de
+								passe</label></input>
 						</div>
 					</div>
 					<div class="row">
