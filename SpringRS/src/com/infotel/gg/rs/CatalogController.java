@@ -72,10 +72,10 @@ public class CatalogController {
 			eateriesByName = eateriesByCity;
 		}
 		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
-		if (eateriesByName.size() <= 50) {
+		if (eateriesByName.size() <= 10) {
 			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());
 		}else{
-			eateriesDto  = eateriesByName.subList(0, 49);
+			eateriesDto  = eateriesByName.subList(0, 9);
 		}
 		return eateriesDto;
 	}
