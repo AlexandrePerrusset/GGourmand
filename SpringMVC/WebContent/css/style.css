@@ -60,7 +60,7 @@ background-color: #e8bf76;
 }
 
 .parallax-container{
-height: 370px;
+height: 390px;
 }
 .photoresto{
 padding-left: 10px;
@@ -437,7 +437,7 @@ i.material-icons.prefix.active{
   opacity: 0.5;
 } 
 
-.card{
+.image-grid .card{
 	margin: 0;
 	
 }

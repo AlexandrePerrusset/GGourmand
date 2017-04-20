@@ -215,28 +215,15 @@
 	</div>
 </body>
 
-<!-- Footer -->
-<%-- <footer class="page-footer">
-	<div class="container">
-	<div class="image-grid">
-		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
-			<div>
-			<img src="${imgdto[status.index].content}"> 
-			</div>			
-		</c:forEach>
-		</div>
-	</div> --%>
-
-
 
 <footer class="page-footer">
 	<div class="container">
-<div id="espace-footer"></div>
+<h5>Villes les plus populaires</h5>
 	<div class="image-grid">
 		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
 				<div class="card">
 					<div class="card-image">
-						<img id="imgville" src="${imgdto[status.index].content}">
+					<img id="imgville" src="${imgdto[status.index].content}">
 						<span id="ville" class="card-title">${cities.name}</span>
 					</div>
 				</div>			
