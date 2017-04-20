@@ -194,27 +194,27 @@
 	<div class="resultats">
 		<div class="container">
 			<div class="row">
-				<div class="col s3">
-					<div class="card-panel white">
-						<form class="filters" action="#">
-							<p class="range-field">
-								<label for="prix">Prix</label> <input type="range" id="prix"
-									min="0" max="100" />
-							</p>
-							<p class="range-field">
-								<label for="prix">Horaires</label> <input type="range"
-									id="horaires" min="0" max="23" />
-							</p>
-							<p>
-								<input type="checkbox" class="filled-in checkbox-green"
-									id="parking" /> <label for="parking">Parking à 
-									proximit&eacute;</label>
-							</p>
-					</div>
-					</form>
+<!-- 				<div class="col s3"> -->
+<!-- 					<div class="card-panel white"> -->
+<!-- 						<form class="filters" action="#"> -->
+<!-- 							<p class="range-field"> -->
+<!-- 								<label for="prix">Prix</label> <input type="range" id="prix" -->
+<!-- 									min="0" max="100" /> -->
+<!-- 							</p> -->
+<!-- 							<p class="range-field"> -->
+<!-- 								<label for="prix">Horaires</label> <input type="range" -->
+<!-- 									id="horaires" min="0" max="23" /> -->
+<!-- 							</p> -->
+<!-- 							<p> -->
+<!-- 								<input type="checkbox" class="filled-in checkbox-green" -->
+<!-- 									id="parking" /> <label for="parking">Parking à  -->
+<!-- 									proximit&eacute;</label> -->
+<!-- 							</p> -->
+<!-- 					</div> -->
+<!-- 					</form> -->
 
-				</div>
-				<div class="col s9">
+<!-- 				</div> -->
+				<div class="col s12">
 					<h5 class="titreResultats">R&eacute;sultats</h5>
 
 					<c:forEach items="${eateriesDto}" var="eatery" varStatus="status">

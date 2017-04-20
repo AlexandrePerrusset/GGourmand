@@ -295,11 +295,13 @@
 // 		});
 // 	});
 
+// TODO :
 	$('.datepicker').datepicker(
          { 
             beforeShow: function() {
             $(this).datepicker('option', 'minDate', $('.datepicker').val());
             if($('.datepicker').val() === '') $(this).datepicker('option', 'minDate', 0);
+            
           }
        });
 	
