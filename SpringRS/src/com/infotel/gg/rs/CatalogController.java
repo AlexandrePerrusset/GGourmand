@@ -49,7 +49,7 @@ public class CatalogController {
 	
 	@RequestMapping("/image/{id}")
 	public ResponseEntity<byte[]> getImages(@PathVariable("id") int id) throws GGourmandException {
-		ImageDataDTO image = service.findImageDataById(id);
+		ImageDataDTO image = service.findImageDataByIdRest(id);
 		if (image != null) {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.IMAGE_PNG);
