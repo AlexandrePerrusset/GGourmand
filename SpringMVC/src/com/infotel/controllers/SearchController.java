@@ -80,6 +80,7 @@ public class SearchController {
 		
 		SearchCriteriaDTO criteria = new SearchCriteriaDTO();
 		criteria.setName(recherche);
+		
 		if(cooking!=0){
 			criteria.setCookingStyleId(cooking);
 			String cookingname = service.getCookingNameById(cooking);
@@ -187,6 +188,7 @@ public class SearchController {
 	}
 	
 	
+
 	
 				
 }

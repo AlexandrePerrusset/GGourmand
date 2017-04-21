@@ -220,11 +220,11 @@
 	<div class="container">
 <h5>Villes les plus populaires</h5>
 	<div class="image-grid">
-		<c:forEach items="${citiesDto}" var="cities" varStatus="status">			
+		<c:forEach items="${citiesDto}" var="city" varStatus="status">			
 				<div class="card">
 					<div class="card-image">
-					<img id="imgville" src="${imgdto[status.index].content}">
-						<span id="ville" class="card-title">${cities.name}</span>
+					<a href="eateries?recherche=${city.name}&cooking=0&date=0&NbPer=1" ><img id="imgville" src="${imgdto[status.index].content}">
+						<span id="ville" class="card-title">${city.name}</span></a>
 					</div>
 				</div>			
 		</c:forEach>
