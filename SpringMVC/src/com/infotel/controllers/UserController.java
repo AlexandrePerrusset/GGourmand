@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,6 +21,7 @@ import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
+import com.infotel.gg.service.CatalogServiceImpl;
 import com.infotel.gg.service.UserService;
 
 @Controller
@@ -31,10 +34,17 @@ public class UserController {
 	@Autowired
 	BookingService bookService;
 	
+	private final static Logger log = LogManager.getLogger(UserController.class);
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView createAccount(@RequestParam(value="title", required=true) String title, @RequestParam(value="nom", required=true) String nom,@RequestParam(value="prenom", required=true) String prenom,@RequestParam(value="password", required=true) String password, @RequestParam(value="username", required=true) String username,@RequestParam(value="tel", required=true) String tel, HttpServletRequest request) throws GGourmandException {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/");
+		
+		if(prenom.trim().equals("") || nom.trim().equals("") || username.trim().equals("") || tel.trim().equals("") || password.trim().equals("")) {
+			log.warn("---------------dans le IF------------------");
+			return modelAndView;
+		}
 		
 		UserDTO uDto = new UserDTO();
 		uDto.setTitle(title);
@@ -55,6 +65,11 @@ public class UserController {
 	public ModelAndView createAccountResa(@RequestParam(value="title", required=true) String title, @RequestParam(value="nom", required=true) String nom,@RequestParam(value="prenom", required=true) String prenom,@RequestParam(value="password", required=true) String password, @RequestParam(value="username", required=true) String username,@RequestParam(value="tel", required=true) String tel, HttpServletRequest request) throws GGourmandException {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/reservation");
+		
+		if(prenom.trim().equals("") || nom.trim().equals("") || username.trim().equals("") || tel.trim().equals("") || password.trim().equals("")) {
+			log.warn("---------------dans le IF------------------");
+			return modelAndView;
+		}
 		
 		UserDTO uDto = new UserDTO();
 		uDto.setTitle(title);
