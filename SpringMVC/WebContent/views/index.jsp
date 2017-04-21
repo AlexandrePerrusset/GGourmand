@@ -69,7 +69,7 @@
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="username" type="password" id="icon_prefix" name="nom" type="text"
+						name="username" id="icon_prefix" name="nom" type="text"
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
@@ -92,7 +92,7 @@
 
 				<div class="input-field col s3">
 					<i class="material-icons prefix">account_circle</i> <input
-						name="usernameM" type="password" id="icon_prefix" name="nom" type="text"
+						name="usernameM" id="icon_prefix" name="nom" type="text"
 						class="validate" required="true"> <label for="icon_prefix">Email</label>
 				</div>
 				<div class="input-field col s3">
@@ -284,21 +284,21 @@
 // 			var updatedDate = $(this).val();
 // 			var instance = $(this).data("datepicker");
 // 			var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datePicker._defaults.dateFormat, updatedDate, instance.settings);
+// 			startDate: "21/04/2017";
 			
 // 			if(date < dateToday) {
 // 				$(this).datepicker("setDate", dateToday);
 // 			}
 // 		});
 // 	});
-
-// TODO :
-	$('.datepicker').datepicker(
-         { 
-            beforeShow: function() {
-            $(this).datepicker('option', 'minDate', $('.datepicker').val());
-            if($('.datepicker').val() === '') $(this).datepicker('option', 'minDate', 0);
-            
-          }
-       });
+	
+// 	$('.datepicker').datepicker(
+//          { 
+//             beforeShow: function() {
+//             $(this).datepicker('option', 'minDate', $('.datepicker').val());
+//             if($('.datepicker').val() === '') $(this).datepicker('option', 'minDate', 0);
+//             minDate: new Date(2017, 04, 21)
+//           }
+//        });
 </script>
 </html>
