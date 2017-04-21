@@ -35,9 +35,12 @@
 					<c:if test="${user.username != null}">
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
-					<c:if test="${user.username == null}">		
-						<li><a class="dropdown-button" href="#!" data-activates="dropdown" data-beloworigin="true">Se connecter<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-						<li><a href="#modal2">Cr&eacute;er un compte</a></li>	
+					<c:if test="${user.username == null}">
+						<li><a class="dropdown-button" href="#!"
+							data-activates="dropdown" data-beloworigin="true">Se
+								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
+						</a></li>
+						<li><a href="#modal2">Cr&eacute;er un compte</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -79,8 +82,8 @@
 			<div class="row">
 				<div class="row">
 					<a class="searchLink" href="/SpringMVC">
-						<button class="btn waves-effect waves-light buttonSpe" id="btnNewSearch"
-							type="submit" name="action">
+						<button class="btn waves-effect waves-light buttonSpe"
+							id="btnNewSearch" type="submit" name="action">
 							Chercher <i class="material-icons right">search</i>
 						</button>
 					</a>
@@ -105,15 +108,16 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName} ${user.lastName}</p>
+								<p class="user">${user.firstName}${user.lastName}</p>
 							</div>
 						</div>
 
 
 						<div class="collection">
 							<a href="#!" class="collection-item active">Mes
-								r&eacute;servations</a> <a href="/SpringMVC/infos" class="collection-item ">Mes
-								informations</a> <a href="#!" class="collection-item">Mes avis</a>
+								r&eacute;servations</a> <a href="/SpringMVC/infos"
+								class="collection-item ">Mes informations</a> <a href="#!"
+								class="collection-item">Mes avis</a>
 						</div>
 					</div>
 
@@ -132,7 +136,8 @@
 
 										<div>
 											<b>Date : </b>
-											<fmt:formatDate value="${booking.dateTime.time}" dateStyle="short"/>
+											<fmt:formatDate value="${booking.dateTime.time}"
+												dateStyle="short" />
 										</div>
 										<div>
 											<b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
@@ -141,6 +146,9 @@
 										<div>
 											<b>Adresse du restaurant : </b>${booking.street}
 											${booking.cityName}
+										</div>
+										<div onclick="updateForm(this)">
+											<a href="#modalReview"><b>Donner mon avis</b></a>
 										</div>
 									</div>
 								</div>
@@ -151,13 +159,27 @@
 				</div>
 				<div class="traitrouge"></div>
 			</div>
+
+<!-- 			TODO : à finir -->
+			<div id="modalReview" class="modal col s12 modalBox2">
+				<div class="modal-content">
+					<FORM id="bookingform" action="review" method="post">
+						<input name="comment" type="text" />
+						<input type="hidden" name="bookingId" />
+						<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
+						<br />
+						<label>Montant payé</label><input name="montantPaye" type="number" /> <label>Commentaire</label>
+						<input type="submit" value="Valider" />
+					</FORM>
+				</div>
+			</div>
 </body>
 
 <!-- Footer -->
 <footer class="page-footer">
 
 
-<div id="espace-footer"></div>
+	<div id="espace-footer"></div>
 
 
 	<div class="footer-copyright">

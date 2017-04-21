@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.infotel.gg.DTO.BookingDTO;
+import com.infotel.gg.DTO.ReviewDTO;
 import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
@@ -67,7 +68,7 @@ public class UserController {
 		modelAndView.setViewName("redirect:/reservation");
 		
 		if(prenom.trim().equals("") || nom.trim().equals("") || username.trim().equals("") || tel.trim().equals("") || password.trim().equals("")) {
-			log.warn("---------------dans le IF------------------");
+			log.warn("---------------dans le IF registerResa------------------");
 			return modelAndView;
 		}
 		
@@ -194,5 +195,16 @@ public class UserController {
 		return "profil2";
 	}
 	
+//	TODO : à finir
+//	@RequestMapping(value = "/review", method = RequestMethod.POST)
+//	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") int rating, @RequestParam(value="bookingID") int bookingID) {
+//		ReviewDTO rdto = new ReviewDTO();
+//		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
+//		rdto.setComment(comment);
+//		rdto.setRating(rating);
+//		rdto.setBookingID(bookingID);
+//		
+//		
+//	}
 	
 }

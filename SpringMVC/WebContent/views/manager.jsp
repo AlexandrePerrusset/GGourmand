@@ -199,7 +199,7 @@
 <footer class="page-footer">
 
 
-<div id="espace-footer"></div>
+	<div id="espace-footer"></div>
 
 
 	<div class="footer-copyright">
