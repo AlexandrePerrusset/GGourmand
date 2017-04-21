@@ -159,17 +159,29 @@
 				</div>
 				<div class="traitrouge"></div>
 			</div>
-
+			
 <!-- 			TODO : à finir -->
+			<script>
+				function updateForm(element) {
+					var parent = $(element).parent();
+					var bookid = $(parent).children().eq(0).text();
+		
+					$('#Reviewform input').eq(0).val(bookid);
+		
+				}
+		</script>
+
+			<!-- 			TODO : à finir -->
 			<div id="modalReview" class="modal col s12 modalBox2">
 				<div class="modal-content">
-					<FORM id="bookingform" action="review" method="post">
+					<FORM id="Reviewform" action="review" method="post">
+						<label>Note attribuée au restaurant (sur 10)</label>
+						<input type="number" name="rating" id="rating" min="0" max="10" />
+						<label>Commentaire</label>
 						<input name="comment" type="text" />
 						<input type="hidden" name="bookingId" />
-						<input id="presence" name="presence" type="checkbox" /><label for="presence">Présence client</label>
 						<br />
-						<label>Montant payé</label><input name="montantPaye" type="number" /> <label>Commentaire</label>
-						<input type="submit" value="Valider" />
+						<input type="submit" value="Envoyer" />
 					</FORM>
 				</div>
 			</div>

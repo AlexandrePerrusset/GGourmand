@@ -22,6 +22,7 @@ import com.infotel.gg.DTO.UserDTO;
 import com.infotel.gg.exception.AuthenticationException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
+import com.infotel.gg.service.CatalogService;
 import com.infotel.gg.service.CatalogServiceImpl;
 import com.infotel.gg.service.UserService;
 
@@ -34,6 +35,9 @@ public class UserController {
 	
 	@Autowired
 	BookingService bookService;
+	
+	@Autowired
+	CatalogService serviceCatalog;
 	
 	private final static Logger log = LogManager.getLogger(UserController.class);
 	
@@ -196,15 +200,19 @@ public class UserController {
 	}
 	
 //	TODO : à finir
-//	@RequestMapping(value = "/review", method = RequestMethod.POST)
-//	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") int rating, @RequestParam(value="bookingID") int bookingID) {
-//		ReviewDTO rdto = new ReviewDTO();
-//		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
-//		rdto.setComment(comment);
-//		rdto.setRating(rating);
-//		rdto.setBookingID(bookingID);
-//		
-//		
-//	}
+	@RequestMapping(value = "/review", method = RequestMethod.POST)
+	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") Integer rating, @RequestParam(value="bookingId") int bookingId) throws GGourmandException {
+		ReviewDTO rdto = new ReviewDTO();
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
+		rdto.setComment(comment);
+		rdto.setRating(rating);
+		rdto.setBookingID(bookingId);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/bookingsUser");
+		
+		serviceCatalog.review(rdto);
+		return modelAndView;
+	}
 	
 }
