@@ -6,17 +6,18 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.infotel.gg.DTO.EateryDTO;
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
 import com.infotel.gg.model.Eatery;
-import com.infotel.gg.model.EateryResult;
 import com.infotel.gg.model.SearchCriteria;
 
-@Repository
+@Repository @Qualifier("hibernate")
 @Transactional
 public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 
@@ -59,7 +60,7 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public EateryResult findByCriteria(SearchCriteria criter) {		
+	public List<Eatery> findByCriteria(SearchCriteria criter) {		
 		String request = "select eat from Eatery eat where 1 = 1";
 		if(criter.getName()!=null) {
 			request +=" and eat.name LIKE :name";
@@ -84,7 +85,7 @@ public class EateryDAOHbn extends DAOHbn implements EateryDAO {
 		}
 		
 		List<Eatery> result = q.getResultList();
-		return new EateryResult(result.size(), result); 
+		return result; 
 	}
 
 }

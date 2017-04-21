@@ -12,7 +12,6 @@ import com.infotel.gg.dao.CityDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.model.City;
 import com.infotel.gg.model.Eatery;
-import com.infotel.gg.model.EateryResult;
 import com.infotel.gg.model.SearchCriteria;
 
 @Repository

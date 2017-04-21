@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.loader.custom.Return;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,7 +43,6 @@ import com.infotel.gg.model.PracticalInformation;
 import com.infotel.gg.model.Region;
 import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Review;
-import com.infotel.gg.model.EateryResult;
 import com.infotel.gg.model.SearchCriteria;
 import com.infotel.gg.DTO.OrderDTO;
 
@@ -54,11 +54,14 @@ public class CatalogServiceImpl implements CatalogService {
 	private static ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
 	private final static Logger log = LogManager.getLogger(CatalogServiceImpl.class);
+	
+	@Autowired @Qualifier("elastics")
+	private EateryDAO eateryES;
 
 	@Autowired
 	private CookingStyleDAO cookingStyleDAO;
 	
-	@Autowired
+	@Autowired @Qualifier("hibernate")
 	private EateryDAO eateryDAO;
 	
 	@Autowired
@@ -329,14 +332,24 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 
 
+//	@Override
+//	public List<EateryDTO> findEateryByCriteria(SearchCriteriaDTO criteria) {
+//		SearchCriteria criter = new SearchCriteria();
+//		criter = parseCrit(criteria);
+//		List<Eatery> res = eateryDAO.findByCriteria(criter);
+//		List<EateryDTO> result = res.stream().map(e -> transform(e, false))
+//				.collect(Collectors.toList());
+//		return sortByCriteria(result, criteria.getOrderBy());
+//	}
+	
 	@Override
 	public List<EateryDTO> findEateryByCriteria(SearchCriteriaDTO criteria) {
 		SearchCriteria criter = new SearchCriteria();
 		criter = parseCrit(criteria);
-		EateryResult daoresult = eateryDAO.findByCriteria(criter);
-		List<EateryDTO> result = daoresult.getEateries().stream().map(e -> transform(e, false))
+		List<Eatery> daoresult = eateryES.findByCriteria(criter);
+		List<EateryDTO> result = daoresult.stream().map(e -> transform(e, false))
 				.collect(Collectors.toList());
-		return sortByCriteria(result, criteria.getOrderBy());
+		return result;
 	}
 	
 	private SearchCriteria parseCrit(SearchCriteriaDTO criteria) {

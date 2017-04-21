@@ -17,7 +17,6 @@ public class EateryDTO implements Serializable {
 	private String description;
 	private String executiveChef;
 	
-	//private MenuDTO menu;
 	private MenuDTO menu;
 	
 	private String hoursOfOperation1;
@@ -37,8 +36,8 @@ public class EateryDTO implements Serializable {
 	private Integer cookingStyleid;
 	private List<String> eateryTagName;
 	
-	private List<Integer> imageIds;// détail
-	private Integer imageId;// liste
+	private List<Integer> imageIds;
+	private Integer imageId;
 	
 	private List<ReviewDTO> reviews;
 	
