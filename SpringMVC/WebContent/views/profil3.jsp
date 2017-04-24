@@ -33,6 +33,8 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${userM.username != null}">
+						<b><li id="bonjour"><i class="material-icons">perm_identity</i></li></b>
+						<b><li id="bonjour">Bonjour ${user.firstName}</li></b>
 						<li><a href="/SpringMVC/reports">Mes validations</a></li>
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>

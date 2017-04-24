@@ -27,7 +27,7 @@
 	<div class="navbar-fixed">
 		<ul id="dropdown" class="dropdown-content">
 			<li><a href="#modal1"><i id="icone" class="material-icons">person</i>Utilisateur</a></li>
-			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Manager</a></li>
+			<li><a href="#modalM"><i id="icone" class="material-icons">person</i>Restaurateur</a></li>
 
 		</ul>
 		<nav>
@@ -38,6 +38,8 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${user.username != null}">
+						<b><li id="bonjour"><i class="material-icons">perm_identity</i></li></b>
+						<b><li id="bonjour">Bonjour ${user.firstName}</li></b>
 						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
