@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.infotel.gg.dao.ReviewDAO;
 import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.ModelException;
+import com.infotel.gg.model.Booking;
 import com.infotel.gg.model.Review;
 
 @Repository
@@ -93,6 +94,16 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 		
 		}
 		return result;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List<Review> findByCustomer(String username) {
+		String hql = "select r.id, r.booking, r.rating, r.comment from Review r, Booking b where b.id = r.booking_id and b.customer_id = :customer_id order by b.dateTime DESC";
+		Query q = getSession().createQuery(hql);	
+		q.setParameter("customer_id", username);
+		List<Review> reviews = q.getResultList();
+		return reviews;
 	}
 
 }

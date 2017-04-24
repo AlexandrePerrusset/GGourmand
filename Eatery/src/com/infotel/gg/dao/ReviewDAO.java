@@ -12,6 +12,8 @@ public interface ReviewDAO extends DAO<Review, Integer>{
 
 	List<Review> listAllByEateryId(int id);
 
+	List<Review> findByCustomer(String username);
+
 	
 
 }

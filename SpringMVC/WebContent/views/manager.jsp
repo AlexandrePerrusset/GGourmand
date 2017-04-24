@@ -141,6 +141,9 @@
 							<div class="card horizontal">
 								<div class="row">
 									<div class="card-content">
+									<div class="bookId">
+											${booking.id}
+										</div>
 										<div>
 											<b>R&eacute;servation n° : </b>${booking.id}
 										</div>

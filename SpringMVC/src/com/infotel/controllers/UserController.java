@@ -200,7 +200,20 @@ public class UserController {
 		return "profil2";
 	}
 	
-//	TODO : à finir
+	@RequestMapping(value = "/avis", method = RequestMethod.GET)
+	public ModelAndView avis(HttpServletRequest request) throws GGourmandException {
+		List<ReviewDTO> reviews = new ArrayList<ReviewDTO>();
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
+		String username = udto.getUsername();
+		reviews = serviceCatalog.findReviewsByCustomer(username);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/profil3");
+		
+		return modelAndView;
+	}
+	
+//	TODO : A terminer (enlever le user)
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") int rating, @RequestParam(value="bookingId") int bookingId, RedirectAttributes redir) throws GGourmandException {
 		ReviewDTO rdto = new ReviewDTO();

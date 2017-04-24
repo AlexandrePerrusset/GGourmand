@@ -29,6 +29,8 @@ public interface CatalogService {
 	
 	void review(ReviewDTO rdto) throws GGourmandException;
 	
+	public List<ReviewDTO> findReviewsByCustomer(String username) throws GGourmandException;
+	
 
 	List<EateryDTO> findEateryByCriteria(SearchCriteriaDTO criteria);
 
