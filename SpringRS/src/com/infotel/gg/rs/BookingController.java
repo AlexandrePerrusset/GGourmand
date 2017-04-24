@@ -38,15 +38,9 @@ public class BookingController {
 	@ResponseStatus(code=HttpStatus.OK)
 	public void saveBooking(@RequestBody BookingDTO dto) throws GGourmandException{
 		
-		if (log.isDebugEnabled()) {
-			log.debug("reservation: " + dto);
-		}
 		
-		CustomerDTO customer = userService.findCustomerByUsername(dto.getCustomerId());
-		dto.setCustomerId(customer.getUsername());
+		log.warn("reservation: " + dto);
 		
-		Eatery eatery = catalogService.findOneRealEatery(dto.getEateryId());
-		dto.setEateryId(eatery.getId());
-		service.saveBooking(dto);
+		service.saveBookingRest(dto);
 	}
 }

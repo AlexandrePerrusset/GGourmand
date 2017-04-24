@@ -51,6 +51,19 @@ public class BookingServiceImpl implements BookingService{
 	@Override
 	public void saveBooking(BookingDTO booking) throws GGourmandException {
 		Booking b = new Booking(booking.getDateTime(), Integer.parseInt(booking.getNumberOfPeople()), eateryDAO.read(booking.getEateryId()), customerDAO.read(booking.getCustomerId()));
+		
+		try {
+			bookingDao.create(b);	
+		}
+		catch(Exception e){
+			throw new GGourmandException();
+		}
+	}
+	
+	@Override
+	public void saveBookingRest(BookingDTO booking) throws GGourmandException {
+		Booking b = new Booking(Calendar.getInstance(), 2, eateryDAO.read(booking.getEateryId()), customerDAO.read(booking.getCustomerId()));
+		
 		try {
 			bookingDao.create(b);	
 		}

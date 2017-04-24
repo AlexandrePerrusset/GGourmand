@@ -27,4 +27,6 @@ public interface BookingService {
 
 	void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException;
 
+	void saveBookingRest(BookingDTO booking) throws GGourmandException;
+
 }
