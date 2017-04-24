@@ -90,14 +90,14 @@ public class SearchController {
 		}
 		
 		List<EateryDTO> eateriesByName = service.findEateryByCriteria(criteria);
-		//List<EateryDTO> eateriesByCity = service.findEateryByCity(criteria);
+		List<EateryDTO> eateriesByCity = service.findEateryByCity(criteria);
 		List<CookingStyleDTO> cookingDto = service.getAllCookingStyles();
 		List<ImageDataDTO> imgList = new ArrayList<>();
 		
 	
-//		if(eateriesByName.size() < eateriesByCity.size()){
-//			eateriesByName = eateriesByCity;
-//		}
+		if(eateriesByName.size() < eateriesByCity.size()){
+			eateriesByName = eateriesByCity;
+		}
 		List<EateryDTO> eateriesDto = new ArrayList<EateryDTO>();
 		if (eateriesByName.size() <= 50) {
 			eateriesDto  = eateriesByName.subList(0, eateriesByName.size());

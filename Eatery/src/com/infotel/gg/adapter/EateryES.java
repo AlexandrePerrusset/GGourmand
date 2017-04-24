@@ -66,22 +66,22 @@ public class EateryES implements EateryDAO{
 				.execute()
 				.actionGet();
 		
-		SearchResponse respEatCities = client.prepareSearch(EsClientProvider.INDEX_NAME)
-				.setTypes("cities")
-				.setQuery(fullQuery)
-				.execute()
-				.actionGet();
-		
-		
-		log.warn("Nombres de résultats eatery : "+respEat.getHits().getTotalHits());
-		log.warn("Nombres de résultats cities : "+respEatCities.getHits().getTotalHits());
+//		SearchResponse respEatCities = client.prepareSearch(EsClientProvider.INDEX_NAME)
+//				.setTypes("cities")
+//				.setQuery(fullQuery)
+//				.execute()
+//				.actionGet();
+//		
+//		
+//		log.warn("Nombres de résultats eatery : "+respEat.getHits().getTotalHits());
+//		log.warn("Nombres de résultats cities : "+respEatCities.getHits().getTotalHits());
 		SearchHits hits;
-		if (respEat.getHits().getTotalHits() >= respEatCities.getHits().getTotalHits()) {
+//		if (respEat.getHits().getTotalHits() >= respEatCities.getHits().getTotalHits()) {
 			hits = respEat.getHits();
-		}else{
-			hits = respEatCities.getHits();
-		}
-		
+//		}else{
+//			hits = respEatCities.getHits();
+//		}
+//		
 		List<Eatery> eateries = new LinkedList<>();
 		hits.forEach(hit ->{
 			Map<String, Object> source = hit.getSource();

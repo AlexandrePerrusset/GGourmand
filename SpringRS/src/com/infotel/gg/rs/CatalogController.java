@@ -78,6 +78,7 @@ public class CatalogController {
 		}else{
 			eateriesDto  = eateriesByName.subList(0, 9);
 		}
+		log.warn("Nombre de eatery trouvée : "+eateriesDto.size());
 		return eateriesDto;
 	}
 	
