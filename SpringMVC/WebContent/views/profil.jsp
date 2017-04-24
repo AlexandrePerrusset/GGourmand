@@ -133,7 +133,9 @@
 									<!-- 											</div> -->
 									<!-- 										</div> -->
 									<div class="card-content">
-
+										<div class="bookId">
+											${booking.id}
+										</div>
 										<div>
 											<b>Date : </b>
 											<fmt:formatDate value="${booking.dateTime.time}"
@@ -160,26 +162,35 @@
 				<div class="traitrouge"></div>
 			</div>
 			
-<!-- 			TODO : à finir -->
 			<script>
 				function updateForm(element) {
 					var parent = $(element).parent();
 					var bookid = $(parent).children().eq(0).text();
-		
+					
 					$('#Reviewform input').eq(0).val(bookid);
-		
 				}
 		</script>
 
-			<!-- 			TODO : à finir -->
 			<div id="modalReview" class="modal col s12 modalBox2">
 				<div class="modal-content">
 					<FORM id="Reviewform" action="review" method="post">
+						<input type="hidden" name="bookingId" />
 						<label>Note attribuée au restaurant (sur 10)</label>
 						<input type="number" name="rating" id="rating" min="0" max="10" />
+<!-- 						<select name="rating" type="int"> -->
+<!-- 							<option value="1">1</option> -->
+<!-- 							<option value="2">2</option> -->
+<!-- 							<option value="3">3</option> -->
+<!-- 							<option value="4">4</option> -->
+<!-- 							<option value="5">5</option> -->
+<!-- 							<option value="6">6</option> -->
+<!-- 							<option value="7">7</option> -->
+<!-- 							<option value="8">8</option> -->
+<!-- 							<option value="9">9</option> -->
+<!-- 							<option value="10">10</option> -->
+<!-- 						</select> -->
 						<label>Commentaire</label>
 						<input name="comment" type="text" />
-						<input type="hidden" name="bookingId" />
 						<br />
 						<input type="submit" value="Envoyer" />
 					</FORM>

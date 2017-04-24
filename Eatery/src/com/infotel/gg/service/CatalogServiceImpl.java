@@ -28,6 +28,7 @@ import com.infotel.gg.dao.CookingStyleDAO;
 import com.infotel.gg.dao.EateryDAO;
 import com.infotel.gg.dao.ImageDataDAO;
 import com.infotel.gg.dao.ReviewDAO;
+import com.infotel.gg.exception.DAOException;
 import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.hibernate.CityDAOHbn;
 import com.infotel.gg.hibernate.CookingStyleDAOHbn;
@@ -241,7 +242,11 @@ public class CatalogServiceImpl implements CatalogService {
 		Booking booking = bookingDAO.read(rdto.getBookingID());
 		review.setBooking(booking);
 		
-		reviewDAO.create(review);
+		try {
+			reviewDAO.create(review);
+		} catch (DAOException e) {
+			throw new GGourmandException();
+		}
 		
 	}
 	

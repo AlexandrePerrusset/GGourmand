@@ -32,7 +32,7 @@ public class EsClientProvider {
 					.build();
 
 			InetSocketTransportAddress addr = 
-					new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300);
+					new InetSocketTransportAddress(InetAddress.getByName("172.16.2.31"), 9300);
 
 			client = new PreBuiltTransportClient(settings)
 			        		.addTransportAddress(addr);			

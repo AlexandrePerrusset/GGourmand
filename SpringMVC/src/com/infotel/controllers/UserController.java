@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.infotel.gg.DTO.BookingDTO;
 import com.infotel.gg.DTO.ReviewDTO;
@@ -201,7 +202,7 @@ public class UserController {
 	
 //	TODO : à finir
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") Integer rating, @RequestParam(value="bookingId") int bookingId) throws GGourmandException {
+	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") int rating, @RequestParam(value="bookingId") int bookingId, RedirectAttributes redir) throws GGourmandException {
 		ReviewDTO rdto = new ReviewDTO();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
 		rdto.setComment(comment);
