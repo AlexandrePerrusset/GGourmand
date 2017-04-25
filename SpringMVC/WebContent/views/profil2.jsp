@@ -93,7 +93,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<div class="contourc">
 		<div class="traitrouge"></div>
@@ -167,6 +166,7 @@
 			</div>
 			<div class="traitrouge"></div>
 		</div>
+	</div>
 </body>
 
 <!-- Footer -->

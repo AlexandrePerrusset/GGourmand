@@ -94,7 +94,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<div class="contourc">
 		<div class="traitrouge"></div>
@@ -198,6 +197,8 @@
 					</FORM>
 				</div>
 			</div>
+		</div>
+	</div>
 </body>
 
 <!-- Footer -->
