@@ -109,15 +109,18 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName}${user.lastName}</p>
+								<p class="user">${user.firstName}
+								${user.lastName}</p>
 							</div>
 						</div>
 
 
 						<div class="collection">
 							<a href="/SpringMVC/bookingsUser" class="collection-item">Mes
-								r&eacute;servations</a> <a href="#!" class="collection-item active">Mes
-								informations</a> <a href="#!" class="collection-item">Mes avis</a>
+								r&eacute;servations</a>
+							<a href="#!" class="collection-item active">Mes
+								informations</a>
+							<a href="/SpringMVC/avis" class="collection-item">Mes avis</a>
 						</div>
 					</div>
 

@@ -28,12 +28,22 @@ public class ReviewDTO implements Serializable{
 	private Integer rating;
 	
 	private int bookingID;
+	
+	private String eateryName;
 
 	@Override
 	public String toString() {
 		return "ReviewDTO [dateTime=" + dateTime + ", numberOfPeople=" + numberOfPeople + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", userName=" + userName + ", comment=" + comment + ", rating=" + rating
 				+ "]";
+	}
+	
+	public String getEateryName() {
+		return eateryName;
+	}
+
+	public void setEateryName(String eateryName) {
+		this.eateryName = eateryName;
 	}
 
 	public Calendar getDateTime() {

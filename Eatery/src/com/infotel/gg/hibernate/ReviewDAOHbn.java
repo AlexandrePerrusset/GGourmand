@@ -99,9 +99,9 @@ public class ReviewDAOHbn extends DAOHbn implements ReviewDAO {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Review> findByCustomer(String username) {
-		String hql = "select r.id, r.booking, r.rating, r.comment from Review r, Booking b where b.id = r.booking_id and b.customer_id = :customer_id order by b.dateTime DESC";
+		String hql = "select r from Review r, Booking b where b.id = r.booking and b.customer.username = :customer order by b.dateTime DESC";
 		Query q = getSession().createQuery(hql);	
-		q.setParameter("customer_id", username);
+		q.setParameter("customer", username);
 		List<Review> reviews = q.getResultList();
 		return reviews;
 	}

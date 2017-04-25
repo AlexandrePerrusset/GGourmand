@@ -110,7 +110,8 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName}${user.lastName}</p>
+								<p class="user">${user.firstName}
+								${user.lastName}</p>
 							</div>
 						</div>
 

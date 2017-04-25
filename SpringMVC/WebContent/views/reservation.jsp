@@ -324,7 +324,7 @@
 										value="${review.dateTime.time}" />
 								</p>
 								<p>
-									<b>Note : </b>${review.rating}/20</p>
+									<b>Note : </b>${review.rating}/10</p>
 								<p>
 									<b>Commentaire : </b>${review.comment}</p>
 								<hr>
