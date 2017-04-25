@@ -28,11 +28,6 @@ public class BookingController {
 	@Autowired
 	private BookingService service;
 	
-	@Autowired
-	private UserService userService;
-	
-	@Autowired 
-	private CatalogService catalogService;
 	
 	@RequestMapping(value="/bookings", method=RequestMethod.POST)
 	@ResponseStatus(code=HttpStatus.OK)
