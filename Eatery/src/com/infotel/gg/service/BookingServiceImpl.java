@@ -117,6 +117,25 @@ public class BookingServiceImpl implements BookingService{
 		}
 	}
 	
+	public List<BookingReportDTO> findBookingReportByManager(String managerName) {
+		List<BookingReportDTO> reportsDto = new ArrayList<BookingReportDTO>();
+		List<BookingReport> reports = new ArrayList<BookingReport>();
+		reports.stream().forEach(r -> reportsDto.add(transformReport(r)));
+		return reportsDto;
+	}
+	
+	private BookingReportDTO transformReport(BookingReport bookingReport){
+		BookingReportDTO bookingReportDto = new BookingReportDTO();
+		bookingReportDto.setBookingId(bookingReport.getId());
+		bookingReportDto.setComment(bookingReport.getComment());
+		bookingReportDto.setDate(bookingReport.getDate());
+		bookingReportDto.setTakingAmount(bookingReport.getTakingAmount());
+		bookingReportDto.setDueAmount(bookingReport.getDueAmount());
+		bookingReportDto.setFulfilled(bookingReport.isFulfilled());
+		
+		return bookingReportDto;
+	}
+	
 	private BookingDTO transform(Booking booking) {
 		BookingDTO bookingDto = new BookingDTO();
 		bookingDto.setId(Integer.toString(booking.getId()));

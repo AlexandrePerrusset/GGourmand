@@ -253,9 +253,7 @@ public class CatalogServiceImpl implements CatalogService {
 	public List<ReviewDTO> findReviewsByCustomer(String username) throws GGourmandException {
 		List<ReviewDTO> listDto = new ArrayList<ReviewDTO>();
 		List<Review> listReview = reviewDAO.findByCustomer(username);
-		log.warn("list review service--------------------------------" + listReview);
 		listReview.stream().forEach(r -> listDto.add(transform(r)));
-		log.warn("list Dto service--------------------------------" + listDto);
 		return listDto;
 	}
 	

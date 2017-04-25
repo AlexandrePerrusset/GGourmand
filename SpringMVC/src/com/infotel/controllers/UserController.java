@@ -48,7 +48,6 @@ public class UserController {
 		modelAndView.setViewName("redirect:/");
 		
 		if(prenom.trim().equals("") || nom.trim().equals("") || username.trim().equals("") || tel.trim().equals("") || password.trim().equals("")) {
-			log.warn("---------------dans le IF------------------");
 			return modelAndView;
 		}
 		
@@ -73,7 +72,6 @@ public class UserController {
 		modelAndView.setViewName("redirect:/reservation");
 		
 		if(prenom.trim().equals("") || nom.trim().equals("") || username.trim().equals("") || tel.trim().equals("") || password.trim().equals("")) {
-			log.warn("---------------dans le IF registerResa------------------");
 			return modelAndView;
 		}
 		
@@ -202,15 +200,12 @@ public class UserController {
 	
 	@RequestMapping(value = "/avis", method = RequestMethod.GET)
 	public ModelAndView avis(Model model, HttpServletRequest request) throws GGourmandException {
-		log.warn("---------------dans le controller avis------------------");
 		List<ReviewDTO> reviews = new ArrayList<ReviewDTO>();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
 		String username = udto.getUsername();
-		log.warn("---------------Username------------------" + username);
 		reviews = serviceCatalog.findReviewsByCustomer(username);
 		
 		model.addAttribute("reviews", reviews);
-		log.warn("---------------liste recuperee--------------------- : " + reviews);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("profil3");
@@ -218,11 +213,9 @@ public class UserController {
 		return modelAndView;
 	}
 	
-//	TODO : A terminer (enlever le user)
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	public ModelAndView saveReview(HttpServletRequest request, @RequestParam(value="comment") String comment, @RequestParam(value="rating") int rating, @RequestParam(value="bookingId") int bookingId, RedirectAttributes redir) throws GGourmandException {
 		ReviewDTO rdto = new ReviewDTO();
-		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
 		rdto.setComment(comment);
 		rdto.setRating(rating);
 		rdto.setBookingID(bookingId);

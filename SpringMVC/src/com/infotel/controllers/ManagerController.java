@@ -74,5 +74,18 @@ public class ManagerController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value = "/validationsM", method = RequestMethod.POST)
+	public ModelAndView displayValidations(HttpServletRequest request) {
+		List<BookingReportDTO> reports = new ArrayList<BookingReportDTO>();
+		UserDTO udto = (UserDTO) request.getSession().getAttribute("userM");
+		
+		reports = serviceBooking.findBookingReportByManager(udto.getUsername());
+		
+		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.setViewName("redirect:/");
+		
+		return modelAndView;
+	}
+	
 
 }
