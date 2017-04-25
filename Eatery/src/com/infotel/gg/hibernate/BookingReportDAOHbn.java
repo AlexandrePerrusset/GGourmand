@@ -76,4 +76,16 @@ public class BookingReportDAOHbn extends DAOHbn implements BookingReportDAO {
 		return result;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BookingReport> listBookReportByManager(String managerName) {
+		List<BookingReport> bookingReports = null;
+		String request = "SELECT br FROM BookingReport br, Booking b where br.booking.id = b.id and br.eM.username = :managerName";
+		
+		Query q = getSession().createQuery(request);	
+		q.setParameter("managerName", managerName);
+		bookingReports = q.getResultList();
+		return bookingReports;
+	}
+	
 }

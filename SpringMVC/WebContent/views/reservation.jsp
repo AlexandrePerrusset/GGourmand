@@ -320,7 +320,7 @@
 							<c:forEach items="${eatery.reviews}" var="review">
 								<p>
 									<b>Avis publi&eacute; par</b> ${review.lastName} <b>le</b>
-									<fmt:formatDate dateStyle="long"
+									<fmt:formatDate dateStyle="short"
 										value="${review.dateTime.time}" />
 								</p>
 								<p>

@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,8 @@ public class BookingServiceImpl implements BookingService{
 	
 	@Autowired
 	private EateryManagerDAO eMDAO;
+	
+	private final static Logger log = LogManager.getLogger(BookingServiceImpl.class);
 
 	
 	@Override
@@ -119,8 +123,9 @@ public class BookingServiceImpl implements BookingService{
 	
 	public List<BookingReportDTO> findBookingReportByManager(String managerName) {
 		List<BookingReportDTO> reportsDto = new ArrayList<BookingReportDTO>();
-		List<BookingReport> reports = new ArrayList<BookingReport>();
+		List<BookingReport> reports = bookingReportDao.listBookReportByManager(managerName);
 		reports.stream().forEach(r -> reportsDto.add(transformReport(r)));
+		log.warn("liste BookingReportDto dans service "+reports);
 		return reportsDto;
 	}
 	

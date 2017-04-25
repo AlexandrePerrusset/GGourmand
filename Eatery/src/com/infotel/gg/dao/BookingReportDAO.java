@@ -10,4 +10,6 @@ public interface BookingReportDAO extends DAO<BookingReport, Integer>{
 
 	List<BookingReport> listBookReportByBookId(int id);
 
+	List<BookingReport> listBookReportByManager(String managerName);
+
 }

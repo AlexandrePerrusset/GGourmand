@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.catalina.mbeans.UserMBean;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -25,6 +27,7 @@ import com.infotel.gg.exception.GGourmandException;
 import com.infotel.gg.service.BookingService;
 import com.infotel.gg.service.CatalogService;
 import com.infotel.gg.service.UserService;
+import com.mysql.jdbc.log.Log;
 
 @Controller
 @EnableTransactionManagement
@@ -37,6 +40,8 @@ public class ManagerController {
 	
 	@Autowired
 	UserService serviceUser;
+	
+	private final static Logger log = LogManager.getLogger(ManagerController.class);
 
 	@RequestMapping(value = "/bookings", method = RequestMethod.GET)
 	public String searchBookings(Model model,HttpServletRequest request ) throws GGourmandException {
@@ -74,15 +79,18 @@ public class ManagerController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/validationsM", method = RequestMethod.POST)
-	public ModelAndView displayValidations(HttpServletRequest request) {
+	@RequestMapping(value = "/validationsM", method = RequestMethod.GET)
+	public ModelAndView displayValidations(Model model, HttpServletRequest request) {
 		List<BookingReportDTO> reports = new ArrayList<BookingReportDTO>();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("userM");
 		
+		log.warn("---------------------------------------------Dans le controller");
+		
 		reports = serviceBooking.findBookingReportByManager(udto.getUsername());
+		model.addAttribute("reports", reports);
 		
 		ModelAndView modelAndView = new ModelAndView();
-//		modelAndView.setViewName("redirect:/");
+		modelAndView.setViewName("validationsM");
 		
 		return modelAndView;
 	}
