@@ -84,8 +84,6 @@ public class ManagerController {
 		List<BookingReportDTO> reports = new ArrayList<BookingReportDTO>();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("userM");
 		
-		log.warn("---------------------------------------------Dans le controller");
-		
 		reports = serviceBooking.findBookingReportByManager(udto.getUsername());
 		model.addAttribute("reports", reports);
 		

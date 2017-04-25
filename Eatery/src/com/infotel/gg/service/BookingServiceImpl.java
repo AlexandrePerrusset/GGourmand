@@ -125,7 +125,6 @@ public class BookingServiceImpl implements BookingService{
 		List<BookingReportDTO> reportsDto = new ArrayList<BookingReportDTO>();
 		List<BookingReport> reports = bookingReportDao.listBookReportByManager(managerName);
 		reports.stream().forEach(r -> reportsDto.add(transformReport(r)));
-		log.warn("liste BookingReportDto dans service "+reports);
 		return reportsDto;
 	}
 	

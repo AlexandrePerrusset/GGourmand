@@ -33,12 +33,10 @@
 					Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${userM.username != null}">
-						<b><li id="bonjour"><i class="material-icons">perm_identity</i></li></b>
-						<b><li id="bonjour">Bonjour ${userM.firstName}</li></b>
-						<li><a href="/SpringMVC/bookingsUser">Mon profil</a></li>
+						<li><a href="/SpringMVC/bookings">Réservations</a></li>
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
-					<c:if test="${user.username == null}">
+					<c:if test="${userM.username == null}">
 						<li><a class="dropdown-button" href="#!"
 							data-activates="dropdown" data-beloworigin="true">Se
 								connecter<i class="mdi-navigation-arrow-drop-down right"></i>
