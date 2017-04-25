@@ -1,4 +1,4 @@
-package com.infotel.gg.adapter;
+package com.infotel.gg.ES;
 
 import java.net.InetAddress;
 
