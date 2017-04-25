@@ -251,10 +251,12 @@ public class CatalogServiceImpl implements CatalogService {
 	}
 	
 	public List<ReviewDTO> findReviewsByCustomer(String username) throws GGourmandException {
-		List<ReviewDTO> result = new ArrayList<ReviewDTO>();
+		List<ReviewDTO> listDto = new ArrayList<ReviewDTO>();
 		List<Review> listReview = reviewDAO.findByCustomer(username);
-		listReview.stream().forEach(r -> result.add(transform(r)));
-		return result;
+		log.warn("list review service--------------------------------" + listReview);
+		listReview.stream().forEach(r -> listDto.add(transform(r)));
+		log.warn("list Dto service--------------------------------" + listDto);
+		return listDto;
 	}
 	
 	private ReviewDTO transform(Review r) {
@@ -266,6 +268,7 @@ public class CatalogServiceImpl implements CatalogService {
 		rev.setNumberOfPeople(r.getBooking().getNbOfCustomer());
 		rev.setRating(r.getRating());
 		rev.setUserName(r.getBooking().getCustomer().getUsername());
+		rev.setEateryName(r.getBooking().getEatery().getName());
 		return rev;
 	}
 	

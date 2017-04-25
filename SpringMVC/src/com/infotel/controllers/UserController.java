@@ -201,14 +201,19 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/avis", method = RequestMethod.GET)
-	public ModelAndView avis(HttpServletRequest request) throws GGourmandException {
+	public ModelAndView avis(Model model, HttpServletRequest request) throws GGourmandException {
+		log.warn("---------------dans le controller avis------------------");
 		List<ReviewDTO> reviews = new ArrayList<ReviewDTO>();
 		UserDTO udto = (UserDTO) request.getSession().getAttribute("user");
 		String username = udto.getUsername();
+		log.warn("---------------Username------------------" + username);
 		reviews = serviceCatalog.findReviewsByCustomer(username);
 		
+		model.addAttribute("reviews", reviews);
+		log.warn("---------------liste recuperee--------------------- : " + reviews);
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:/profil3");
+		modelAndView.setViewName("profil3");
 		
 		return modelAndView;
 	}

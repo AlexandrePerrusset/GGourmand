@@ -33,7 +33,7 @@
 					class="fa fa-cutlery" aria-hidden="true"></i> Gastronome Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${userM.username != null}">
-						<li><a href="/SpringMVC/reports">Mes validations</a></li>
+<!-- 						<li><a href="/SpringMVC/reports">Mes validations</a></li> -->
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
 					<c:if test="${userM.username == null}">
@@ -141,7 +141,7 @@
 							<div class="card horizontal">
 								<div class="row">
 									<div class="card-content">
-									<div class="bookId">
+										<div class="bookId">
 											${booking.id}
 										</div>
 										<div>
@@ -173,7 +173,8 @@
 				<div class="traitrouge"></div>
 			</div>
 		</div>
-	</div>
+		</div>
+
 
 	<script>
 		function updateForm(element) {

@@ -33,6 +33,8 @@
 					Gourmand</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${user.username != null}">
+						<b><li id="bonjour"><i class="material-icons">perm_identity</i></li></b>
+						<b><li id="bonjour">Bonjour ${user.firstName}</li></b>
 						<li><a href="/SpringMVC/logout">Se d&eacute;connecter</a></li>
 					</c:if>
 					<c:if test="${user.username == null}">
@@ -91,7 +93,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
 
 	<div class="contourc">
 		<div class="traitrouge"></div>
@@ -108,15 +109,18 @@
 									class="photouser">
 							</div>
 							<div class="card-content">
-								<p class="user">${user.firstName}${user.lastName}</p>
+								<p class="user">${user.firstName}
+								${user.lastName}</p>
 							</div>
 						</div>
 
 
 						<div class="collection">
 							<a href="/SpringMVC/bookingsUser" class="collection-item">Mes
-								r&eacute;servations</a> <a href="#!" class="collection-item active">Mes
-								informations</a> <a href="#!" class="collection-item">Mes avis</a>
+								r&eacute;servations</a>
+							<a href="#!" class="collection-item active">Mes
+								informations</a>
+							<a href="/SpringMVC/avis" class="collection-item">Mes avis</a>
 						</div>
 					</div>
 
@@ -165,6 +169,7 @@
 			</div>
 			<div class="traitrouge"></div>
 		</div>
+	</div>
 </body>
 
 <!-- Footer -->
