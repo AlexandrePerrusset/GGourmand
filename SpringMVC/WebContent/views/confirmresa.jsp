@@ -61,7 +61,7 @@
 	<div class="contourc">
 		<div class="traitrouge"></div>
 
-		<h3 class="titreresa">R&eacute;servation</h3>
+		<h5 class="titreresa">R&eacute;servation</h5>
 
 
 		<div class="milieuresa">
@@ -110,7 +110,7 @@
 				<a href="/SpringMVC/eateries/reservation/${eatery.id}"><button
 							class="waves-effect waves-light btn"  name="resa"
 							id="btnannuler">
-							Annuler<i class="material-icons left">thumb_up</i>
+							Annuler<i class="material-icons left">thumb_down</i>
 						</button></a>
 				</div>
 

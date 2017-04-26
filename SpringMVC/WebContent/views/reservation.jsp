@@ -262,13 +262,15 @@
 									<img class="imgdto" src="${imgdto.content}">
 								</div>
 								<br>
-
-								<div class="chip">
-									<c:forEach items="${eatery.eateryTagName}" var="tag">
-										<div class="chips">${tag}</div>
-									</c:forEach>
-								</div>
-
+								
+								<c:if test="${eatery.eateryTagName == null}"></c:if>
+								<c:if test="${eatery.eateryTagName != null}">
+									<div>
+										<c:forEach items="${eatery.eateryTagName}" var="tag">
+											<div class="chip">${tag}</div>
+										</c:forEach>
+									</div>
+								</c:if>
 
 							</div>
 							<div class="col s8">
@@ -319,9 +321,11 @@
 						<div id="avis">
 							<c:forEach items="${eatery.reviews}" var="review">
 								<p>
-									<b>Avis publi&eacute; par</b> ${review.lastName} <b>le</b>
-									<fmt:formatDate dateStyle="short"
+									<b>Date : </b><fmt:formatDate dateStyle="short"
 										value="${review.dateTime.time}" />
+								</p>
+								<p>
+									<b>Avis publi&eacute; par</b> ${review.lastName}
 								</p>
 								<p>
 									<b>Note : </b>${review.rating}/10</p>

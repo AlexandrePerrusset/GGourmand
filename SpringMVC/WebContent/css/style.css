@@ -1,5 +1,5 @@
 nav {
-	background-color:#e8bf76;
+	background-color:#800b03;
 }
 
 .imageCards{
@@ -56,7 +56,7 @@ margin-left: 20px;
 }
 
 footer.page-footer{
-background-color: #e8bf76;
+background-color: #800b03;
 }
 
 .parallax-container{
@@ -68,26 +68,33 @@ padding-left: 10px;
 .barrerecherche{
 	margin-top: 30px;
 	margin-bottom: 30px;
+	box-shadow: 0px 1px 1px #800b03;
+	
 }
 
 .milieuresa{
-background-color: #800b03;
+background-color: white;
 width: 60%;
 margin: 0 auto;
 }
 
 .milieu{
-background-color: #800b03;
+background-color: white;
+}
 
+.milieu .container .card{
+	box-shadow: 2px 2px 2px 2px #800b03;
+}
+
+.container .card{
+	box-shadow: 2px 2px 2px 2px #800b03;
 }
 
 .contourc{
-background-color: #800b03;
 min-height: 750px;
 }
 .traitrouge{
 height: 60px;
-background-color: #800b03;
 }
 
 .tabs .tab a{
@@ -139,23 +146,31 @@ text-align: center;
 
 
 h5.titreresa{
-color: white;
+color: #800b03;
 }
 
 h5.titreResultats{
-color: white;
+color: #800b03;
+text-align: center;
 }
 
-.card.horizontal .card-image{
+.card.horizontale .card-image{
 max-width: 100%;
 max-height: 100%;
-padding-top: 16px
+padding-top: 8px;
 padding-left: 16px;
+margin-right: 90px;
+}
+
+.card.horizontale{
+	box-shadow: 2px 2px 2px 2px #800b03;
+	max-width: 80%;
+	margin-left: 10%;
 }
 
 .resultats{
-background-color: #800b03;
-height: auto;
+background-color: white;
+min-height: 750px;
 }
 
 .card-panel.white .filters {
@@ -276,7 +291,7 @@ div.picker__day.picker__day--today {
 
 .titreresa{
 	text-align: center;
-	color: white;
+	color: #800b03;
 }
 
 
@@ -289,12 +304,11 @@ div.picker__day.picker__day--today {
 }
 
 .waves-effect.waves-light.btn-large.modalLink{
-	background-color: white;
-	color: #800b03;
+	background-color: #800b03;
+	color: white;
 }
 
 .waves-effect.waves-light.btn-large.modalLink:hover{
-background-color:  #e8bf76;
 }
 
 .checkbox-green[type="checkbox"].filled-in:checked + label:after{
@@ -302,16 +316,15 @@ background-color:  #e8bf76;
     border: 2px solid #800b03;
 }
 .waves-effect.waves-light.btn{
-	background-color: white;
-	color: #800b03;
+	background-color: #800b03;
+	color: white;
 }
 
 .waves-effect.waves-light.btn:hover{
-background-color:  #e8bf76;
 }
 
 .waves-effect.waves-light.buttonSpe{
-background-color: #e8bf76;
+background-color: #800b03;
 }
 
 h6 {
@@ -361,6 +374,7 @@ a.titre2 {
 .titreNomRestaurant {
 	text-align: center;
 	font-weight: bold;
+	color: #800b03;
 }
 
 #divbtn input {
@@ -397,10 +411,6 @@ a.titre2 {
 	margin-left: 100px;
 }
 
-.titreNomRestaurant{
-	text-align: center;
-	color: white;
-}
 #formulaire button {
     float: left;
 } 
@@ -466,4 +476,13 @@ i.material-icons.prefix.active{
 
 #bonjour{
 	color: #800b03;
+}
+
+#villes{
+	color: white;
+}
+
+.chip{
+	background-color: #800b03;
+	color: white;
 }

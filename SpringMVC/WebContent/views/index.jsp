@@ -220,7 +220,7 @@
 
 <footer class="page-footer">
 	<div class="container">
-<h5>Villes les plus populaires</h5>
+<h5 id="villes">Villes les plus populaires</h5>
 	<div class="image-grid">
 		<c:forEach items="${citiesDto}" var="city" varStatus="status">			
 				<div class="card">
