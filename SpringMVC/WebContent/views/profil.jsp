@@ -31,6 +31,8 @@
 					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"> Gastronome
 					Gourmand</a>
+					
+					
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<c:if test="${user.username != null}">
 						<b><li id="bonjour"><i class="material-icons">perm_identity</i></li></b>
@@ -80,20 +82,8 @@
 	</div>
 
 
-	<div class="barrerecherche">
-		<div class="row container">
-			<div class="row">
-				<div class="row">
-					<a class="searchLink" href="/SpringMVC">
-						<button class="btn waves-effect waves-light buttonSpe"
-							id="btnNewSearch" type="submit" name="action">
-							Chercher <i class="material-icons right">search</i>
-						</button>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
 
 	<div class="contourc">
 		<div class="traitrouge"></div>
@@ -128,42 +118,43 @@
 						<h5 class="titreresa">Mes r&eacute;servations</h5>
 						<c:forEach items="${bookings}" var="booking" varStatus="status">
 							<div class="card horizontal">
-								<div class="row">
-									<!-- 										<div class="col s3"> -->
-									<!-- 											<div class="card-image"> -->
-									<!-- 												<img src="sources/resto.jpg" class="responsive-img"> -->
-									<!-- 											</div> -->
-									<!-- 										</div> -->
 									<div class="card-content">
-										<div class="bookId">
-											${booking.id}
+										<div class="row">
+											<div class="col s3">
+												<div>
+													<b>Date : </b>
+													<fmt:formatDate value="${booking.dateTime.time}"
+														dateStyle="short" />
+												</div>
+											</div>
+											<div class="col s3">
+												<div>
+													<b>Nombre : </b>${booking.numberOfPeople}
+												</div>
+											</div>
+											<div class="col s6">
+												<div>
+													<b>Restaurant : </b>${booking.eateryName} 
+													${booking.street}
+													${booking.cityName}
+												</div>
+											</div>
+											
+											<div class="bookId">
+												${booking.id}
+											</div>
+		<!-- 										<div onclick="updateForm(this)"> -->
+		<!-- 											<a href="#modalReview"><b>Donner mon avis</b></a> -->
+		<!-- 										</div> -->
 										</div>
-										<div>
-											<b>Date : </b>
-											<fmt:formatDate value="${booking.dateTime.time}"
-												dateStyle="short" />
-										</div>
-										<div>
-											<b>Nombre de personnes : </b>${booking.numberOfPeople}</div>
-										<div>
-											<b>Nom du restaurant : </b>${booking.eateryName}</div>
-										<div>
-											<b>Adresse du restaurant : </b>${booking.street}
-											${booking.cityName}
-										</div>
-<!-- 										<div onclick="updateForm(this)"> -->
-<!-- 											<a href="#modalReview"><b>Donner mon avis</b></a> -->
-<!-- 										</div> -->
-										<div onclick="updateForm(this)">
-											<a href="#modalReview">
-												<button class="btn waves-effect waves-light buttonSpe">
-													Donner mon avis <i class="material-icons right">mode_edit</i>
-												</button>
-											</a>
-										</div>
+									<div onclick="updateForm(this)">
+										<a href="#modalReview">
+											<button class="btn waves-effect waves-light buttonSpe">
+												Donner mon avis <i class="material-icons right">mode_edit</i>
+											</button>
+										</a>
 									</div>
 								</div>
-
 							</div>
 						</c:forEach>
 					</div>

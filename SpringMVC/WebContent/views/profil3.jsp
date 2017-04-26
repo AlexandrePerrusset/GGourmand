@@ -80,20 +80,7 @@
 	</div>
 
 
-	<div class="barrerecherche">
-		<div class="row container">
-			<div class="row">
-				<div class="row">
-					<a class="searchLink" href="/SpringMVC">
-						<button class="btn waves-effect waves-light buttonSpe"
-							id="btnNewSearch" type="submit" name="action">
-							Chercher <i class="material-icons right">search</i>
-						</button>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
+
 
 	<div class="contourc">
 		<div class="traitrouge"></div>

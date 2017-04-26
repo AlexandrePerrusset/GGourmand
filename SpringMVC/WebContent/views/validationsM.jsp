@@ -82,37 +82,48 @@
 
 		<div class="milieu">
 			<div class="container">
-				<div class="row">
+			
 
-					<div class="col s9">
 						<h5 class="titreresa">R&eacute;servations valid&eacute;es</h5>
 						<c:forEach items="${reports}" var="report" varStatus="status">
-							<div class="card horizontal">
-								<div class="row">
-									<div class="card-content">
+							<div class="card " id="cardmanager">
+								
+							
+									<div class="row" >
+									<div class="col s3">
 										<div>
 											<b>R&eacute;servation n° : </b>${report.bookingId}
 										</div>
+										</div>
+										<div class="col s3">
 										<div>
 											<b>Date : </b>
 											<fmt:formatDate value="${report.date.time}"
 												dateStyle="short" />
 										</div>
+										</div>
+										<div class="col s3">
 										<div>
 											<b>Montant pay&eacute; : </b>${report.takingAmount} €
 										</div>
-										<div>
-											<b>Commission Gastronome Gourmand : </b>${report.dueAmount} €
 										</div>
+										<div class="col s3">
+										<div>
+											<b>Commission  : </b>${report.dueAmount} €
+										</div>
+										</div>
+										</div>
+									
 										<div>
 											<b>Commentaire : </b>${report.comment}
 										</div>
-									</div>
-								</div>
+										
+									
+								
 							</div>
 						</c:forEach>
-					</div>
-				</div>
+					
+			
 				<div class="traitrouge"></div>
 			</div>
 		</div>

@@ -167,12 +167,12 @@ font-weight: bold;
 .card.horizontale{
 	box-shadow: 2px 2px 2px 2px #800b03;
 /* 	max-width: 80%; */
-	margin-left: 10%;
+	/* margin-left: 10%; */
 }
-
+/* 
 .card.horizontale .row .card-content{
 	margin-left: 15%;
-}
+} */
 
 .resultats{
 background-color: white;
@@ -491,4 +491,11 @@ i.material-icons.prefix.active{
 .chip{
 	background-color: #800b03;
 	color: white;
+}
+
+
+#cardmanager{
+	min-height: 80px; 
+
+	
 }
