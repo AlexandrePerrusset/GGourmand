@@ -99,13 +99,10 @@
 												dateStyle="short" />
 										</div>
 										<div>
-											<b>Montant pay&eacute; : </b>${report.takingAmount}
+											<b>Montant pay&eacute; : </b>${report.takingAmount} €
 										</div>
 										<div>
-											<b>Commission Gastronome Gourmand : </b>${report.dueAmount}
-										</div>
-										<div>
-											<b>Venue client  : </b>${report.fulfilled}
+											<b>Commission Gastronome Gourmand : </b>${report.dueAmount} €
 										</div>
 										<div>
 											<b>Commentaire : </b>${report.comment}

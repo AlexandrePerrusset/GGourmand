@@ -66,7 +66,6 @@ public class SearchController {
 		try {
 			calendar.setTime(formatter.parse(date));
 		} catch (ParseException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		String madate = formatter.format(calendar.getTime());

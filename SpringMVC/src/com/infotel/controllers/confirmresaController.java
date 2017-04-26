@@ -76,7 +76,6 @@ public class confirmresaController {
 		
 		
 	} catch (ParseException e1) {
-		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
 	String madate = formatter.format(calendar.getTime());
@@ -90,7 +89,6 @@ public class confirmresaController {
 	try {
 		bkservice.saveBooking(booking);
 	} catch (GGourmandException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 		
