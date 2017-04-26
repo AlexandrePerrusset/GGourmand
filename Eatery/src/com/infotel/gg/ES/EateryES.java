@@ -73,8 +73,8 @@ public class EateryES implements EateryDAO{
 //				.actionGet();
 //		
 //		
-//		log.warn("Nombres de résultats eatery : "+respEat.getHits().getTotalHits());
-//		log.warn("Nombres de résultats cities : "+respEatCities.getHits().getTotalHits());
+//		log.warn("Nombres de rï¿½sultats eatery : "+respEat.getHits().getTotalHits());
+//		log.warn("Nombres de rï¿½sultats cities : "+respEatCities.getHits().getTotalHits());
 		SearchHits hits;
 //		if (respEat.getHits().getTotalHits() >= respEatCities.getHits().getTotalHits()) {
 			hits = respEat.getHits();
@@ -94,17 +94,27 @@ public class EateryES implements EateryDAO{
 			cs.setName((String)style.get("name"));
 			
 			
-			//practical information à faire
+			//practical information ï¿½ faire
 			Map<String, Object> pi = (Map<String, Object>) source.get("practicalInformation");
 			PracticalInformation practicalInfo = new PracticalInformation();
 			practicalInfo.setPrice((String)pi.get("price"));
+			
+			Map<String, Object> adr = (Map<String, Object>) source.get("address");
+			Address ad = new Address();
+			
+			Map<String, Object> cit  = (Map<String, Object>) adr.get("city");
+			City city = new City();
+			city.setId((Integer)cit.get("id"));
+			city.setName((String)cit.get("name"));
+			
+			ad.setCity(city);
 			
 			Eatery eatery = new Eatery();
 			eatery.setId(id);
 			eatery.setName(name);
 			eatery.setCookingStyle(cs);
 			eatery.setPracticalInformation(practicalInfo);
-			
+			eatery.setAddress(ad);
 			eateries.add(eatery);
 			
 		});
