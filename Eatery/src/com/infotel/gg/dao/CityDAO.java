@@ -10,6 +10,7 @@ public interface CityDAO extends DAO<City, Integer>{
 	List<City> listAll(String keyword);
 	public List<City> listAllforemost();
 	List<Eatery> findByCriteria(SearchCriteria criter);
+	int nbEateryFindByCity(SearchCriteria criter);
 
 	
 }

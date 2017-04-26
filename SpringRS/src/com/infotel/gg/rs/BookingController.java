@@ -41,7 +41,7 @@ public class BookingController {
 		
 		log.warn("reservation: " + dto);
 		
-		service.saveBookingRest(dto);
+		service.saveBooking(dto);
 	}
 	
 	@SuppressWarnings("deprecation")

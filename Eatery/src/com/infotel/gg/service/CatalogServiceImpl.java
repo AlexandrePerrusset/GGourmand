@@ -213,6 +213,13 @@ public class CatalogServiceImpl implements CatalogService {
 		ImageDataDTO imgdataDto = transformRest(image);
 		return imgdataDto;
 	}
+	@Override
+	public int getNbEateryByCity(SearchCriteriaDTO criteria) throws GGourmandException {
+		SearchCriteria criter = new SearchCriteria();
+		criter = parseCrit(criteria);
+		int result = cityDAO.nbEateryFindByCity(criter);
+		return result;
+	}
 	
 	@Override
 	public ImageDataDTO findImageDataDefault() throws GGourmandException {

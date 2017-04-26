@@ -51,5 +51,7 @@ public interface CatalogService {
 
 	ImageDataDTO findImageDataByIdRest(int id) throws GGourmandException;
 
+	int getNbEateryByCity(SearchCriteriaDTO criteria) throws GGourmandException;
+
 	
 }

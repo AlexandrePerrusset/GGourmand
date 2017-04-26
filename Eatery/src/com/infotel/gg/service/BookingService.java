@@ -26,8 +26,8 @@ public interface BookingService {
 	public List<BookingDTO> findBookingsByEateryWithoutReport(int eateryId) throws GGourmandException;
 
 	void saveBookingReport(BookingReportDTO bookingReport) throws GGourmandException;
-
-	void saveBookingRest(BookingDTO booking) throws GGourmandException;
 	
 	public List<BookingReportDTO> findBookingReportByManager(String managerName);
+
+	void saveBookingRest(BookingDTO booking) throws GGourmandException;
 }

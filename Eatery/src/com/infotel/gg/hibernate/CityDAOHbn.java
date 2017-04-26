@@ -91,9 +91,33 @@ public class CityDAOHbn extends DAOHbn implements CityDAO {
 		if(criter.getCookingStyleId() != -1) {
 			q.setParameter("cookingStyleId", criter.getCookingStyleId());
 		}
+		q.setMaxResults(10);
 		q.setParameter("name", "%"+criter.getName()+"%");
 		
 		List<Eatery> result = q.getResultList();
 		return result; 
 	}
+	
+	@SuppressWarnings({ "rawtypes" })
+	@Override
+	public int nbEateryFindByCity(SearchCriteria criter) {		
+		String request = "select count(eat) from Eatery eat, City c where eat.address.city.id = c.id and c.name LIKE :name";
+		
+		if(criter.getCookingStyleId() != -1) {
+			request +=" and eat.cookingStyle.id = :cookingStyleId";
+		}
+		
+		Query q = getSession().createQuery(request);	
+		q.setMaxResults(10);
+
+		if(criter.getCookingStyleId() != -1) {
+			q.setParameter("cookingStyleId", criter.getCookingStyleId());
+		}
+		
+		q.setParameter("name", "%"+criter.getName()+"%");
+		
+		int result = q.getFirstResult();
+		return result; 
+	}
+	
 }

@@ -219,7 +219,7 @@ public class UserController {
 		rdto.setComment(comment);
 		rdto.setRating(rating);
 		rdto.setBookingID(bookingId);
-		
+		log.warn("Je suis bien dans /review : "+ comment);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/bookingsUser");
 		

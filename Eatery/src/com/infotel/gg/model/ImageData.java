@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity @Table(name="image_data") 
 public class ImageData{
@@ -20,8 +21,7 @@ public class ImageData{
 	@Column(name="id")
 	private int id;
 	
-	@Basic(fetch=FetchType.LAZY)
-	@Column(name="content")
+	@Transient
 	private byte[] content;
 	
 	@Column(name="target")
