@@ -161,8 +161,15 @@
 										<div>
 											<b>Mail utilisateur : </b>${booking.customerId}
 										</div>
+<!-- 										<div onclick="updateForm(this)"> -->
+<!-- 											<a href="#modalForm"><b>Confirmer</b></a> -->
+<!-- 										</div> -->
 										<div onclick="updateForm(this)">
-											<a href="#modalForm"><b>Confirmer</b></a>
+											<a href="#modalForm">
+												<button class="btn waves-effect waves-light buttonSpe">
+													Confirmer <i class="material-icons right">done_all</i>
+												</button>
+											</a>
 										</div>
 									</div>
 								</div>

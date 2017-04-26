@@ -151,8 +151,15 @@
 											<b>Adresse du restaurant : </b>${booking.street}
 											${booking.cityName}
 										</div>
+<!-- 										<div onclick="updateForm(this)"> -->
+<!-- 											<a href="#modalReview"><b>Donner mon avis</b></a> -->
+<!-- 										</div> -->
 										<div onclick="updateForm(this)">
-											<a href="#modalReview"><b>Donner mon avis</b></a>
+											<a href="#modalReview">
+												<button class="btn waves-effect waves-light buttonSpe">
+													Donner mon avis <i class="material-icons right">mode_edit</i>
+												</button>
+											</a>
 										</div>
 									</div>
 								</div>
