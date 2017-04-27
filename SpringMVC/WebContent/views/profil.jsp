@@ -119,6 +119,9 @@
 						<c:forEach items="${bookings}" var="booking" varStatus="status">
 							<div class="card horizontal">
 									<div class="card-content">
+										<div class="bookId">
+												${booking.id}
+										</div>
 										<div class="row">
 											<div class="col s3">
 												<div>
@@ -138,10 +141,6 @@
 													${booking.street}
 													${booking.cityName}
 												</div>
-											</div>
-											
-											<div class="bookId">
-												${booking.id}
 											</div>
 		<!-- 										<div onclick="updateForm(this)"> -->
 		<!-- 											<a href="#modalReview"><b>Donner mon avis</b></a> -->
