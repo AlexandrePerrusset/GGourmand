@@ -69,7 +69,17 @@ h4{
  /*   height: 200px;*/
     margin-left: -350px; /* Cette valeur doit être la moitié négative de la valeur du width */
     margin-top: -100px; /* Cette valeur doit être la moitié négative de la valeur du height */
+  
+}
 
+.reservation2{
+  position:absolute;
+    left: 50%;
+    top: 40%;
+    width: 700px;
+ /*   height: 200px;*/
+    margin-left: -350px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -100px; /* Cette valeur doit être la moitié négative de la valeur du height */
   
 }
 

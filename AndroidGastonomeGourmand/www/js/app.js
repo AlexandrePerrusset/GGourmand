@@ -297,11 +297,20 @@ var path = $location.path();
       console.log("eateryService.searchEatery : QUERY => " + query);
       EateryResource.search(
         {
+
+
           name: query,
          /* familyId: familyId,*/
           type: 'search'
         },
         function success(data) {
+
+             if (!query) {
+   var alertPopup = $ionicPopup.alert({
+     template: 'Aucune recherche n\'est renseignée'
+   });
+   return;
+ }
           service.eateries = data;
 
    
@@ -361,7 +370,7 @@ var path = $location.path();
 
 
 
-.factory('userService', function(UserResource) {
+.factory('userService', function(UserResource, $state) {
   var service = {
     error : {},
     authenticate : function (username, password, form) {
@@ -383,6 +392,7 @@ var path = $location.path();
     logout : function () {
       delete service.user;
       $state.go('app.home');
+ 
     }
   };
 
@@ -486,7 +496,7 @@ console.log('heure saisie' + time)
           service.eaterybook = {
             eatery: eatery,
             user: userService.user,
-            dateformated: moment(bookingDateTime).format('DD MMMM YYYY à kk:mm'),
+            dateformated: moment(bookingDateTime).format('DD MMMM YYYY à HH:mm'),
             nbper: nbper
           };
 
