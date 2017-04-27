@@ -27,7 +27,7 @@
 	<div class="navbar-fixed">
 		<nav>
 			<div class="nav-wrapper">
-				<img src="sources/logo.jpg" class="logo1"> <a
+				<a
 					href="/SpringMVC"
 					class="brand-logo logoGG text-darken-2 titleStyle"> Gastronome
 					Gourmand</a>
