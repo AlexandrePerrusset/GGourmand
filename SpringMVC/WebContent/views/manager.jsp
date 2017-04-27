@@ -136,30 +136,38 @@
 				<h5 class="titreNomRestaurant">R&eacute;servations du
 					restaurant : ${eatery.name}</h5>
 				<div class="container">
-					<div class="card">
 						<c:forEach items="${bookings}" var="booking" varStatus="status">
-							<div class="card horizontal">
+							<div class="card " id="cardmanager">
 								<div class="row">
-									<div class="card-content">
 										<div class="bookId">
 											${booking.id}
 										</div>
-										<div>
-											<b>R&eacute;servation n° : </b>${booking.id}
+										<div class="col s2">
+											<div>
+												<b>R&eacute;servation n° : </b>${booking.id}
+											</div>
 										</div>
-										<div>
-											<b>Date : </b>
-											<fmt:formatDate value="${booking.dateTime.time}"
-												dateStyle="short" />
+										<div class="col s2">
+											<div>
+												<b>Date : </b>
+												<fmt:formatDate value="${booking.dateTime.time}"
+													dateStyle="short" />
+											</div>
 										</div>
-										<div>
-											<b>Nombre de personnes : </b>${booking.numberOfPeople}
+										<div class="col s3">
+											<div>
+												<b>Nombre de personnes : </b>${booking.numberOfPeople}
+											</div>
 										</div>
-										<div>
-											<b>Utilisateur : </b>${booking.firstName} ${booking.lastName}
+										<div class="col s3">
+											<div>
+												<b>Utilisateur : </b>${booking.firstName} ${booking.lastName}
+											</div>
 										</div>
-										<div>
-											<b>Mail utilisateur : </b>${booking.customerId}
+										<div class="col s2">
+											<div>
+												<b>Mail utilisateur : </b>${booking.customerId}
+											</div>
 										</div>
 <!-- 										<div onclick="updateForm(this)"> -->
 <!-- 											<a href="#modalForm"><b>Confirmer</b></a> -->
@@ -171,11 +179,9 @@
 												</button>
 											</a>
 										</div>
-									</div>
 								</div>
 							</div>
 						</c:forEach>
-					</div>
 				</div>
 				<div class="traitrouge"></div>
 			</div>
