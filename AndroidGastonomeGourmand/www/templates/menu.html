@@ -1,0 +1,102 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <!-- Left menu -->
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Authentification</h1>
+    </ion-header-bar>
+    <ion-content class="has-header" ng-controller="LoginCtrl" ng-controller="BookingCtrl">
+      <!-- Formulaire de login : utilisateur non connecté -->
+      <div ng-if="!service.user">
+        <form name="loginForm" novalidate ng-submit="service.authenticate(username, password, loginForm)">
+          <div class="list">
+            <!-- Champ identifiant -->
+            <label class="item item-input item-stacked-label"
+                   ng-class="{'has-errors' : loginForm.usernameInput.$invalid && loginForm.$submitted, 'no-errors': loginForm.usernameInput.$valid  && loginForm.$submitted}">
+              <span class="input-label">Identifiant</span>
+              <input type="email" placeholder="Votre adresse mail"
+                     ng-model="username" name="usernameInput" required>
+            </label>
+
+            <div class="error-container" ng-show="loginForm.passwordInput.$invalid && loginForm.$submitted"
+                 ng-messages="loginForm.usernameInput.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+            <!-- Champ saisie mot de passe -->
+            <label class="item item-input item-stacked-label"
+                   ng-class="{'has-errors' : loginForm.passwordInput.$invalid && loginForm.$submitted, 'no-errors': loginForm.passwordInput.$valid  && loginForm.$submitted}">
+              <span class="input-label">Mot de passe</span>
+              <input type="password" placeholder="Votre mot de passe"
+                     ng-model="password" name="passwordInput" required>
+            </label>
+
+            <div class="error-container" ng-show="loginForm.passwordInput.$invalid && loginForm.$submitted"
+                 ng-messages="loginForm.passwordInput.$error">
+              <div ng-messages-include="error-list.html"></div>
+            </div>
+
+          </div>
+          <div class="padding">
+            <button class="button button-block button-positive" type="submit">
+                    <i class="icon ion-log-in"></i> Se connecter</button>
+          </div>
+
+          <!-- Message erreur authentification -->
+          <div class="error-container" ng-show="service.error.auth"
+               ng-messages="service.error">
+            <div ng-messages-include="error-list.html"></div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Infos utilisateur : utilisateur connecté -->
+      <div ng-if="service.user">
+        <div class="card">
+          <div class="item item-text-wrap">
+            <h2 class="text-center">Bienvenue</h2>
+            <h2 class="text-center"> {{service.user.title}} {{service.user.firstName}} {{service.user.lastName}}</h2>
+          </div>
+        </div>
+
+        
+
+        <div class="padding">
+          <button class="button button-block button-positive"
+                  ng-click="service.logout()">
+                  <i class="icon ion-log-out"></i> Se déconnecter</button>
+        </div>
+
+        <!--  <div class="card">
+          <div class="item item-text-wrap">
+            <h2 class="text-center">Mes réservations</h2>
+            <h2 class="text-center">{{service.eaterybook.eatery.name}}</h2>
+          </div>
+        </div> -->
+
+
+
+
+
+
+      </div>
+    </ion-content>
+  </ion-side-menu>
+
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-clear">
+        <i class="icon ion-android-arrow-back"></i> Retour
+      </ion-nav-back-button>
+     
+      <ion-nav-buttons side="right">
+        <!-- Toggle right side menu -->
+        <button menu-toggle="right" class="button button-icon icon ion-ios-person"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+
+ 
+</ion-side-menus>

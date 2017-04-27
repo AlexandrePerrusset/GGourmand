@@ -1,0 +1,39 @@
+<ion-view view-title="Détailee restaurant">
+  <ion-content>
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img ng-src="{{imageBaseUrl}}/{{service.selectedEatery.imageId}}">
+        <h2>{{service.selectedEatery.name}}</h2>
+        {{service.selectedEatery.type}}
+        <div class="row">
+          <div class="col col-75">
+            <p>
+              <span ng-switch on="service.selectedProduct.type">
+                <span ng-switch-when="Book">Auteurs : {{getFigures(service.selectedProduct.authors)}}</span>
+                <span ng-switch-when="Movie">Acteurs : {{getFigures(service.selectedProduct.actors)}}</span>
+                <span ng-switch-when="Album">Artistes : {{getFigures(service.selectedProduct.artists)}}</span>
+                <span ng-switch-default>Mauvais type</span>
+              </span>
+            </p>
+          </div>
+          <div class="col">
+            <p><span>{{service.selectedEatery.price}} €</span><p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" ng-src="{{imageBaseUrl}}/{{service.selectedEatery.imageId}}">
+        <p>
+          {{service.selectedEatery.description}}
+        </p>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Commentaires</a>
+        </p>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

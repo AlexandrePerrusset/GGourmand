@@ -1,0 +1,89 @@
+/* Empty. Add your own CSS if you like */
+/*
+html {
+  font-size:18px;
+}
+
+input {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size:1.2rem;
+}
+
+*/
+
+.image-home {
+    background-image: url('../img/para1.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    flex: 1;
+    flex-direction: column;
+}
+
+
+.container{
+	margin-top: 175px;
+	margin-left: 70px;
+	width: 100%;
+}
+
+.row {
+	height: 100px;
+}
+
+
+#icone{
+  margin-right:12px;
+}
+
+h2{
+color: #800b03;
+font-size: 40px;
+}
+
+
+h1{
+color: #800b03;
+}
+
+#eatery-description{
+  text-align:justify;
+}
+
+h4{
+  color: #800b03;
+}
+
+.bar-positive{
+  background-color: #e8bf76;
+
+}
+
+.reservation{
+  position:absolute;
+    left: 50%;
+    top: 25%;
+    width: 700px;
+ /*   height: 200px;*/
+    margin-left: -350px; /* Cette valeur doit être la moitié négative de la valeur du width */
+    margin-top: -100px; /* Cette valeur doit être la moitié négative de la valeur du height */
+
+  
+}
+
+
+
+
+#nomresa{
+  font-size: 30px;
+  color: #800b03;
+}
+
+#image{
+  max-width: 250px;
+  max-height: 250px;
+}
+
+

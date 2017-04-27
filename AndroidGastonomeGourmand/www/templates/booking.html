@@ -1,0 +1,84 @@
+<ion-view view-title="Récapitulatif de la réservation">
+<ion-content>
+<div ng-controller="LoginCtrl">
+	<div class="reservation">
+		<p id="nomresa">{{service.user.title}} {{service.user.lastName}}, </p>
+		<br>
+		<span id="nomresa">Vous souhaitez réserver chez: </span>
+		<br>
+		<br>
+		<div ng-controller="DetailCtrl">
+		<div class="row">
+			<div class="col">
+				<img id="image" ng-src="{{imageBaseUrl}}/{{service.selectedEatery.imageId}}">
+			</div>
+			
+			
+			<div class="col">
+				<h4 id="nomresa"> {{service.selectedEatery.name}}</h4>
+				<h4>{{service.selectedEatery.street}}</h4>
+				<h4>{{service.selectedEatery.postCode}}
+				{{service.selectedEatery.city}}</h4>
+			</div>
+			
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<span id="nomresa">Afin de finaliser votre réservation, veuillez renseigner les champs suivants: </span>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input">
+					<span class="input-label">Date</span>
+					<input type="date" ng-model="date">
+				</label>
+				</div>
+
+				<div class="col">
+				<label class="item item-input">
+					<span class="input-label">Heure</span>
+					<input type="time" ng-model="time">
+				</label>
+				</div>
+
+
+				<div class="col">
+					<div class="list">
+						<label class="item item-input item-select">
+							<div class="input-label">
+								Combien ?
+							</div>
+							<select ng-model="nbper">
+								<option value="1">1</option>
+								<option ng-value="2">2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+							</select>
+						</label>
+					</div>
+</div>
+</div>
+				      <div  ng-controller="BookingCtrl2">
+          <div class="padding">
+            <button class="button button-block button-positive" type="submit" ng-click="service.book2($parent.service.selectedEatery, date, nbper, time)">
+            <i class="icon ion-log-in"></i>Confirmer</button>
+
+           
+           
+          </div>
+          
+        </div>
+					
+				
+			</div>
+			</div>
+		</div>
+	</div>
+	</ion-content>
+	</ion-view>

@@ -1,0 +1,21 @@
+	<ion-view view-title="Recherche">
+		<ion-content>Résultats de la recherche
+			><button class="button button-stable" ng-click="showDetail()">Vers details</a></button>
+
+			<label class="item item-input item-floating-label">
+				<input ng-model="query" type="text" placeholder="Rechercher un restaurant">
+			</label>
+			<div class="padding">
+				<button class="button button-block button-positive" ng-click="service.search(query)">Rechercher</button>
+			</div>
+
+			<div class="list">
+				<a class="item item-avatar" ng-repeat="e in service.eateries"
+				ng-click="service.showDetail(e.id)">
+					<img ng-src="{{imgBaseUrl}}/{{e.imageId}}">
+					{{e.name}}
+					<p>{{e.description | limitTo: 60}}</p>
+				</a>
+			</div>
+		</ion-content>
+	</ion-view>

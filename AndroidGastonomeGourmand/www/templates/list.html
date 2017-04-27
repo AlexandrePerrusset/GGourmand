@@ -1,0 +1,79 @@
+<ion-view view-title="Liste des restaurants">
+<ion-content>
+<div class="row">
+  <!-- Résultats de ma recherche -->
+  <div class="col col-50">
+    <div class="list" ng-controller="SearchCtrl">
+      <div class="item item-input-inset" id="product-search-box">
+        <label class="item-input-wrapper">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Rechercher" ng-model="query" id="eatery-search-input">
+        </label>
+        <button id="bouton" class="button button" ng-click="searchEatery(query)">
+        Rechercher
+        </button>
+      </div>
+    </div>
+    <div class="list">
+      <a class="item item-avatar item-icon-right" ng-repeat="e in service.eateries"
+        ng-click="showEatery(e.id)" ng-class="{'selected': e.selected}">
+        <img ng-src="{{imageBaseUrl}}/{{e.imageId}}">
+        <h2 ng-bind-html="e.name"></h2>
+        <ul>
+          <li><i id="icone" class="ion-android-restaurant"></i>{{e.cookingStyle}}</li>
+          <li><i id ="icone" class="ion-social-euro"></i>{{e.price}}
+          en moyenne par personne</li>
+        </ul>
+        <i class="icon ion-chevron-right" style="color:#ccc; font-size:25px;"></i>
+      </a>
+    </div>
+  </div>
+  <!-- Détail produit aaappp -->
+  <div class="col col-50" ng-controller="DetailCtrl">
+    <h1>{{service.selectedEatery.name}}</h1>
+  
+    <div class="row">
+      <div class="col col-33">
+        <img ng-src="{{imageBaseUrl}}/{{service.selectedEatery.imageId}}"
+        width="100%">
+      </div>
+      <div class="col col-67">
+        <p>
+          <span>{{service.selectedEatery.street}} - {{service.selectedEatery.postCode}}
+          {{service.selectedEatery.city}}</span>
+          
+        </p>
+        
+        
+        
+        <div  ng-controller="BookingCtrl">
+          <div class="padding">
+            <button class="button button-block button-positive" type="submit" ng-click="service.book($parent.service.selectedEatery)">
+            <i class="icon ion-log-in"></i> Reserver</button>
+
+           
+           
+          </div>
+          
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+
+
+    <h4>Horaires d'ouverture</h4>
+    <p id="eatery-horaires">{{service.selectedEatery.hoursOfOperation1}}<p>
+      <p id="eatery-horaires">{{service.selectedEatery.hoursOfOperation2}}<p>
+        <h4>Comment y accéder</h4>
+        <p>{{service.selectedEatery.gettingThere}}<p>
+          <p ng-if="service.selectedEatery.parking" != null>Parking : {{service.selectedEatery.parking}}<p>
+            <h4>Description</h4>
+            <p id="eatery-description">{{service.selectedEatery.description}}<p>
+            <!--   <h4>Menu</h4>
+              <p id="eatery-menu" ng-repeat="menu in service.eateries"<p> -->
+  </div>
+</div>
+         
+            </ion-content>
+            </ion-view>

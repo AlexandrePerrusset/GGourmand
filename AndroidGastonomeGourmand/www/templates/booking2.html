@@ -1,0 +1,35 @@
+<ion-view view-title="Confirmation de la réservation">
+<ion-content>
+<div ng-controller="BookingCtrl2">
+	<div class="reservation">
+	<p id="nomresa">{{service.eaterybook.user.title}} {{service.eaterybook.user.lastName}}, </p>
+	<br>
+	<p id="nomresa">Nous vous confirmons votre réservation pour </p>
+	<br>
+	<span id="nomresa"> {{service.eaterybook.nbper}} personnes le {{service.eaterybook.dateformated}} chez: </span>
+	<br>
+	 <br>
+    <br>
+
+
+	
+	<div class="row">
+	    <div class="col">
+           <img id="image" ng-src="{{imageBaseUrl}}/{{service.eaterybook.eatery.imageId}}">
+     </div>
+	
+   
+<div class="col">
+		<h4 id="nomresa"> {{service.eaterybook.eatery.name}}</h4>
+		<h4>{{service.eaterybook.eatery.street}}</h4> 
+		<h4>{{service.eaterybook.eatery.postCode}}
+          {{service.eaterybook.eatery.city}}</h4>
+    </div>
+ 
+           
+    </div>
+
+</div>
+</div>
+</ion-content>
+</ion-view>

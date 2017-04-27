@@ -1,0 +1,48 @@
+<   <ion-view view-title="Gastronome Gourmand" >
+<ion-content overflow-scroll="false" class="image-home" >
+
+
+<div class="list" ng-controller="SearchCtrl">
+  <div class="container">
+    <div class="row">
+
+      <div class="col">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Rechercher un restaurant ou une ville" ng-model="query" id="eatery-search-input">
+        </label>
+      </div>
+
+    <div class="col">
+      <button id="bouton" class="button button" ng-click="searchEatery(query)">
+      Rechercher
+      </button>
+    </div>
+
+</div>
+  </div>
+ </div>
+  
+  <!--  <div class="col">
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Type de cuisine
+        </div>
+        <select>
+          <option>Blue</option>
+          <option>Green</option>
+          <option>Red</option>
+        </select>
+      </label>
+    </div>
+  </div> -->
+  <!--   <div class="col">
+    <button class="button button" ng-click="service.search(query)">
+    Rechercher
+    </button>
+  </div>
+</div>
+-->
+</ion-content>
+</ion-view>
