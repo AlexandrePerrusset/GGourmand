@@ -172,12 +172,15 @@
 <!-- 										<div onclick="updateForm(this)"> -->
 <!-- 											<a href="#modalForm"><b>Confirmer</b></a> -->
 <!-- 										</div> -->
+<!-- 										<div onclick="updateForm(this)"> -->
+<!-- 											<a href="#modalForm"> -->
+<!-- 												<button class="btn waves-effect waves-light buttonSpe"> -->
+<!-- 													Confirmer <i class="material-icons right">done_all</i> -->
+<!-- 												</button> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
 										<div onclick="updateForm(this)">
-											<a href="#modalForm">
-												<button class="btn waves-effect waves-light buttonSpe">
-													Confirmer <i class="material-icons right">done_all</i>
-												</button>
-											</a>
+											<a href="#modalForm"><i class="large material-icons" id="icon-check">done</i></a>
 										</div>
 								</div>
 							</div>
